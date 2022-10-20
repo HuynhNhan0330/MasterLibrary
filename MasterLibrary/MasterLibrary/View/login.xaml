@@ -1,0 +1,84 @@
+﻿<Window x:Class="MasterLibrary.View.login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MasterLibrary.View" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Title="login" Height="500" Width="900">
+    <Window.Background>
+        <ImageBrush ImageSource="../Res/background.jpg"></ImageBrush>
+    </Window.Background>
+    <Window.Clip>
+        <RectangleGeometry Rect="0,0,900,500" RadiusX="10" RadiusY="10" x:Name="boGoc">
+        </RectangleGeometry>
+    </Window.Clip>
+    <Grid>
+        <Button Width="65" Height="60"
+                x:Name="btn_Close"
+                Click="btn_Close_Click"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Background="Transparent"
+                BorderThickness="0"
+                ToolTip="Close">
+            <Button.Clip>
+                <RectangleGeometry Rect="0,0,65,60" RadiusX="100" RadiusY="100">
+                </RectangleGeometry>
+            </Button.Clip>
+            <materialDesign:PackIcon Kind="CloseCircleOutline" Width="25"
+                                         Height="25"
+                                         Foreground="Black" Opacity="0.5"/>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" 
+                   Margin="32,155,0,0" 
+                   TextWrapping="Wrap" 
+                   Text="Username:" VerticalAlignment="Top" 
+                   FontSize="18"
+                   Foreground="#FF917F65"/>
+
+        <TextBox
+            HorizontalAlignment="Left"
+            Width="181"
+            x:Name="NameTextBox"
+            FontSize="15"
+            materialDesign:HintAssist.HelperText="Helper text longer than error"
+            materialDesign:HintAssist.Hint="" Margin="32,180,0,290"/>
+
+        <TextBlock HorizontalAlignment="Left" 
+                   Margin="32,0,0,0" 
+                   TextWrapping="Wrap" 
+                   Text="Password:" VerticalAlignment="Center" 
+                   FontSize="18"
+                   Foreground="#FF917F65"/>
+
+
+        <PasswordBox
+            HorizontalAlignment="Left" 
+            x:Name="PasswordBox"
+            materialDesign:HintAssist.HelperText="At least 8 characters"
+            materialDesign:HintAssist.Hint=""
+            FontSize="15"
+            Width="181"
+            materialDesign:TextFieldAssist.HasClearButton="True" Margin="32,265,0,201" />
+
+        <TextBlock
+            Text="Forgot your password?"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left" Margin="32,319,0,0"
+            FontSize="10"
+            Opacity="0.5"
+            />
+
+        <Button
+            x:Name="btn_login"
+            Content="Login"
+            Width="80" Margin="133,346,687,122" Background="#FF4E3F00"
+            
+            />
+    </Grid>
+</Window>
