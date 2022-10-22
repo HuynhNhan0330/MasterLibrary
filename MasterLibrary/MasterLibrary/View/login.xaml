@@ -43,7 +43,7 @@
 
         <TextBox
             HorizontalAlignment="Left"
-            Width="181"
+            Width="194"
             x:Name="NameTextBox"
             FontSize="15"
             materialDesign:HintAssist.HelperText="Helper text longer than error"
@@ -60,25 +60,46 @@
         <PasswordBox
             HorizontalAlignment="Left" 
             x:Name="PasswordBox"
-            materialDesign:HintAssist.HelperText="At least 8 characters"
+            materialDesign:HintAssist.HelperText=""
             materialDesign:HintAssist.Hint=""
             FontSize="15"
-            Width="181"
-            materialDesign:TextFieldAssist.HasClearButton="True" Margin="32,265,0,201" />
-
+            Width="194"
+            Margin="32,265,0,201" />
+        <CheckBox Name="revealModeCheckBox" Content="Show password"
+                  IsChecked="false"
+                  Checked="revealModeCheckBox_Checked" Unchecked="revealModeCheckBox_Unchecked"
+                  Margin="32,0,771,168"
+                  materialDesign:PasswordBoxAssist.IsPasswordRevealed="True"
+                  VerticalAlignment="Bottom" FontSize="10" Opacity="0.5" Visibility ="Visible" Height="28"/>
         <TextBlock
             Text="Forgot your password?"
             VerticalAlignment="Top"
-            HorizontalAlignment="Left" Margin="32,319,0,0"
+            HorizontalAlignment="Left" Margin="134,312,0,0"
             FontSize="10"
-            Opacity="0.5"
-            />
-
-        <Button
-            x:Name="btn_login"
-            Content="Login"
-            Width="80" Margin="133,346,687,122" Background="#FF4E3F00"
+            Opacity="0.5" Cursor="Hand" Width="129" Height="14" FontWeight="Bold"
             
             />
+        <TextBlock
+            Text="Not registered yet?"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left" 
+            FontSize="10"
+            Opacity="0.5" Height="14" Margin="33,383,0,0" Width="92"
+            />
+        <Button
+            x:Name="btn_login"
+            Content="Login" Margin="33,346,687,122" Background="#FF4E3F00"
+            Click="btn_login_Click"
+            />
+
+        <Label
+            Content="Create an acount"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left" Margin="123,380,0,0"
+            FontSize="10"
+            Opacity="0.5" Cursor="Hand" Height="24" Width="90" FontWeight="Bold"
+            MouseDoubleClick="Label_MouseDoubleClick"
+            />
+        
     </Grid>
 </Window>

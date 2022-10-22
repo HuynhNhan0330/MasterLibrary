@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\
+C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\
 MasterLibrary
 none
 false
 DEBUG;TRACE
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml
-22057021687
+C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml
+2-2012694686
 
-7-2083102236
-15-1540028631
-View\ForgotPass.xaml;View\login.xaml;
+8-2138342800
+17-357752553
+View\Login.xaml;View\Register.xaml;
 
-True
+False
 
