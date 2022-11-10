@@ -84,7 +84,5 @@ namespace MasterLibrary.View
             }
             return true;
         }
-
-        
     }
 }
