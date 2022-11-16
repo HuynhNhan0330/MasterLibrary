@@ -21,7 +21,7 @@ namespace MasterLibrary.View
     {
         public ForgotPass()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }

@@ -4,17 +4,30 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\
+=======
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\
+>>>>>>> fdb2d2e (view login and biding to forgot pass page)
 MasterLibrary
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml
 2-2012694686
 
 8-2138342800
 17-357752553
 View\Login.xaml;View\Register.xaml;
+=======
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml
+5-90906445
+
+12212770884
+151-2058714306
+MainWindow.xaml;ResourcesXAML\MainResources.xaml;Views\LoginWindow\ForgotPassPage.xaml;Views\LoginWindow\LoginPage.xaml;Views\LoginWindow\LoginWindow.xaml;
+>>>>>>> fdb2d2e (view login and biding to forgot pass page)
 
 False
 
