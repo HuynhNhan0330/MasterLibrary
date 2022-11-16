@@ -1,7 +1,13 @@
 ﻿
+<<<<<<< HEAD
 
 FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\ResourcesXAML\MainResources.xaml;;
 FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\ForgotPassPage.xaml;;
 FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\LoginPage.xaml;;
 FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\LoginWindow.xaml;;
+=======
+FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml;;
+FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\View\Login.xaml;;
+FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\View\Register.xaml;;
+>>>>>>> 3cf415da03570f3f55de12b00d8f52fca7f15740
 
