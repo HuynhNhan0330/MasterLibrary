@@ -1,74 +1,3 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MasterLibrary.exe.config
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MasterLibrary.exe
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MasterLibrary.pdb
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MaterialDesignColors.dll
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MaterialDesignThemes.Wpf.dll
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MaterialDesignColors.pdb
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MaterialDesignThemes.Wpf.pdb
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MaterialDesignThemes.Wpf.xml
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.AssemblyReference.cache
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.SuggestedBindingRedirects.cache
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\View\login.g.cs
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\App.g.cs
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary_MarkupCompile.cache
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary_MarkupCompile.lref
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\App.baml
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\View\login.baml
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.g.resources
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.Properties.Resources.resources
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.GenerateResource.cache
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.CoreCompileInputs.cache
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.CopyComplete
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.exe
-D:\UIT\master_library\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.pdb
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MasterLibrary.exe.config
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MasterLibrary.exe
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MasterLibrary.pdb
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MaterialDesignColors.dll
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MaterialDesignThemes.Wpf.dll
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MaterialDesignColors.pdb
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MaterialDesignThemes.Wpf.pdb
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MaterialDesignThemes.Wpf.xml
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.AssemblyReference.cache
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.SuggestedBindingRedirects.cache
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\View\login.g.cs
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\App.g.cs
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary_MarkupCompile.cache
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary_MarkupCompile.lref
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\App.baml
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\View\login.baml
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.g.resources
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.Properties.Resources.resources
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.GenerateResource.cache
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.CoreCompileInputs.cache
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.CopyComplete
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.exe
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.pdb
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\View\Register.g.cs
-C:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\View\Register.baml
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MasterLibrary.exe.config
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MasterLibrary.exe
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MasterLibrary.pdb
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MaterialDesignColors.dll
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MaterialDesignThemes.Wpf.dll
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MaterialDesignColors.pdb
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MaterialDesignThemes.Wpf.pdb
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MaterialDesignThemes.Wpf.xml
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.AssemblyReference.cache
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.SuggestedBindingRedirects.cache
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\View\Login.g.cs
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\View\Register.g.cs
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\App.g.cs
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary_MarkupCompile.cache
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary_MarkupCompile.lref
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\App.baml
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\View\Login.baml
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\View\Register.baml
-=======
->>>>>>> 78772b3809ad77583f7d3dd4a014cee280d55048
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MasterLibrary.exe.config
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MasterLibrary.exe
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MasterLibrary.pdb
@@ -248,10 +177,6 @@ D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Resour
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\LoginWindow\ForgotPassPage.baml
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\LoginWindow\LoginPage.baml
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\LoginWindow\LoginWindow.baml
-<<<<<<< HEAD
-=======
->>>>>>> fdb2d2e (view login and biding to forgot pass page)
->>>>>>> 78772b3809ad77583f7d3dd4a014cee280d55048
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.g.resources
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.Properties.Resources.resources
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.GenerateResource.cache

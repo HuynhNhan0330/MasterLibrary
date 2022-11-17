@@ -21,7 +21,7 @@
                Height="50"
                Margin="20,30,0,0">
         </Label>
-        
+
         <!-- Phần đăng nhập -->
         <StackPanel Margin="0,20,0,10"
                     HorizontalAlignment="Center"
@@ -55,7 +55,7 @@
                     Margin="5,0,0,0"
                     Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}" />
         </StackPanel>
-        
+
         <!-- Phần bấm nút -->
         <StackPanel Orientation = "Vertical"
                     HorizontalAlignment="Center">
@@ -68,9 +68,10 @@
                         Background="Transparent"
                         BorderBrush="Transparent"
                         HorizontalContentAlignment="Right"
-                        Command="{Binding ForgotPassCM}" />
+                        Command="{Binding LoadForgotPassPage}" />
             </StackPanel>
 
+            <!-- Đăng kí -->
             <StackPanel HorizontalAlignment="Right"
                     Orientation="Horizontal"
                     Width="250">
@@ -85,6 +86,8 @@
                                 Click="registerbtn_Click">
                     </Button>
                 </StackPanel>
+
+                <!-- Đăng nhập -->
                 <StackPanel HorizontalAlignment="Right"
                             Margin="10,0,0,0">
                     <Button Content="Đăng nhập"
@@ -99,7 +102,6 @@
 
                     </Button>
                 </StackPanel>
-                
             </StackPanel>
         </StackPanel>
     </StackPanel>

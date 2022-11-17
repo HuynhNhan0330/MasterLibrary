@@ -13,7 +13,7 @@ namespace MasterLibrary.ViewModel.LoginVM
     {
         public static Frame MainFrame { get; set; }
         public ICommand LoadLoginPage { get; set; }
-        public ICommand ForgotPassCM { get; set; }
+        public ICommand LoadForgotPassPage { get; set; }
 
         public LoginViewModel()
         {
@@ -23,13 +23,11 @@ namespace MasterLibrary.ViewModel.LoginVM
                 p.Content = new LoginPage();
             });
 
-            ForgotPassCM = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            LoadForgotPassPage = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
                 MainFrame.Content = new ForgotPassPage();
             });
         }
         
     }
-
-
 }

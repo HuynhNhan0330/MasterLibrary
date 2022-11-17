@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MasterLibrary.View
+namespace MasterLibrary
 {
     /// <summary>
-    /// Interaction logic for ForgotPass.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class ForgotPass : Window
+    public partial class MainWindow : Window
     {
-        public ForgotPass()
+        public MainWindow()
         {
             //InitializeComponent();
         }
