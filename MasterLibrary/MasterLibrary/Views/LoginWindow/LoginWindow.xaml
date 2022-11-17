@@ -18,6 +18,14 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadMask}"
+                                   CommandParameter="{Binding ElementName=ShadowMask}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
     <Window.Background>
         <ImageBrush ImageSource="/Resources/Images/BackgroundLoginWindow.jpeg"></ImageBrush>
     </Window.Background>
