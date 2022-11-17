@@ -24,5 +24,10 @@ namespace MasterLibrary.Views.LoginWindow
         {
             InitializeComponent();
         }
+
+        private void btnConfirm_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

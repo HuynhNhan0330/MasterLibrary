@@ -162,6 +162,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\LoginVM\ForgotPassViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\LoginViewModel.cs" />
     <Compile Include="Views\LoginWindow\ForgotPassPage.xaml.cs">
       <DependentUpon>ForgotPassPage.xaml</DependentUpon>

@@ -26,12 +26,12 @@ namespace MasterLibrary.Views.LoginWindow
             InitializeComponent();
         }
 
-        private void loginbtn_Click(object sender, RoutedEventArgs e)
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void registerbtn_Click(object sender, RoutedEventArgs e)
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
 
         }

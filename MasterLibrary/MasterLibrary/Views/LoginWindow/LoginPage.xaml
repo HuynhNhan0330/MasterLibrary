@@ -71,19 +71,19 @@
                         Command="{Binding LoadForgotPassPage}" />
             </StackPanel>
 
-            <!-- Đăng kí -->
             <StackPanel HorizontalAlignment="Right"
                     Orientation="Horizontal"
                     Width="250">
+                <!-- Đăng kí -->
                 <StackPanel HorizontalAlignment="Left"
                             Margin="40,0,0,0">
                     <Button Content="Đăng kí"
                                 Width="90"
-                                x:Name="registerbtn"
+                                x:Name="btnRegister"
                                 Padding="0,0,0,5"
                                 Background="#391c00"
                                 materialDesign:ButtonAssist.CornerRadius="8"
-                                Click="registerbtn_Click">
+                                Click="btnRegister_Click">
                     </Button>
                 </StackPanel>
 
@@ -92,13 +92,13 @@
                             Margin="10,0,0,0">
                     <Button Content="Đăng nhập"
                                 Width="90"
-                                x:Name="loginbtn"
+                                x:Name="btnLogin"
                                 Padding="0,0,0,5"
                                 Background="#391c00"
                                 materialDesign:ButtonAssist.CornerRadius="8"
                                 Command="{Binding LoginCM}"
                                 CommandParameter="{Binding ElementName=Error}"
-                                Click="loginbtn_Click">
+                                Click="btnLogin_Click">
 
                     </Button>
                 </StackPanel>
