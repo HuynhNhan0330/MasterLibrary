@@ -17,6 +17,8 @@ D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Themes.Default.dll
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Themes.Fluent.dll
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Visuals.dll
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\packages\JetBrains.Annotations.10.3.0\lib\net\JetBrains.Annotations.dll
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\packages\MaterialDesignColors.2.0.9\lib\net462\MaterialDesignColors.dll
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\packages\MaterialDesignThemes.4.6.1\lib\net462\MaterialDesignThemes.Wpf.dll
@@ -105,6 +107,7 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Micros
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.InteropServices.dll
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net462\lib\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Numerics.dll
+C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Runtime.Serialization.dll
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Serialization.Formatters.dll
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Serialization.Json.dll
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Runtime.Serialization.Primitives.dll
@@ -115,6 +118,7 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Micros
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Cryptography.Encoding.dll
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Cryptography.Primitives.dll
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Cryptography.X509Certificates.dll
+C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Security.dll
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.Principal.dll
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Security.SecureString.dll
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\System.Text.Encoding.dll

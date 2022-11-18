@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/images/backgroundloginwindow.jpeg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("models/masterlibrarymodels.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("models/masterlibrarymodels.tt")]
 
 

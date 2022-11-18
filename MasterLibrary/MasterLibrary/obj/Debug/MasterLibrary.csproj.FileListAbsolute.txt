@@ -186,3 +186,12 @@ D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Master
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.pdb
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\LoginWindow\RegisterWindow.g.cs
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\LoginWindow\RegisterWindow.baml
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\MainAdminWindow.g.cs
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Customer\MainCustomerWindow.g.cs
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary_Content.g.cs
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\EntityFramework.dll
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\EntityFramework.SqlServer.dll
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\EntityFramework.xml
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\EntityFramework.SqlServer.xml
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\MainAdminWindow.baml
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Customer\MainCustomerWindow.baml
