@@ -22,7 +22,7 @@ namespace MasterLibrary
     {
         public MainWindow()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }
