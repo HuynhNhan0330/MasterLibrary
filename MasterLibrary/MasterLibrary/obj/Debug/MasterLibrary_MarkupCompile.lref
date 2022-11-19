@@ -1,5 +1,11 @@
 ﻿
-FC:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml;;
-FC:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\View\Login.xaml;;
-FC:\Users\Hoang\Documents\GitHub\MasterLibrary\MasterLibrary\MasterLibrary\View\Register.xaml;;
+FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml;;
+FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\MainWindow.xaml;;
+FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\ResourcesXAML\MainResources.xaml;;
+FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\MainAdminWindow.xaml;;
+FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\MainCustomerWindow.xaml;;
+FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\ForgotPassPage.xaml;;
+FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\LoginPage.xaml;;
+FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\LoginWindow.xaml;;
+FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\RegisterWindow.xaml;;
 
