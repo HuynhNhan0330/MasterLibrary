@@ -6,130 +6,161 @@
         xmlns:local="clr-namespace:MasterLibrary.Views.Admin"
         mc:Ignorable="d"
         Title="MainAdminWindow" Height="700" Width="1300"
+        xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-             TextElement.FontWeight="Regular"
-             TextElement.FontSize="13"
-             TextOptions.TextFormattingMode="Ideal"
-             TextOptions.TextRenderingMode="Auto"
-             Background="{DynamicResource MaterialDesignPaper}"
-             FontFamily="{DynamicResource MaterialDesignFont}">
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStartupLocation="CenterScreen"
+        DataContext="{StaticResource AdminVM}">
+
+    <!--<i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding FirstLoadML}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>-->
+
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="70"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="9*" />
+            </Grid.ColumnDefinitions>
 
-        <!--Header-->
-        <Grid Grid.Row="0">
-            <materialDesign:ColorZone
-                Mode="PrimaryLight" Background="#FFB29E84">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="300"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
+            <!-- Bên trái -->
+            <Grid Grid.Column="0"
+                  Background="#391c00">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="9*" />
+                </Grid.RowDefinitions>
+                <!-- Logo -->
+                <StackPanel Grid.Row="0"
+                            Orientation="Horizontal"
+                            Grid.ColumnSpan="2"
+                            Height="40">
+                    <Image Source="/Resources/Images/Logo.png"
+                           Width="30"
+                           Margin="8,-5,5,0" />
+                    <TextBlock TextWrapping="Wrap"
+                               materialDesign:TextBlockAssist.AutoToolTip="True"
+                               VerticalAlignment="Bottom"
+                               TextAlignment="Center"
+                               Text="MASTER LABRARY"
+                               FontFamily="Lora"
+                               FontWeight= "DemiBold"
+                               Foreground="#ffde59"
+                               FontSize="16"
+                               Width="70" />
+                </StackPanel>
 
-                    <!--set logo-->
-                    <Image Stretch="Fill" Source="\Resources\Images\Logo.jpg" HorizontalAlignment="Center" Grid.Column="0"></Image>
+                <!-- Các chức năng -->
 
-                    <!--set searchbar and something-->
-                    <Grid Grid.Column="1">
-                        <StackPanel
-                          materialDesign:RippleAssist.IsCentered="True"
-                          Orientation="Horizontal">
+                <StackPanel Grid.Row="1">
 
-                            <materialDesign:ColorZone
-                            Margin="315,16,0,0"
-                            Padding="8,4,8,4"
-                            Panel.ZIndex="1"
-                            materialDesign:ElevationAssist.Elevation="Dp2"
-                            CornerRadius="10"
-                            HorizontalAlignment="Center" 
-                            Mode="Standard">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="3*"/>
-                                        <RowDefinition Height="29*"/>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <Button Style="{StaticResource MaterialDesignToolButton}" Grid.RowSpan="2">
-                                        <materialDesign:PackIcon
-                                    Kind="Search"
-                                    Opacity=".56" />
-                                    </Button>
-                                    <TextBox
-                                    Grid.Column="1"
-                                    MinWidth="400"
-                                    Margin="8,1,0,0"
-                                    VerticalAlignment="Top"
-                                    materialDesign:HintAssist.Hint="Build a search bar"
-                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                    BorderThickness="0" Grid.Row="1" />
-
-                                </Grid>
-                            </materialDesign:ColorZone>
-                            <Button
-                            Margin="8,0,0,0"
-                            Panel.ZIndex="0"
-                            Style="{StaticResource MaterialDesignToolForegroundButton}">
-                                <materialDesign:PackIcon  Kind="Send"/>
-                            </Button>
+                    <!-- Button thống kê -->
+                    <Border CornerRadius="5">
+                        <StackPanel Tag="{Binding ElementName=btnStatistical}"
+                                    Orientation="Horizontal"
+                                    Height="60"
+                                    Width="130"
+                                    Style= "{StaticResource EffectMenuButton}">
+                            <materialDesign:PackIcon Kind="Finance"
+                                                     Width="35"
+                                                     Height="32"
+                                                     VerticalAlignment="Center"
+                                                     Cursor="Hand"
+                                                     Foreground="White" />
+                            <RadioButton Style="{StaticResource MenuButtonMain}"
+                                         GroupName="mainOptions"
+                                         Content="Thống kê"
+                                         FontWeight="Bold"
+                                         x:Name="btnStatistical"
+                                         Width="auto"
+                                         IsChecked="True"
+                                         Command="{Binding LoadStatisticalPageML}"
+                                         CommandParameter="{Binding ElementName=mainFrame}" />
                         </StackPanel>
-                    </Grid>
-                </Grid>
-            </materialDesign:ColorZone>
-        </Grid>
+                    </Border>
 
-        <!--Main screen-->
-        <Grid Grid.Row="1">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="300"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+                    <!-- Button quản lí sách -->
+                    <Border CornerRadius="5">
+                        <StackPanel Tag="{Binding ElementName=btnManage}"
+                                    Orientation="Horizontal"
+                                    Height="60"
+                                    Width="130"
+                                    Style= "{StaticResource EffectMenuButton}">
+                            <materialDesign:PackIcon Kind="Book"
+                                                     Width="35"
+                                                     Height="32"
+                                                     VerticalAlignment="Center"
+                                                     Cursor="Hand"
+                                                     Foreground="White" />
+                            <RadioButton Style="{StaticResource MenuButtonMain}"
+                                         GroupName="mainOptions"
+                                         Content="Quản lí sách"
+                                         FontWeight="Bold"
+                                         x:Name="btnManage"
+                                         Width="auto"
+                                         Command="{Binding LoadBookManagerPageML}"
+                                         CommandParameter="{Binding ElementName=mainFrame}" />
+                        </StackPanel>
+                    </Border>
 
-                <Grid Grid.Column="0" Background="#FF391C00" Margin="0 1 0 0" Width="300" Height="629">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="150"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <!--Something about account-->
-                        <Grid Grid.Row="0">
-
-                        </Grid>
-                        <!--Manipulation with functions-->
-                        <Grid Grid.Row="1">
-                            <StackPanel>
-                                <Button Height="100">
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="250"></ColumnDefinition>
-                                            <ColumnDefinition Width="1*"></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
-
-                                        <Grid Grid.Column="0">
-                                            <TextBlock Text="Hello world" FontSize="40"></TextBlock>
-                                        </Grid>
-
-                                        <Grid Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                            <materialDesign:PackIcon Kind="ChevronRight"/>
-                                        </Grid>
-                                    </Grid>
-                                </Button>
-                                <Button Height="100"></Button>
-                                <Button Height="100"></Button>
-                            </StackPanel>
-                        </Grid>
-                    </Grid>
-                </Grid>
+                    <!-- Button lịch sử -->
+                    <Border CornerRadius="5">
+                        <StackPanel Tag="{Binding ElementName=btnHistory}"
+                                    Orientation="Horizontal"
+                                    Height="60"
+                                    Width="130"
+                                    Style= "{StaticResource EffectMenuButton}">
+                            <materialDesign:PackIcon Kind="SwapVerticalBold"
+                                                     Width="35"
+                                                     Height="32"
+                                                     VerticalAlignment="Center"
+                                                     Cursor="Hand"
+                                                     Foreground="White" />
+                            <RadioButton Style="{StaticResource MenuButtonMain}"
+                                         Content="Lịch sử"
+                                         FontWeight="Bold"
+                                         GroupName="mainOptions"
+                                         x:Name="btnHistory"
+                                         Width="110"
+                                         Command="{Binding LoadHistoryPageML}"
+                                         CommandParameter="{Binding ElementName=mainFrame}" />
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
             </Grid>
 
+            <!-- Bên phải -->
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="9*" />
+                </Grid.RowDefinitions>
+
+                <!-- Thanh trên -->
+                <Grid Grid.Row="0"
+                      Background="#b29e84">
+                </Grid>
+
+                <!-- Phần nội dung frame -->
+                <Frame x:Name="mainFrame"
+                       Grid.Row="1"
+                       NavigationUIVisibility="Hidden">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Loaded">
+                            <i:InvokeCommandAction Command="{Binding LoadStatisticalPageML}"
+                                                   CommandParameter="{Binding ElementName=mainFrame}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Frame>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

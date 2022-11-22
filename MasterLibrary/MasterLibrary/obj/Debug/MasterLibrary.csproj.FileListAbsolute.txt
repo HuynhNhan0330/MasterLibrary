@@ -195,4 +195,15 @@ D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\Entity
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\EntityFramework.SqlServer.xml
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\MainAdminWindow.baml
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Customer\MainCustomerWindow.baml
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\UserControl\controlbar_uc.g.cs
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\UserControlML\controlbar_uc.g.cs
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\UserControlML\controlbar_uc.baml
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BookManagePage\BookManagePage.g.cs
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BookManagePage\BookManagePage.baml
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\HistoryPage.g.cs
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\StatisticalPage\StatisticalPage.g.cs
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\HistoryPage.baml
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\StatisticalPage\StatisticalPage.baml
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Customer\BookLocationPage\BookLocationPage.g.cs
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Customer\BuyBookPage\BuyBookPage.g.cs
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Customer\BookLocationPage\BookLocationPage.baml
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Customer\BuyBookPage\BuyBookPage.baml

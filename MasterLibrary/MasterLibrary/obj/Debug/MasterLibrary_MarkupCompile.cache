@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml
-91708156162
+141110776170
 2543821305
-241536192990
+31-885056474
 155-2135215613
-MainWindow.xaml;ResourcesXAML\MainResources.xaml;UserControl\controlbar_uc.xaml;Views\Admin\MainAdminWindow.xaml;Views\Customer\MainCustomerWindow.xaml;Views\LoginWindow\ForgotPassPage.xaml;Views\LoginWindow\LoginPage.xaml;Views\LoginWindow\LoginWindow.xaml;Views\LoginWindow\RegisterWindow.xaml;
+MainWindow.xaml;ResourcesXAML\MainResources.xaml;UserControlML\controlbar_uc.xaml;Views\Admin\BookManagePage\BookManagePage.xaml;Views\Admin\HistoryPage\HistoryPage.xaml;Views\Admin\MainAdminWindow.xaml;Views\Admin\StatisticalPage\StatisticalPage.xaml;Views\Customer\BookLocationPage\BookLocationPage.xaml;Views\Customer\BuyBookPage\BuyBookPage.xaml;Views\Customer\MainCustomerWindow.xaml;Views\LoginWindow\ForgotPassPage.xaml;Views\LoginWindow\LoginPage.xaml;Views\LoginWindow\LoginWindow.xaml;Views\LoginWindow\RegisterWindow.xaml;
 
-True
+False
 

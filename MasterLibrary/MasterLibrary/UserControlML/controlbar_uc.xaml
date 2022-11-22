@@ -15,8 +15,7 @@
              TextOptions.TextRenderingMode="Auto"
              Background="Transparent"
              FontFamily="{DynamicResource MaterialDesignFont}"
-             MinHeight="0"
-             >
+             MinHeight="0">
     <Grid>
         <materialDesign:ColorZone x:Name="backGroum"
             Background="White"
