@@ -18,11 +18,13 @@ namespace MasterLibrary.ViewModel.CustomerVM
 
         public MainCustomerViewModel()
         {
+            // Load trang mua sách
             LoadBuyBookPageML = new RelayCommand<Frame>((p) => { return true; }, (p) => 
             {
                 p.Content = new BuyBookPage();
             });
 
+            // Load trang vị trí sách
             LoadBookLocationPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
                 p.Content = new BookLocationPage();
