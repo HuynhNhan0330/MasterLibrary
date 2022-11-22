@@ -5,8 +5,131 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MasterLibrary.Views.Admin"
         mc:Ignorable="d"
-        Title="MainAdminWindow" Height="450" Width="800">
+        Title="MainAdminWindow" Height="700" Width="1300"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
-        <TextBlock Text="Admin"></TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--Header-->
+        <Grid Grid.Row="0">
+            <materialDesign:ColorZone
+                Mode="PrimaryLight" Background="#FFB29E84">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="300"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <!--set logo-->
+                    <Image Stretch="Fill" Source="\Resources\Images\Logo.jpg" HorizontalAlignment="Center" Grid.Column="0"></Image>
+
+                    <!--set searchbar and something-->
+                    <Grid Grid.Column="1">
+                        <StackPanel
+                          materialDesign:RippleAssist.IsCentered="True"
+                          Orientation="Horizontal">
+
+                            <materialDesign:ColorZone
+                            Margin="315,16,0,0"
+                            Padding="8,4,8,4"
+                            Panel.ZIndex="1"
+                            materialDesign:ElevationAssist.Elevation="Dp2"
+                            CornerRadius="10"
+                            HorizontalAlignment="Center" 
+                            Mode="Standard">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="29*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button Style="{StaticResource MaterialDesignToolButton}" Grid.RowSpan="2">
+                                        <materialDesign:PackIcon
+                                    Kind="Search"
+                                    Opacity=".56" />
+                                    </Button>
+                                    <TextBox
+                                    Grid.Column="1"
+                                    MinWidth="400"
+                                    Margin="8,1,0,0"
+                                    VerticalAlignment="Top"
+                                    materialDesign:HintAssist.Hint="Build a search bar"
+                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                    BorderThickness="0" Grid.Row="1" />
+
+                                </Grid>
+                            </materialDesign:ColorZone>
+                            <Button
+                            Margin="8,0,0,0"
+                            Panel.ZIndex="0"
+                            Style="{StaticResource MaterialDesignToolForegroundButton}">
+                                <materialDesign:PackIcon  Kind="Send"/>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </materialDesign:ColorZone>
+        </Grid>
+
+        <!--Main screen-->
+        <Grid Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0" Background="#FF391C00" Margin="0 1 0 0" Width="300" Height="629">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="150"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <!--Something about account-->
+                        <Grid Grid.Row="0">
+
+                        </Grid>
+                        <!--Manipulation with functions-->
+                        <Grid Grid.Row="1">
+                            <StackPanel>
+                                <Button Height="100">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="250"></ColumnDefinition>
+                                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Grid Grid.Column="0">
+                                            <TextBlock Text="Hello world" FontSize="40"></TextBlock>
+                                        </Grid>
+
+                                        <Grid Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="ChevronRight"/>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                                <Button Height="100"></Button>
+                                <Button Height="100"></Button>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+        </Grid>
     </Grid>
 </Window>

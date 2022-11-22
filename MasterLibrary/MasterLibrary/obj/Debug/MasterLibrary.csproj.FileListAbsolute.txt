@@ -195,3 +195,4 @@ D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\Entity
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\EntityFramework.SqlServer.xml
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\MainAdminWindow.baml
 D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Customer\MainCustomerWindow.baml
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\UserControl\controlbar_uc.g.cs

@@ -191,6 +191,9 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>MasterLibraryModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserControlML\controlbar_uc.xaml.cs">
+      <DependentUpon>controlbar_uc.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Constant.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\ForgotPassViewModel.cs" />
@@ -226,6 +229,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ResourcesXAML\MainResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlML\controlbar_uc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -303,6 +310,7 @@
       <DependentUpon>MasterLibraryModels.edmx</DependentUpon>
       <LastGenOutput>MasterLibraryModels.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Images\Logo.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
