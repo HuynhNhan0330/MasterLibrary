@@ -5,5 +5,7 @@
     <viewmodel1:LoginViewModel x:Key= "LoginVM"/>
     <viewmodel1:LoginViewModel x:Key= "RegisterML"/>
 
+    
+    
     <viewmodel1:ForgotPassViewModel x:Key= "ForgotPassVM"/>
 </ResourceDictionary>   

@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="26b851226fc143ffa3de16190aa83242" Name="Diagram1">
-        <EntityTypeShape EntityType="masterlibraryModel.BuildVersion" Width="1.5" PointX="5.75" PointY="2.75" />
+      <Diagram DiagramId="26b851226fc143ffa3de16190aa83242" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="masterlibraryModel.BuildVersion" Width="1.5" PointX="5.125" PointY="2.75" />
         <EntityTypeShape EntityType="masterlibraryModel.CTHD" Width="1.5" PointX="13.25" PointY="11.375" />
         <EntityTypeShape EntityType="masterlibraryModel.DAYKE" Width="1.5" PointX="8.75" PointY="14.625" />
         <EntityTypeShape EntityType="masterlibraryModel.ErrorLog" Width="1.5" PointX="0.75" PointY="11.75" />
