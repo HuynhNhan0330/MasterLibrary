@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MasterLibrary.Views.LoginWindow"
         mc:Ignorable="d"
+        xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="RegisterWindow" Height="450" Width="350"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
+        DataContext="{StaticResource RegisterML}"
         AllowsTransparency="True">
     <Grid>
         <StackPanel Orientation="Vertical">
@@ -37,6 +39,7 @@
                      Width="200"
                      Margin="5,0,0,0"
                      BorderBrush="LightGray"
+                     Text="{Binding Fullnamereg}"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
             </StackPanel>
             <StackPanel Margin="0,0,0,10"
@@ -52,7 +55,9 @@
                      Width="200"
                      Margin="5,0,0,0"
                      BorderBrush="LightGray"
-                     Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                     Text="{Binding Emailreg}"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                
             </StackPanel>
             <StackPanel Margin="0,0,0,10"
                     HorizontalAlignment="Center"
@@ -67,6 +72,7 @@
                      Width="200"
                      Margin="5,0,0,0"
                      BorderBrush="LightGray"
+                     Text="{Binding Usernamereg}"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
             </StackPanel>
 
@@ -80,19 +86,27 @@
                     materialDesign:HintAssist.Hint="Mật khẩu"
                     materialDesign:TextFieldAssist.HasClearButton="True"
                     Password=""
+                    x:Name="FloatingPasswordRegChanged"
                     Foreground="Black"
                     BorderBrush="LightGray"
                     FontSize="15"
                     Width="200"
                     Margin="5,0,0,0"
-                    Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}" />
+                    Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PasswordChanged">
+                            <i:InvokeCommandAction Command="{Binding PasswordRegChangedML}" 
+                                               CommandParameter="{Binding ElementName=FloatingPasswordRegChanged}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </PasswordBox>
             </StackPanel>
 
             <!-- Phần bấm nút -->
             <StackPanel Orientation = "Vertical"
                     HorizontalAlignment="Center">
                 <!-- Đã có tài khoản -->
-                
+
                 <StackPanel Orientation="Horizontal" 
                     HorizontalAlignment="Right">
                     <TextBlock
@@ -139,13 +153,12 @@
                                 Padding="0,0,0,5"
                                 Background="#391c00"
                                 materialDesign:ButtonAssist.CornerRadius="8"
-                                Click="btnRegister_Click">
+                                Command="{Binding RegisterML}"
+                                >
                         </Button>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
     </Grid>
-    
-    
 </Window>

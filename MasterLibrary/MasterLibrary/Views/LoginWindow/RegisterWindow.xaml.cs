@@ -24,11 +24,6 @@ namespace MasterLibrary.Views.LoginWindow
             InitializeComponent();
         }
 
-        private void btnRegister_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void btn_Click_Close(object sender, RoutedEventArgs e)
         {
             this.Close();

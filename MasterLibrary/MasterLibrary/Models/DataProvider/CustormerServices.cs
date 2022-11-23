@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MasterLibrary.DTOs;
 using System.Data.Entity;
+using MasterLibrary.Views.LoginWindow;
+using System.Windows;
 
 namespace MasterLibrary.Models.DataProvider
 {
@@ -13,6 +15,7 @@ namespace MasterLibrary.Models.DataProvider
     {
         private CustormerServices() { }
         private static CustormerServices _ins;
+
         public static CustormerServices Ins
         {
             get
@@ -30,18 +33,14 @@ namespace MasterLibrary.Models.DataProvider
         {
             try
             {
-                using (var context = new MasterLibraryModelsEntities())
+                using (var context = new MasterlibraryEntities())
                 {
                     // lây thông tin nếu tài khoản, mật khẩu đúng
-                    var cus = await(from s in context.Users
-                                      where s.UserName == username && s.Password == password && s.isRole == false
+                    var cus = await(from s in context.KHACHHANGs
+                                      where s.USERNAME == username && s.USERPASSWORD == password && s.IDROLE == 2
                                       select new CustomerDTO
                                       {
-                                          Id = s.Id,
-                                          Name = s.DisplayName,
-                                          Email = s.Email,
-                                          User = s.UserName,
-                                          Password = s.Password
+                                          MAKH = s.MAKH
                                       }).FirstOrDefaultAsync();
 
 
@@ -63,7 +62,22 @@ namespace MasterLibrary.Models.DataProvider
                 return (false, "Lỗi hệ thống", null);
             }
         }
+
+        public void Register(string fullname, string email, string username, string pass)
+        {
+            KHACHHANG cus = new KHACHHANG();
+            cus.USERNAME = username;
+            cus.USERPASSWORD = pass;
+            cus.TENKH = fullname;
+            cus.IDROLE = 2;
+            cus.EMAIL = email;
+
+            using (var context = new MasterlibraryEntities())
+            {
+                context.KHACHHANGs.Add(cus);
+                context.SaveChanges();
+                MessageBox.Show("Đăng ký thành công!");
+            }    
+        }    
     }
-
-
 }

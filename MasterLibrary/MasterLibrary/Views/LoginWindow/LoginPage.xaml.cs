@@ -31,10 +31,5 @@ namespace MasterLibrary.Views.LoginWindow
             FloatingPasswordBox.Focus();
             usernameTxb.Focus();
         }
-
-        private void btnRegister_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
     }
 }

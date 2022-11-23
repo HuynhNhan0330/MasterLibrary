@@ -38,7 +38,7 @@
                      Width="200"
                      Margin="5,0,0,0"
                      BorderBrush="LightGray"
-                     Text="{Binding Username}"
+                     Text="{Binding Usernamelog}"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Center"
@@ -103,7 +103,7 @@
                                 Background="#391c00"
                                 materialDesign:ButtonAssist.CornerRadius="8"
                                 Command="{Binding LoadRegister}"
-                                Click="btnRegister_Click">
+                                >
                     </Button>
                 </StackPanel>
 
@@ -124,6 +124,4 @@
             </StackPanel>
         </StackPanel>
     </StackPanel>
-    
-    
 </Page>
