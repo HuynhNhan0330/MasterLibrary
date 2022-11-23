@@ -24,14 +24,11 @@ namespace MasterLibrary.Views.LoginWindow
             InitializeComponent();
         }
 
-<<<<<<< HEAD
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-=======
->>>>>>> hoangminh
         private void btn_Click_Close(object sender, RoutedEventArgs e)
         {
             this.Close();

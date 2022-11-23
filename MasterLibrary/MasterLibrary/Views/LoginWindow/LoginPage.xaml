@@ -38,11 +38,7 @@
                      Width="200"
                      Margin="5,0,0,0"
                      BorderBrush="LightGray"
-<<<<<<< HEAD
-                     Text="{Binding Username}"
-=======
                      Text="{Binding Usernamelog}"
->>>>>>> hoangminh
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Center"
@@ -107,11 +103,7 @@
                                 Background="#391c00"
                                 materialDesign:ButtonAssist.CornerRadius="8"
                                 Command="{Binding LoadRegister}"
-<<<<<<< HEAD
-                                Click="btnRegister_Click">
-=======
                                 >
->>>>>>> hoangminh
                     </Button>
                 </StackPanel>
 

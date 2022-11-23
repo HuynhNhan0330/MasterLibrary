@@ -18,35 +18,13 @@ namespace MasterLibrary.ViewModel.LoginVM
 {
     public class LoginViewModel: BaseViewModel
     {
-<<<<<<< HEAD
-=======
        
->>>>>>> hoangminh
         public static Frame MainFrame { get; set; }
         public static Grid Mask { get; set; }
 
         public ICommand LoadLoginPage { get; set; }
         public ICommand LoadForgotPassPage { get; set; }
         public ICommand LoadRegister { get; set; }
-<<<<<<< HEAD
-        public ICommand LoadMask { get; set; }
-        public ICommand LoginML { get; set; }
-        public ICommand PasswordChangedML { get; set; }
-
-        private string _username;
-        public string Username
-        {
-            get { return _username; }
-            set { _username = value; OnPropertyChanged(); }
-        }
-        private string _password;
-        public string Password
-        {
-            get { return _password; }
-            set { _password = value; OnPropertyChanged(); }
-        }
-
-=======
         public ICommand LoadVerificationPage { get; set; }
 
         public ICommand LoadMask { get; set; }
@@ -97,7 +75,6 @@ namespace MasterLibrary.ViewModel.LoginVM
             set { _passwordreg = value;OnPropertyChanged(); }
         }
         #endregion
->>>>>>> hoangminh
         public LoginViewModel()
         {
             // Load page đăng nhập
@@ -129,13 +106,6 @@ namespace MasterLibrary.ViewModel.LoginVM
                 w1.ShowDialog();
             });
 
-<<<<<<< HEAD
-            // Thực hiện đăng nhập tài khoản
-            LoginML = new RelayCommand<Label>((p) => { return true; }, async (p) =>
-            {
-                string username = Username;
-                string password = Password;
-=======
             LoadVerificationPage = new RelayCommand<Label>((p) => { return true; }, async (p) =>
             {
                 MainFrame.Content = new VerificationPage();
@@ -147,7 +117,6 @@ namespace MasterLibrary.ViewModel.LoginVM
             {
                 string username = Usernamelog;
                 string password = Passwordlog;
->>>>>>> hoangminh
 
                 // thực hiện đăng nhập
                 checkValidateAccount(username, password, p);
@@ -156,10 +125,6 @@ namespace MasterLibrary.ViewModel.LoginVM
             // Nhận mật khẩu mỗi lần thay đổi
             PasswordChangedML = new RelayCommand<PasswordBox>((p) => { return true; }, (p) =>
             {
-<<<<<<< HEAD
-                Password = p.Password;
-            });
-=======
                 Passwordlog = p.Password;
             });
             #endregion
@@ -184,7 +149,6 @@ namespace MasterLibrary.ViewModel.LoginVM
             });
 
             #endregion
->>>>>>> hoangminh
         }
 
         public async Task checkValidateAccount(string usr, string pwd, Label lbl)
@@ -197,11 +161,7 @@ namespace MasterLibrary.ViewModel.LoginVM
 
             // Thực hiện Login tài khoản customer
             (bool loginCus, string messCus, CustomerDTO cus) = await Task<(bool loginSuccess, string message, CustomerDTO cus)>.Run(() => CustormerServices.Ins.Login(usr, pwd));
-<<<<<<< HEAD
-            
-=======
 
->>>>>>> hoangminh
             // thực hiện Login tài khoản admin
             (bool loginAdmin, string messAdmin) = await Task<(bool loginSuccess, string message)>.Run(() => AdminServices.Ins.Login(usr, pwd));
 
@@ -212,11 +172,7 @@ namespace MasterLibrary.ViewModel.LoginVM
                 MainCustomerWindow w1 = new MainCustomerWindow();
                 w1.Show();
                 //LoginWindow.Close();
-<<<<<<< HEAD
-            } 
-=======
             }
->>>>>>> hoangminh
             else if (loginAdmin)
             {
                 //LoginWindow.Hide();
@@ -229,9 +185,6 @@ namespace MasterLibrary.ViewModel.LoginVM
                 lbl.Content = messCus;
             }
         }
-<<<<<<< HEAD
-=======
 
->>>>>>> hoangminh
     }
 }

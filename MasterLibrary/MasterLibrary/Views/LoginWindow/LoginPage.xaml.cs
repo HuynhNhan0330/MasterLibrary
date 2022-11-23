@@ -31,13 +31,10 @@ namespace MasterLibrary.Views.LoginWindow
             FloatingPasswordBox.Focus();
             usernameTxb.Focus();
         }
-<<<<<<< HEAD
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             
         }
-=======
->>>>>>> hoangminh
     }
 }

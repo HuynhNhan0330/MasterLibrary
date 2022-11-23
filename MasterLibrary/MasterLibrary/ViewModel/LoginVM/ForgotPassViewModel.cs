@@ -2,11 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-<<<<<<< HEAD
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-=======
 using System.Net;
 using System.Net.Mail;
 using System.Text;
@@ -16,16 +11,11 @@ using System.Windows.Controls;
 using MasterLibrary.Models.DataProvider;
 using MasterLibrary.DTOs;
 using System.Data.Entity;
->>>>>>> hoangminh
 
 namespace MasterLibrary.ViewModel.LoginVM
 {
     public class ForgotPassViewModel: BaseViewModel
     {
-<<<<<<< HEAD
-        public ICommand CancelForgotPass { get; set; }
-
-=======
         #region Icommand
         public ICommand CancelForgotPass { get; set; }
         public ICommand TypingYourEmail { get; set; }
@@ -66,15 +56,12 @@ namespace MasterLibrary.ViewModel.LoginVM
             set { _confirmnewpass = value; OnPropertyChanged();}
         }
         #endregion
->>>>>>> hoangminh
         public ForgotPassViewModel()
         {
             CancelForgotPass = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
             {
                 LoginViewModel.MainFrame.Content = new LoginPage();
             });
-<<<<<<< HEAD
-=======
 
             TypingYourEmail = new RelayCommand<Label>((p) => { return true; }, async (p) =>
             {
@@ -154,7 +141,6 @@ namespace MasterLibrary.ViewModel.LoginVM
             smtpClient.EnableSsl = true;
 
             smtpClient.Send(mailMessage);
->>>>>>> hoangminh
         }
     }
 }
