@@ -27,6 +27,7 @@ namespace MasterLibrary.ViewModel.LoginVM
         public ICommand LoadRegister { get; set; }
         public ICommand LoadVerificationPage { get; set; }
 
+
         public ICommand LoadMask { get; set; }
         public ICommand LoginML { get; set; }
         public ICommand PasswordChangedML { get; set; }

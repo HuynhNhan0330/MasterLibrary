@@ -31,4 +31,5 @@ namespace MasterLibrary.DTOs
         public string USERPASSWORD { get; set; }
         public string IDROLE { get; set; }
     }
+
 }

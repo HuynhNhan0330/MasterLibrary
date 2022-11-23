@@ -26,6 +26,7 @@ namespace MasterLibrary.ViewModel.LoginVM
 
         #endregion
 
+
         #region Property
         private int Number;
         private string _mail;

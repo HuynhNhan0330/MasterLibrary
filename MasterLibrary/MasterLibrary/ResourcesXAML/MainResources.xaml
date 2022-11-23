@@ -4,6 +4,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <viewmodel1:LoginViewModel x:Key= "LoginVM"/>
     <viewmodel1:LoginViewModel x:Key= "RegisterML"/>
-
     <viewmodel1:ForgotPassViewModel x:Key= "ForgotPassVM"/>
+    
 </ResourceDictionary>   
