@@ -16,9 +16,9 @@ using MaterialDesignThemes.Wpf;
 
 namespace MasterLibrary.ViewModel.LoginVM
 {
-    public class LoginViewModel : BaseViewModel
+    public class LoginViewModel: BaseViewModel
     {
-
+       
         public static Frame MainFrame { get; set; }
         public static Grid Mask { get; set; }
 
@@ -72,7 +72,7 @@ namespace MasterLibrary.ViewModel.LoginVM
         public string Passwordreg
         {
             get { return _passwordreg; }
-            set { _passwordreg = value; OnPropertyChanged(); }
+            set { _passwordreg = value;OnPropertyChanged(); }
         }
         #endregion
         public LoginViewModel()
@@ -100,7 +100,7 @@ namespace MasterLibrary.ViewModel.LoginVM
             LoadRegister = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 Window w1 = new RegisterWindow();
-
+                
                 //Mask.Visibility = Visibility.Visible;
 
                 w1.ShowDialog();

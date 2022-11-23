@@ -14,7 +14,7 @@ using System.Data.Entity;
 
 namespace MasterLibrary.ViewModel.LoginVM
 {
-    public class ForgotPassViewModel : BaseViewModel
+    public class ForgotPassViewModel: BaseViewModel
     {
         #region Icommand
         public ICommand CancelForgotPass { get; set; }
@@ -53,7 +53,7 @@ namespace MasterLibrary.ViewModel.LoginVM
         private string Confirmnewpass
         {
             get { return _confirmnewpass; }
-            set { _confirmnewpass = value; OnPropertyChanged(); }
+            set { _confirmnewpass = value; OnPropertyChanged();}
         }
         #endregion
         public ForgotPassViewModel()
@@ -87,7 +87,7 @@ namespace MasterLibrary.ViewModel.LoginVM
                         Number = random.Next(1, 999999);
                         SendEmail(Number.ToString());
                         MasterLibrary.ViewModel.LoginVM.LoginViewModel.MainFrame.Content = new VerificationPage();
-                    }
+                    }    
                 }
 
             });
@@ -120,8 +120,8 @@ namespace MasterLibrary.ViewModel.LoginVM
                     p.Content = "*Vui lòng nhập đủ thông tin";
                 else if (Newpass != Confirmnewpass)
                     p.Content = "*Mật khẩu xác nhận không chính xác";
-                else if (Newpass == Confirmnewpass)
-                {
+                else if(Newpass == Confirmnewpass)
+                {                    
                     using (var context = new MasterlibraryEntities())
                     {
                         var changepass = context.KHACHHANGs.Where(x => x.EMAIL == Mail).FirstOrDefault();
@@ -129,11 +129,11 @@ namespace MasterLibrary.ViewModel.LoginVM
                         context.SaveChanges();
                         MasterLibrary.ViewModel.LoginVM.LoginViewModel.MainFrame.Content = new LoginPage();
                     }
-                }
+                }       
             });
         }
 
-        public void SendEmail(string content)
+        public void  SendEmail(string content)
         {
             MailMessage mailMessage = new MailMessage("21522343@gm.uit.edu.vn", Mail, "Khôi phục mật khẩu Masterlibrary", "Mã xác nhận của bạn là: " + content);
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);

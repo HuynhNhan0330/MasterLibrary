@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("models/masterlibrarymodels.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("models/masterlibrarymodels.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("models/dataprovider/masterlibrarymodels.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("models/dataprovider/masterlibrarymodels.tt")]
 
 

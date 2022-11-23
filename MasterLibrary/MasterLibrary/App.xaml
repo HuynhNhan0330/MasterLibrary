@@ -50,7 +50,7 @@
                             Value="Transparent" />
                 </Style.Setters>
             </Style>
-            
+
             <!-- Hiệu ứng click button menu -->
             <Style TargetType="StackPanel"
                    x:Key="EffectMenuButton">
@@ -64,10 +64,6 @@
                     </DataTrigger>
                 </Style.Triggers>
             </Style>
-            
         </ResourceDictionary>
-        
-        
-        
     </Application.Resources>
 </Application>
