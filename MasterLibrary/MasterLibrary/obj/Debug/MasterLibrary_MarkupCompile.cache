@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\
 MasterLibrary
 none
 false
 DEBUG;TRACE
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml
-2-2012694686
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml
+101661647997
+2-1465087467
+45-1315699637
+155460643399
+MainWindow.xaml;ResourcesXAML\MainResources.xaml;Views\Admin\MainAdminWindow.xaml;Views\Customer\MainCustomerWindow.xaml;Views\LoginWindow\CreateNewPassPage.xaml;Views\LoginWindow\ForgotPassPage.xaml;Views\LoginWindow\LoginPage.xaml;Views\LoginWindow\LoginWindow.xaml;Views\LoginWindow\RegisterWindow.xaml;Views\LoginWindow\VerificationPage.xaml;
 
-7234846375
-17-1280535013
-View\Login.xaml;View\Register.xaml;
-
-False
+True
 
