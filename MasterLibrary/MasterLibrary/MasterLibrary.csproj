@@ -191,12 +191,32 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>MasterLibraryModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserControlML\controlbar_uc.xaml.cs">
+      <DependentUpon>controlbar_uc.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Constant.cs" />
+    <Compile Include="ViewModel\AdminVM\MainAdminViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\CustomerVM\MainCustomerViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\ForgotPassViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\LoginViewModel.cs" />
+    <Compile Include="Views\Admin\BookManagePage\BookManagePage.xaml.cs">
+      <DependentUpon>BookManagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\HistoryPage\HistoryPage.xaml.cs">
+      <DependentUpon>HistoryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Admin\MainAdminWindow.xaml.cs">
       <DependentUpon>MainAdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\StatisticalPage\StatisticalPage.xaml.cs">
+      <DependentUpon>StatisticalPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\BookLocationPage\BookLocationPage.xaml.cs">
+      <DependentUpon>BookLocationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\BuyBookPage\BuyBookPage.xaml.cs">
+      <DependentUpon>BuyBookPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Customer\MainCustomerWindow.xaml.cs">
       <DependentUpon>MainCustomerWindow.xaml</DependentUpon>
@@ -229,7 +249,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControlML\controlbar_uc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\BookManagePage\BookManagePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\HistoryPage\HistoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Admin\MainAdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\StatisticalPage\StatisticalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Customer\BookLocationPage\BookLocationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Customer\BuyBookPage\BuyBookPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -288,7 +332,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModel\AdminVM\HistoryVM\" />
+    <Folder Include="ViewModel\AdminVM\ManageBookVM\" />
+    <Folder Include="ViewModel\AdminVM\StatisticalVM\" />
+    <Folder Include="ViewModel\CustomerVM\BookLocationVM\" />
+    <Folder Include="ViewModel\CustomerVM\BuyBookVM\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\BackgroundLoginWindow.jpeg" />
   </ItemGroup>
@@ -303,6 +353,8 @@
       <DependentUpon>MasterLibraryModels.edmx</DependentUpon>
       <LastGenOutput>MasterLibraryModels.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Images\logo.png" />
+    <Resource Include="Resources\Images\Logo.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

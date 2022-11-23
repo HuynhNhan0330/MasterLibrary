@@ -12,7 +12,62 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
                 <ResourceDictionary Source="/ResourcesXAML/MainResources.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
 
+            <!-- Style của text button menu -->
+            <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
+                   TargetType="{x:Type RadioButton}"
+                   x:Key="MenuButtonMain">
+                <Style.Setters>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="RadioButton">
+                                <Grid VerticalAlignment="Stretch"
+                                      HorizontalAlignment="Stretch"
+                                      Background="{TemplateBinding Background}">
+                                    <TextBlock Text="{TemplateBinding Property=Content}"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Left"
+                                               Foreground="{TemplateBinding Property=Foreground}"
+                                               Padding="1"
+                                               Margin="2"
+                                               FontSize="13" />
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+
+                    <Setter Property="Foreground"
+                            Value="#E6E0CC"/>
+                    <Setter Property="Cursor"
+                            Value="Hand" />
+                    <Setter Property="Width"
+                            Value="140" />
+                    <Setter Property="Height"
+                            Value="auto" />
+                    <Setter Property="BorderBrush"
+                            Value="#5c3107" />
+                    <Setter Property="Background"
+                            Value="Transparent" />
+                </Style.Setters>
+            </Style>
+            
+            <!-- Hiệu ứng click button menu -->
+            <Style TargetType="StackPanel"
+                   x:Key="EffectMenuButton">
+                <Setter Property="Background"
+                                Value="Transparent" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Path=Tag.IsChecked, RelativeSource={RelativeSource Self}}"
+                                         Value="True">
+                        <Setter Property="Background"
+                                        Value="#5c3107" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            
+        </ResourceDictionary>
+        
+        
+        
     </Application.Resources>
 </Application>
