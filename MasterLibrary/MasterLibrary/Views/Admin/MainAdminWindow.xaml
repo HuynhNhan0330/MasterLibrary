@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MasterLibrary.Views.Admin"
         mc:Ignorable="d"
+<<<<<<< HEAD
         Title="MainAdminWindow" Height="700" Width="1300"
         xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -162,5 +163,10 @@
                 </Frame>
             </Grid>
         </Grid>
+=======
+        Title="MainAdminWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock Text="Admin"></TextBlock>
+>>>>>>> hoangminh
     </Grid>
 </Window>

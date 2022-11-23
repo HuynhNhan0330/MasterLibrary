@@ -10,6 +10,7 @@ none
 false
 DEBUG;TRACE
 <<<<<<< HEAD
+<<<<<<< HEAD
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml
 8991103887
 2543821305
@@ -24,6 +25,14 @@ D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml
 155-2135215613
 MainWindow.xaml;ResourcesXAML\MainResources.xaml;UserControlML\controlbar_uc.xaml;Views\Admin\BookManagePage\BookManagePage.xaml;Views\Admin\HistoryPage\HistoryPage.xaml;Views\Admin\MainAdminWindow.xaml;Views\Admin\StatisticalPage\StatisticalPage.xaml;Views\Customer\BookLocationPage\BookLocationPage.xaml;Views\Customer\BuyBookPage\BuyBookPage.xaml;Views\Customer\MainCustomerWindow.xaml;Views\LoginWindow\ForgotPassPage.xaml;Views\LoginWindow\LoginPage.xaml;Views\LoginWindow\LoginWindow.xaml;Views\LoginWindow\RegisterWindow.xaml;
 >>>>>>> manager/Nhan
+=======
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml
+101661647997
+2-1465087467
+45-1315699637
+155460643399
+MainWindow.xaml;ResourcesXAML\MainResources.xaml;Views\Admin\MainAdminWindow.xaml;Views\Customer\MainCustomerWindow.xaml;Views\LoginWindow\CreateNewPassPage.xaml;Views\LoginWindow\ForgotPassPage.xaml;Views\LoginWindow\LoginPage.xaml;Views\LoginWindow\LoginWindow.xaml;Views\LoginWindow\RegisterWindow.xaml;Views\LoginWindow\VerificationPage.xaml;
+>>>>>>> hoangminh
 
 True
 

@@ -23,6 +23,10 @@ namespace MasterLibrary.Views.LoginWindow
         public ForgotPassPage()
         {
             InitializeComponent();
+<<<<<<< HEAD
+=======
+            
+>>>>>>> hoangminh
         }
 
         private void btnConfirm_Click(object sender, RoutedEventArgs e)

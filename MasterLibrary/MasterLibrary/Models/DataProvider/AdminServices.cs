@@ -29,6 +29,7 @@ namespace MasterLibrary.Models.DataProvider
         {
             try
             {
+<<<<<<< HEAD
                 using (var context = new MasterLibraryModelsEntities())
                 {
                     // lây thông tin nếu tài khoản, mật khẩu đúng
@@ -41,6 +42,16 @@ namespace MasterLibrary.Models.DataProvider
                                            Email = s.Email,
                                            User = s.UserName,
                                            Password = s.Password
+=======
+                using (var context = new MasterlibraryEntities())
+                {
+                    // lây thông tin nếu tài khoản, mật khẩu đúng
+                    var admin = await (from s in context.KHACHHANGs
+                                       where s.USERNAME == username && s.USERPASSWORD == password && s.IDROLE == 1
+                                       select new AdminDTO
+                                       {
+                                           MAKH = s.MAKH
+>>>>>>> hoangminh
                                        }).FirstOrDefaultAsync();
 
 
@@ -62,5 +73,9 @@ namespace MasterLibrary.Models.DataProvider
                 return (false, "Lỗi hệ thống");
             }
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> hoangminh
     }
 }

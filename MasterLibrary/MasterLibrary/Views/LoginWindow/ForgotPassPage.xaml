@@ -41,6 +41,18 @@
                Height="50"
                Margin="20,30,0,0">
             </Label>
+<<<<<<< HEAD
+=======
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Text = "Mã xác nhận sẽ được gửi vào email của bạn"
+                        TextWrapping="Wrap"
+                        Foreground="#b29e84"
+                        FontSize="12"
+                        Width="236"
+                        Margin="27, 0, 0, 0" Height="34"/>
+
+            </StackPanel>
+>>>>>>> hoangminh
 
             <!-- Phần khôi phục mật khẩu -->
             <StackPanel Margin="0,20,0,10"
@@ -50,6 +62,7 @@
                                      Height="20"
                                      Width="20"
                                      VerticalAlignment="Center" />
+<<<<<<< HEAD
                 <TextBox materialDesign:HintAssist.Hint="Tài khoản của bạn"
                      Foreground="Black"
                      FontSize="15"
@@ -74,13 +87,46 @@
                         Margin="27, 0, 0, 0">
                     </TextBlock>
 
+=======
+                <TextBox materialDesign:HintAssist.Hint="Email của bạn"
+                     Foreground="Black"
+                     FontSize="15"
+                     Width="241"
+                     Margin="5,0,0,0"
+                     BorderBrush="LightGray"
+                     Text="{Binding Mail}"
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+
+            </StackPanel>
+            
+
+
+            <!-- Phần bấm nút -->
+            <StackPanel Orientation = "Vertical"
+                    HorizontalAlignment="Center"
+                    Margin="-8" Height="107">
+                <!--Thông báo lỗi-->
+                <StackPanel HorizontalAlignment="Center"
+                            Orientation="Vertical">
+                    <Label
+                        x:Name="ErrorRestore" 
+                        Foreground="Red"
+                        FontSize="14"
+                        Width="241"
+                        Margin="27, -0, 0, 0"
+                        Height="45"/>
+>>>>>>> hoangminh
                 </StackPanel>
 
                 <StackPanel HorizontalAlignment="Right"
                     Orientation="Horizontal"
                     Margin="0,5,0,0"
                     Width="95">
+<<<<<<< HEAD
                     
+=======
+
+>>>>>>> hoangminh
                     <!-- Xác nhận -->
                     <StackPanel HorizontalAlignment="Right">
                         <Button Content="Xác nhận"
@@ -89,7 +135,14 @@
                                 Padding="0,0,0,5"
                                 Background="#391c00"
                                 materialDesign:ButtonAssist.CornerRadius="8"
+<<<<<<< HEAD
                                 Click="btnConfirm_Click">
+=======
+                                Command="{Binding TypingYourEmail}"
+                                CommandParameter="{Binding ElementName=ErrorRestore}"
+                                
+                                Click="btnConfirm_Click" Height="32">
+>>>>>>> hoangminh
                         </Button>
                     </StackPanel>
                 </StackPanel>

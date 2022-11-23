@@ -1,14 +1,22 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> hoangminh
 ﻿D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\GeneratedInternalTypeHelper.g.cs
 FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml;;
 FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\MainWindow.xaml;;
 FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\ResourcesXAML\MainResources.xaml;;
 FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\MainAdminWindow.xaml;;
 FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\MainCustomerWindow.xaml;;
+<<<<<<< HEAD
+=======
+FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\CreateNewPassPage.xaml;;
+>>>>>>> hoangminh
 FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\ForgotPassPage.xaml;;
 FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\LoginPage.xaml;;
 FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\LoginWindow.xaml;;
 FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\RegisterWindow.xaml;;
+<<<<<<< HEAD
 =======
 ﻿D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\GeneratedInternalTypeHelper.g.cs
 FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml;;
@@ -27,4 +35,7 @@ FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWind
 FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\LoginWindow.xaml;;
 FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\RegisterWindow.xaml;;
 >>>>>>> manager/Nhan
+=======
+FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\VerificationPage.xaml;;
+>>>>>>> hoangminh
 
