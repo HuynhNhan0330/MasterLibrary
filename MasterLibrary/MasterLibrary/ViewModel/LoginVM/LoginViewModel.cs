@@ -1,5 +1,4 @@
-﻿
-using MasterLibrary.DTOs;
+﻿using MasterLibrary.DTOs;
 using MasterLibrary.Models.DataProvider;
 using MasterLibrary.Views.LoginWindow;
 using System;

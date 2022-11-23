@@ -5,12 +5,6 @@
                     xmlns:viewmodel3 = "clr-namespace:MasterLibrary.ViewModel.CustomerVM"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <viewmodel1:LoginViewModel x:Key= "LoginVM"/>
-<<<<<<< HEAD
-=======
-    <viewmodel1:LoginViewModel x:Key= "RegisterML"/>
-
-    
->>>>>>> lg
     <viewmodel1:ForgotPassViewModel x:Key= "ForgotPassVM"/>
     <viewmodel2:MainAdminViewModel x:Key= "AdminVM"/>
     <viewmodel3:MainCustomerViewModel x:Key= "CustomerVM"/>
