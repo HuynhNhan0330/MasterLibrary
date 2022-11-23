@@ -1,4 +1,4 @@
-﻿<Page x:Class="MasterLibrary.Views.LoginWindow.ForgotPassPage"
+﻿<Page x:Class="MasterLibrary.Views.LoginWindow.VerificationPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -13,13 +13,17 @@
       Title="ForgotPassPage">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="54*"/>
+            <ColumnDefinition Width="151*"/>
+        </Grid.ColumnDefinitions>
         <Label Cursor="Hand"
                    Height="30"
                    Grid.Row="0"
                    Width="30"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
-                   x:Name="lbl">
+                  >
             <materialDesign:PackIcon Kind="ArrowLeft"
                                          Height="26"
                                          Width="26" />
@@ -30,66 +34,75 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Label>
-        <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Vertical" Grid.ColumnSpan="2">
             <Label FontFamily="junegull"
-               FontSize="35"
+               FontSize="15"
                FontWeight="UltraBlack"
                Foreground="#391c00"
-               Content="Khôi phục mật khẩu"
-               VerticalAlignment="Center"
+               Content="Điền mã xác nhận được gửi đến email của bạn"
                HorizontalAlignment="Center"
-               Height="50"
-               Margin="20,30,0,0">
+               Height="35"
+               Margin="20,80,0,0" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="0.424"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0.393"/>
+                    </TransformGroup>
+                </Label.RenderTransform>
             </Label>
 
             <!-- Phần khôi phục mật khẩu -->
             <StackPanel Margin="0,20,0,10"
                     HorizontalAlignment="Center"
                     Orientation="Horizontal">
-                <materialDesign:PackIcon Kind="Account"
-                                     Height="20"
-                                     Width="20"
-                                     VerticalAlignment="Center" />
-                <TextBox materialDesign:HintAssist.Hint="Tài khoản của bạn"
+
+                <TextBox materialDesign:HintAssist.Hint="Mã xác nhận gồm 6 chữ số"
                      Foreground="Black"
                      FontSize="15"
-                     Width="200"
-                     Margin="5,0,0,0"
+                     Width="241"
+                     Margin="5,-20,0,0"
                      BorderBrush="LightGray"
-                     Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                     Text="{Binding Verificationnumber}"
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="65"/>
+
             </StackPanel>
-            
+
+
 
             <!-- Phần bấm nút -->
             <StackPanel Orientation = "Vertical"
-                    HorizontalAlignment="Center">
-                <!-- Thông tin -->
-                <StackPanel HorizontalAlignment="Center">
-                    <TextBlock Text = "Mã bảo mật để đặt lại mật khẩu sẽ được gửi vào email của tài khoản trên"
-                        TextWrapping="Wrap"
-                        Foreground="#b29e84"
-                        FontSize="12"
-                        VerticalAlignment="Bottom"
-                        Width="200"
-                        Margin="27, 0, 0, 0">
-                    </TextBlock>
-
+                    HorizontalAlignment="Center"
+                    Margin="-8" Height="90">
+                <!--Thông báo lỗi-->
+                <StackPanel HorizontalAlignment="Center"
+                            Orientation="Vertical">
+                    <Label
+                        x:Name="ErrorNumber" 
+                        Foreground="Red"
+                        FontSize="14"
+                        Width="259"
+                        Margin="27, -0, 0, 0"
+                        Height="45"/>
                 </StackPanel>
 
                 <StackPanel HorizontalAlignment="Right"
                     Orientation="Horizontal"
                     Margin="0,5,0,0"
                     Width="95">
-                    
+
                     <!-- Xác nhận -->
                     <StackPanel HorizontalAlignment="Right">
                         <Button Content="Xác nhận"
                                 Width="90"
-                                x:Name="btnConfirm"
+                                x:Name="btnConfirmVeri"
                                 Padding="0,0,0,5"
                                 Background="#391c00"
                                 materialDesign:ButtonAssist.CornerRadius="8"
-                                Click="btnConfirm_Click">
+                                Command="{Binding TypingVerificationNum}"
+                                CommandParameter="{Binding ElementName=ErrorNumber}"
+                                Height="32">
                         </Button>
                     </StackPanel>
                 </StackPanel>
