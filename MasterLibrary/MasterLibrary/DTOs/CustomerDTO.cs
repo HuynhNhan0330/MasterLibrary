@@ -11,16 +11,11 @@ namespace MasterLibrary.DTOs
     {
         public CustomerDTO()
         {
-<<<<<<< HEAD
             Role = ROLE.Customer;
-=======
-            IDROLE = ROLE.Customer;
->>>>>>> hoangminh
         }
 
         public CustomerDTO(int id, string name, string email, string user, string password)
         {
-<<<<<<< HEAD
             Id = id;
             Name = name;
             Email = email;
@@ -35,21 +30,5 @@ namespace MasterLibrary.DTOs
         public string User { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
-=======
-            MAKH = id;
-            TENKH = name;
-            EMAIL = email;
-            USERNAME = user;
-            USERPASSWORD = password;
-            IDROLE = ROLE.Customer;
-        }
-
-        public int MAKH { get; set; }
-        public string TENKH { get; set; }
-        public string EMAIL { get; set; }
-        public string USERNAME { get; set; }
-        public string USERPASSWORD { get; set; }
-        public string IDROLE { get; set; }
->>>>>>> hoangminh
     }
 }

@@ -171,117 +171,6 @@
     </ApplicationDefinition>
     <Compile Include="DTOs\AdminDTO.cs" />
     <Compile Include="DTOs\CustomerDTO.cs" />
-    <Compile Include="Models\DataProvider\Address.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\AdminServices.cs" />
-    <Compile Include="Models\DataProvider\BuildVersion.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\CTHD.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\Customer.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\CustomerAddress.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\CustormerServices.cs" />
-    <Compile Include="Models\DataProvider\DAYKE.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ErrorLog.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\HOADON.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\KHACHHANG.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\MasterlibraryModels.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MasterlibraryModels.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\MasterlibraryModels.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\MasterlibraryModels.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MasterlibraryModels.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\Product.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ProductCategory.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ProductDescription.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ProductModel.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ProductModelProductDescription.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\SACH.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\SalesOrderDetail.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\SalesOrderHeader.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\sysdiagram.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\TANG.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\USERROLE.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Utils\Constant.cs" />
-    <Compile Include="ViewModel\BaseViewModel.cs" />
-    <Compile Include="ViewModel\LoginVM\ForgotPassViewModel.cs" />
-    <Compile Include="ViewModel\LoginVM\LoginViewModel.cs" />
-    <Compile Include="Views\Admin\MainAdminWindow.xaml.cs">
-      <DependentUpon>MainAdminWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Customer\MainCustomerWindow.xaml.cs">
-      <DependentUpon>MainCustomerWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LoginWindow\CreateNewPassPage.xaml.cs">
-      <DependentUpon>CreateNewPassPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LoginWindow\ForgotPassPage.xaml.cs">
-      <DependentUpon>ForgotPassPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LoginWindow\LoginPage.xaml.cs">
-      <DependentUpon>LoginPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LoginWindow\LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LoginWindow\RegisterWindow.xaml.cs">
-      <DependentUpon>RegisterWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LoginWindow\VerificationPage.xaml.cs">
-      <DependentUpon>VerificationPage.xaml</DependentUpon>
-    </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="DTOs\AdminDTO.cs" />
-    <Compile Include="DTOs\CustomerDTO.cs" />
     <Compile Include="Models\DataProvider\AdminServices.cs" />
     <Compile Include="Models\DataProvider\CustormerServices.cs" />
     <Compile Include="Models\MasterLibraryModels.Context.cs">
@@ -360,42 +249,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Admin\MainAdminWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Customer\MainCustomerWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\LoginWindow\CreateNewPassPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\LoginWindow\ForgotPassPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\LoginWindow\LoginPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\LoginWindow\LoginWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\LoginWindow\RegisterWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\LoginWindow\VerificationPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ResourcesXAML\MainResources.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UserControlML\controlbar_uc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -463,13 +316,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\DataProvider\MasterlibraryModels.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MasterlibraryModels.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Models\DataProvider\MasterlibraryModels.edmx.diagram">
-      <DependentUpon>MasterlibraryModels.edmx</DependentUpon>
-    </None>
     <EntityDeploy Include="Models\MasterLibraryModels.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MasterLibraryModels.Designer.cs</LastGenOutput>
@@ -487,7 +333,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\BackgroundLoginWindow.jpeg" />
     <Folder Include="ViewModel\AdminVM\HistoryVM\" />
     <Folder Include="ViewModel\AdminVM\ManageBookVM\" />
     <Folder Include="ViewModel\AdminVM\StatisticalVM\" />
@@ -498,7 +343,6 @@
     <Resource Include="Resources\Images\BackgroundLoginWindow.jpeg" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
     <Content Include="Models\MasterLibraryModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MasterLibraryModels.Context.cs</LastGenOutput>
@@ -513,16 +357,6 @@
     <Resource Include="Resources\Images\Logo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\DataProvider\MasterlibraryModels.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MasterlibraryModels.edmx</DependentUpon>
-      <LastGenOutput>MasterlibraryModels.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DataProvider\MasterlibraryModels.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MasterlibraryModels.edmx</DependentUpon>
-      <LastGenOutput>MasterlibraryModels.cs</LastGenOutput>
-    </Content>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

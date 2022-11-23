@@ -18,63 +18,29 @@ namespace MasterLibrary.ViewModel.LoginVM
 {
     public class LoginViewModel: BaseViewModel
     {
-       
         public static Frame MainFrame { get; set; }
         public static Grid Mask { get; set; }
 
         public ICommand LoadLoginPage { get; set; }
         public ICommand LoadForgotPassPage { get; set; }
         public ICommand LoadRegister { get; set; }
-        public ICommand LoadVerificationPage { get; set; }
-
         public ICommand LoadMask { get; set; }
         public ICommand LoginML { get; set; }
         public ICommand PasswordChangedML { get; set; }
-        public ICommand RegisterML { get; set; }
-        public ICommand PasswordRegChangedML { get; set; }
 
-        #region property
-        private string _usernamelog;
-        public string Usernamelog
+        private string _username;
+        public string Username
         {
-            get { return _usernamelog; }
-            set { _usernamelog = value; OnPropertyChanged(); }
+            get { return _username; }
+            set { _username = value; OnPropertyChanged(); }
         }
-        private string _passwordlog;
-
-        public string Passwordlog
+        private string _password;
+        public string Password
         {
-            get { return _passwordlog; }
-            set { _passwordlog = value; OnPropertyChanged(); }
+            get { return _password; }
+            set { _password = value; OnPropertyChanged(); }
         }
 
-        private string _fullnamereg;
-        public string Fullnamereg
-        {
-            get { return _fullnamereg; }
-            set { _fullnamereg = value; OnPropertyChanged(); }
-        }
-
-        private string _emailreg;
-        public string Emailreg
-        {
-            get { return _emailreg; }
-            set { _emailreg = value; OnPropertyChanged(); }
-        }
-
-        private string _usernamereg;
-        public string Usernamereg
-        {
-            get { return _usernamereg; }
-            set { _usernamereg = value; OnPropertyChanged(); }
-        }
-        private string _passwordreg;
-        public string Passwordreg
-        {
-            get { return _passwordreg; }
-            set { _passwordreg = value;OnPropertyChanged(); }
-        }
-        #endregion
         public LoginViewModel()
         {
             // Load page đăng nhập
@@ -106,17 +72,11 @@ namespace MasterLibrary.ViewModel.LoginVM
                 w1.ShowDialog();
             });
 
-            LoadVerificationPage = new RelayCommand<Label>((p) => { return true; }, async (p) =>
-            {
-                MainFrame.Content = new VerificationPage();
-            });
-
-            #region Login
             // Thực hiện đăng nhập tài khoản
             LoginML = new RelayCommand<Label>((p) => { return true; }, async (p) =>
             {
-                string username = Usernamelog;
-                string password = Passwordlog;
+                string username = Username;
+                string password = Password;
 
                 // thực hiện đăng nhập
                 checkValidateAccount(username, password, p);
@@ -125,30 +85,8 @@ namespace MasterLibrary.ViewModel.LoginVM
             // Nhận mật khẩu mỗi lần thay đổi
             PasswordChangedML = new RelayCommand<PasswordBox>((p) => { return true; }, (p) =>
             {
-                Passwordlog = p.Password;
+                Password = p.Password;
             });
-            #endregion
-
-            #region Register
-            RegisterML = new RelayCommand<Label>((p) => { return true; }, async (p) =>
-            {
-                string fullname = Fullnamereg;
-                string email = Emailreg;
-                string usernamereg = Usernamereg;
-                string passwordreg = Passwordreg;
-
-                //thực hiện đăng ký tài khoản
-                CustormerServices.Ins.Register(fullname, email, usernamereg, passwordreg);
-
-            });
-
-            // Nhận mật khẩu mỗi lần thay đổi
-            PasswordRegChangedML = new RelayCommand<PasswordBox>((p) => { return true; }, (p) =>
-            {
-                Passwordreg = p.Password;
-            });
-
-            #endregion
         }
 
         public async Task checkValidateAccount(string usr, string pwd, Label lbl)
@@ -161,7 +99,7 @@ namespace MasterLibrary.ViewModel.LoginVM
 
             // Thực hiện Login tài khoản customer
             (bool loginCus, string messCus, CustomerDTO cus) = await Task<(bool loginSuccess, string message, CustomerDTO cus)>.Run(() => CustormerServices.Ins.Login(usr, pwd));
-
+            
             // thực hiện Login tài khoản admin
             (bool loginAdmin, string messAdmin) = await Task<(bool loginSuccess, string message)>.Run(() => AdminServices.Ins.Login(usr, pwd));
 
@@ -172,7 +110,7 @@ namespace MasterLibrary.ViewModel.LoginVM
                 MainCustomerWindow w1 = new MainCustomerWindow();
                 w1.Show();
                 //LoginWindow.Close();
-            }
+            } 
             else if (loginAdmin)
             {
                 //LoginWindow.Hide();
@@ -185,6 +123,5 @@ namespace MasterLibrary.ViewModel.LoginVM
                 lbl.Content = messCus;
             }
         }
-
     }
 }

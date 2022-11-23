@@ -11,7 +11,6 @@ namespace MasterLibrary.DTOs
     {
         public AdminDTO()
         {
-<<<<<<< HEAD
             Role = ROLE.Admin;
         }
 
@@ -31,26 +30,5 @@ namespace MasterLibrary.DTOs
         public string User { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
-=======
-            IDROLE = ROLE.Admin;
-        }
-
-        public AdminDTO(int makh, string name, string email, string user, string password)
-        {
-            MAKH = makh;
-            TENKH = name;
-            EMAIL = email;
-            USERNAME = user;
-            USERPASSWORD = password;
-            IDROLE = ROLE.Admin;
-        }
-
-        public int MAKH { get; set; }
-        public string TENKH { get; set; }
-        public string EMAIL { get; set; }
-        public string USERNAME { get; set; }
-        public string USERPASSWORD { get; set; }
-        public string IDROLE { get; set; }
->>>>>>> hoangminh
     }
 }
