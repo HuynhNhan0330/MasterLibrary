@@ -63,5 +63,26 @@ namespace MasterLibrary.Models.DataProvider
                 return (false, "Lỗi hệ thống", null);
             }
         }
+<<<<<<< HEAD
+=======
+
+        public void Register(string fullname, string email, string username, string pass)
+        {
+            KHACHHANG cus = new KHACHHANG();
+            cus.USERNAME = username;
+            cus.USERPASSWORD = pass;
+            cus.TENKH = fullname;
+            cus.IDROLE = 2;
+            cus.EMAIL = email;
+
+            using (var context = new MasterlibraryEntities())
+            {
+                context.KHACHHANGs.Add(cus);
+                context.SaveChanges();
+                MessageBox.Show("Đăng ký thành công!");
+            }    
+        }    
+
+>>>>>>> hmlogin
     }
 }

@@ -24,6 +24,12 @@ namespace MasterLibrary.ViewModel.LoginVM
         public ICommand LoadLoginPage { get; set; }
         public ICommand LoadForgotPassPage { get; set; }
         public ICommand LoadRegister { get; set; }
+<<<<<<< HEAD
+=======
+        public ICommand LoadVerificationPage { get; set; }
+
+
+>>>>>>> hmlogin
         public ICommand LoadMask { get; set; }
         public ICommand LoginML { get; set; }
         public ICommand PasswordChangedML { get; set; }
