@@ -135,9 +135,9 @@ namespace MasterLibrary.ViewModel.LoginVM
 
         public void  SendEmail(string content)
         {
-            MailMessage mailMessage = new MailMessage("21522343@gm.uit.edu.vn", Mail, "Khôi phục mật khẩu Masterlibrary", "Mã xác nhận của bạn là: " + content);
+            MailMessage mailMessage = new MailMessage("helpercusml@gmail.com", Mail, "Khôi phục mật khẩu Masterlibrary", "Mã xác nhận của bạn là: " + content);
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-            smtpClient.Credentials = new NetworkCredential("21522343@gm.uit.edu.vn", "1553489037");
+            smtpClient.Credentials = new NetworkCredential("helpercusml@gmail.com", "tgotlxfalndcoiux");
             smtpClient.EnableSsl = true;
 
             smtpClient.Send(mailMessage);
