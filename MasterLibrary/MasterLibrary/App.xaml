@@ -13,6 +13,12 @@
                 <ResourceDictionary Source="/ResourcesXAML/MainResources.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
 
+            <SolidColorBrush x:Key="PrimaryHueMidBrush"
+                             Color="#5c3107" />
+
+            <SolidColorBrush x:Key="PrimaryHueDarkBrush"
+                             Color="#5c3107" />
+
             <!-- Style của text button menu -->
             <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
                    TargetType="{x:Type RadioButton}"
@@ -64,6 +70,26 @@
                     </DataTrigger>
                 </Style.Triggers>
             </Style>
+            
+            <!-- style box item -->
+            <Style x:Key="styleListBoxItems"
+                   TargetType="{x:Type ListBoxItem}">
+                <Setter Property="SnapsToDevicePixels"
+                        Value="False" />
+                <Setter Property="OverridesDefaultStyle"
+                        Value="True" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ListBoxItem">
+                            <Border Name="Border"
+                                    Padding="5"
+                                    SnapsToDevicePixels="True">
+                                <ContentPresenter />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>          
         </ResourceDictionary>
     </Application.Resources>
 </Application>

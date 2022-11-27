@@ -810,3 +810,11 @@ D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryP
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\StatisticalPage\StatisticalPage.baml
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Customer\BookLocationPage\BookLocationPage.baml
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Customer\BuyBookPage\BuyBookPage.baml
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\CloudinaryDotNet.dll
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\Newtonsoft.Json.dll
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\System.Text.Encodings.Web.dll
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\CloudinaryDotNet.xml
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\Newtonsoft.Json.xml
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\System.Text.Encodings.Web.xml
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Customer\BuyBookPage\DetailBook.g.cs
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Customer\BuyBookPage\DetailBook.baml

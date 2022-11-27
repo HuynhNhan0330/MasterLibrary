@@ -37,6 +37,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Avalonia, Version=0.10.18.0, Culture=neutral, PublicKeyToken=c8d484a7012f9a8b, processorArchitecture=MSIL">
       <HintPath>..\packages\Avalonia.0.10.18\lib\net461\Avalonia.dll</HintPath>
@@ -95,6 +98,9 @@
     <Reference Include="Avalonia.Visuals, Version=0.10.18.0, Culture=neutral, PublicKeyToken=c8d484a7012f9a8b, processorArchitecture=MSIL">
       <HintPath>..\packages\Avalonia.0.10.18\lib\net461\Avalonia.Visuals.dll</HintPath>
     </Reference>
+    <Reference Include="CloudinaryDotNet, Version=1.20.0.0, Culture=neutral, PublicKeyToken=c8234dc617ae7841, processorArchitecture=MSIL">
+      <HintPath>..\packages\CloudinaryDotNet.1.20.0\lib\net452\CloudinaryDotNet.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -112,6 +118,9 @@
     </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -142,6 +151,9 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.1\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -170,28 +182,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DTOs\AdminDTO.cs" />
+    <Compile Include="DTOs\BookDTO.cs" />
     <Compile Include="DTOs\CustomerDTO.cs" />
-    <Compile Include="Models\DataProvider\Address.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\DataProvider\AdminServices.cs" />
-    <Compile Include="Models\DataProvider\BuildVersion.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\DataProvider\BookServices.cs" />
     <Compile Include="Models\DataProvider\CTHD.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\Customer.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\CustomerAddress.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\CustormerServices.cs" />
     <Compile Include="Models\DataProvider\DAYKE.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ErrorLog.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\HOADON.cs">
@@ -215,31 +214,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MasterlibraryModels.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataProvider\Product.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ProductCategory.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ProductDescription.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ProductModel.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ProductModelProductDescription.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\DataProvider\SACH.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\SalesOrderDetail.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\SalesOrderHeader.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\sysdiagram.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\TANG.cs">
@@ -251,9 +226,13 @@
     <Compile Include="UserControlML\controlbar_uc.xaml.cs">
       <DependentUpon>controlbar_uc.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\CloudinaryService.cs" />
     <Compile Include="Utils\Constant.cs" />
+    <Compile Include="Utils\Helper.cs" />
     <Compile Include="ViewModel\AdminVM\MainAdminViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\CustomerVM\BuyBookVM\BuyBookViewModel.cs" />
+    <Compile Include="ViewModel\CustomerVM\BuyBookVM\DetailBookVM.cs" />
     <Compile Include="ViewModel\CustomerVM\MainCustomerViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\ForgotPassViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\LoginViewModel.cs" />
@@ -274,6 +253,9 @@
     </Compile>
     <Compile Include="Views\Customer\BuyBookPage\BuyBookPage.xaml.cs">
       <DependentUpon>BuyBookPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\BuyBookPage\DetailBook.xaml.cs">
+      <DependentUpon>DetailBook.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Customer\MainCustomerWindow.xaml.cs">
       <DependentUpon>MainCustomerWindow.xaml</DependentUpon>
@@ -339,6 +321,10 @@
     <Page Include="Views\Customer\BuyBookPage\BuyBookPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Customer\BuyBookPage\DetailBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Customer\MainCustomerWindow.xaml">
       <SubType>Designer</SubType>
@@ -410,6 +396,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="logo.ico" />
     <Content Include="Models\DataProvider\MasterlibraryModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MasterlibraryModels.edmx</DependentUpon>

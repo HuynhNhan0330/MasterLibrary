@@ -57,7 +57,7 @@ namespace MasterLibrary.Models.DataProvider
             {
                 return (false, "Mất kết nối cơ sở dữ liệu", null);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return (false, "Lỗi hệ thống", null);
             }
@@ -65,6 +65,15 @@ namespace MasterLibrary.Models.DataProvider
 
         public void Register(string fullname, string email, string username, string pass)
         {
+            if (string.IsNullOrEmpty(fullname) ||
+                string.IsNullOrEmpty(email) ||
+                string.IsNullOrEmpty(username) ||
+                string.IsNullOrEmpty(pass))
+            {
+                MessageBox.Show("Thông tin bị trống vui lòng nhập thêm.");
+                return;
+            }
+
             KHACHHANG cus = new KHACHHANG();
             cus.USERNAME = username;
             cus.USERPASSWORD = pass;
