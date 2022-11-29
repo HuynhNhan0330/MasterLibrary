@@ -6,6 +6,7 @@ using MasterLibrary.DTOs;
 using System.Collections.ObjectModel;
 using MasterLibrary.Models.DataProvider;
 using MasterLibrary.Utils;
+using MasterLibrary.ViewModel.CustomerVM.BuyBookVM;
 
 namespace MasterLibrary.ViewModel.CustomerVM
 {
@@ -39,8 +40,8 @@ namespace MasterLibrary.ViewModel.CustomerVM
             set { _SelectedGenre = value; OnPropertyChanged(); }
         }
 
-        private string _SelectedItem;
-        public string SelectedItem
+        private BookDTO _SelectedItem;
+        public BookDTO SelectedItem
         {
             get { return _SelectedItem; }
             set { _SelectedItem = value; OnPropertyChanged(); }
@@ -94,6 +95,8 @@ namespace MasterLibrary.ViewModel.CustomerVM
                 DetailBook w;
 
                 MaskName.Visibility = System.Windows.Visibility.Visible;
+
+                DetailBookVM.selectBook = SelectedItem;
 
                 w = new DetailBook();
                 w.ShowDialog();

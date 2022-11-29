@@ -210,7 +210,6 @@
             </Grid>
         </Grid>
 
-
         <!-- Mặt nạ làm mờ -->
         <Grid Background="Gray"
               Opacity="0.3"
