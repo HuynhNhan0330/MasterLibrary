@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MasterLibrary.Views.Customer"
+        xmlns:uc="clr-namespace:MasterLibrary.UserControlML"
         mc:Ignorable="d"
         Title="MainCustomerWindow" Height="700" Width="1300"
+        Name="MainCus"
         xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -24,7 +26,16 @@
     </i:Interaction.Triggers>-->
 
     <Grid>
-        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <uc:controlbar_uc Tag="{Binding Title, ElementName=MainCus}" Background="#FFB29E84"></uc:controlbar_uc>
+        </Grid>
+        
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="9*" />
@@ -49,7 +60,7 @@
                                materialDesign:TextBlockAssist.AutoToolTip="True"
                                VerticalAlignment="Bottom"
                                TextAlignment="Center"
-                               Text="MASTER LABRARY"
+                               Text="MASTER LIBRARY"
                                FontFamily="Lora"
                                FontWeight= "DemiBold"
                                Foreground="#ffde59"
