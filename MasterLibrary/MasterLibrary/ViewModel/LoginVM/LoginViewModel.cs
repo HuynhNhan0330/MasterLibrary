@@ -179,6 +179,7 @@ namespace MasterLibrary.ViewModel.LoginVM
                 
                 MainCustomerWindow w1 = new MainCustomerWindow();
                 MainCustomerViewModel.CurrentCustomer = cus;
+                w1._CustomerName.Text = cus.TENKH;
                 w1.Show();
                 loginW.Close();
             }

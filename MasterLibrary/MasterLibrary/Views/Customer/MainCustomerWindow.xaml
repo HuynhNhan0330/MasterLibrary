@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:MasterLibrary.Views.Customer"
         mc:Ignorable="d"
         Title="MainCustomerWindow" Height="700" Width="1300"
+        Name="MainCustomer"
         xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -20,6 +21,8 @@
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding FirstLoadML}" />
+            <i:InvokeCommandAction Command="{Binding LoadBuyBookPageML}"
+                                   CommandParameter="{Binding ElementName=mainFrame}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
@@ -35,7 +38,8 @@
                   Background="#391c00">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="9*" />
+                    <RowDefinition Height="8*" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <!-- Logo -->
                 <StackPanel Grid.Row="0"
@@ -62,7 +66,8 @@
                 <StackPanel Grid.Row="1">
 
                     <!-- Button Mua sách -->
-                    <Border CornerRadius="5">
+                    <Border CornerRadius="5"
+                            Cursor="Hand">
                         <StackPanel Tag="{Binding ElementName=btnBuyBook}"
                                     Orientation="Horizontal"
                                     Height="60"
@@ -72,7 +77,6 @@
                                                      Width="35"
                                                      Height="32"
                                                      VerticalAlignment="Center"
-                                                     Cursor="Hand"
                                                      Foreground="White"/>
                             <RadioButton Style="{StaticResource MenuButtonMain}"
                                          GroupName="mainOptions"
@@ -82,12 +86,22 @@
                                          Width="auto"
                                          IsChecked="True"
                                          Command="{Binding LoadBuyBookPageML}"
-                                         CommandParameter="{Binding ElementName=mainFrame}" />
+                                         CommandParameter="{Binding ElementName=mainFrame}"/>
                         </StackPanel>
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding LoadBuyBookPageML}"
+                                         CommandParameter="{Binding ElementName=mainFrame}"/>
+                                <i:InvokeCommandAction Command="{Binding TurnOnBuyBook}"
+                                         CommandParameter="{Binding ElementName=btnBuyBook}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </Border>
 
                     <!-- Button vị trí sách -->
-                    <Border CornerRadius="5">
+                    <Border CornerRadius="5"
+                            Cursor="Hand">
                         <StackPanel Tag="{Binding ElementName=btnBookLocation}"
                                     Orientation="Horizontal"
                                     Height="60"
@@ -97,7 +111,6 @@
                                                      Width="35"
                                                      Height="32"
                                                      VerticalAlignment="Center"
-                                                     Cursor="Hand"
                                                      Foreground="White" />
                             <RadioButton Style="{StaticResource MenuButtonMain}"
                                          GroupName="mainOptions"
@@ -106,10 +119,85 @@
                                          x:Name="btnBookLocation"
                                          Width="auto"
                                          Command="{Binding LoadBookLocationPageML}"
-                                         CommandParameter="{Binding ElementName=mainFrame}" />
+                                         CommandParameter="{Binding ElementName=mainFrame}"/>
                         </StackPanel>
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding LoadBookLocationPageML}"
+                                         CommandParameter="{Binding ElementName=mainFrame}"/>
+                                <i:InvokeCommandAction Command="{Binding TurnOnBookLocation}"
+                                         CommandParameter="{Binding ElementName=btnBookLocation}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Border>
+
+                    <!-- Button cài đặt-->
+                    <Border CornerRadius="5"
+                            Cursor="Hand">
+                        <StackPanel Tag="{Binding ElementName=btnSetting}"
+                                    Orientation="Horizontal"
+                                    Height="60"
+                                    Width="130"
+                                    Style= "{StaticResource EffectMenuButton}">
+                            <materialDesign:PackIcon Kind="Cog"
+                                                     Width="35"
+                                                     Height="32"
+                                                     VerticalAlignment="Center"
+                                                     Foreground="White" />
+                            <RadioButton Style="{StaticResource MenuButtonMain}"
+                                         GroupName="mainOptions"
+                                         Content="Cài đặt"
+                                         FontWeight="Bold"
+                                         x:Name="btnSetting"
+                                         Width="auto"
+                                         Command="{Binding LoadSettingPageML}"
+                                         CommandParameter="{Binding ElementName=mainFrame}"/>
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding LoadSettingPageML}"
+                                         CommandParameter="{Binding ElementName=mainFrame}"/>
+                                <i:InvokeCommandAction Command="{Binding TurnOnSetting}"
+                                         CommandParameter="{Binding ElementName=btnSetting}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </Border>
                 </StackPanel>
+
+                <Grid Grid.Row="2"
+                      Cursor="Hand">
+                    <!--Button đăng xuất-->
+                    <Border CornerRadius="25"
+                            Cursor="Hand"
+                             Background="#9b3409">
+                        <StackPanel Orientation="Horizontal"
+                                    Height="60"
+                                    Width="130"
+                                    Style= "{StaticResource EffectMenuButton}">
+                            <materialDesign:PackIcon Kind="LogoutVariant"
+                                                     Width="35"
+                                                     Height="32"
+                                                     VerticalAlignment="Center"
+                                                     Margin="10,0,0,0"
+                                                     Foreground="#f9b126" />
+                            <RadioButton Style="{StaticResource MenuButtonMain}"
+                                         Content="Đăng xuất"
+                                         FontWeight="Bold"
+                                         x:Name="btnSignout"
+                                         Width="auto"
+                                         Command="{Binding SignOutML}"
+                                         CommandParameter="{Binding ElementName=MainCustomer}"/>
+                        </StackPanel>
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding SignOutML}"
+                                                       CommandParameter="{Binding ElementName=MainCustomer}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Border>
+                </Grid>
             </Grid>
 
             <!-- Bên phải -->
@@ -122,18 +210,47 @@
                 <!-- Thanh trên -->
                 <Grid Grid.Row="0"
                       Background="#b29e84">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Right">
+
+                        <TextBlock VerticalAlignment="Center"
+                                   x:Name="_CustomerName"
+                                   Height="40"
+                                   FontSize="20"
+                                   Foreground="White"
+                                   Margin="0 0 5 0"
+                                   Padding="0 10 0 0" />
+                        <materialDesign:PackIcon Kind="AccountCircle"
+                                                 Width="50"
+                                                 Height="50"
+                                                 Background="Transparent"
+                                                 VerticalAlignment="Center"
+                                                 Cursor="Hand"
+                                                 Foreground="White" >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                    <i:InvokeCommandAction Command="{Binding LoadSettingPageML}"
+                                         CommandParameter="{Binding ElementName=mainFrame}"/>
+                                    <i:InvokeCommandAction Command="{Binding TurnOnSetting}"
+                                         CommandParameter="{Binding ElementName=btnSetting}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </materialDesign:PackIcon>
+
+                        <materialDesign:PackIcon Kind="Cart"
+                                                 Width="50"
+                                                 Height="50"
+                                                 Background="Transparent"
+                                                 Margin="20,0,10,0"
+                                                 VerticalAlignment="Center"
+                                                 Foreground="#ffd940" />
+                    </StackPanel>
                 </Grid>
 
                 <!-- Phần nội dung frame -->
                 <Frame x:Name="mainFrame"
                        Grid.Row="1"
                        NavigationUIVisibility="Hidden">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Loaded">
-                            <i:InvokeCommandAction Command="{Binding LoadBuyBookPageML}"
-                                                   CommandParameter="{Binding ElementName=mainFrame}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
                 </Frame>
             </Grid>
         </Grid>

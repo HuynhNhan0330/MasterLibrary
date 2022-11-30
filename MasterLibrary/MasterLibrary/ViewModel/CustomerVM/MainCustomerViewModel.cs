@@ -7,11 +7,18 @@ using System.Collections.ObjectModel;
 using MasterLibrary.Models.DataProvider;
 using MasterLibrary.Utils;
 using MasterLibrary.ViewModel.CustomerVM.BuyBookVM;
+using MasterLibrary.Views.Customer.SettingPage;
+using System.Windows;
+using MasterLibrary.Views.Customer;
+using System.Linq;
+using MasterLibrary.Views.LoginWindow;
+using MasterLibrary.ViewModel.LoginVM;
 
 namespace MasterLibrary.ViewModel.CustomerVM
 {
     public partial class MainCustomerViewModel: BaseViewModel
     {
+        #region Thuộc tính
         private ObservableCollection<BookDTO> _ListBook;
         public ObservableCollection<BookDTO> ListBook
         {
@@ -47,15 +54,29 @@ namespace MasterLibrary.ViewModel.CustomerVM
             set { _SelectedItem = value; OnPropertyChanged(); }
         }
 
+        #endregion
+
+        #region ICommand
+        public ICommand FirstLoadML { get; set; }
+        public ICommand MaskNameML { get; set; }
+        public ICommand SelectedGenreML { get; set; }
+        public ICommand LoadBuyBookPageML { get; set; }
+        public ICommand TurnOnBuyBook { get; set; }
+        public ICommand LoadBookLocationPageML { get; set; }
+        public ICommand TurnOnBookLocation { get; set; }
+        public ICommand LoadSettingPageML { get; set; }
+        public ICommand TurnOnSetting { get; set; }
+        public ICommand LoadDetailBook { get; set; }
+        public ICommand SignOutML { get; set; }
+        public ICommand SortBookByMoney { get; set; }
+        public ICommand TurnOnAscending { get; set; }
+        public ICommand TurnOnDecreasing { get; set; }
+
+        #endregion
+
         public static Grid MaskName { get; set; }
         public static CustomerDTO CurrentCustomer { get; set; }
-
-        public ICommand FirstLoadML { get; set; }
-        public ICommand LoadBuyBookPageML { get; set; }
-        public ICommand LoadBookLocationPageML { get; set; }
-        public ICommand SelectedGenreML { get; set; }
-        public ICommand MaskNameML { get; set; }
-        public ICommand LoadDetailBook { get; set; }
+        public bool isAscending { get; set; }
 
         public MainCustomerViewModel()
         {
@@ -64,6 +85,7 @@ namespace MasterLibrary.ViewModel.CustomerVM
             {
                 ListBook1 = new ObservableCollection<BookDTO>(await BookServices.Ins.GetAllbook());
                 GenreBook = new ObservableCollection<string>(baseBook.ListTheLoai);
+                isAscending = true;
             });
 
             // Load trang mua sách
@@ -79,28 +101,92 @@ namespace MasterLibrary.ViewModel.CustomerVM
                 p.Content = new BookLocationPage();
             });
 
-            // Load thông tin theo thể loại
+            // Load trang cài đặt
+            LoadSettingPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            {
+                p.Content = new SettingPage();
+            });
+
+            // Lọc thông tin theo thể loại
             SelectedGenreML = new RelayCommand<object>((p) => { return true; }, async (p) =>
             {
                 await LoadMainListBox(1);
             });
 
+            // Load mặt nạ
             MaskNameML = new RelayCommand<Grid>((p) => { return true; }, (p) =>
             {
                 MaskName = p;
             });
 
+            // Mở window detail book
             LoadDetailBook = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 DetailBook w;
 
                 MaskName.Visibility = System.Windows.Visibility.Visible;
 
-                DetailBookVM.selectBook = SelectedItem;
+                DetailBookViewModel.selectBook = SelectedItem;
 
                 w = new DetailBook();
                 w.ShowDialog();
             });
+
+            // Bật button mua sách
+            TurnOnBuyBook = new RelayCommand<RadioButton>((p) => { return true; }, (p) =>
+            {
+                p.IsChecked = true;
+            });
+
+            // Bật button vị trí sách
+            TurnOnBookLocation = new RelayCommand<RadioButton>((p) => { return true; }, (p) =>
+            {
+                p.IsChecked = true;
+            });
+
+            // Bật button setting
+            TurnOnSetting = new RelayCommand<RadioButton>((p) => { return true; }, (p) =>
+            {
+                p.IsChecked = true;
+            });
+
+            // Đăng xuất
+            SignOutML = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                p.Hide();
+
+                LoginWindow w = new LoginWindow();
+                w.Show();
+
+                p.Close();
+            });
+
+            // Sắp xếp sách theo tiền
+            SortBookByMoney = new RelayCommand<MaterialDesignThemes.Wpf.PackIcon>((p) => { return true; }, async (p) =>
+            {
+                p.Visibility = Visibility.Collapsed;
+
+                await SortBook(isAscending);
+
+                if (isAscending) { isAscending = false; }
+                else { isAscending = true; }
+            });
+
+            // Bật sắp xếp tăng dần
+            TurnOnAscending = new RelayCommand<MaterialDesignThemes.Wpf.PackIcon>((p) => { return true; }, async (p) =>
+            {
+                p.Visibility = Visibility.Visible;
+            });
+
+            // Bật sắp xếp giảm dần
+            TurnOnDecreasing = new RelayCommand<MaterialDesignThemes.Wpf.PackIcon>((p) => { return true; }, async (p) =>
+            {
+                p.Visibility = Visibility.Visible;
+            });
+
+
         }
+
+        
     }
 }

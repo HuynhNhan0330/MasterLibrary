@@ -40,7 +40,11 @@ namespace MasterLibrary.Models.DataProvider
                                       where s.USERNAME == username && s.USERPASSWORD == password && s.IDROLE == 2
                                       select new CustomerDTO
                                       {
-                                          MAKH = s.MAKH
+                                          MAKH = s.MAKH,
+                                          TENKH= s.TENKH,
+                                          EMAIL= s.EMAIL,
+                                          USERNAME= s.USERNAME,
+                                          USERPASSWORD= s.USERPASSWORD,
                                       }).FirstOrDefaultAsync();
 
 

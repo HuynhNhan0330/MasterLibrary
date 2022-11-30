@@ -1,11 +1,10 @@
-﻿using System.Windows.Controls;
-using System.Windows.Input;
-using MasterLibrary.DTOs;
+﻿using MasterLibrary.DTOs;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using MasterLibrary.Models.DataProvider;
 using System;
 using System.Windows;
+using System.Linq;
 
 namespace MasterLibrary.ViewModel.CustomerVM
 {
@@ -60,6 +59,17 @@ namespace MasterLibrary.ViewModel.CustomerVM
 
                     ListBook = new ObservableCollection<BookDTO>(tmpListBook);
                 }
+            });
+        }
+
+        public async Task SortBook(bool ascending)
+        {
+            await Task.Run(() =>
+            {
+                ObservableCollection<BookDTO> tmpListBook = new ObservableCollection<BookDTO>(ListBook);
+
+                if (ascending) ListBook = new ObservableCollection<BookDTO>(tmpListBook.OrderBy(a => a.Gia));
+                else ListBook = new ObservableCollection<BookDTO>(tmpListBook.OrderByDescending(a => a.Gia));
             });
         }
     }
