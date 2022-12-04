@@ -26,18 +26,23 @@
             <i:InvokeCommandAction Command="{Binding FirstLoadML}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>-->
-    <Window.Clip>
+    
+    <!--Radius window-->
+    <!--<Window.Clip>
         <RectangleGeometry Rect="0,0,1300,700" RadiusX="10" RadiusY="10"></RectangleGeometry>
-    </Window.Clip>
+    </Window.Clip>-->
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+        
+        <!--Control bar-->
         <Grid Grid.Row="0">
             <uc:controlbar_uc Tag="{Binding Title, ElementName=MainAdminWD}"/>
         </Grid>
+        
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />

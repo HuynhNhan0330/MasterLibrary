@@ -26,9 +26,9 @@
             <i:InvokeCommandAction Command="{Binding FirstLoadML}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>-->
-    <Window.Clip>
-        <RectangleGeometry Rect="0,0,1300,700" RadiusX="10" RadiusY="10"></RectangleGeometry>
-    </Window.Clip>
+    <!--<Window.Clip>
+        <RectangleGeometry Rect="0,0,1300,700" RadiusX="10" RadiusY="10" x:Name="bogoc"></RectangleGeometry>
+    </Window.Clip>-->
 
     <Grid>
         <Grid.RowDefinitions>
