@@ -16,11 +16,14 @@
              Background="Transparent"
              FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="143*"/>
+            <ColumnDefinition Width="9*"/>
+        </Grid.ColumnDefinitions>
         <materialDesign:ColorZone x:Name="backGroum"
             Background="White"
             Padding="2"
-            CornerRadius="10 10 0 0"
-            Margin="0 2 0 0">
+            CornerRadius="10 10 0 0" Grid.ColumnSpan="2" VerticalAlignment="Center">
             <Grid>
                 <DockPanel>
                     <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
@@ -29,11 +32,11 @@
                     </StackPanel>
 
                     <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Background="Transparent">
-                        <Button 
-                            Command="{Binding minimizeWindowCommand}"
+                        <Button
+                            Command="{Binding closeWindowCommand}"
                             CommandParameter="{Binding ElementName=controlbarUC}"
-                            Width="20" Height="20" Background="#FF2BD655" Style="{StaticResource MaterialDesignFloatingActionButton}"
-                            ToolTip="Minimize" Margin="7 0 7 0">
+                            Width="20" Height="20" Background="#FFE17365" Style="{StaticResource MaterialDesignFloatingActionButton}"
+                            ToolTip="Close" Margin="7 0 7 0">
                         </Button>
 
                         <Button 
@@ -44,11 +47,11 @@
                             ToolTip="Maximize" Margin="7 0 7 0">
                         </Button>
 
-                        <Button
-                            Command="{Binding closeWindowCommand}"
+                        <Button 
+                            Command="{Binding minimizeWindowCommand}"
                             CommandParameter="{Binding ElementName=controlbarUC}"
-                            Width="20" Height="20" Background="#FFE17365" Style="{StaticResource MaterialDesignFloatingActionButton}"
-                            ToolTip="Close" Margin="7 0 7 0">
+                            Width="20" Height="20" Background="#FF2BD655" Style="{StaticResource MaterialDesignFloatingActionButton}"
+                            ToolTip="Minimize" Margin="7 0 7 0">
                         </Button>
                     </StackPanel>
                 </DockPanel>

@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MasterLibrary.Views.Admin"
+        xmlns:uc="clr-namespace:MasterLibrary.UserControlML"
         mc:Ignorable="d"
         Title="MainAdminWindow" Height="700" Width="1300"
+        Name="MainAdminWD"
         xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -16,16 +18,27 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStartupLocation="CenterScreen"
+        WindowStyle="none"
+        AllowsTransparency="True"
         DataContext="{StaticResource AdminVM}">
-
     <!--<i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding FirstLoadML}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>-->
+    <Window.Clip>
+        <RectangleGeometry Rect="0,0,1300,700" RadiusX="10" RadiusY="10"></RectangleGeometry>
+    </Window.Clip>
 
     <Grid>
-        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:controlbar_uc Tag="{Binding Title, ElementName=MainAdminWD}"/>
+        </Grid>
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="9*" />

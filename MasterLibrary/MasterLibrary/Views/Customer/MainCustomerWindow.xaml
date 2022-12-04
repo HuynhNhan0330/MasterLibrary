@@ -18,12 +18,17 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
         DataContext="{StaticResource CustomerVM}">
     <!--<i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding FirstLoadML}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>-->
+    <Window.Clip>
+        <RectangleGeometry Rect="0,0,1300,700" RadiusX="10" RadiusY="10"></RectangleGeometry>
+    </Window.Clip>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -32,7 +37,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <uc:controlbar_uc Tag="{Binding Title, ElementName=MainCus}" Background="#FFB29E84"></uc:controlbar_uc>
+            <uc:controlbar_uc Tag="{Binding Title, ElementName=MainCus}"/>
         </Grid>
         
         <Grid Grid.Row="1">
