@@ -15,11 +15,11 @@ namespace MasterLibrary.ViewModel
         public ICommand closeWindowCommand { get; set; }
         public ICommand maximizeWindowCommand { get; set; }
         public ICommand minimizeWindowCommand { get; set; }
-
+        public ICommand MouseMoveWindowCommand { get; set; }
 
         public ControlBarViewModel()
         {
-            closeWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) => { 
+            closeWindowCommand = new RelayCommand<UserControl>((p) => { return p != null; }, (p) => { 
                 FrameworkElement window = getWindowParent(p);
                 var w = (window as Window);
                 if (w != null)
@@ -29,7 +29,7 @@ namespace MasterLibrary.ViewModel
                 }
             );
 
-            maximizeWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) => {
+            maximizeWindowCommand = new RelayCommand<UserControl>((p) => { return p != null; }, (p) => {
                 FrameworkElement window = getWindowParent(p);
                 var w = (window as Window);
                 if (w != null)
@@ -46,7 +46,7 @@ namespace MasterLibrary.ViewModel
             }
             );
 
-            minimizeWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) => {
+            minimizeWindowCommand = new RelayCommand<UserControl>((p) => { return p != null; }, (p) => {
                 FrameworkElement window = getWindowParent(p);
                 var w = (window as Window);
                 if (w != null)
@@ -59,6 +59,17 @@ namespace MasterLibrary.ViewModel
                     {
                         w.WindowState = WindowState.Maximized;
                     }
+                }
+            }
+            );
+
+            MouseMoveWindowCommand = new RelayCommand<UserControl>((p) => { return p != null; }, (p) =>
+            {
+                FrameworkElement window = getWindowParent(p);
+                var w = (window as Window);
+                if (w != null)
+                {
+                    w.DragMove();
                 }
             }
             );

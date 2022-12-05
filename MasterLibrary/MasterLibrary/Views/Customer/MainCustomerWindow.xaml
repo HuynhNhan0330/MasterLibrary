@@ -27,7 +27,11 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>-->
     <!--<Window.Clip>
+<<<<<<< HEAD
         <RectangleGeometry Rect="0,0,1300,700" RadiusX="10" RadiusY="10"></RectangleGeometry>
+=======
+        <RectangleGeometry Rect="0,0,1300,700" RadiusX="10" RadiusY="10" x:Name="bogoc"></RectangleGeometry>
+>>>>>>> 71d2aec22df228fbd6dba37095576fd3a37c40ac
     </Window.Clip>-->
 
     <Grid>
