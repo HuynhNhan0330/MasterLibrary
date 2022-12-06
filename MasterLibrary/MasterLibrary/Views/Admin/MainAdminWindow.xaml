@@ -26,11 +26,6 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>-->
     
-    <!--Radius window-->
-    <!--<Window.Clip>
-        <RectangleGeometry Rect="0,0,1300,700" RadiusX="10" RadiusY="10" x:Name="cornerRadius"></RectangleGeometry>
-    </Window.Clip>-->
-    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>

@@ -105,6 +105,12 @@
     <Reference Include="JetBrains.Annotations, Version=10.3.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
       <HintPath>..\packages\JetBrains.Annotations.10.3.0\lib\net\JetBrains.Annotations.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=2.0.9.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.2.0.9\lib\net462\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -422,6 +428,10 @@
       <DependentUpon>MasterlibraryModels.edmx</DependentUpon>
       <LastGenOutput>MasterlibraryModels.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Images\image_2022-12-06_11-23-02.png" />
+    <Resource Include="Resources\Images\Invest.png" />
+    <Resource Include="Resources\Images\Income.png" />
+    <Resource Include="Resources\Images\Interest.png" />
     <Resource Include="Resources\Images\logo.png" />
     <Resource Include="Resources\Images\Logo.jpg" />
   </ItemGroup>
