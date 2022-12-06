@@ -156,7 +156,7 @@ namespace MasterLibrary.Models.DataProvider
             {
                 using (var context = new MasterlibraryEntities())
                 {
-                    var cus = context.KHACHHANGs.SingleOrDefault(b => b.MAKH == _makh);
+                    var cus = context.KHACHHANGs.SingleOrDefault(s => s.MAKH == _makh);
 
                     if (cus == null) return false;
 
@@ -167,6 +167,28 @@ namespace MasterLibrary.Models.DataProvider
                 }
             }
             catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> ChangePassword(int _makh, string _newpassword, string _oldpassword)
+        {
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    var cus = context.KHACHHANGs.SingleOrDefault(s => s.MAKH == _makh && s.USERPASSWORD == _oldpassword);
+
+                    if (cus == null) return false;
+
+                    cus.USERPASSWORD = _newpassword;
+
+                    context.SaveChanges();
+                    return true;
+                }
+            }
+            catch(Exception)
             {
                 return false;
             }

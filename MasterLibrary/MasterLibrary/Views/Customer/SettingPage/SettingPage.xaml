@@ -26,29 +26,31 @@
                 <ColumnDefinition Width="2*"></ColumnDefinition>
                 <ColumnDefinition Width="3*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <!--<materialDesign:Card
+            
+            <!-- Bên trái -->
+            <materialDesign:Card
+                    Grid.Row="0"
                     Background="#FFFFFFFF"
-                    HorizontalAlignment="Left" 
-                    Width="300"
-                    Height="300" 
-                    Margin="50,0,0,30" 
-                    VerticalAlignment="Bottom">
+                    HorizontalAlignment="Center" 
+                    Width="400"
+                    Height="500">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="3*"/>
                     </Grid.RowDefinitions>
+                    
                     <TextBlock
                             Text="Đổi mật khẩu"
                             HorizontalAlignment="Left"
-                            Margin="30,20,0,0" 
                             TextWrapping="Wrap" 
-                            VerticalAlignment="Top" 
-                            FontSize="24" 
-                            Foreground="{DynamicResource Primary}" 
+                            VerticalAlignment="Center" 
+                            FontSize="40" 
+                            Margin="15,0,0,0"
+                            Foreground="#a47100" 
                             FontWeight="Bold"/>
 
                     <materialDesign:PackIcon  
@@ -57,73 +59,78 @@
                             Height="50" 
                             VerticalAlignment="Center" 
                             Cursor="Hand" 
-                            Foreground="{StaticResource Gray2}" 
+                            Foreground="Black"
                             HorizontalAlignment="Right" 
                             Margin="0,0,40,0" />
-                    
-                    <PasswordBox x:Name="FloatingNewPassChange"
-                                 Grid.Row="1"
+
+                    <PasswordBox x:Name="FloatingCurrentPassword"
+                                Grid.Row="1"
                                 materialDesign:HintAssist.Hint="Mật khẩu hiện tại"
                                 materialDesign:TextFieldAssist.HasClearButton="True"
                                 Password=""
                                 Foreground="Black"
                                 BorderBrush="LightGray"
-                                FontSize="15"
-                                Width="200"
-                                Margin="0,-10,0,0"
-                                Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}" Height="57">
+                                FontSize="19"
+                                Width="300"
+                                VerticalAlignment="Center" 
+                                Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="PasswordChanged">
-                                <i:InvokeCommandAction Command="{Binding NewpassChanged}"
-                                               CommandParameter="{Binding ElementName=FloatingNewPassChange}" />
+                                <i:InvokeCommandAction Command="{Binding CurrentPasswordChange}"
+                                                       CommandParameter="{Binding ElementName=FloatingCurrentPassword}" />
+                                <i:InvokeCommandAction Command="{Binding EnableBtnSavePass}"
+                                                       CommandParameter="{Binding ElementName=btnSavePassword}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </PasswordBox>
 
-                    <PasswordBox 
-                                 Grid.Row="2"
-                                materialDesign:HintAssist.Hint="Mật khẩu hiện tại"
+                    <PasswordBox x:Name="FloatingNewPassword"
+                                Grid.Row="2"
+                                materialDesign:HintAssist.Hint="Mật khẩu mới"
                                 materialDesign:TextFieldAssist.HasClearButton="True"
                                 Password=""
                                 Foreground="Black"
                                 BorderBrush="LightGray"
-                                FontSize="15"
-                                Width="200"
-                                Margin="0,-10,0,0"
-                                Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}" Height="57">
+                                FontSize="19"
+                                Width="300"
+                                VerticalAlignment="Center" 
+                                Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="PasswordChanged">
-                                <i:InvokeCommandAction Command="{Binding NewpassChanged}"
-                                               CommandParameter="{Binding ElementName=FloatingNewPassChange}" />
+                                <i:InvokeCommandAction Command="{Binding NewPasswordChange}"
+                                                       CommandParameter="{Binding ElementName=FloatingNewPassword}" />
+                                <i:InvokeCommandAction Command="{Binding EnableBtnSavePass}"
+                                                       CommandParameter="{Binding ElementName=btnSavePassword}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </PasswordBox>
 
-                    <PasswordBox 
-                                 Grid.Row="3"
-                                materialDesign:HintAssist.Hint="Mật khẩu hiện tại"
+                    <PasswordBox x:Name="FloatingConfirmNewPassword"
+                                Grid.Row="3"
+                                materialDesign:HintAssist.Hint="Xác nhận mật khẩu mới"
                                 materialDesign:TextFieldAssist.HasClearButton="True"
                                 Password=""
                                 Foreground="Black"
                                 BorderBrush="LightGray"
-                                FontSize="15"
-                                Width="200"
-                                Margin="0,-10,0,0"
-                                Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}" Height="57">
+                                FontSize="19"
+                                Width="300"
+                                VerticalAlignment="Center" 
+                                Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="PasswordChanged">
-                                <i:InvokeCommandAction Command="{Binding NewpassChanged}"
-                                               CommandParameter="{Binding ElementName=FloatingNewPassChange}" />
+                                <i:InvokeCommandAction Command="{Binding ConfirmNewPasswordChange}"
+                                                       CommandParameter="{Binding ElementName=FloatingConfirmNewPassword}" />
+                                <i:InvokeCommandAction Command="{Binding EnableBtnSavePass}"
+                                                       CommandParameter="{Binding ElementName=btnSavePassword}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </PasswordBox>
+
 
                     <Button
                             Grid.Row="4"
                             x:Name="btnSavePassword"
-                            Command="{Binding S_SaveNewPasswordCommand}"
-                            CommandParameter="{Binding ElementName=wdHome}"
-                            Style="{StaticResource MyGreenButtonStyle}"
+                            Command="{Binding SaveNewPasswordCommand}"
                             Height="40" 
                             Width="120"
                             materialDesign:ButtonAssist.CornerRadius="2"
@@ -133,13 +140,14 @@
                             FocusVisualStyle="{x:Null}"
                             Content="Lưu" 
                             FontSize="20" 
-                            VerticalAlignment="Bottom"
+                            VerticalAlignment="Center"
                             Padding="0" 
                             IsEnabled="False"/>
                     
                 </Grid>
-            </materialDesign:Card>-->
-
+            </materialDesign:Card>
+            
+            <!-- Bên phải -->
             <materialDesign:Card
                     Grid.Column="1"
                     Background="#FFFFFFFF"
@@ -326,7 +334,6 @@
                     </Grid>
 
                     <Button Grid.Row="4"
-                            x:Name="btnSavePassword"
                             Height="50" 
                             Width="140"
                             materialDesign:ButtonAssist.CornerRadius="2"

@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
@@ -45,11 +46,38 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
             get { return _Email; }
             set { _Email = value; OnPropertyChanged(); }
         }
+
+        private string _CurrentPassword;
+        public string CurrentPassword
+        {
+            get { return _CurrentPassword; }
+            set { _CurrentPassword = value; OnPropertyChanged(); }
+        }
+
+        private string _NewPassword;
+        public string NewPassword
+        {
+            get { return _NewPassword; }
+            set { _NewPassword = value; OnPropertyChanged(); }
+        }
+
+        private string _ConfirmNewPassword;
+        public string ConfirmNewPassword
+        {
+            get { return _ConfirmNewPassword; }
+            set { _ConfirmNewPassword = value; OnPropertyChanged(); }
+        }
+
         #endregion
 
         #region Icommand
         public ICommand FirstLoadML { get; set; }
         public ICommand UpdateInfo { get; set; }
+        public ICommand CurrentPasswordChange { get; set; }
+        public ICommand NewPasswordChange { get; set; }
+        public ICommand ConfirmNewPasswordChange { get; set; }
+        public ICommand EnableBtnSavePass { get; set; }
+        public ICommand SaveNewPasswordCommand { get; set; }
 
         #endregion
 
@@ -95,6 +123,56 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
                 else
                 {
                     MessageBoxML ms = new MessageBoxML("Lỗi", "Xảy ra lỗi khi thực hiện thao tác", MessageType.Error, MessageButtons.OK);
+                    ms.ShowDialog();
+                }
+            });
+
+            CurrentPasswordChange = new RelayCommand<PasswordBox>((p) => { return true; }, (p) =>
+            {
+                CurrentPassword = p.Password;
+            });
+
+            NewPasswordChange = new RelayCommand<PasswordBox>((p) => { return true; }, (p) =>
+            {
+                NewPassword = p.Password;
+            });
+
+            ConfirmNewPasswordChange = new RelayCommand<PasswordBox>((p) => { return true; }, (p) =>
+            {
+                ConfirmNewPassword = p.Password;
+            });
+
+            EnableBtnSavePass = new RelayCommand<Button>((p) => { return true; }, (p) =>
+            {
+                if (string.IsNullOrEmpty(CurrentPassword) ||
+                    string.IsNullOrEmpty(NewPassword) ||
+                    string.IsNullOrEmpty(ConfirmNewPassword))
+                {
+                    p.IsEnabled= false;
+                }
+                else
+                {
+                    p.IsEnabled= true;
+                }
+            });
+
+            SaveNewPasswordCommand = new RelayCommand<object>((p) => { return true; }, async (p) =>
+            {
+                if (NewPassword != ConfirmNewPassword)
+                {
+                    MessageBoxML ms = new MessageBoxML("Thông báo", "Mật khẩu xác nhận không chính xác", MessageType.Error, MessageButtons.OK);
+                    ms.ShowDialog();
+                    return;
+                }
+
+                if (await Task<bool>.Run(() => CustormerServices.Ins.ChangePassword(MaKH, NewPassword, CurrentPassword)))
+                {
+                    MessageBoxML ms = new MessageBoxML("Thông báo", "Đổi mật khẩu thành công", MessageType.Accept, MessageButtons.OK);
+                    ms.ShowDialog();
+                }
+                else
+                {
+                    MessageBoxML ms = new MessageBoxML("Thông báo", "Mật khẩu hiện tại không chính xác", MessageType.Error, MessageButtons.OK);
                     ms.ShowDialog();
                 }
             });
