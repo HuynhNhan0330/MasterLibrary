@@ -47,8 +47,6 @@ namespace MasterLibrary.Models.DataProvider
                                           USERPASSWORD= s.USERPASSWORD,
                                       }).FirstOrDefaultAsync();
 
-
-
                     if (cus == null)
                     {
                         return (false, "Sai tài khoản hoặc mật khẩu", null);
@@ -91,6 +89,42 @@ namespace MasterLibrary.Models.DataProvider
                 context.SaveChanges();
                 MessageBox.Show("Đăng ký thành công!");
             }    
-        }    
+        }
+        
+        //public async Task <CustomerDTO> Find(int MaKH)
+        //{
+        //    try
+        //    {
+        //        using (var context = new MasterlibraryEntities())
+        //        {
+        //            // lây thông tin nếu tài khoản, mật khẩu đúng
+        //            var cus = await (from s in context.KHACHHANGs
+        //                             where s.USERNAME == username && s.USERPASSWORD == password && s.IDROLE == 2
+        //                             select new CustomerDTO
+        //                             {
+        //                                 MAKH = s.MAKH,
+        //                                 TENKH = s.TENKH,
+        //                                 EMAIL = s.EMAIL,
+        //                                 USERNAME = s.USERNAME,
+        //                                 USERPASSWORD = s.USERPASSWORD,
+        //                             }).FirstOrDefaultAsync();
+
+        //            if (cus == null)
+        //            {
+        //                return (false, "Sai tài khoản hoặc mật khẩu", null);
+        //            }
+        //            return (true, "", cus);
+        //        }
+
+        //    }
+        //    catch (System.Data.Entity.Core.EntityException)
+        //    {
+        //        return (false, "Mất kết nối cơ sở dữ liệu", null);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return (false, "Lỗi hệ thống", null);
+        //    }
+        //}
     }
 }

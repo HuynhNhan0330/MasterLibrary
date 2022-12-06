@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="26b851226fc143ffa3de16190aa83242" Name="Diagram1" ZoomLevel="100">
+      <Diagram DiagramId="26b851226fc143ffa3de16190aa83242" Name="Diagram1" ZoomLevel="85">
         <EntityTypeShape EntityType="masterlibraryModel.CTHD" Width="1.5" PointX="5.25" PointY="2" />
-        <EntityTypeShape EntityType="masterlibraryModel.DAYKE" Width="1.5" PointX="0.75" PointY="6.125" />
+        <EntityTypeShape EntityType="masterlibraryModel.DAYKE" Width="1.5" PointX="0.75" PointY="2.125" />
         <EntityTypeShape EntityType="masterlibraryModel.HOADON" Width="1.5" PointX="3" PointY="9" />
         <EntityTypeShape EntityType="masterlibraryModel.KHACHHANG" Width="1.5" PointX="0.75" PointY="8.75" />
         <EntityTypeShape EntityType="masterlibraryModel.SACH" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="masterlibraryModel.TANG" Width="1.5" PointX="0.75" PointY="2.125" />
+        <EntityTypeShape EntityType="masterlibraryModel.TANG" Width="1.5" PointX="0.75" PointY="6.125" />
         <EntityTypeShape EntityType="masterlibraryModel.USERROLE" Width="1.5" PointX="1.5" PointY="12.125" />
         <AssociationConnector Association="masterlibraryModel.FK__CTHD__MAHD__72C60C4A" />
         <AssociationConnector Association="masterlibraryModel.FK__CTHD__MASACH__73BA3083" />

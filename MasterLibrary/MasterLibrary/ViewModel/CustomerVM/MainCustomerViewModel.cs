@@ -13,6 +13,7 @@ using MasterLibrary.Views.Customer;
 using System.Linq;
 using MasterLibrary.Views.LoginWindow;
 using MasterLibrary.ViewModel.LoginVM;
+using MasterLibrary.Views.MessageBoxML;
 
 namespace MasterLibrary.ViewModel.CustomerVM
 {
@@ -69,14 +70,16 @@ namespace MasterLibrary.ViewModel.CustomerVM
         public ICommand LoadDetailBook { get; set; }
         public ICommand SignOutML { get; set; }
         public ICommand SortBookByMoney { get; set; }
-        public ICommand TurnOnAscending { get; set; }
-        public ICommand TurnOnDecreasing { get; set; }
+        public ICommand LoadIconAscending { get; set; }
+        public ICommand LoadIconDecreasing { get; set; }
 
         #endregion
 
         public static Grid MaskName { get; set; }
         public static CustomerDTO CurrentCustomer { get; set; }
         public bool isAscending { get; set; }
+        public MaterialDesignThemes.Wpf.PackIcon iconAscending { get; set; }
+        public MaterialDesignThemes.Wpf.PackIcon iconDecreasing { get; set; }
 
         public MainCustomerViewModel()
         {
@@ -85,7 +88,7 @@ namespace MasterLibrary.ViewModel.CustomerVM
             {
                 ListBook1 = new ObservableCollection<BookDTO>(await BookServices.Ins.GetAllbook());
                 GenreBook = new ObservableCollection<string>(baseBook.ListTheLoai);
-                isAscending = true;
+                isAscending = false;
             });
 
             // Load trang mua sách
@@ -164,27 +167,35 @@ namespace MasterLibrary.ViewModel.CustomerVM
             // Sắp xếp sách theo tiền
             SortBookByMoney = new RelayCommand<MaterialDesignThemes.Wpf.PackIcon>((p) => { return true; }, async (p) =>
             {
-                p.Visibility = Visibility.Collapsed;
-
                 await SortBook(isAscending);
 
-                if (isAscending) { isAscending = false; }
-                else { isAscending = true; }
+                if (isAscending)
+                {
+                    iconDecreasing.Visibility = Visibility.Collapsed;
+                    iconAscending.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    iconDecreasing.Visibility = Visibility.Visible;
+                    iconAscending.Visibility = Visibility.Collapsed;
+                }
+
+                isAscending = !isAscending;
             });
 
-            // Bật sắp xếp tăng dần
-            TurnOnAscending = new RelayCommand<MaterialDesignThemes.Wpf.PackIcon>((p) => { return true; }, async (p) =>
+            // Lưu lại icon tăng dần
+            LoadIconAscending = new RelayCommand<MaterialDesignThemes.Wpf.PackIcon>((p) => { return true; }, async (p) =>
             {
+                iconAscending = p;
                 p.Visibility = Visibility.Visible;
             });
 
-            // Bật sắp xếp giảm dần
-            TurnOnDecreasing = new RelayCommand<MaterialDesignThemes.Wpf.PackIcon>((p) => { return true; }, async (p) =>
+            // Lưu lại icon giảm dần
+            LoadIconDecreasing = new RelayCommand<MaterialDesignThemes.Wpf.PackIcon>((p) => { return true; }, async (p) =>
             {
-                p.Visibility = Visibility.Visible;
+                iconDecreasing = p;
+                p.Visibility = Visibility.Collapsed;
             });
-
-
         }
 
         

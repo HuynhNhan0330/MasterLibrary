@@ -9,6 +9,8 @@
         Name="MainCustomer"
         xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:hw="http://schemas.hpod9.com/haley/wpf"
+        xmlns:hm="http://schemas.hpod9.com/haley/mvvm"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -212,7 +214,6 @@
                       Background="#b29e84">
                     <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Right">
-
                         <TextBlock VerticalAlignment="Center"
                                    x:Name="_CustomerName"
                                    Height="40"
@@ -237,13 +238,20 @@
                             </i:Interaction.Triggers>
                         </materialDesign:PackIcon>
 
-                        <materialDesign:PackIcon Kind="Cart"
-                                                 Width="50"
-                                                 Height="50"
+                        <!--<materialDesign:PackIcon Kind="Cart"
+                                                 Width="40"
+                                                 Height="40"
                                                  Background="Transparent"
-                                                 Margin="20,0,10,0"
+                                                 Margin="20,0,20,0"
                                                  VerticalAlignment="Center"
-                                                 Foreground="#ffd940" />
+                                                 Foreground="#ffd940" >
+                            <hw:BadgeSetter.Badge>
+                                <hw:Badge Label = "99+" 
+                                          Background="#ff1616" 
+                                          Foreground="White" 
+                                          MarginY="5"/>
+                            </hw:BadgeSetter.Badge>
+                        </materialDesign:PackIcon>-->
                     </StackPanel>
                 </Grid>
 

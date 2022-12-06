@@ -15,6 +15,10 @@
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding MaskNameML}"
                                    CommandParameter="{Binding ElementName=ShadowMask}" />
+            <i:InvokeCommandAction Command="{Binding LoadIconAscending}"
+                                   CommandParameter="{Binding ElementName=IconAscending}" />
+            <i:InvokeCommandAction Command="{Binding LoadIconDecreasing}"
+                                   CommandParameter="{Binding ElementName=IconDecreasing}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
@@ -96,60 +100,41 @@
 
                         <StackPanel Orientation="Horizontal"
                                     Margin="20,7,0,0">
-                            <materialDesign:PackIcon Kind="CurrencyUsd"
-                                                     Width="25"
+                            <Label
+                                Cursor="Hand"
+                                Height="35"
+                                Width="35">
+                                <materialDesign:PackIcon Kind="CurrencyUsd"
+                                                     Width="35"
                                                      Height="35"
-                                                     Foreground="Black"
+                                                     FontWeight="Bold"
+                                                     Foreground="Green"
                                                      VerticalAlignment="Center"/>
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                        <i:InvokeCommandAction Command="{Binding SortBookByMoney}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Label>
 
-                            <Border Cursor="Hand"
+                            <StackPanel Cursor="Hand"
                                    VerticalAlignment="Center">
                                 <materialDesign:PackIcon Kind="ArrowDownThin"
-                                                         Width="35"
-                                                         Height="35"
+                                                         Width="30"
+                                                         Height="30"
                                                          Foreground="Black"
-                                                         VerticalAlignment="Center"
-                                                         x:Name="IconAscending"/>
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="MouseLeftButtonDown">
-                                        <i:InvokeCommandAction Command="{Binding SortBookByMoney}"
-                                                               CommandParameter="{Binding ElementName=IconAscending}"/>
-                                        <i:InvokeCommandAction Command="{Binding TurnOnDecreasing}"
-                                                               CommandParameter="{Binding ElementName=IconDecreasing}"/>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </Border>
+                                                         x:Name="IconDecreasing"/>
+                            </StackPanel>
 
-                            <Border Cursor="Hand"
+                            <StackPanel Cursor="Hand"
                                    VerticalAlignment="Center">
                                 <materialDesign:PackIcon Kind="ArrowUpThin"
-                                                         Width="35"
-                                                         Height="35"
+                                                         Width="30"
+                                                         Height="30"
                                                          Foreground="Black"
-                                                         VerticalAlignment="Center"
-                                                         x:Name="IconDecreasing"
-                                                         Visibility="Collapsed"/>
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="MouseLeftButtonDown">
-                                        <i:InvokeCommandAction Command="{Binding SortBookByMoney}"
-                                                               CommandParameter="{Binding ElementName=IconDecreasing}"/>
-                                        <i:InvokeCommandAction Command="{Binding TurnOnAscending}"
-                                                               CommandParameter="{Binding ElementName=IconAscending}"/>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </Border>
+                                                         x:Name="IconAscending"/>
+                            </StackPanel>
                         </StackPanel>
-
-                        <!--<Grid>
-                            <materialDesign:PackIcon Kind="Filter"
-                                                     x:Name="ass"
-                                                     Width="25"
-                                                     Height="35"
-                                                     Foreground="Black"
-                                                     VerticalAlignment="Bottom"/>
-                        </Grid>-->
-
-
                     </StackPanel>
                 </Grid>
             </materialDesign:ColorZone>
@@ -253,7 +238,6 @@
                                                Padding="0,0,0,15"/>
                                     </StackPanel>
                                 </StackPanel>
-
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="MouseUp">
                                         <i:InvokeCommandAction Command="{Binding ElementName=MainListBox, Path=DataContext.LoadDetailBook}" />

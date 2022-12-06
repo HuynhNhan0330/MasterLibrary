@@ -89,10 +89,10 @@ namespace MasterLibrary.ViewModel.CustomerVM.BuyBookVM
             });
 
             // Thêm vào giỏ hàng
-            AddCart = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                MessageBox.Show("AddCart");
-            });
+            //AddCart = new RelayCommand<object>((p) => { return true; }, (p) =>
+            //{
+            //    MessageBox.Show("AddCart");
+            //});
 
             // Mua ngay
             BuyIt = new RelayCommand<object>((p) => { return true; }, (p) =>
@@ -113,7 +113,6 @@ namespace MasterLibrary.ViewModel.CustomerVM.BuyBookVM
                 TotalTien = Quantity * selectBook.Gia;
                 TotalTienStr = Helper.FormatVNMoney(TotalTien);
             });
-
         }
     }
 }

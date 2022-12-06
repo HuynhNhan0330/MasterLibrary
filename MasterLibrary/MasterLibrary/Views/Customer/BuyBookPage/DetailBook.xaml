@@ -144,7 +144,7 @@
                    
                     <StackPanel Margin="0,5,0,0">
                         <StackPanel Orientation="Horizontal">
-                            <Border CornerRadius="15"
+                            <!--<Border CornerRadius="15"
                                     BorderThickness="5"
                                     Cursor="Hand"
                                     Background="#887666">
@@ -173,21 +173,22 @@
                                         <i:InvokeCommandAction Command="{Binding AddCart}"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
-                            </Border>
+                            </Border>-->
 
                             <Border CornerRadius="15"
                                     BorderThickness="5"
                                     Cursor="Hand"
                                     Background="#391c00"
-                                    Margin="10,0,0,0">
+                                    Margin="10,0">
                                 <StackPanel 
                                     Orientation="Horizontal"
                                     Height="50"
-                                    Width="116"
+                                    Width="300"
                                     Margin="5,0,0,0">
                                     <materialDesign:PackIcon Kind="Shopping"
                                                      Width="35"
-                                                     Height="29"
+                                                     Height="32"
+                                                     Margin="90,0,0,0"
                                                      VerticalAlignment="Center"
                                                      Foreground="White"/>
 
@@ -195,9 +196,10 @@
                                                VerticalAlignment="Center"
                                                TextAlignment="Left"
                                                Text="Mua ngay"
+                                               Margin="5,0,0,0"
                                                Foreground="White"
-                                               FontSize="16"/>
-
+                                               FontWeight="Bold"
+                                               FontSize="18"/>
                                 </StackPanel>
 
                                 <i:Interaction.Triggers>
