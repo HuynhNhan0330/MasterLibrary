@@ -8,6 +8,7 @@ using MasterLibrary.DTOs;
 using System.Data.Entity;
 using MasterLibrary.Views.LoginWindow;
 using System.Windows;
+using MasterLibrary.Views.MessageBoxML;
 
 namespace MasterLibrary.Models.DataProvider
 {
@@ -90,41 +91,85 @@ namespace MasterLibrary.Models.DataProvider
                 MessageBox.Show("Đăng ký thành công!");
             }    
         }
-        
-        //public async Task <CustomerDTO> Find(int MaKH)
-        //{
-        //    try
-        //    {
-        //        using (var context = new MasterlibraryEntities())
-        //        {
-        //            // lây thông tin nếu tài khoản, mật khẩu đúng
-        //            var cus = await (from s in context.KHACHHANGs
-        //                             where s.USERNAME == username && s.USERPASSWORD == password && s.IDROLE == 2
-        //                             select new CustomerDTO
-        //                             {
-        //                                 MAKH = s.MAKH,
-        //                                 TENKH = s.TENKH,
-        //                                 EMAIL = s.EMAIL,
-        //                                 USERNAME = s.USERNAME,
-        //                                 USERPASSWORD = s.USERPASSWORD,
-        //                             }).FirstOrDefaultAsync();
 
-        //            if (cus == null)
-        //            {
-        //                return (false, "Sai tài khoản hoặc mật khẩu", null);
-        //            }
-        //            return (true, "", cus);
-        //        }
+        public async Task<CustomerDTO> FindCustomer(int MaKH)
+        {
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    // Tìm khách hàng có mã khách hàng (MaKH)
+                    var cus = await (from s in context.KHACHHANGs
+                                     where s.MAKH == MaKH
+                                     select new CustomerDTO
+                                     {
+                                         MAKH = s.MAKH,
+                                         TENKH = s.TENKH,
+                                         EMAIL = s.EMAIL,
+                                         USERNAME = s.USERNAME,
+                                         USERPASSWORD = s.USERPASSWORD,
+                                     }).FirstOrDefaultAsync();
 
-        //    }
-        //    catch (System.Data.Entity.Core.EntityException)
-        //    {
-        //        return (false, "Mất kết nối cơ sở dữ liệu", null);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return (false, "Lỗi hệ thống", null);
-        //    }
-        //}
+                    return cus;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBoxML ms = new MessageBoxML("Lỗi", "Không tìm thấy khách hàng", MessageType.Error, MessageButtons.OK);
+                ms.ShowDialog();
+                return null;
+            }
+        }
+
+        public async Task<bool> CheckEmailCustormer(string _email, int _makh)
+        {
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    // Tìm khách hàng có mã khách hàng (MaKH)
+                    var cus = await (from s in context.KHACHHANGs
+                                     where s.EMAIL == _email && s.MAKH != _makh
+                                     select new CustomerDTO
+                                     {
+                                         MAKH = s.MAKH,
+                                         TENKH = s.TENKH,
+                                         EMAIL = s.EMAIL,
+                                         USERNAME = s.USERNAME,
+                                         USERPASSWORD = s.USERPASSWORD,
+                                     }).FirstOrDefaultAsync();
+                    if (cus == null) return false;
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBoxML ms = new MessageBoxML("Lỗi", "Xảy ra lỗi khi thực hiện thao tác", MessageType.Error, MessageButtons.OK);
+                ms.ShowDialog();
+                return true;
+            }
+        }
+
+        public async Task<bool> updateCustomer(int _makh, string _tenkh, string _email)
+        {
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    var cus = context.KHACHHANGs.SingleOrDefault(b => b.MAKH == _makh);
+
+                    if (cus == null) return false;
+
+                    cus.TENKH = _tenkh;
+                    cus.EMAIL = _email;
+                    context.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

@@ -325,11 +325,8 @@
                         </TextBox>
                     </Grid>
 
-                    <Button
-                            Grid.Row="4"
+                    <Button Grid.Row="4"
                             x:Name="btnSavePassword"
-                            Command="{Binding S_SaveNewPasswordCommand}"
-                            CommandParameter="{Binding ElementName=wdHome}"
                             Height="50" 
                             Width="140"
                             materialDesign:ButtonAssist.CornerRadius="2"
@@ -340,6 +337,7 @@
                             Content="Lưu" 
                             FontSize="25" 
                             VerticalAlignment="Center"
+                            Command="{Binding UpdateInfo}"
                             Padding="0"/>
                 </Grid>
             </materialDesign:Card>

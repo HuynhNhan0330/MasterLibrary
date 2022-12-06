@@ -197,7 +197,5 @@ namespace MasterLibrary.ViewModel.CustomerVM
                 p.Visibility = Visibility.Collapsed;
             });
         }
-
-        
     }
 }
