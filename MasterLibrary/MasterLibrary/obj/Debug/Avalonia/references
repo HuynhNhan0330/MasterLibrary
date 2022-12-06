@@ -1,51 +1,53 @@
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Animation.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Base.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Controls.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.DesignerSupport.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.DesktopRuntime.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Dialogs.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Input.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Interactivity.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Layout.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Markup.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Markup.Xaml.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.MicroCom.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.OpenGL.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\Avalonia.Remote.Protocol.0.10.18\lib\netstandard2.0\Avalonia.Remote.Protocol.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Styling.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Themes.Default.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Themes.Fluent.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Visuals.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\JetBrains.Annotations.10.3.0\lib\net\JetBrains.Annotations.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\MaterialDesignColors.2.0.9\lib\net462\MaterialDesignColors.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\MaterialDesignThemes.4.6.1\lib\net462\MaterialDesignThemes.Wpf.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Animation.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Base.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Controls.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.DesignerSupport.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.DesktopRuntime.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Dialogs.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Input.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Interactivity.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Layout.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Markup.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Markup.Xaml.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.MicroCom.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.OpenGL.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\Avalonia.Remote.Protocol.0.10.18\lib\netstandard2.0\Avalonia.Remote.Protocol.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Styling.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Themes.Default.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Themes.Fluent.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\Avalonia.0.10.18\lib\net461\Avalonia.Visuals.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\JetBrains.Annotations.10.3.0\lib\net\JetBrains.Annotations.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\MaterialDesignColors.2.0.9\lib\net462\MaterialDesignColors.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\MaterialDesignThemes.4.6.1\lib\net462\MaterialDesignThemes.Wpf.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Microsoft.CSharp.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\mscorlib.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\PresentationCore.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\PresentationFramework.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.ComponentModel.DataAnnotations.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Core.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Data.DataSetExtensions.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Data.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Net.Http.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Numerics.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\System.Reactive.5.0.0\lib\netstandard2.0\System.Reactive.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\System.Runtime.CompilerServices.Unsafe.4.6.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\System.Reactive.5.0.0\lib\netstandard2.0\System.Reactive.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\System.Runtime.CompilerServices.Unsafe.4.6.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Runtime.Serialization.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Security.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll
+D:\UIT\ML\MasterLibrary\MasterLibrary\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xaml.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.Linq.dll

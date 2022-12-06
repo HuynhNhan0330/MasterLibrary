@@ -111,6 +111,7 @@
                 <StackPanel HorizontalAlignment="Right"
                             Margin="10,0,0,0">
                     <Button Content="Đăng nhập"
+                                IsDefault="True"
                                 Width="90"
                                 x:Name="btnLogin"
                                 Padding="0,0,0,5"

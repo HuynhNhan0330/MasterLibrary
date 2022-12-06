@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\
+D:\UIT\ML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\
 MasterLibrary
 none
 false
 DEBUG;TRACE
-D:\UIT\projectUIT\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml
+D:\UIT\ML\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml
 161781320280
 2-1465087467
 531540390877
-153660579569
+155427829891
 MainWindow.xaml;ResourcesXAML\MainResources.xaml;UserControlML\controlbar_uc.xaml;Views\Admin\BookManagePage\BookManagePage.xaml;Views\Admin\HistoryPage\HistoryPage.xaml;Views\Admin\MainAdminWindow.xaml;Views\Admin\StatisticalPage\StatisticalPage.xaml;Views\Customer\BookLocationPage\BookLocationPage.xaml;Views\Customer\BuyBookPage\BuyBookPage.xaml;Views\Customer\MainCustomerWindow.xaml;Views\LoginWindow\CreateNewPassPage.xaml;Views\LoginWindow\ForgotPassPage.xaml;Views\LoginWindow\LoginPage.xaml;Views\LoginWindow\LoginWindow.xaml;Views\LoginWindow\RegisterWindow.xaml;Views\LoginWindow\VerificationPage.xaml;
 
 False

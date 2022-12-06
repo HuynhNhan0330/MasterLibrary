@@ -24,5 +24,15 @@ namespace MasterLibrary.Views.Admin.StatisticalPage
         {
             InitializeComponent();
         }
+
+        private void categoryBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void categoryBox_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

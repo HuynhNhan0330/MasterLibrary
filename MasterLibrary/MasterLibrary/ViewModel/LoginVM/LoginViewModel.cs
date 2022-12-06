@@ -18,7 +18,7 @@ namespace MasterLibrary.ViewModel.LoginVM
 {
     public class LoginViewModel: BaseViewModel
     {
-       
+
         public static Frame MainFrame { get; set; }
         public static Grid Mask { get; set; }
 
@@ -168,17 +168,13 @@ namespace MasterLibrary.ViewModel.LoginVM
             if (loginCus)
             {
                 //Password = "";
-                //LoginWindow.Hide();
                 MainCustomerWindow w1 = new MainCustomerWindow();
                 w1.Show();
-                //LoginWindow.Close();
             }
             else if (loginAdmin)
             {
-                //LoginWindow.Hide();
                 MainAdminWindow w1 = new MainAdminWindow();
                 w1.Show();
-                //LoginWindow.Close();
             }
             else
             {

@@ -8,6 +8,9 @@ using System.Windows.Input;
 using MasterLibrary.Views.Admin.StatisticalPage;
 using MasterLibrary.Views.Admin.BookManagePage;
 using MasterLibrary.Views.Admin.HistoryPage;
+using Avalonia.Controls;
+using MasterLibrary.Views.LoginWindow;
+using MasterLibrary.ViewModel.LoginVM;
 
 namespace MasterLibrary.ViewModel.AdminVM
 {
