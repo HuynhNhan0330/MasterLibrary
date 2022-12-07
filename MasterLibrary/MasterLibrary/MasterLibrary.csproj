@@ -178,27 +178,12 @@
     </ApplicationDefinition>
     <Compile Include="DTOs\AdminDTO.cs" />
     <Compile Include="DTOs\CustomerDTO.cs" />
-    <Compile Include="Models\DataProvider\Address.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\DataProvider\AdminServices.cs" />
-    <Compile Include="Models\DataProvider\BuildVersion.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\DataProvider\CTHD.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\Customer.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\CustomerAddress.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\CustormerServices.cs" />
     <Compile Include="Models\DataProvider\DAYKE.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ErrorLog.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\HOADON.cs">
@@ -222,31 +207,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MasterlibraryModels.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataProvider\Product.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ProductCategory.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ProductDescription.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ProductModel.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ProductModelProductDescription.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\DataProvider\SACH.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\SalesOrderDetail.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\SalesOrderHeader.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\sysdiagram.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\TANG.cs">
