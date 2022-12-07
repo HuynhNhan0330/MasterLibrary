@@ -597,6 +597,7 @@ C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Maste
 C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.CopyComplete
 C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.exe
 C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.pdb
+<<<<<<< HEAD
 D:\UIT\MasterLib\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.AssemblyReference.cache
 D:\UIT\MasterLib\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.SuggestedBindingRedirects.cache
 D:\UIT\MasterLib\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MainWindow.g.cs
@@ -954,3 +955,5 @@ D:\UIT\ML\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\LiveCharts.pdb
 D:\UIT\ML\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\LiveCharts.xml
 D:\UIT\ML\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\LiveCharts.Wpf.pdb
 D:\UIT\ML\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\LiveCharts.Wpf.xml
+=======
+>>>>>>> buybook/Nhan

@@ -13,12 +13,13 @@ using System.Windows.Input;
 using MasterLibrary.Views.Admin;
 using MasterLibrary.Views.Customer;
 using MaterialDesignThemes.Wpf;
+using MasterLibrary.ViewModel.CustomerVM;
 
 namespace MasterLibrary.ViewModel.LoginVM
 {
     public class LoginViewModel: BaseViewModel
     {
-
+        public Window loginW { get; set; }
         public static Frame MainFrame { get; set; }
         public static Grid Mask { get; set; }
 
@@ -32,6 +33,8 @@ namespace MasterLibrary.ViewModel.LoginVM
         public ICommand PasswordChangedML { get; set; }
         public ICommand RegisterML { get; set; }
         public ICommand PasswordRegChangedML { get; set; }
+
+        public ICommand SaveLoginWindowNameML { get; set; }
 
         #region property
         private string _usernamelog;
@@ -100,15 +103,22 @@ namespace MasterLibrary.ViewModel.LoginVM
             LoadRegister = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 Window w1 = new RegisterWindow();
-                
-                //Mask.Visibility = Visibility.Visible;
+
+                Mask.Visibility = Visibility.Visible;
 
                 w1.ShowDialog();
             });
 
+            // Bật page xác thực
             LoadVerificationPage = new RelayCommand<Label>((p) => { return true; }, async (p) =>
             {
                 MainFrame.Content = new VerificationPage();
+            });
+
+            // Lưu widow login
+            SaveLoginWindowNameML = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                loginW = p;   
             });
 
             #region Login
@@ -139,7 +149,6 @@ namespace MasterLibrary.ViewModel.LoginVM
 
                 //thực hiện đăng ký tài khoản
                 CustormerServices.Ins.Register(fullname, email, usernamereg, passwordreg);
-
             });
 
             // Nhận mật khẩu mỗi lần thay đổi
@@ -155,7 +164,7 @@ namespace MasterLibrary.ViewModel.LoginVM
         {
             if (string.IsNullOrEmpty(usr) || string.IsNullOrEmpty(pwd))
             {
-                lbl.Content = "Vui lòng nhập đủ thông tin";
+                lbl.Content = "Sai tài khoản hoặc mật khẩu";
                 return;
             }
 
@@ -167,14 +176,18 @@ namespace MasterLibrary.ViewModel.LoginVM
 
             if (loginCus)
             {
-                //Password = "";
+                
                 MainCustomerWindow w1 = new MainCustomerWindow();
+                MainCustomerViewModel.CurrentCustomer = cus;
+                w1._CustomerName.Text = cus.TENKH;
                 w1.Show();
+                loginW.Close();
             }
             else if (loginAdmin)
             {
                 MainAdminWindow w1 = new MainAdminWindow();
                 w1.Show();
+                loginW.Close();
             }
             else
             {

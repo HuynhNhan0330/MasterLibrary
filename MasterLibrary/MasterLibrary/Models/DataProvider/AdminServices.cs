@@ -53,7 +53,7 @@ namespace MasterLibrary.Models.DataProvider
             {
                 return (false, "Mất kết nối cơ sở dữ liệu");
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return (false, "Lỗi hệ thống");
             }

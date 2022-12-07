@@ -3,6 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:MasterLibrary"
              StartupUri="Views/LoginWindow/LoginWindow.xaml">
+
+    <!--StartupUri="Views/Customer/MainCustomerWindow.xaml"
+     StartupUri="Views/LoginWindow/LoginWindow.xaml"--> 
+    
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -11,7 +15,15 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
                 <ResourceDictionary Source="/ResourcesXAML/MainResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/Haley.WPF;component/Dictionaries/haleyRD.xaml"/>
+
             </ResourceDictionary.MergedDictionaries>
+
+            <SolidColorBrush x:Key="PrimaryHueMidBrush"
+                             Color="#391c00" />
+
+            <SolidColorBrush x:Key="PrimaryHueDarkBrush"
+                             Color="#391c00" />
 
             <!-- Style của text button menu -->
             <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
@@ -57,13 +69,33 @@
                 <Setter Property="Background"
                                 Value="Transparent" />
                 <Style.Triggers>
-                    <DataTrigger Binding="{Binding Path=Tag.IsChecked, RelativeSource={RelativeSource Self}}"
+                    <DataTrigger Binding="{Binding Path=Tag.IsChecked, RelativeSource={RelativeSource Self}, UpdateSourceTrigger=PropertyChanged}"
                                          Value="True">
                         <Setter Property="Background"
                                         Value="#5c3107" />
                     </DataTrigger>
                 </Style.Triggers>
             </Style>
+            
+            <!-- style box item -->
+            <Style x:Key="styleListBoxItems"
+                   TargetType="{x:Type ListBoxItem}">
+                <Setter Property="SnapsToDevicePixels"
+                        Value="False" />
+                <Setter Property="OverridesDefaultStyle"
+                        Value="True" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ListBoxItem">
+                            <Border Name="Border"
+                                    Padding="5"
+                                    SnapsToDevicePixels="True">
+                                <ContentPresenter />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>          
         </ResourceDictionary>
     </Application.Resources>
 </Application>

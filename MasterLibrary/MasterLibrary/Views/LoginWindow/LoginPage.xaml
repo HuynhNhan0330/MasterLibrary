@@ -71,7 +71,7 @@
                     HorizontalAlignment="Center">
             <!-- Thông báo lỗi -->
             <StackPanel Orientation="Horizontal">
-                <Label Margin="50,2,25,0"
+                <Label Margin="30,2,25,0"
                        x:Name="Error"
                        Height="28"
                        FontSize="15"
