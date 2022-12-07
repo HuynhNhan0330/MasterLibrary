@@ -38,7 +38,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <uc:controlbar_uc Tag="{Binding Title, ElementName=MainCus}"/>
+            <uc:controlbar_uc Tag="{Binding Title, ElementName=MainCustomer}"/>
         </Grid>
         
         <Grid Grid.Row="1">
@@ -161,7 +161,7 @@
                                                      Foreground="White" />
                             <RadioButton Style="{StaticResource MenuButtonMain}"
                                          GroupName="mainOptions"
-                                         Content="Cài đặt"
+                                         Content="Thông tin"
                                          FontWeight="Bold"
                                          x:Name="btnSetting"
                                          Width="auto"
