@@ -31,14 +31,14 @@
                           x:Name="categoryBox"
                           SelectionChanged="categoryBox_SelectionChanged"
                           Loaded="categoryBox_Loaded"
-                          SelectedItem="{Binding SelectedIncome}">
+                          SelectedItem="{Binding SelectedPeriod}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Loaded">
-                            <i:InvokeCommandAction Command="{Binding ChangeIncomeML}"
+                            <i:InvokeCommandAction Command="{Binding ChangePeriodML}"
                                                        CommandParameter="{Binding ElementName=categoryBox}" />
                         </i:EventTrigger>
                         <i:EventTrigger EventName="SelectionChanged">
-                            <i:InvokeCommandAction Command="{Binding ChangeIncomeML}"
+                            <i:InvokeCommandAction Command="{Binding ChangePeriodML}"
                                                        CommandParameter="{Binding ElementName=categoryBox}" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
@@ -53,14 +53,14 @@
                 <ComboBox Width="170"
                           FontSize="20"
                           x:Name="TimeBox"
-                          SelectedItem="{Binding SelectedIncomeTime, Mode=OneWayToSource}">
+                          SelectedItem="{Binding SelectedTime, Mode=OneWayToSource}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Loaded">
-                            <i:InvokeCommandAction Command="{Binding ChangeIncomeML}"
+                            <i:InvokeCommandAction Command="{Binding ChangeTimeML}"
                                                        CommandParameter="{Binding ElementName=TimeBox}" />
                         </i:EventTrigger>
                         <i:EventTrigger EventName="SelectionChanged">
-                            <i:InvokeCommandAction Command="{Binding ChangeIncomeML}"
+                            <i:InvokeCommandAction Command="{Binding ChangeTimeML}"
                                                        CommandParameter="{Binding ElementName=TimeBox}" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
@@ -100,7 +100,7 @@
                                         <ColumnDefinition Width="1*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <Grid Grid.Column="0">
-                                        <Label Content="Tổng thu" FontSize="20" VerticalAlignment="Center" Margin="10 0 0 0"></Label>
+                                        <Label Content="Tổng thu" FontSize="30" VerticalAlignment="Center" Margin="10 0 0 0"></Label>
                                     </Grid>
 
                                     <Grid Grid.Column="1" Width="40" Height="40">
@@ -112,7 +112,7 @@
                                 </Grid>
 
                                 <Grid Grid.Row="1">
-                                    <TextBlock Text="0 VNĐ" FontSize="20" VerticalAlignment="Center" Margin="10 0 0 0" Padding="5"
+                                    <TextBlock Text="0 VNĐ" FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" Padding="5"
                                            FontWeight="Bold" Foreground="WhiteSmoke"></TextBlock>
                                 </Grid>
                             </Grid>
@@ -136,7 +136,7 @@
                                         <ColumnDefinition Width="1*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <Grid Grid.Column="0">
-                                        <Label Content="Tổng chi" FontSize="20" VerticalAlignment="Center" Margin="10 0 0 0"></Label>
+                                        <Label Content="Tổng chi" FontSize="30" VerticalAlignment="Center" Margin="10 0 0 0"></Label>
                                     </Grid>
 
                                     <Grid Grid.Column="1" Width="40" Height="40">
@@ -148,7 +148,7 @@
                                 </Grid>
 
                                 <Grid Grid.Row="1">
-                                    <TextBlock Text="0 VNĐ" FontSize="20" VerticalAlignment="Center" Margin="10 0 0 0" Padding="5"
+                                    <TextBlock Text="0 VNĐ" FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" Padding="5"
                                            FontWeight="Bold" Foreground="WhiteSmoke"></TextBlock>
                                 </Grid>
                             </Grid>
@@ -172,7 +172,7 @@
                                         <ColumnDefinition Width="1*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <Grid Grid.Column="0">
-                                        <Label Content="Lợi nhuận" FontSize="20" VerticalAlignment="Center" Margin="10 0 0 0"></Label>
+                                        <Label Content="Lợi nhuận" FontSize="30" VerticalAlignment="Center" Margin="10 0 0 0"></Label>
                                     </Grid>
 
                                     <Grid Grid.Column="1" Width="40" Height="40">
@@ -184,7 +184,7 @@
                                 </Grid>
 
                                 <Grid Grid.Row="1">
-                                    <TextBlock Text="0 VNĐ" FontSize="20" VerticalAlignment="Center" Margin="10 0 0 0" Padding="5"
+                                    <TextBlock Text="0 VNĐ" FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" Padding="5"
                                            FontWeight="Bold" Foreground="WhiteSmoke"></TextBlock>
                                 </Grid>
                             </Grid>
@@ -195,7 +195,7 @@
 
             <!--Right-->
             <Grid Grid.Column="1">
-                <materialDesign:Card Background="White" Width="800" Height="560" 
+                <materialDesign:Card Background="White" Width="800" Height="540" 
                                      VerticalAlignment="top" UniformCornerRadius="5"
                                      Margin="0 1 0 0">
                     <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Bottom"></lvc:CartesianChart>
