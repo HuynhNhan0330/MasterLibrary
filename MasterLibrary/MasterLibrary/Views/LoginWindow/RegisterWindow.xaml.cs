@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MasterLibrary.ViewModel.LoginVM;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,7 @@ namespace MasterLibrary.Views.LoginWindow
 
         private void btn_Click_Close(object sender, RoutedEventArgs e)
         {
+            LoginViewModel.Mask.Visibility = Visibility.Collapsed;
             this.Close();
         }
     }

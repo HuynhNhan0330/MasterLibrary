@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:MasterLibrary.Views.LoginWindow"
         mc:Ignorable="d"
         Title="LoginWindow" Height="500" Width="900"
+        Name="Loginwindow"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -23,6 +24,8 @@
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadMask}"
                                    CommandParameter="{Binding ElementName=ShadowMask}" />
+            <i:InvokeCommandAction Command="{Binding SaveLoginWindowNameML}"
+                                   CommandParameter="{Binding ElementName=Loginwindow}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
@@ -34,55 +37,56 @@
         </RectangleGeometry>
     </Window.Clip>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <!-- Chia đôi ra -->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-    
-        <!-- Bên trái -->
-        <Grid Grid.Column="0"
-                  Grid.RowSpan="2">
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="20*" />
-                <RowDefinition Height="70*" />
+                <RowDefinition />
             </Grid.RowDefinitions>
+            <!-- Chia đôi ra -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <!--Login Form-->
-            <materialDesign:Card Margin="20,50,20,20"
+            <!-- Bên trái -->
+            <Grid Grid.Column="0"
+                  Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*" />
+                    <RowDefinition Height="70*" />
+                </Grid.RowDefinitions>
+
+                <!--Login Form-->
+                <materialDesign:Card Margin="20,50,20,20"
                                      Grid.Row="1"
                                      UniformCornerRadius="8">
-                <Frame x:Name="frame"
+                    <Frame x:Name="frame"
                            NavigationUIVisibility="Hidden">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Loaded">
-                            <i:InvokeCommandAction Command="{Binding LoadLoginPage}"
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Loaded">
+                                <i:InvokeCommandAction Command="{Binding LoadLoginPage}"
                                                        CommandParameter="{Binding ElementName=frame}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                    
-                </Frame>
-            </materialDesign:Card>
-        </Grid>
-        
-        <!-- Bên phải -->
-        <Grid Grid.Column="1"
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                    </Frame>
+                </materialDesign:Card>
+            </Grid>
+
+            <!-- Bên phải -->
+            <Grid Grid.Column="1"
               Grid.RowSpan="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="32*" />
-                <RowDefinition Height="412*" />
-            </Grid.RowDefinitions>
-            
-            
-            <StackPanel Orientation="Horizontal"
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="32*" />
+                    <RowDefinition Height="412*" />
+                </Grid.RowDefinitions>
+
+
+                <StackPanel Orientation="Horizontal"
                             VerticalAlignment="Top"
                             HorizontalAlignment="Right"
                             Grid.Row="0">
-                <!-- nút thu nhỏ-->
-                <Button Click="btnMinimize"
+                    <!-- nút thu nhỏ-->
+                    <Button Click="btnMinimize"
                             ToolBar.OverflowMode="AsNeeded"
                             Margin="0,0,5,0"
                             BorderThickness="0"
@@ -91,11 +95,11 @@
                             BorderBrush="Transparent"
                             MouseEnter="btnMinimizeMouseEnter"
                             MouseLeave="btnMinimizeMouseLeave">
-                    <materialDesign:PackIcon Kind="WindowMinimize" />
-                </Button>
-                
-                <!-- nút đóng -->
-                <Button Click="btnClose"
+                        <materialDesign:PackIcon Kind="WindowMinimize" />
+                    </Button>
+
+                    <!-- nút đóng -->
+                    <Button Click="btnClose"
                             ToolBar.OverflowMode="AsNeeded"
                             Background="White"
                             Foreground="Black"
@@ -103,10 +107,21 @@
                             MouseEnter="btnCloseMouseEnter"
                             MouseLeave="btnCloseMouseLeave"
                             materialDesign:ButtonAssist.CornerRadius="0,10,0,0">
-                    <materialDesign:PackIcon Kind="WindowClose"
+                        <materialDesign:PackIcon Kind="WindowClose"
                                                  Padding="0" />
-                </Button>
-            </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <Grid Background="Gray"
+              Opacity="0.3"
+              Visibility="Collapsed"
+              x:Name="ShadowMask"
+              Height="630"
+              Width="1170"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center">
         </Grid>
     </Grid>
 </Window>
