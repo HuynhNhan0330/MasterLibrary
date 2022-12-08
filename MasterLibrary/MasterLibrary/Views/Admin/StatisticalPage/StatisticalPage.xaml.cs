@@ -28,23 +28,19 @@ namespace MasterLibrary.Views.Admin.StatisticalPage
         private void categoryBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBoxItem cbi = (ComboBoxItem)categoryBox.SelectedItem;
-            try
+            switch (cbi.Content.ToString())
             {
-                switch (cbi.Content.ToString())
-                {
-                    case "Theo năm":
-                        {
-                            GetYearSource(TimeBox);
-                            return;
-                        }
-                    case "Theo tháng":
-                        {
-                            GetMonthSource(TimeBox);
-                            return;
-                        }
-                }
-            } 
-            catch { }
+                case "Theo năm":
+                    {
+                        GetYearSource(TimeBox);
+                        return;
+                    }
+                case "Theo tháng":
+                    {
+                        GetMonthSource(TimeBox);
+                        return;
+                    }
+            }
         }
 
         private void categoryBox_Loaded(object sender, RoutedEventArgs e)

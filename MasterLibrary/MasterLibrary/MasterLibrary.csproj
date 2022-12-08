@@ -289,6 +289,7 @@
     <Compile Include="Utils\Constant.cs" />
     <Compile Include="Utils\Helper.cs" />
     <Compile Include="ViewModel\AdminVM\MainAdminViewModel.cs" />
+    <Compile Include="ViewModel\AdminVM\StatisticVM\StatisticViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\CustomerVM\BuyBookVM\BuyBookViewModel.cs" />
     <Compile Include="ViewModel\CustomerVM\BuyBookVM\DetailBookViewModel.cs" />
