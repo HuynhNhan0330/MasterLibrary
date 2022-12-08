@@ -3,98 +3,42 @@ using System.Windows.Input;
 using MasterLibrary.Views.Customer.BuyBookPage;
 using MasterLibrary.Views.Customer.BookLocationPage;
 using MasterLibrary.DTOs;
-using System.Collections.ObjectModel;
-using MasterLibrary.Models.DataProvider;
-using MasterLibrary.Utils;
-using MasterLibrary.ViewModel.CustomerVM.BuyBookVM;
 using MasterLibrary.Views.Customer.SettingPage;
 using System.Windows;
-using MasterLibrary.Views.Customer;
-using System.Linq;
 using MasterLibrary.Views.LoginWindow;
-using MasterLibrary.ViewModel.LoginVM;
-using MasterLibrary.Views.MessageBoxML;
 
 namespace MasterLibrary.ViewModel.CustomerVM
 {
-    public partial class MainCustomerViewModel: BaseViewModel
+    public class MainCustomerViewModel: BaseViewModel
     {
         #region Thuộc tính
-        private ObservableCollection<BookDTO> _ListBook;
-        public ObservableCollection<BookDTO> ListBook
+        private static CustomerDTO _CurrentCustomer;
+        public static CustomerDTO CurrentCustomer
         {
-            get { return _ListBook; }
-            set { _ListBook = value; OnPropertyChanged(); }
+            get { return _CurrentCustomer; }
+            set
+            {
+                _CurrentCustomer = value;
+            }
         }
-
-        private ObservableCollection<BookDTO> _ListBook1;
-        public ObservableCollection<BookDTO> ListBook1
-        {
-            get { return _ListBook1; }
-            set { _ListBook1 = value; OnPropertyChanged(); }
-        }
-        
-        private ObservableCollection<string> _GenreBook;
-        public ObservableCollection<string> GenreBook
-        {
-            get { return _GenreBook; }
-            set { _GenreBook = value; OnPropertyChanged(); }
-        }
-
-        private string _SelectedGenre;
-        public string SelectedGenre
-        {
-            get { return _SelectedGenre; }
-            set { _SelectedGenre = value; OnPropertyChanged(); }
-        }
-
-        private BookDTO _SelectedItem;
-        public BookDTO SelectedItem
-        {
-            get { return _SelectedItem; }
-            set { _SelectedItem = value; OnPropertyChanged(); }
-        }
-
         #endregion
 
         #region ICommand
-        public ICommand FirstLoadML { get; set; }
-        public ICommand MaskNameML { get; set; }
-        public ICommand SelectedGenreML { get; set; }
+        public ICommand FirstLoadCustomer { get; set; }
         public ICommand LoadBuyBookPageML { get; set; }
         public ICommand TurnOnBuyBook { get; set; }
         public ICommand LoadBookLocationPageML { get; set; }
         public ICommand TurnOnBookLocation { get; set; }
         public ICommand LoadSettingPageML { get; set; }
         public ICommand TurnOnSetting { get; set; }
-        public ICommand LoadDetailBook { get; set; }
         public ICommand SignOutML { get; set; }
-        public ICommand SortBookByMoney { get; set; }
-        public ICommand LoadIconAscending { get; set; }
-        public ICommand LoadIconDecreasing { get; set; }
-
         #endregion
-
-        public static Grid MaskName { get; set; }
-        public static CustomerDTO CurrentCustomer { get; set; }
-        public bool isAscending { get; set; }
-        public MaterialDesignThemes.Wpf.PackIcon iconAscending { get; set; }
-        public MaterialDesignThemes.Wpf.PackIcon iconDecreasing { get; set; }
 
         public MainCustomerViewModel()
         {
-            // Load ban đầu
-            FirstLoadML = new RelayCommand<Frame>((p) => { return true; }, async (p) => 
-            {
-                ListBook1 = new ObservableCollection<BookDTO>(await BookServices.Ins.GetAllbook());
-                GenreBook = new ObservableCollection<string>(baseBook.ListTheLoai);
-                isAscending = false;
-            });
-
             // Load trang mua sách
             LoadBuyBookPageML = new RelayCommand<Frame>((p) => { return true; }, async (p) => 
             {
-                await LoadMainListBox(0);
                 p.Content = new BuyBookPage();
             });
 
@@ -108,31 +52,6 @@ namespace MasterLibrary.ViewModel.CustomerVM
             LoadSettingPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
                 p.Content = new SettingPage();
-            });
-
-            // Lọc thông tin theo thể loại
-            SelectedGenreML = new RelayCommand<object>((p) => { return true; }, async (p) =>
-            {
-                await LoadMainListBox(1);
-            });
-
-            // Load mặt nạ
-            MaskNameML = new RelayCommand<Grid>((p) => { return true; }, (p) =>
-            {
-                MaskName = p;
-            });
-
-            // Mở window detail book
-            LoadDetailBook = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                DetailBook w;
-
-                MaskName.Visibility = System.Windows.Visibility.Visible;
-
-                DetailBookViewModel.selectBook = SelectedItem;
-
-                w = new DetailBook();
-                w.ShowDialog();
             });
 
             // Bật button mua sách
@@ -162,39 +81,6 @@ namespace MasterLibrary.ViewModel.CustomerVM
                 w.Show();
 
                 p.Close();
-            });
-
-            // Sắp xếp sách theo tiền
-            SortBookByMoney = new RelayCommand<MaterialDesignThemes.Wpf.PackIcon>((p) => { return true; }, async (p) =>
-            {
-                await SortBook(isAscending);
-
-                if (isAscending)
-                {
-                    iconDecreasing.Visibility = Visibility.Collapsed;
-                    iconAscending.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    iconDecreasing.Visibility = Visibility.Visible;
-                    iconAscending.Visibility = Visibility.Collapsed;
-                }
-
-                isAscending = !isAscending;
-            });
-
-            // Lưu lại icon tăng dần
-            LoadIconAscending = new RelayCommand<MaterialDesignThemes.Wpf.PackIcon>((p) => { return true; }, async (p) =>
-            {
-                iconAscending = p;
-                p.Visibility = Visibility.Visible;
-            });
-
-            // Lưu lại icon giảm dần
-            LoadIconDecreasing = new RelayCommand<MaterialDesignThemes.Wpf.PackIcon>((p) => { return true; }, async (p) =>
-            {
-                iconDecreasing = p;
-                p.Visibility = Visibility.Collapsed;
             });
         }
     }

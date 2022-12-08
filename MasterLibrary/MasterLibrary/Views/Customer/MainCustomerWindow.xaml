@@ -25,7 +25,7 @@
         DataContext="{StaticResource CustomerVM}">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding FirstLoadML}" />
+            <i:InvokeCommandAction Command="{Binding FirstLoadCustomer}" />
             <i:InvokeCommandAction Command="{Binding LoadBuyBookPageML}"
                                    CommandParameter="{Binding ElementName=mainFrame}" />
         </i:EventTrigger>
@@ -250,7 +250,7 @@
                             </i:Interaction.Triggers>
                         </materialDesign:PackIcon>
 
-                        <!--<materialDesign:PackIcon Kind="Cart"
+                        <materialDesign:PackIcon Kind="Cart"
                                                  Width="40"
                                                  Height="40"
                                                  Background="Transparent"
@@ -263,7 +263,7 @@
                                           Foreground="White" 
                                           MarginY="5"/>
                             </hw:BadgeSetter.Badge>
-                        </materialDesign:PackIcon>-->
+                        </materialDesign:PackIcon>
                     </StackPanel>
                 </Grid>
 

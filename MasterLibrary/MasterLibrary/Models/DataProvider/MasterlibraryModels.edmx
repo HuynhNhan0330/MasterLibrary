@@ -20,6 +20,7 @@
           </Key>
           <Property Name="MADAY" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TENDAY" Type="nvarchar" MaxLength="50" />
+          <Property Name="IDTANG" Type="int" />
         </EntityType>
         <EntityType Name="HOADON">
           <Key>
@@ -39,6 +40,7 @@
           <Property Name="TENKH" Type="nvarchar" MaxLength="50" />
           <Property Name="EMAIL" Type="varchar" MaxLength="50" />
           <Property Name="IDROLE" Type="int" />
+          <Property Name="DIACHI" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="SACH">
           <Key>
@@ -92,6 +94,18 @@
             </Principal>
             <Dependent Role="CTHD">
               <PropertyRef Name="MASACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DAYKE__IDTANG__74AE54BC">
+          <End Role="TANG" Type="Self.TANG" Multiplicity="0..1" />
+          <End Role="DAYKE" Type="Self.DAYKE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TANG">
+              <PropertyRef Name="MATANG" />
+            </Principal>
+            <Dependent Role="DAYKE">
+              <PropertyRef Name="IDTANG" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -159,6 +173,10 @@
             <End Role="SACH" EntitySet="SACH" />
             <End Role="CTHD" EntitySet="CTHD" />
           </AssociationSet>
+          <AssociationSet Name="FK__DAYKE__IDTANG__74AE54BC" Association="Self.FK__DAYKE__IDTANG__74AE54BC">
+            <End Role="TANG" EntitySet="TANG" />
+            <End Role="DAYKE" EntitySet="DAYKE" />
+          </AssociationSet>
           <AssociationSet Name="FK__HOADON__MAKH__6C190EBB" Association="Self.FK__HOADON__MAKH__6C190EBB">
             <End Role="KHACHHANG" EntitySet="KHACHHANG" />
             <End Role="HOADON" EntitySet="HOADON" />
@@ -196,6 +214,10 @@
             <End Role="SACH" EntitySet="SACHes" />
             <End Role="CTHD" EntitySet="CTHDs" />
           </AssociationSet>
+          <AssociationSet Name="FK__DAYKE__IDTANG__74AE54BC" Association="masterlibraryModel.FK__DAYKE__IDTANG__74AE54BC">
+            <End Role="TANG" EntitySet="TANGs" />
+            <End Role="DAYKE" EntitySet="DAYKEs" />
+          </AssociationSet>
           <AssociationSet Name="FK__SACH__VITRIDAY__693CA210" Association="masterlibraryModel.FK__SACH__VITRIDAY__693CA210">
             <End Role="DAYKE" EntitySet="DAYKEs" />
             <End Role="SACH" EntitySet="SACHes" />
@@ -230,6 +252,8 @@
           </Key>
           <Property Name="MADAY" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENDAY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDTANG" Type="Int32" />
+          <NavigationProperty Name="TANG" Relationship="masterlibraryModel.FK__DAYKE__IDTANG__74AE54BC" FromRole="DAYKE" ToRole="TANG" />
           <NavigationProperty Name="SACHes" Relationship="masterlibraryModel.FK__SACH__VITRIDAY__693CA210" FromRole="DAYKE" ToRole="SACH" />
         </EntityType>
         <EntityType Name="HOADON">
@@ -252,6 +276,7 @@
           <Property Name="TENKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IDROLE" Type="Int32" />
+          <Property Name="DIACHI" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="HOADONs" Relationship="masterlibraryModel.FK__HOADON__MAKH__6C190EBB" FromRole="KHACHHANG" ToRole="HOADON" />
           <NavigationProperty Name="USERROLE" Relationship="masterlibraryModel.FK__KHACHHANG__IDROL__619B8048" FromRole="KHACHHANG" ToRole="USERROLE" />
         </EntityType>
@@ -281,6 +306,7 @@
           </Key>
           <Property Name="MATANG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENTANG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DAYKEs" Relationship="masterlibraryModel.FK__DAYKE__IDTANG__74AE54BC" FromRole="TANG" ToRole="DAYKE" />
           <NavigationProperty Name="SACHes" Relationship="masterlibraryModel.FK__SACH__VITRITANG__68487DD7" FromRole="TANG" ToRole="SACH" />
         </EntityType>
         <EntityType Name="USERROLE">
@@ -312,6 +338,18 @@
             </Principal>
             <Dependent Role="CTHD">
               <PropertyRef Name="MASACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DAYKE__IDTANG__74AE54BC">
+          <End Type="masterlibraryModel.TANG" Role="TANG" Multiplicity="0..1" />
+          <End Type="masterlibraryModel.DAYKE" Role="DAYKE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TANG">
+              <PropertyRef Name="MATANG" />
+            </Principal>
+            <Dependent Role="DAYKE">
+              <PropertyRef Name="IDTANG" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -381,6 +419,7 @@
           <EntitySetMapping Name="DAYKEs">
             <EntityTypeMapping TypeName="masterlibraryModel.DAYKE">
               <MappingFragment StoreEntitySet="DAYKE">
+                <ScalarProperty Name="IDTANG" ColumnName="IDTANG" />
                 <ScalarProperty Name="TENDAY" ColumnName="TENDAY" />
                 <ScalarProperty Name="MADAY" ColumnName="MADAY" />
               </MappingFragment>
@@ -398,6 +437,7 @@
           <EntitySetMapping Name="KHACHHANGs">
             <EntityTypeMapping TypeName="masterlibraryModel.KHACHHANG">
               <MappingFragment StoreEntitySet="KHACHHANG">
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
                 <ScalarProperty Name="IDROLE" ColumnName="IDROLE" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="TENKH" ColumnName="TENKH" />

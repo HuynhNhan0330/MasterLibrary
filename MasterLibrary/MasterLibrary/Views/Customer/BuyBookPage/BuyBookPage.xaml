@@ -9,15 +9,16 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="BuyBookPage"
-      DataContext="{StaticResource CustomerVM}">
+      DataContext="{StaticResource BuyBookVM}">
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding MaskNameML}"
+            <i:InvokeCommandAction Command="{Binding FirstLoadBuyBook}"/>
+            <i:InvokeCommandAction Command="{Binding MaskNameBuyBook}"
                                    CommandParameter="{Binding ElementName=ShadowMask}" />
-            <i:InvokeCommandAction Command="{Binding LoadIconAscending}"
+            <i:InvokeCommandAction Command="{Binding SaveIconAscending}"
                                    CommandParameter="{Binding ElementName=IconAscending}" />
-            <i:InvokeCommandAction Command="{Binding LoadIconDecreasing}"
+            <i:InvokeCommandAction Command="{Binding SaveIconDecreasing}"
                                    CommandParameter="{Binding ElementName=IconDecreasing}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>

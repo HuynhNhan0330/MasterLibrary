@@ -39,6 +39,8 @@ public partial class KHACHHANG
 
     public Nullable<int> IDROLE { get; set; }
 
+    public string DIACHI { get; set; }
+
 
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -22,6 +22,8 @@ public partial class TANG
     public TANG()
     {
 
+        this.DAYKEs = new HashSet<DAYKE>();
+
         this.SACHes = new HashSet<SACH>();
 
     }
@@ -32,6 +34,10 @@ public partial class TANG
     public string TENTANG { get; set; }
 
 
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<DAYKE> DAYKEs { get; set; }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 

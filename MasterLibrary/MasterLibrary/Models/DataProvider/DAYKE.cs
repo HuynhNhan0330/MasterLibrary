@@ -31,7 +31,11 @@ public partial class DAYKE
 
     public string TENDAY { get; set; }
 
+    public Nullable<int> IDTANG { get; set; }
 
+
+
+    public virtual TANG TANG { get; set; }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
