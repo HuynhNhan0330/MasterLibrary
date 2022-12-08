@@ -20,12 +20,18 @@ namespace MasterLibrary.Models.DataProvider
             this.CTHDs = new HashSet<CTHD>();
         }
     
-        public string MASACH { get; set; }
+        public int MASACH { get; set; }
         public string TENSACH { get; set; }
         public string TACGIA { get; set; }
-        public Nullable<System.DateTime> NAMXB { get; set; }
-        public string VITRITANG { get; set; }
-        public string VITRIDAY { get; set; }
+        public Nullable<int> NAMXB { get; set; }
+        public Nullable<int> SL { get; set; }
+        public Nullable<decimal> GIA { get; set; }
+        public string IMAGESOURCE { get; set; }
+        public string THELOAI { get; set; }
+        public string MOTA { get; set; }
+        public Nullable<int> VITRITANG { get; set; }
+        public Nullable<int> VITRIDAY { get; set; }
+        public string NXB { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTHD> CTHDs { get; set; }

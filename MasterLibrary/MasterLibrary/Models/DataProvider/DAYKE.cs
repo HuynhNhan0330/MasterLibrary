@@ -20,9 +20,11 @@ namespace MasterLibrary.Models.DataProvider
             this.SACHes = new HashSet<SACH>();
         }
     
-        public string MADAY { get; set; }
+        public int MADAY { get; set; }
         public string TENDAY { get; set; }
+        public Nullable<int> IDTANG { get; set; }
     
+        public virtual TANG TANG { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SACH> SACHes { get; set; }
     }

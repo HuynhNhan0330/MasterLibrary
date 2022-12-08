@@ -148,6 +148,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -170,28 +171,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DTOs\AdminDTO.cs" />
+    <Compile Include="DTOs\BookDTO.cs" />
     <Compile Include="DTOs\CustomerDTO.cs" />
-    <Compile Include="Models\DataProvider\Address.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\DataProvider\AdminServices.cs" />
-    <Compile Include="Models\DataProvider\BuildVersion.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\DataProvider\BookServices.cs" />
     <Compile Include="Models\DataProvider\CTHD.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\Customer.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\CustomerAddress.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\CustormerServices.cs" />
     <Compile Include="Models\DataProvider\DAYKE.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ErrorLog.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\HOADON.cs">
@@ -215,31 +203,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MasterlibraryModels.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataProvider\Product.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ProductCategory.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ProductDescription.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ProductModel.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\ProductModelProductDescription.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\DataProvider\SACH.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\SalesOrderDetail.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\SalesOrderHeader.cs">
-      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataProvider\sysdiagram.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\TANG.cs">
@@ -257,8 +221,14 @@
     <Compile Include="ViewModel\CustomerVM\MainCustomerViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\ForgotPassViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\LoginViewModel.cs" />
+    <Compile Include="Views\Admin\BookManagePage\AddingWindow.xaml.cs">
+      <DependentUpon>AddingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Admin\BookManagePage\BookManagePage.xaml.cs">
       <DependentUpon>BookManagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\BookManagePage\updatingwindow.xaml.cs">
+      <DependentUpon>updatingwindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\HistoryPage\HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
@@ -316,9 +286,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Admin\BookManagePage\AddingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Admin\BookManagePage\BookManagePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Admin\BookManagePage\updatingwindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Admin\HistoryPage\HistoryPage.xaml">
       <Generator>MSBuild:Compile</Generator>

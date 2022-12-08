@@ -17,12 +17,15 @@ namespace MasterLibrary.Models.DataProvider
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TANG()
         {
+            this.DAYKEs = new HashSet<DAYKE>();
             this.SACHes = new HashSet<SACH>();
         }
     
-        public string MATANG { get; set; }
+        public int MATANG { get; set; }
         public string TENTANG { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DAYKE> DAYKEs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SACH> SACHes { get; set; }
     }

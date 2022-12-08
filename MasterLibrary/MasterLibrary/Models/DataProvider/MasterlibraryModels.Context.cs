@@ -25,25 +25,12 @@ namespace MasterLibrary.Models.DataProvider
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<BuildVersion> BuildVersions { get; set; }
         public virtual DbSet<CTHD> CTHDs { get; set; }
         public virtual DbSet<DAYKE> DAYKEs { get; set; }
-        public virtual DbSet<ErrorLog> ErrorLogs { get; set; }
         public virtual DbSet<HOADON> HOADONs { get; set; }
         public virtual DbSet<KHACHHANG> KHACHHANGs { get; set; }
         public virtual DbSet<SACH> SACHes { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TANG> TANGs { get; set; }
         public virtual DbSet<USERROLE> USERROLEs { get; set; }
-        public virtual DbSet<Address> Addresses { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<CustomerAddress> CustomerAddresses { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<ProductCategory> ProductCategories { get; set; }
-        public virtual DbSet<ProductDescription> ProductDescriptions { get; set; }
-        public virtual DbSet<ProductModel> ProductModels { get; set; }
-        public virtual DbSet<ProductModelProductDescription> ProductModelProductDescriptions { get; set; }
-        public virtual DbSet<SalesOrderDetail> SalesOrderDetails { get; set; }
-        public virtual DbSet<SalesOrderHeader> SalesOrderHeaders { get; set; }
     }
 }

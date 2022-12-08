@@ -810,3 +810,7 @@ D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryP
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\StatisticalPage\StatisticalPage.baml
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Customer\BookLocationPage\BookLocationPage.baml
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Customer\BuyBookPage\BuyBookPage.baml
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BookManagePage\AddingWindow.g.cs
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BookManagePage\AddingWindow.baml
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BookManagePage\updatingwindow.g.cs
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BookManagePage\updatingwindow.baml

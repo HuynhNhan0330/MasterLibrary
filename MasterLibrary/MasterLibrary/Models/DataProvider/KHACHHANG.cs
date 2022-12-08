@@ -26,8 +26,10 @@ namespace MasterLibrary.Models.DataProvider
         public string TENKH { get; set; }
         public string EMAIL { get; set; }
         public Nullable<int> IDROLE { get; set; }
+        public string DIACHI { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }
+        public virtual USERROLE USERROLE { get; set; }
     }
 }

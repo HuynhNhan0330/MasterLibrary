@@ -14,7 +14,16 @@ namespace MasterLibrary.Models.DataProvider
     
     public partial class USERROLE
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public USERROLE()
+        {
+            this.KHACHHANGs = new HashSet<KHACHHANG>();
+        }
+    
         public int ID { get; set; }
         public string DISPLAYNAME { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KHACHHANG> KHACHHANGs { get; set; }
     }
 }

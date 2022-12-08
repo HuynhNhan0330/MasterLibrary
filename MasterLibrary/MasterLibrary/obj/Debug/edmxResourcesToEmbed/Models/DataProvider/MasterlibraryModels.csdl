@@ -1,136 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="masterlibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="MasterlibraryEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="BuildVersions" EntityType="masterlibraryModel.BuildVersion" />
     <EntitySet Name="CTHDs" EntityType="masterlibraryModel.CTHD" />
     <EntitySet Name="DAYKEs" EntityType="masterlibraryModel.DAYKE" />
-    <EntitySet Name="ErrorLogs" EntityType="masterlibraryModel.ErrorLog" />
     <EntitySet Name="HOADONs" EntityType="masterlibraryModel.HOADON" />
     <EntitySet Name="KHACHHANGs" EntityType="masterlibraryModel.KHACHHANG" />
     <EntitySet Name="SACHes" EntityType="masterlibraryModel.SACH" />
-    <EntitySet Name="sysdiagrams" EntityType="masterlibraryModel.sysdiagram" />
     <EntitySet Name="TANGs" EntityType="masterlibraryModel.TANG" />
     <EntitySet Name="USERROLEs" EntityType="masterlibraryModel.USERROLE" />
-    <EntitySet Name="Addresses" EntityType="masterlibraryModel.Address" />
-    <EntitySet Name="Customers" EntityType="masterlibraryModel.Customer" />
-    <EntitySet Name="CustomerAddresses" EntityType="masterlibraryModel.CustomerAddress" />
-    <EntitySet Name="Products" EntityType="masterlibraryModel.Product" />
-    <EntitySet Name="ProductCategories" EntityType="masterlibraryModel.ProductCategory" />
-    <EntitySet Name="ProductDescriptions" EntityType="masterlibraryModel.ProductDescription" />
-    <EntitySet Name="ProductModels" EntityType="masterlibraryModel.ProductModel" />
-    <EntitySet Name="ProductModelProductDescriptions" EntityType="masterlibraryModel.ProductModelProductDescription" />
-    <EntitySet Name="SalesOrderDetails" EntityType="masterlibraryModel.SalesOrderDetail" />
-    <EntitySet Name="SalesOrderHeaders" EntityType="masterlibraryModel.SalesOrderHeader" />
-    <AssociationSet Name="FK__CTHD__MAHD__7A3223E8" Association="masterlibraryModel.FK__CTHD__MAHD__7A3223E8">
+    <AssociationSet Name="FK__CTHD__MAHD__72C60C4A" Association="masterlibraryModel.FK__CTHD__MAHD__72C60C4A">
       <End Role="HOADON" EntitySet="HOADONs" />
       <End Role="CTHD" EntitySet="CTHDs" />
     </AssociationSet>
-    <AssociationSet Name="FK__CTHD__MASACH__7B264821" Association="masterlibraryModel.FK__CTHD__MASACH__7B264821">
+    <AssociationSet Name="FK__CTHD__MASACH__73BA3083" Association="masterlibraryModel.FK__CTHD__MASACH__73BA3083">
       <End Role="SACH" EntitySet="SACHes" />
       <End Role="CTHD" EntitySet="CTHDs" />
     </AssociationSet>
-    <AssociationSet Name="FK__SACH__VITRIDAY__5E8A0973" Association="masterlibraryModel.FK__SACH__VITRIDAY__5E8A0973">
+    <AssociationSet Name="FK__DAYKE__IDTANG__74AE54BC" Association="masterlibraryModel.FK__DAYKE__IDTANG__74AE54BC">
+      <End Role="TANG" EntitySet="TANGs" />
+      <End Role="DAYKE" EntitySet="DAYKEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SACH__VITRIDAY__693CA210" Association="masterlibraryModel.FK__SACH__VITRIDAY__693CA210">
       <End Role="DAYKE" EntitySet="DAYKEs" />
       <End Role="SACH" EntitySet="SACHes" />
     </AssociationSet>
-    <AssociationSet Name="FK__HOADON__MAKH__7755B73D" Association="masterlibraryModel.FK__HOADON__MAKH__7755B73D">
+    <AssociationSet Name="FK__HOADON__MAKH__6C190EBB" Association="masterlibraryModel.FK__HOADON__MAKH__6C190EBB">
       <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
       <End Role="HOADON" EntitySet="HOADONs" />
     </AssociationSet>
-    <AssociationSet Name="FK__SACH__VITRITANG__5D95E53A" Association="masterlibraryModel.FK__SACH__VITRITANG__5D95E53A">
+    <AssociationSet Name="FK__KHACHHANG__IDROL__619B8048" Association="masterlibraryModel.FK__KHACHHANG__IDROL__619B8048">
+      <End Role="USERROLE" EntitySet="USERROLEs" />
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SACH__VITRITANG__68487DD7" Association="masterlibraryModel.FK__SACH__VITRITANG__68487DD7">
       <End Role="TANG" EntitySet="TANGs" />
       <End Role="SACH" EntitySet="SACHes" />
     </AssociationSet>
-    <AssociationSet Name="FK_CustomerAddress_Address_AddressID" Association="masterlibraryModel.FK_CustomerAddress_Address_AddressID">
-      <End Role="Address" EntitySet="Addresses" />
-      <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SalesOrderHeader_Address_BillTo_AddressID" Association="masterlibraryModel.FK_SalesOrderHeader_Address_BillTo_AddressID">
-      <End Role="Address" EntitySet="Addresses" />
-      <End Role="SalesOrderHeader" EntitySet="SalesOrderHeaders" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SalesOrderHeader_Address_ShipTo_AddressID" Association="masterlibraryModel.FK_SalesOrderHeader_Address_ShipTo_AddressID">
-      <End Role="Address" EntitySet="Addresses" />
-      <End Role="SalesOrderHeader" EntitySet="SalesOrderHeaders" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CustomerAddress_Customer_CustomerID" Association="masterlibraryModel.FK_CustomerAddress_Customer_CustomerID">
-      <End Role="Customer" EntitySet="Customers" />
-      <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SalesOrderHeader_Customer_CustomerID" Association="masterlibraryModel.FK_SalesOrderHeader_Customer_CustomerID">
-      <End Role="Customer" EntitySet="Customers" />
-      <End Role="SalesOrderHeader" EntitySet="SalesOrderHeaders" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_ProductCategory_ProductCategoryID" Association="masterlibraryModel.FK_Product_ProductCategory_ProductCategoryID">
-      <End Role="ProductCategory" EntitySet="ProductCategories" />
-      <End Role="Product" EntitySet="Products" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_ProductModel_ProductModelID" Association="masterlibraryModel.FK_Product_ProductModel_ProductModelID">
-      <End Role="ProductModel" EntitySet="ProductModels" />
-      <End Role="Product" EntitySet="Products" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SalesOrderDetail_Product_ProductID" Association="masterlibraryModel.FK_SalesOrderDetail_Product_ProductID">
-      <End Role="Product" EntitySet="Products" />
-      <End Role="SalesOrderDetail" EntitySet="SalesOrderDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" Association="masterlibraryModel.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID">
-      <End Role="ProductCategory" EntitySet="ProductCategories" />
-      <End Role="ProductCategory1" EntitySet="ProductCategories" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" Association="masterlibraryModel.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID">
-      <End Role="ProductDescription" EntitySet="ProductDescriptions" />
-      <End Role="ProductModelProductDescription" EntitySet="ProductModelProductDescriptions" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProductModelProductDescription_ProductModel_ProductModelID" Association="masterlibraryModel.FK_ProductModelProductDescription_ProductModel_ProductModelID">
-      <End Role="ProductModel" EntitySet="ProductModels" />
-      <End Role="ProductModelProductDescription" EntitySet="ProductModelProductDescriptions" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" Association="masterlibraryModel.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID">
-      <End Role="SalesOrderHeader" EntitySet="SalesOrderHeaders" />
-      <End Role="SalesOrderDetail" EntitySet="SalesOrderDetails" />
-    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="BuildVersion">
-    <Key>
-      <PropertyRef Name="SystemInformationID" />
-    </Key>
-    <Property Name="SystemInformationID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Database_Version" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-    <Property Name="VersionDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-  </EntityType>
   <EntityType Name="CTHD">
     <Key>
       <PropertyRef Name="MAHD" />
       <PropertyRef Name="MASACH" />
     </Key>
     <Property Name="MAHD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="MASACH" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="MASACH" Type="Int32" Nullable="false" />
     <Property Name="SOLUONG" Type="Int32" />
-    <NavigationProperty Name="HOADON" Relationship="masterlibraryModel.FK__CTHD__MAHD__7A3223E8" FromRole="CTHD" ToRole="HOADON" />
-    <NavigationProperty Name="SACH" Relationship="masterlibraryModel.FK__CTHD__MASACH__7B264821" FromRole="CTHD" ToRole="SACH" />
+    <NavigationProperty Name="HOADON" Relationship="masterlibraryModel.FK__CTHD__MAHD__72C60C4A" FromRole="CTHD" ToRole="HOADON" />
+    <NavigationProperty Name="SACH" Relationship="masterlibraryModel.FK__CTHD__MASACH__73BA3083" FromRole="CTHD" ToRole="SACH" />
   </EntityType>
   <EntityType Name="DAYKE">
     <Key>
       <PropertyRef Name="MADAY" />
     </Key>
-    <Property Name="MADAY" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
-    <Property Name="TENDAY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="SACHes" Relationship="masterlibraryModel.FK__SACH__VITRIDAY__5E8A0973" FromRole="DAYKE" ToRole="SACH" />
-  </EntityType>
-  <EntityType Name="ErrorLog">
-    <Key>
-      <PropertyRef Name="ErrorLogID" />
-    </Key>
-    <Property Name="ErrorLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ErrorTime" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="UserName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="ErrorNumber" Type="Int32" Nullable="false" />
-    <Property Name="ErrorSeverity" Type="Int32" />
-    <Property Name="ErrorState" Type="Int32" />
-    <Property Name="ErrorProcedure" Type="String" MaxLength="126" FixedLength="false" Unicode="true" />
-    <Property Name="ErrorLine" Type="Int32" />
-    <Property Name="ErrorMessage" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="MADAY" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENDAY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IDTANG" Type="Int32" />
+    <NavigationProperty Name="TANG" Relationship="masterlibraryModel.FK__DAYKE__IDTANG__74AE54BC" FromRole="DAYKE" ToRole="TANG" />
+    <NavigationProperty Name="SACHes" Relationship="masterlibraryModel.FK__SACH__VITRIDAY__693CA210" FromRole="DAYKE" ToRole="SACH" />
   </EntityType>
   <EntityType Name="HOADON">
     <Key>
@@ -139,8 +65,8 @@
     <Property Name="MAHD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="MAKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TRIGIA" Type="Decimal" Precision="19" Scale="4" />
-    <NavigationProperty Name="CTHDs" Relationship="masterlibraryModel.FK__CTHD__MAHD__7A3223E8" FromRole="HOADON" ToRole="CTHD" />
-    <NavigationProperty Name="KHACHHANG" Relationship="masterlibraryModel.FK__HOADON__MAKH__7755B73D" FromRole="HOADON" ToRole="KHACHHANG" />
+    <NavigationProperty Name="CTHDs" Relationship="masterlibraryModel.FK__CTHD__MAHD__72C60C4A" FromRole="HOADON" ToRole="CTHD" />
+    <NavigationProperty Name="KHACHHANG" Relationship="masterlibraryModel.FK__HOADON__MAKH__6C190EBB" FromRole="HOADON" ToRole="KHACHHANG" />
   </EntityType>
   <EntityType Name="KHACHHANG">
     <Key>
@@ -149,225 +75,51 @@
     <Property Name="MAKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="USERPASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="TENKH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TENKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="IDROLE" Type="Int32" />
-    <NavigationProperty Name="HOADONs" Relationship="masterlibraryModel.FK__HOADON__MAKH__7755B73D" FromRole="KHACHHANG" ToRole="HOADON" />
+    <Property Name="DIACHI" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="HOADONs" Relationship="masterlibraryModel.FK__HOADON__MAKH__6C190EBB" FromRole="KHACHHANG" ToRole="HOADON" />
+    <NavigationProperty Name="USERROLE" Relationship="masterlibraryModel.FK__KHACHHANG__IDROL__619B8048" FromRole="KHACHHANG" ToRole="USERROLE" />
   </EntityType>
   <EntityType Name="SACH">
     <Key>
       <PropertyRef Name="MASACH" />
     </Key>
-    <Property Name="MASACH" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
-    <Property Name="TENSACH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="TACGIA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="NAMXB" Type="DateTime" Precision="0" />
-    <Property Name="VITRITANG" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-    <Property Name="VITRIDAY" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-    <NavigationProperty Name="CTHDs" Relationship="masterlibraryModel.FK__CTHD__MASACH__7B264821" FromRole="SACH" ToRole="CTHD" />
-    <NavigationProperty Name="DAYKE" Relationship="masterlibraryModel.FK__SACH__VITRIDAY__5E8A0973" FromRole="SACH" ToRole="DAYKE" />
-    <NavigationProperty Name="TANG" Relationship="masterlibraryModel.FK__SACH__VITRITANG__5D95E53A" FromRole="SACH" ToRole="TANG" />
-  </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="MASACH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENSACH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TACGIA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NAMXB" Type="Int32" />
+    <Property Name="SL" Type="Int32" />
+    <Property Name="GIA" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="IMAGESOURCE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="THELOAI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="MOTA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VITRITANG" Type="Int32" />
+    <Property Name="VITRIDAY" Type="Int32" />
+    <Property Name="NXB" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CTHDs" Relationship="masterlibraryModel.FK__CTHD__MASACH__73BA3083" FromRole="SACH" ToRole="CTHD" />
+    <NavigationProperty Name="DAYKE" Relationship="masterlibraryModel.FK__SACH__VITRIDAY__693CA210" FromRole="SACH" ToRole="DAYKE" />
+    <NavigationProperty Name="TANG" Relationship="masterlibraryModel.FK__SACH__VITRITANG__68487DD7" FromRole="SACH" ToRole="TANG" />
   </EntityType>
   <EntityType Name="TANG">
     <Key>
       <PropertyRef Name="MATANG" />
     </Key>
-    <Property Name="MATANG" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
-    <Property Name="TENTANG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="SACHes" Relationship="masterlibraryModel.FK__SACH__VITRITANG__5D95E53A" FromRole="TANG" ToRole="SACH" />
+    <Property Name="MATANG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENTANG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DAYKEs" Relationship="masterlibraryModel.FK__DAYKE__IDTANG__74AE54BC" FromRole="TANG" ToRole="DAYKE" />
+    <NavigationProperty Name="SACHes" Relationship="masterlibraryModel.FK__SACH__VITRITANG__68487DD7" FromRole="TANG" ToRole="SACH" />
   </EntityType>
   <EntityType Name="USERROLE">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="DISPLAYNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DISPLAYNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KHACHHANGs" Relationship="masterlibraryModel.FK__KHACHHANG__IDROL__619B8048" FromRole="USERROLE" ToRole="KHACHHANG" />
   </EntityType>
-  <EntityType Name="Address">
-    <Key>
-      <PropertyRef Name="AddressID" />
-    </Key>
-    <Property Name="AddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="AddressLine1" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
-    <Property Name="AddressLine2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
-    <Property Name="City" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="StateProvince" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CountryRegion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="PostalCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
-    <Property Name="rowguid" Type="Guid" Nullable="false" />
-    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="CustomerAddresses" Relationship="masterlibraryModel.FK_CustomerAddress_Address_AddressID" FromRole="Address" ToRole="CustomerAddress" />
-    <NavigationProperty Name="SalesOrderHeaders" Relationship="masterlibraryModel.FK_SalesOrderHeader_Address_BillTo_AddressID" FromRole="Address" ToRole="SalesOrderHeader" />
-    <NavigationProperty Name="SalesOrderHeaders1" Relationship="masterlibraryModel.FK_SalesOrderHeader_Address_ShipTo_AddressID" FromRole="Address" ToRole="SalesOrderHeader" />
-  </EntityType>
-  <EntityType Name="Customer">
-    <Key>
-      <PropertyRef Name="CustomerID" />
-    </Key>
-    <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="NameStyle" Type="Boolean" Nullable="false" />
-    <Property Name="Title" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
-    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Suffix" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="CompanyName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="SalesPerson" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-    <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-    <Property Name="PasswordHash" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
-    <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="rowguid" Type="Guid" Nullable="false" />
-    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="CustomerAddresses" Relationship="masterlibraryModel.FK_CustomerAddress_Customer_CustomerID" FromRole="Customer" ToRole="CustomerAddress" />
-    <NavigationProperty Name="SalesOrderHeaders" Relationship="masterlibraryModel.FK_SalesOrderHeader_Customer_CustomerID" FromRole="Customer" ToRole="SalesOrderHeader" />
-  </EntityType>
-  <EntityType Name="CustomerAddress">
-    <Key>
-      <PropertyRef Name="CustomerID" />
-      <PropertyRef Name="AddressID" />
-    </Key>
-    <Property Name="CustomerID" Type="Int32" Nullable="false" />
-    <Property Name="AddressID" Type="Int32" Nullable="false" />
-    <Property Name="AddressType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="rowguid" Type="Guid" Nullable="false" />
-    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Address" Relationship="masterlibraryModel.FK_CustomerAddress_Address_AddressID" FromRole="CustomerAddress" ToRole="Address" />
-    <NavigationProperty Name="Customer" Relationship="masterlibraryModel.FK_CustomerAddress_Customer_CustomerID" FromRole="CustomerAddress" ToRole="Customer" />
-  </EntityType>
-  <EntityType Name="Product">
-    <Key>
-      <PropertyRef Name="ProductID" />
-    </Key>
-    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ProductNumber" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-    <Property Name="Color" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-    <Property Name="StandardCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="ListPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="Size" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-    <Property Name="Weight" Type="Decimal" Precision="8" Scale="2" />
-    <Property Name="ProductCategoryID" Type="Int32" />
-    <Property Name="ProductModelID" Type="Int32" />
-    <Property Name="SellStartDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="SellEndDate" Type="DateTime" Precision="3" />
-    <Property Name="DiscontinuedDate" Type="DateTime" Precision="3" />
-    <Property Name="ThumbNailPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
-    <Property Name="ThumbnailPhotoFileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="rowguid" Type="Guid" Nullable="false" />
-    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="ProductCategory" Relationship="masterlibraryModel.FK_Product_ProductCategory_ProductCategoryID" FromRole="Product" ToRole="ProductCategory" />
-    <NavigationProperty Name="ProductModel" Relationship="masterlibraryModel.FK_Product_ProductModel_ProductModelID" FromRole="Product" ToRole="ProductModel" />
-    <NavigationProperty Name="SalesOrderDetails" Relationship="masterlibraryModel.FK_SalesOrderDetail_Product_ProductID" FromRole="Product" ToRole="SalesOrderDetail" />
-  </EntityType>
-  <EntityType Name="ProductCategory">
-    <Key>
-      <PropertyRef Name="ProductCategoryID" />
-    </Key>
-    <Property Name="ProductCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ParentProductCategoryID" Type="Int32" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="rowguid" Type="Guid" Nullable="false" />
-    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Products" Relationship="masterlibraryModel.FK_Product_ProductCategory_ProductCategoryID" FromRole="ProductCategory" ToRole="Product" />
-    <NavigationProperty Name="ProductCategory1" Relationship="masterlibraryModel.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" FromRole="ProductCategory" ToRole="ProductCategory1" />
-    <NavigationProperty Name="ProductCategory2" Relationship="masterlibraryModel.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" FromRole="ProductCategory1" ToRole="ProductCategory" />
-  </EntityType>
-  <EntityType Name="ProductDescription">
-    <Key>
-      <PropertyRef Name="ProductDescriptionID" />
-    </Key>
-    <Property Name="ProductDescriptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Description" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
-    <Property Name="rowguid" Type="Guid" Nullable="false" />
-    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="ProductModelProductDescriptions" Relationship="masterlibraryModel.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" FromRole="ProductDescription" ToRole="ProductModelProductDescription" />
-  </EntityType>
-  <EntityType Name="ProductModel">
-    <Key>
-      <PropertyRef Name="ProductModelID" />
-    </Key>
-    <Property Name="ProductModelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CatalogDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="rowguid" Type="Guid" Nullable="false" />
-    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Products" Relationship="masterlibraryModel.FK_Product_ProductModel_ProductModelID" FromRole="ProductModel" ToRole="Product" />
-    <NavigationProperty Name="ProductModelProductDescriptions" Relationship="masterlibraryModel.FK_ProductModelProductDescription_ProductModel_ProductModelID" FromRole="ProductModel" ToRole="ProductModelProductDescription" />
-  </EntityType>
-  <EntityType Name="ProductModelProductDescription">
-    <Key>
-      <PropertyRef Name="ProductModelID" />
-      <PropertyRef Name="ProductDescriptionID" />
-      <PropertyRef Name="Culture" />
-    </Key>
-    <Property Name="ProductModelID" Type="Int32" Nullable="false" />
-    <Property Name="ProductDescriptionID" Type="Int32" Nullable="false" />
-    <Property Name="Culture" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
-    <Property Name="rowguid" Type="Guid" Nullable="false" />
-    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="ProductDescription" Relationship="masterlibraryModel.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" FromRole="ProductModelProductDescription" ToRole="ProductDescription" />
-    <NavigationProperty Name="ProductModel" Relationship="masterlibraryModel.FK_ProductModelProductDescription_ProductModel_ProductModelID" FromRole="ProductModelProductDescription" ToRole="ProductModel" />
-  </EntityType>
-  <EntityType Name="SalesOrderDetail">
-    <Key>
-      <PropertyRef Name="SalesOrderID" />
-      <PropertyRef Name="SalesOrderDetailID" />
-    </Key>
-    <Property Name="SalesOrderID" Type="Int32" Nullable="false" />
-    <Property Name="SalesOrderDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="OrderQty" Type="Int16" Nullable="false" />
-    <Property Name="ProductID" Type="Int32" Nullable="false" />
-    <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="UnitPriceDiscount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="LineTotal" Type="Decimal" Nullable="false" Precision="38" Scale="6" annotation:StoreGeneratedPattern="Computed" />
-    <Property Name="rowguid" Type="Guid" Nullable="false" />
-    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Product" Relationship="masterlibraryModel.FK_SalesOrderDetail_Product_ProductID" FromRole="SalesOrderDetail" ToRole="Product" />
-    <NavigationProperty Name="SalesOrderHeader" Relationship="masterlibraryModel.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" FromRole="SalesOrderDetail" ToRole="SalesOrderHeader" />
-  </EntityType>
-  <EntityType Name="SalesOrderHeader">
-    <Key>
-      <PropertyRef Name="SalesOrderID" />
-    </Key>
-    <Property Name="SalesOrderID" Type="Int32" Nullable="false" />
-    <Property Name="RevisionNumber" Type="Byte" Nullable="false" />
-    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="ShipDate" Type="DateTime" Precision="3" />
-    <Property Name="Status" Type="Byte" Nullable="false" />
-    <Property Name="OnlineOrderFlag" Type="Boolean" Nullable="false" />
-    <Property Name="SalesOrderNumber" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
-    <Property Name="PurchaseOrderNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-    <Property Name="AccountNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-    <Property Name="CustomerID" Type="Int32" Nullable="false" />
-    <Property Name="ShipToAddressID" Type="Int32" />
-    <Property Name="BillToAddressID" Type="Int32" />
-    <Property Name="ShipMethod" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CreditCardApprovalCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-    <Property Name="SubTotal" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="TaxAmt" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="Freight" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="TotalDue" Type="Decimal" Nullable="false" Precision="19" Scale="4" annotation:StoreGeneratedPattern="Computed" />
-    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="rowguid" Type="Guid" Nullable="false" />
-    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Address" Relationship="masterlibraryModel.FK_SalesOrderHeader_Address_BillTo_AddressID" FromRole="SalesOrderHeader" ToRole="Address" />
-    <NavigationProperty Name="Address1" Relationship="masterlibraryModel.FK_SalesOrderHeader_Address_ShipTo_AddressID" FromRole="SalesOrderHeader" ToRole="Address" />
-    <NavigationProperty Name="Customer" Relationship="masterlibraryModel.FK_SalesOrderHeader_Customer_CustomerID" FromRole="SalesOrderHeader" ToRole="Customer" />
-    <NavigationProperty Name="SalesOrderDetails" Relationship="masterlibraryModel.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" FromRole="SalesOrderHeader" ToRole="SalesOrderDetail" />
-  </EntityType>
-  <Association Name="FK__CTHD__MAHD__7A3223E8">
+  <Association Name="FK__CTHD__MAHD__72C60C4A">
     <End Type="masterlibraryModel.HOADON" Role="HOADON" Multiplicity="1" />
     <End Type="masterlibraryModel.CTHD" Role="CTHD" Multiplicity="*" />
     <ReferentialConstraint>
@@ -379,7 +131,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CTHD__MASACH__7B264821">
+  <Association Name="FK__CTHD__MASACH__73BA3083">
     <End Type="masterlibraryModel.SACH" Role="SACH" Multiplicity="1" />
     <End Type="masterlibraryModel.CTHD" Role="CTHD" Multiplicity="*" />
     <ReferentialConstraint>
@@ -391,7 +143,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__SACH__VITRIDAY__5E8A0973">
+  <Association Name="FK__DAYKE__IDTANG__74AE54BC">
+    <End Type="masterlibraryModel.TANG" Role="TANG" Multiplicity="0..1" />
+    <End Type="masterlibraryModel.DAYKE" Role="DAYKE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TANG">
+        <PropertyRef Name="MATANG" />
+      </Principal>
+      <Dependent Role="DAYKE">
+        <PropertyRef Name="IDTANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SACH__VITRIDAY__693CA210">
     <End Type="masterlibraryModel.DAYKE" Role="DAYKE" Multiplicity="0..1" />
     <End Type="masterlibraryModel.SACH" Role="SACH" Multiplicity="*" />
     <ReferentialConstraint>
@@ -403,7 +167,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__HOADON__MAKH__7755B73D">
+  <Association Name="FK__HOADON__MAKH__6C190EBB">
     <End Type="masterlibraryModel.KHACHHANG" Role="KHACHHANG" Multiplicity="1" />
     <End Type="masterlibraryModel.HOADON" Role="HOADON" Multiplicity="*" />
     <ReferentialConstraint>
@@ -415,7 +179,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__SACH__VITRITANG__5D95E53A">
+  <Association Name="FK__KHACHHANG__IDROL__619B8048">
+    <End Type="masterlibraryModel.USERROLE" Role="USERROLE" Multiplicity="0..1" />
+    <End Type="masterlibraryModel.KHACHHANG" Role="KHACHHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERROLE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="KHACHHANG">
+        <PropertyRef Name="IDROLE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SACH__VITRITANG__68487DD7">
     <End Type="masterlibraryModel.TANG" Role="TANG" Multiplicity="0..1" />
     <End Type="masterlibraryModel.SACH" Role="SACH" Multiplicity="*" />
     <ReferentialConstraint>
@@ -424,152 +200,6 @@
       </Principal>
       <Dependent Role="SACH">
         <PropertyRef Name="VITRITANG" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CustomerAddress_Address_AddressID">
-    <End Type="masterlibraryModel.Address" Role="Address" Multiplicity="1" />
-    <End Type="masterlibraryModel.CustomerAddress" Role="CustomerAddress" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Address">
-        <PropertyRef Name="AddressID" />
-      </Principal>
-      <Dependent Role="CustomerAddress">
-        <PropertyRef Name="AddressID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SalesOrderHeader_Address_BillTo_AddressID">
-    <End Type="masterlibraryModel.Address" Role="Address" Multiplicity="0..1" />
-    <End Type="masterlibraryModel.SalesOrderHeader" Role="SalesOrderHeader" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Address">
-        <PropertyRef Name="AddressID" />
-      </Principal>
-      <Dependent Role="SalesOrderHeader">
-        <PropertyRef Name="BillToAddressID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SalesOrderHeader_Address_ShipTo_AddressID">
-    <End Type="masterlibraryModel.Address" Role="Address" Multiplicity="0..1" />
-    <End Type="masterlibraryModel.SalesOrderHeader" Role="SalesOrderHeader" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Address">
-        <PropertyRef Name="AddressID" />
-      </Principal>
-      <Dependent Role="SalesOrderHeader">
-        <PropertyRef Name="ShipToAddressID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CustomerAddress_Customer_CustomerID">
-    <End Type="masterlibraryModel.Customer" Role="Customer" Multiplicity="1" />
-    <End Type="masterlibraryModel.CustomerAddress" Role="CustomerAddress" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Customer">
-        <PropertyRef Name="CustomerID" />
-      </Principal>
-      <Dependent Role="CustomerAddress">
-        <PropertyRef Name="CustomerID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SalesOrderHeader_Customer_CustomerID">
-    <End Type="masterlibraryModel.Customer" Role="Customer" Multiplicity="1" />
-    <End Type="masterlibraryModel.SalesOrderHeader" Role="SalesOrderHeader" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Customer">
-        <PropertyRef Name="CustomerID" />
-      </Principal>
-      <Dependent Role="SalesOrderHeader">
-        <PropertyRef Name="CustomerID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Product_ProductCategory_ProductCategoryID">
-    <End Type="masterlibraryModel.ProductCategory" Role="ProductCategory" Multiplicity="0..1" />
-    <End Type="masterlibraryModel.Product" Role="Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ProductCategory">
-        <PropertyRef Name="ProductCategoryID" />
-      </Principal>
-      <Dependent Role="Product">
-        <PropertyRef Name="ProductCategoryID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Product_ProductModel_ProductModelID">
-    <End Type="masterlibraryModel.ProductModel" Role="ProductModel" Multiplicity="0..1" />
-    <End Type="masterlibraryModel.Product" Role="Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ProductModel">
-        <PropertyRef Name="ProductModelID" />
-      </Principal>
-      <Dependent Role="Product">
-        <PropertyRef Name="ProductModelID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SalesOrderDetail_Product_ProductID">
-    <End Type="masterlibraryModel.Product" Role="Product" Multiplicity="1" />
-    <End Type="masterlibraryModel.SalesOrderDetail" Role="SalesOrderDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="SalesOrderDetail">
-        <PropertyRef Name="ProductID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID">
-    <End Type="masterlibraryModel.ProductCategory" Role="ProductCategory" Multiplicity="0..1" />
-    <End Type="masterlibraryModel.ProductCategory" Role="ProductCategory1" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ProductCategory">
-        <PropertyRef Name="ProductCategoryID" />
-      </Principal>
-      <Dependent Role="ProductCategory1">
-        <PropertyRef Name="ParentProductCategoryID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID">
-    <End Type="masterlibraryModel.ProductDescription" Role="ProductDescription" Multiplicity="1" />
-    <End Type="masterlibraryModel.ProductModelProductDescription" Role="ProductModelProductDescription" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ProductDescription">
-        <PropertyRef Name="ProductDescriptionID" />
-      </Principal>
-      <Dependent Role="ProductModelProductDescription">
-        <PropertyRef Name="ProductDescriptionID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ProductModelProductDescription_ProductModel_ProductModelID">
-    <End Type="masterlibraryModel.ProductModel" Role="ProductModel" Multiplicity="1" />
-    <End Type="masterlibraryModel.ProductModelProductDescription" Role="ProductModelProductDescription" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ProductModel">
-        <PropertyRef Name="ProductModelID" />
-      </Principal>
-      <Dependent Role="ProductModelProductDescription">
-        <PropertyRef Name="ProductModelID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID">
-    <End Type="masterlibraryModel.SalesOrderHeader" Role="SalesOrderHeader" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Type="masterlibraryModel.SalesOrderDetail" Role="SalesOrderDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SalesOrderHeader">
-        <PropertyRef Name="SalesOrderID" />
-      </Principal>
-      <Dependent Role="SalesOrderDetail">
-        <PropertyRef Name="SalesOrderID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

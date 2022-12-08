@@ -1,43 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="masterlibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="BuildVersion">
-    <Key>
-      <PropertyRef Name="SystemInformationID" />
-    </Key>
-    <Property Name="SystemInformationID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Database Version" Type="nvarchar" MaxLength="25" Nullable="false" />
-    <Property Name="VersionDate" Type="datetime" Nullable="false" />
-    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
-  </EntityType>
   <EntityType Name="CTHD">
     <Key>
       <PropertyRef Name="MAHD" />
       <PropertyRef Name="MASACH" />
     </Key>
     <Property Name="MAHD" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="MASACH" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="MASACH" Type="int" Nullable="false" />
     <Property Name="SOLUONG" Type="int" />
   </EntityType>
   <EntityType Name="DAYKE">
     <Key>
       <PropertyRef Name="MADAY" />
     </Key>
-    <Property Name="MADAY" Type="char" MaxLength="50" Nullable="false" />
-    <Property Name="TENDAY" Type="varchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="ErrorLog">
-    <Key>
-      <PropertyRef Name="ErrorLogID" />
-    </Key>
-    <Property Name="ErrorLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ErrorTime" Type="datetime" Nullable="false" />
-    <Property Name="UserName" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="ErrorNumber" Type="int" Nullable="false" />
-    <Property Name="ErrorSeverity" Type="int" />
-    <Property Name="ErrorState" Type="int" />
-    <Property Name="ErrorProcedure" Type="nvarchar" MaxLength="126" />
-    <Property Name="ErrorLine" Type="int" />
-    <Property Name="ErrorMessage" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="MADAY" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENDAY" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDTANG" Type="int" />
   </EntityType>
   <EntityType Name="HOADON">
     <Key>
@@ -54,196 +32,43 @@
     <Property Name="MAKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="USERNAME" Type="varchar" MaxLength="50" />
     <Property Name="USERPASSWORD" Type="varchar" MaxLength="50" />
-    <Property Name="TENKH" Type="varchar" MaxLength="50" />
+    <Property Name="TENKH" Type="nvarchar" MaxLength="50" />
     <Property Name="EMAIL" Type="varchar" MaxLength="50" />
     <Property Name="IDROLE" Type="int" />
+    <Property Name="DIACHI" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="SACH">
     <Key>
       <PropertyRef Name="MASACH" />
     </Key>
-    <Property Name="MASACH" Type="char" MaxLength="50" Nullable="false" />
-    <Property Name="TENSACH" Type="varchar" MaxLength="50" />
-    <Property Name="TACGIA" Type="varchar" MaxLength="50" />
-    <Property Name="NAMXB" Type="smalldatetime" />
-    <Property Name="VITRITANG" Type="char" MaxLength="50" />
-    <Property Name="VITRIDAY" Type="char" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
+    <Property Name="MASACH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENSACH" Type="nvarchar" MaxLength="50" />
+    <Property Name="TACGIA" Type="nvarchar" MaxLength="50" />
+    <Property Name="NAMXB" Type="int" />
+    <Property Name="SL" Type="int" />
+    <Property Name="GIA" Type="money" />
+    <Property Name="IMAGESOURCE" Type="varchar(max)" />
+    <Property Name="THELOAI" Type="nvarchar" MaxLength="500" />
+    <Property Name="MOTA" Type="nvarchar(max)" />
+    <Property Name="VITRITANG" Type="int" />
+    <Property Name="VITRIDAY" Type="int" />
+    <Property Name="NXB" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="TANG">
     <Key>
       <PropertyRef Name="MATANG" />
     </Key>
-    <Property Name="MATANG" Type="char" MaxLength="50" Nullable="false" />
-    <Property Name="TENTANG" Type="varchar" MaxLength="50" />
+    <Property Name="MATANG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENTANG" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="USERROLE">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="DISPLAYNAME" Type="varchar" MaxLength="50" />
+    <Property Name="DISPLAYNAME" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="Address">
-    <Key>
-      <PropertyRef Name="AddressID" />
-    </Key>
-    <Property Name="AddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="AddressLine1" Type="nvarchar" MaxLength="60" Nullable="false" />
-    <Property Name="AddressLine2" Type="nvarchar" MaxLength="60" />
-    <Property Name="City" Type="nvarchar" MaxLength="30" Nullable="false" />
-    <Property Name="StateProvince" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="CountryRegion" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="PostalCode" Type="nvarchar" MaxLength="15" Nullable="false" />
-    <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Customer">
-    <Key>
-      <PropertyRef Name="CustomerID" />
-    </Key>
-    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NameStyle" Type="bit" Nullable="false" />
-    <Property Name="Title" Type="nvarchar" MaxLength="8" />
-    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
-    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Suffix" Type="nvarchar" MaxLength="10" />
-    <Property Name="CompanyName" Type="nvarchar" MaxLength="128" />
-    <Property Name="SalesPerson" Type="nvarchar" MaxLength="256" />
-    <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
-    <Property Name="Phone" Type="nvarchar" MaxLength="25" />
-    <Property Name="PasswordHash" Type="varchar" MaxLength="128" Nullable="false" />
-    <Property Name="PasswordSalt" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="CustomerAddress">
-    <Key>
-      <PropertyRef Name="CustomerID" />
-      <PropertyRef Name="AddressID" />
-    </Key>
-    <Property Name="CustomerID" Type="int" Nullable="false" />
-    <Property Name="AddressID" Type="int" Nullable="false" />
-    <Property Name="AddressType" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Product">
-    <Key>
-      <PropertyRef Name="ProductID" />
-    </Key>
-    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ProductNumber" Type="nvarchar" MaxLength="25" Nullable="false" />
-    <Property Name="Color" Type="nvarchar" MaxLength="15" />
-    <Property Name="StandardCost" Type="money" Nullable="false" />
-    <Property Name="ListPrice" Type="money" Nullable="false" />
-    <Property Name="Size" Type="nvarchar" MaxLength="5" />
-    <Property Name="Weight" Type="decimal" Precision="8" Scale="2" />
-    <Property Name="ProductCategoryID" Type="int" />
-    <Property Name="ProductModelID" Type="int" />
-    <Property Name="SellStartDate" Type="datetime" Nullable="false" />
-    <Property Name="SellEndDate" Type="datetime" />
-    <Property Name="DiscontinuedDate" Type="datetime" />
-    <Property Name="ThumbNailPhoto" Type="varbinary(max)" />
-    <Property Name="ThumbnailPhotoFileName" Type="nvarchar" MaxLength="50" />
-    <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ProductCategory">
-    <Key>
-      <PropertyRef Name="ProductCategoryID" />
-    </Key>
-    <Property Name="ProductCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ParentProductCategoryID" Type="int" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ProductDescription">
-    <Key>
-      <PropertyRef Name="ProductDescriptionID" />
-    </Key>
-    <Property Name="ProductDescriptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Description" Type="nvarchar" MaxLength="400" Nullable="false" />
-    <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ProductModel">
-    <Key>
-      <PropertyRef Name="ProductModelID" />
-    </Key>
-    <Property Name="ProductModelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="CatalogDescription" Type="xml" />
-    <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ProductModelProductDescription">
-    <Key>
-      <PropertyRef Name="ProductModelID" />
-      <PropertyRef Name="ProductDescriptionID" />
-      <PropertyRef Name="Culture" />
-    </Key>
-    <Property Name="ProductModelID" Type="int" Nullable="false" />
-    <Property Name="ProductDescriptionID" Type="int" Nullable="false" />
-    <Property Name="Culture" Type="nchar" MaxLength="6" Nullable="false" />
-    <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="SalesOrderDetail">
-    <Key>
-      <PropertyRef Name="SalesOrderID" />
-      <PropertyRef Name="SalesOrderDetailID" />
-    </Key>
-    <Property Name="SalesOrderID" Type="int" Nullable="false" />
-    <Property Name="SalesOrderDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="OrderQty" Type="smallint" Nullable="false" />
-    <Property Name="ProductID" Type="int" Nullable="false" />
-    <Property Name="UnitPrice" Type="money" Nullable="false" />
-    <Property Name="UnitPriceDiscount" Type="money" Nullable="false" />
-    <Property Name="LineTotal" Type="numeric" Precision="38" Scale="6" StoreGeneratedPattern="Computed" Nullable="false" />
-    <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="SalesOrderHeader">
-    <Key>
-      <PropertyRef Name="SalesOrderID" />
-    </Key>
-    <Property Name="SalesOrderID" Type="int" Nullable="false" />
-    <Property Name="RevisionNumber" Type="tinyint" Nullable="false" />
-    <Property Name="OrderDate" Type="datetime" Nullable="false" />
-    <Property Name="DueDate" Type="datetime" Nullable="false" />
-    <Property Name="ShipDate" Type="datetime" />
-    <Property Name="Status" Type="tinyint" Nullable="false" />
-    <Property Name="OnlineOrderFlag" Type="bit" Nullable="false" />
-    <Property Name="SalesOrderNumber" Type="nvarchar" MaxLength="25" StoreGeneratedPattern="Computed" Nullable="false" />
-    <Property Name="PurchaseOrderNumber" Type="nvarchar" MaxLength="25" />
-    <Property Name="AccountNumber" Type="nvarchar" MaxLength="15" />
-    <Property Name="CustomerID" Type="int" Nullable="false" />
-    <Property Name="ShipToAddressID" Type="int" />
-    <Property Name="BillToAddressID" Type="int" />
-    <Property Name="ShipMethod" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="CreditCardApprovalCode" Type="varchar" MaxLength="15" />
-    <Property Name="SubTotal" Type="money" Nullable="false" />
-    <Property Name="TaxAmt" Type="money" Nullable="false" />
-    <Property Name="Freight" Type="money" Nullable="false" />
-    <Property Name="TotalDue" Type="money" StoreGeneratedPattern="Computed" Nullable="false" />
-    <Property Name="Comment" Type="nvarchar(max)" />
-    <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
-  </EntityType>
-  <Association Name="FK__CTHD__MAHD__7A3223E8">
+  <Association Name="FK__CTHD__MAHD__72C60C4A">
     <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
     <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
     <ReferentialConstraint>
@@ -255,7 +80,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CTHD__MASACH__7B264821">
+  <Association Name="FK__CTHD__MASACH__73BA3083">
     <End Role="SACH" Type="Self.SACH" Multiplicity="1" />
     <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
     <ReferentialConstraint>
@@ -267,7 +92,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__HOADON__MAKH__7755B73D">
+  <Association Name="FK__DAYKE__IDTANG__74AE54BC">
+    <End Role="TANG" Type="Self.TANG" Multiplicity="0..1" />
+    <End Role="DAYKE" Type="Self.DAYKE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TANG">
+        <PropertyRef Name="MATANG" />
+      </Principal>
+      <Dependent Role="DAYKE">
+        <PropertyRef Name="IDTANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOADON__MAKH__6C190EBB">
     <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
     <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
     <ReferentialConstraint>
@@ -279,7 +116,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__SACH__VITRIDAY__5E8A0973">
+  <Association Name="FK__KHACHHANG__IDROL__619B8048">
+    <End Role="USERROLE" Type="Self.USERROLE" Multiplicity="0..1" />
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERROLE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="KHACHHANG">
+        <PropertyRef Name="IDROLE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SACH__VITRIDAY__693CA210">
     <End Role="DAYKE" Type="Self.DAYKE" Multiplicity="0..1" />
     <End Role="SACH" Type="Self.SACH" Multiplicity="*" />
     <ReferentialConstraint>
@@ -291,7 +140,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__SACH__VITRITANG__5D95E53A">
+  <Association Name="FK__SACH__VITRITANG__68487DD7">
     <End Role="TANG" Type="Self.TANG" Multiplicity="0..1" />
     <End Role="SACH" Type="Self.SACH" Multiplicity="*" />
     <ReferentialConstraint>
@@ -303,240 +152,41 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_CustomerAddress_Address_AddressID">
-    <End Role="Address" Type="Self.Address" Multiplicity="1" />
-    <End Role="CustomerAddress" Type="Self.CustomerAddress" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Address">
-        <PropertyRef Name="AddressID" />
-      </Principal>
-      <Dependent Role="CustomerAddress">
-        <PropertyRef Name="AddressID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CustomerAddress_Customer_CustomerID">
-    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-    <End Role="CustomerAddress" Type="Self.CustomerAddress" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Customer">
-        <PropertyRef Name="CustomerID" />
-      </Principal>
-      <Dependent Role="CustomerAddress">
-        <PropertyRef Name="CustomerID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Product_ProductCategory_ProductCategoryID">
-    <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="0..1" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ProductCategory">
-        <PropertyRef Name="ProductCategoryID" />
-      </Principal>
-      <Dependent Role="Product">
-        <PropertyRef Name="ProductCategoryID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Product_ProductModel_ProductModelID">
-    <End Role="ProductModel" Type="Self.ProductModel" Multiplicity="0..1" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ProductModel">
-        <PropertyRef Name="ProductModelID" />
-      </Principal>
-      <Dependent Role="Product">
-        <PropertyRef Name="ProductModelID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID">
-    <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="0..1" />
-    <End Role="ProductCategory1" Type="Self.ProductCategory" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ProductCategory">
-        <PropertyRef Name="ProductCategoryID" />
-      </Principal>
-      <Dependent Role="ProductCategory1">
-        <PropertyRef Name="ParentProductCategoryID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID">
-    <End Role="ProductDescription" Type="Self.ProductDescription" Multiplicity="1" />
-    <End Role="ProductModelProductDescription" Type="Self.ProductModelProductDescription" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ProductDescription">
-        <PropertyRef Name="ProductDescriptionID" />
-      </Principal>
-      <Dependent Role="ProductModelProductDescription">
-        <PropertyRef Name="ProductDescriptionID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ProductModelProductDescription_ProductModel_ProductModelID">
-    <End Role="ProductModel" Type="Self.ProductModel" Multiplicity="1" />
-    <End Role="ProductModelProductDescription" Type="Self.ProductModelProductDescription" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ProductModel">
-        <PropertyRef Name="ProductModelID" />
-      </Principal>
-      <Dependent Role="ProductModelProductDescription">
-        <PropertyRef Name="ProductModelID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SalesOrderDetail_Product_ProductID">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="SalesOrderDetail" Type="Self.SalesOrderDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="SalesOrderDetail">
-        <PropertyRef Name="ProductID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID">
-    <End Role="SalesOrderHeader" Type="Self.SalesOrderHeader" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="SalesOrderDetail" Type="Self.SalesOrderDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SalesOrderHeader">
-        <PropertyRef Name="SalesOrderID" />
-      </Principal>
-      <Dependent Role="SalesOrderDetail">
-        <PropertyRef Name="SalesOrderID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SalesOrderHeader_Address_BillTo_AddressID">
-    <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
-    <End Role="SalesOrderHeader" Type="Self.SalesOrderHeader" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Address">
-        <PropertyRef Name="AddressID" />
-      </Principal>
-      <Dependent Role="SalesOrderHeader">
-        <PropertyRef Name="BillToAddressID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SalesOrderHeader_Address_ShipTo_AddressID">
-    <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
-    <End Role="SalesOrderHeader" Type="Self.SalesOrderHeader" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Address">
-        <PropertyRef Name="AddressID" />
-      </Principal>
-      <Dependent Role="SalesOrderHeader">
-        <PropertyRef Name="ShipToAddressID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SalesOrderHeader_Customer_CustomerID">
-    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-    <End Role="SalesOrderHeader" Type="Self.SalesOrderHeader" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Customer">
-        <PropertyRef Name="CustomerID" />
-      </Principal>
-      <Dependent Role="SalesOrderHeader">
-        <PropertyRef Name="CustomerID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="masterlibraryModelStoreContainer">
-    <EntitySet Name="BuildVersion" EntityType="Self.BuildVersion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CTHD" EntityType="Self.CTHD" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DAYKE" EntityType="Self.DAYKE" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ErrorLog" EntityType="Self.ErrorLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SACH" EntityType="Self.SACH" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TANG" EntityType="Self.TANG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="USERROLE" EntityType="Self.USERROLE" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Address" EntityType="Self.Address" Schema="SalesLT" store:Type="Tables" />
-    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="SalesLT" store:Type="Tables" />
-    <EntitySet Name="CustomerAddress" EntityType="Self.CustomerAddress" Schema="SalesLT" store:Type="Tables" />
-    <EntitySet Name="Product" EntityType="Self.Product" Schema="SalesLT" store:Type="Tables" />
-    <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" Schema="SalesLT" store:Type="Tables" />
-    <EntitySet Name="ProductDescription" EntityType="Self.ProductDescription" Schema="SalesLT" store:Type="Tables" />
-    <EntitySet Name="ProductModel" EntityType="Self.ProductModel" Schema="SalesLT" store:Type="Tables" />
-    <EntitySet Name="ProductModelProductDescription" EntityType="Self.ProductModelProductDescription" Schema="SalesLT" store:Type="Tables" />
-    <EntitySet Name="SalesOrderDetail" EntityType="Self.SalesOrderDetail" Schema="SalesLT" store:Type="Tables" />
-    <EntitySet Name="SalesOrderHeader" EntityType="Self.SalesOrderHeader" Schema="SalesLT" store:Type="Tables" />
-    <AssociationSet Name="FK__CTHD__MAHD__7A3223E8" Association="Self.FK__CTHD__MAHD__7A3223E8">
+    <AssociationSet Name="FK__CTHD__MAHD__72C60C4A" Association="Self.FK__CTHD__MAHD__72C60C4A">
       <End Role="HOADON" EntitySet="HOADON" />
       <End Role="CTHD" EntitySet="CTHD" />
     </AssociationSet>
-    <AssociationSet Name="FK__CTHD__MASACH__7B264821" Association="Self.FK__CTHD__MASACH__7B264821">
+    <AssociationSet Name="FK__CTHD__MASACH__73BA3083" Association="Self.FK__CTHD__MASACH__73BA3083">
       <End Role="SACH" EntitySet="SACH" />
       <End Role="CTHD" EntitySet="CTHD" />
     </AssociationSet>
-    <AssociationSet Name="FK__HOADON__MAKH__7755B73D" Association="Self.FK__HOADON__MAKH__7755B73D">
+    <AssociationSet Name="FK__DAYKE__IDTANG__74AE54BC" Association="Self.FK__DAYKE__IDTANG__74AE54BC">
+      <End Role="TANG" EntitySet="TANG" />
+      <End Role="DAYKE" EntitySet="DAYKE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOADON__MAKH__6C190EBB" Association="Self.FK__HOADON__MAKH__6C190EBB">
       <End Role="KHACHHANG" EntitySet="KHACHHANG" />
       <End Role="HOADON" EntitySet="HOADON" />
     </AssociationSet>
-    <AssociationSet Name="FK__SACH__VITRIDAY__5E8A0973" Association="Self.FK__SACH__VITRIDAY__5E8A0973">
+    <AssociationSet Name="FK__KHACHHANG__IDROL__619B8048" Association="Self.FK__KHACHHANG__IDROL__619B8048">
+      <End Role="USERROLE" EntitySet="USERROLE" />
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SACH__VITRIDAY__693CA210" Association="Self.FK__SACH__VITRIDAY__693CA210">
       <End Role="DAYKE" EntitySet="DAYKE" />
       <End Role="SACH" EntitySet="SACH" />
     </AssociationSet>
-    <AssociationSet Name="FK__SACH__VITRITANG__5D95E53A" Association="Self.FK__SACH__VITRITANG__5D95E53A">
+    <AssociationSet Name="FK__SACH__VITRITANG__68487DD7" Association="Self.FK__SACH__VITRITANG__68487DD7">
       <End Role="TANG" EntitySet="TANG" />
       <End Role="SACH" EntitySet="SACH" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CustomerAddress_Address_AddressID" Association="Self.FK_CustomerAddress_Address_AddressID">
-      <End Role="Address" EntitySet="Address" />
-      <End Role="CustomerAddress" EntitySet="CustomerAddress" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CustomerAddress_Customer_CustomerID" Association="Self.FK_CustomerAddress_Customer_CustomerID">
-      <End Role="Customer" EntitySet="Customer" />
-      <End Role="CustomerAddress" EntitySet="CustomerAddress" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_ProductCategory_ProductCategoryID" Association="Self.FK_Product_ProductCategory_ProductCategoryID">
-      <End Role="ProductCategory" EntitySet="ProductCategory" />
-      <End Role="Product" EntitySet="Product" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_ProductModel_ProductModelID" Association="Self.FK_Product_ProductModel_ProductModelID">
-      <End Role="ProductModel" EntitySet="ProductModel" />
-      <End Role="Product" EntitySet="Product" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" Association="Self.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID">
-      <End Role="ProductCategory" EntitySet="ProductCategory" />
-      <End Role="ProductCategory1" EntitySet="ProductCategory" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" Association="Self.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID">
-      <End Role="ProductDescription" EntitySet="ProductDescription" />
-      <End Role="ProductModelProductDescription" EntitySet="ProductModelProductDescription" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProductModelProductDescription_ProductModel_ProductModelID" Association="Self.FK_ProductModelProductDescription_ProductModel_ProductModelID">
-      <End Role="ProductModel" EntitySet="ProductModel" />
-      <End Role="ProductModelProductDescription" EntitySet="ProductModelProductDescription" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SalesOrderDetail_Product_ProductID" Association="Self.FK_SalesOrderDetail_Product_ProductID">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="SalesOrderDetail" EntitySet="SalesOrderDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" Association="Self.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID">
-      <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
-      <End Role="SalesOrderDetail" EntitySet="SalesOrderDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SalesOrderHeader_Address_BillTo_AddressID" Association="Self.FK_SalesOrderHeader_Address_BillTo_AddressID">
-      <End Role="Address" EntitySet="Address" />
-      <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SalesOrderHeader_Address_ShipTo_AddressID" Association="Self.FK_SalesOrderHeader_Address_ShipTo_AddressID">
-      <End Role="Address" EntitySet="Address" />
-      <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SalesOrderHeader_Customer_CustomerID" Association="Self.FK_SalesOrderHeader_Customer_CustomerID">
-      <End Role="Customer" EntitySet="Customer" />
-      <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

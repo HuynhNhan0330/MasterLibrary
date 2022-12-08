@@ -1,0 +1,251 @@
+﻿<Window x:Class="MasterLibrary.Views.Admin.BookManagePage.updatingwindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MasterLibrary.Views.Admin.BookManagePage"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        Title="updatingwindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="1" >
+                <StackPanel>
+                    <TextBox
+                        x:Name="name_book_txb"
+                        materialDesign:HintAssist.Hint="Tên sách"
+                        BorderBrush="#b29e84"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        Margin="10 10 10 10"/>
+
+                    <Label Margin="10 -10 10 0"
+                       x:Name="Error1"
+                       Height="20"
+                       FontSize="9.5"
+                       FontFamily="UVN Viet Sach"
+                       Content=""
+                       Foreground="Red" />
+
+                    <TextBox
+                        x:Name="name_aut_txb"
+                        materialDesign:HintAssist.Hint="Tác giả"
+                        BorderBrush="#b29e84"
+                        
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        Margin="10 10 10 10"/>
+
+                    <Label Margin="10 -10 10 0"
+                       x:Name="Error2"
+                       Height="20"
+                       FontSize="9.5"
+                       FontFamily="UVN Viet Sach"
+                       Content=""
+                       Foreground="Red" />
+
+                    <TextBox
+                        x:Name="name_nxb_txb"
+                        materialDesign:HintAssist.Hint="Nhà xuất bản"
+                        BorderBrush="#b29e84"
+                        
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        Margin="10 10 10 10"/>
+
+
+                    <Label Margin="10 -10 10 0"
+                       x:Name="Error3"
+                       Height="20"
+                       FontSize="9.5"
+                       FontFamily="UVN Viet Sach"
+                       Content=""
+                       Foreground="Red"/>
+
+                    <TextBox
+                        x:Name="namxb_txb"
+                        materialDesign:HintAssist.Hint="Năm xuất bản"
+                        BorderBrush="#b29e84"
+                       
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        Margin="10 10 10 10"/>
+
+                    <Label Margin="10 -10 10 0"
+                       x:Name="Error4"
+                       Height="20"
+                       FontSize="9.5"
+                       FontFamily="UVN Viet Sach"
+                       Content=""
+                       Foreground="Red"/>
+
+                    <TextBox
+                        x:Name="count_txb"
+                        materialDesign:HintAssist.Hint="Số lượng trong kho"
+                        BorderBrush="#b29e84"
+                        
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        Margin="10 10 10 10"/>
+
+                    <Label Margin="10 -10 10 0"
+                       x:Name="Error5"
+                       Height="20"
+                       FontSize="9.5"
+                       FontFamily="UVN Viet Sach"
+                       Content=""
+                       Foreground="Red"/>
+
+                    <TextBox
+                        x:Name="cost_txb"
+                        materialDesign:HintAssist.Hint="Giá"
+                       
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        Margin="10 10 10 10"/>
+
+                    <Label Margin="10 -10 10 0"
+                       x:Name="Error6"
+                       Height="20"
+                       FontSize="9.5"
+                       FontFamily="UVN Viet Sach"
+                       Content=""
+                       Foreground="Red"/>
+
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="1" >
+                <StackPanel>
+                    <ComboBox
+                        x:Name="type_txb"
+                        materialDesign:HintAssist.Hint="Thể loại"
+                        Margin="10 10 10 10"
+                        
+                        Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                        <ComboBoxItem>
+                            Chính trị
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            Khoa học
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            Kinh tế
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            Văn học
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            Lịch sử
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            Tiểu thuyết
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            Tâm lý
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            Sách thiếu nhi
+                        </ComboBoxItem>
+                    </ComboBox>
+
+                    <Label Margin="10 -10 10 0"
+                       x:Name="Error7"
+                       Height="20"
+                       FontSize="9.5"
+                       FontFamily="UVN Viet Sach"
+                       Content=""
+                       Foreground="Red"/>
+
+                    <TextBox
+                        x:Name="about_txb"
+                        materialDesign:HintAssist.Hint="Mô tả"
+                        
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        Margin="10 10 10 10"/>
+
+                    <Label Margin="10 -10 10 0"
+                       x:Name="Error8"
+                       Height="20"
+                       FontSize="9.5"
+                       FontFamily="UVN Viet Sach"
+                       Content=""
+                       Foreground="Red"/>
+
+                    <TextBox
+                        x:Name="tang_txb"
+                        materialDesign:HintAssist.Hint="Tầng"
+                       
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        Margin="10 10 10 10"/>
+
+                    <Label Margin="10 -10 10 0"
+                       x:Name="Error9"
+                       Height="20"
+                       FontSize="9.5"
+                       FontFamily="UVN Viet Sach"
+                       Content=""
+                       Foreground="Red"/>
+
+                    <TextBox
+                        x:Name="day_txb"
+                        materialDesign:HintAssist.Hint="Dãy"
+                        
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        Margin="10 10 10 10"/>
+
+                    <Label Margin="10 -10 10 0"
+                       x:Name="Error10"
+                       Height="20"
+                       FontSize="9.5"
+                       FontFamily="UVN Viet Sach"
+                       Content=""
+                       Foreground="Red"/>
+
+                    <TextBox
+                        x:Name="source_txb"
+                        materialDesign:HintAssist.Hint="Source ảnh"
+                        
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        Margin="10 10 10 10"/>
+
+                    <Label Margin="10 -10 10 0"
+                       x:Name="Error11"
+                       Height="20"
+                       FontSize="9.5"
+                       FontFamily="UVN Viet Sach"
+                       Content=""
+                       Foreground="Red"/>
+
+                    <materialDesign:Badged
+                        x:Name="save_btn"
+                        BadgeColorZoneMode="PrimaryDark">
+                        <Button
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Background="#b29e84"
+                            Margin="110 20 0 0"
+                            Click="Update_Click">
+                            Update
+                        </Button>
+                    </materialDesign:Badged>
+
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
