@@ -45,13 +45,13 @@
                             ToolTip="Close" Margin="7 0 7 0">
                         </Button>
                         <!--Button maximize-->
-                        <Button 
+                        <!--<Button 
                             Command="{Binding maximizeWindowCommand}"
                             CommandParameter="{Binding ElementName=controlbarUC}"
                             x:Name="btnMaximize"
                             Width="20" Height="20" Background="#FFFFCA32" Style="{StaticResource MaterialDesignFloatingActionButton}"
                             ToolTip="Maximize" Margin="7 0 7 0">
-                        </Button>
+                        </Button>-->
                         <!--Button minimize-->
                         <Button 
                             Command="{Binding minimizeWindowCommand}"

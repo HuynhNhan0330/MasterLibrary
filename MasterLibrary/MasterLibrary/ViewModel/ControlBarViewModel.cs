@@ -29,22 +29,22 @@ namespace MasterLibrary.ViewModel
                 }
             );
 
-            maximizeWindowCommand = new RelayCommand<UserControl>((p) => { return p != null; }, (p) => {
-                FrameworkElement window = getWindowParent(p);
-                var w = (window as Window);
-                if (w != null)
-                {
-                    if (w.WindowState != WindowState.Maximized)
-                    {
-                        w.WindowState = WindowState.Maximized;
-                    }
-                    else
-                    {
-                        w.WindowState = WindowState.Normal;
-                    }
-                }
-            }
-            );
+            //maximizeWindowCommand = new RelayCommand<UserControl>((p) => { return p != null; }, (p) => {
+            //    FrameworkElement window = getWindowParent(p);
+            //    var w = (window as Window);
+            //    if (w != null)
+            //    {
+            //        if (w.WindowState != WindowState.Maximized)
+            //        {
+            //            w.WindowState = WindowState.Maximized;
+            //        }
+            //        else
+            //        {
+            //            w.WindowState = WindowState.Normal;
+            //        }
+            //    }
+            //}
+            //);
 
             minimizeWindowCommand = new RelayCommand<UserControl>((p) => { return p != null; }, (p) => {
                 FrameworkElement window = getWindowParent(p);
