@@ -18,7 +18,7 @@ using System;
 public partial class CTHD
 {
 
-    public string MAHD { get; set; }
+    public int MAHD { get; set; }
 
     public int MASACH { get; set; }
 

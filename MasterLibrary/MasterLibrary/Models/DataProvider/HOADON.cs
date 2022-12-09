@@ -27,9 +27,11 @@ public partial class HOADON
     }
 
 
-    public string MAHD { get; set; }
+    public int MAHD { get; set; }
 
-    public int MAKH { get; set; }
+    public System.DateTime NGHD { get; set; }
+
+    public Nullable<int> MAKH { get; set; }
 
     public Nullable<decimal> TRIGIA { get; set; }
 

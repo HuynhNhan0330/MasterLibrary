@@ -1,6 +1,10 @@
 ﻿using MasterLibrary.DTOs;
+using MasterLibrary.Models.DataProvider;
 using MasterLibrary.Utils;
 using MasterLibrary.Views.Customer.BuyBookPage;
+using MasterLibrary.Views.MessageBoxML;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -56,7 +60,10 @@ namespace MasterLibrary.ViewModel.CustomerVM.BuyBookVM
 
         #endregion
 
+        #region 
         public static BookDTO selectBook { get; set; }
+        
+        #endregion
 
         public DetailBookViewModel()
         {
@@ -95,9 +102,36 @@ namespace MasterLibrary.ViewModel.CustomerVM.BuyBookVM
             });
 
             // Mua ngay
-            BuyIt = new RelayCommand<object>((p) => { return true; }, (p) =>
+            BuyIt = new RelayCommand<object>((p) => { return true; }, async (p) =>
             {
-                MessageBox.Show("BuyIt");
+                if (Quantity == 0)
+                {
+                    MessageBoxML ms = new MessageBoxML("Thông báo", "Số lượng bằng 0 nên không thực hiện mua được", MessageType.Error, MessageButtons.OK);
+                    ms.ShowDialog();
+                    return;
+                }
+
+                decimal totalTien = TotalTien;
+
+                List<BillDetailDTO> newbillDetailList = new List<BillDetailDTO>
+                    {
+                        new BillDetailDTO
+                        {
+                            MaSach = selectBook.MaSach,
+                            SoLuong = Quantity,
+                            GiaMoiCai = selectBook.Gia
+                        }
+                    };
+
+                BillDTO bill = new BillDTO
+                {
+                    NGHD = DateTime.Now,
+                    MaKH = MainCustomerViewModel.CurrentCustomer.MAKH,
+                    TriGia = totalTien,
+                };
+
+                await BuyServices.Ins.CreateFullBill(bill, newbillDetailList);
+
             });
 
             // Thay đổi số lượng
