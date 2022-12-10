@@ -14,7 +14,7 @@ namespace MasterLibrary.Models.DataProvider
     
     public partial class CTHD
     {
-        public string MAHD { get; set; }
+        public int MAHD { get; set; }
         public int MASACH { get; set; }
         public Nullable<int> SOLUONG { get; set; }
     
