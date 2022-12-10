@@ -10,7 +10,7 @@
             <PropertyRef Name="MAHD" />
             <PropertyRef Name="MASACH" />
           </Key>
-          <Property Name="MAHD" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MAHD" Type="int" Nullable="false" />
           <Property Name="MASACH" Type="int" Nullable="false" />
           <Property Name="SOLUONG" Type="int" />
         </EntityType>
@@ -20,13 +20,15 @@
           </Key>
           <Property Name="MADAY" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TENDAY" Type="nvarchar" MaxLength="50" />
+          <Property Name="IDTANG" Type="int" />
         </EntityType>
         <EntityType Name="HOADON">
           <Key>
             <PropertyRef Name="MAHD" />
           </Key>
-          <Property Name="MAHD" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="MAKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MAHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NGHD" Type="smalldatetime" Nullable="false" />
+          <Property Name="MAKH" Type="int" />
           <Property Name="TRIGIA" Type="money" />
         </EntityType>
         <EntityType Name="KHACHHANG">
@@ -39,6 +41,17 @@
           <Property Name="TENKH" Type="nvarchar" MaxLength="50" />
           <Property Name="EMAIL" Type="varchar" MaxLength="50" />
           <Property Name="IDROLE" Type="int" />
+          <Property Name="DIACHI" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="NHAPSACH">
+          <Key>
+            <PropertyRef Name="IDSACH" />
+          </Key>
+          <Property Name="IDSACH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TENSACH" Type="nvarchar" MaxLength="100" />
+          <Property Name="GIANHAP" Type="money" />
+          <Property Name="SOLUONG" Type="int" />
+          <Property Name="NGNHAP" Type="smalldatetime" />
         </EntityType>
         <EntityType Name="SACH">
           <Key>
@@ -71,7 +84,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DISPLAYNAME" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__CTHD__MAHD__72C60C4A">
+        <Association Name="FK__CTHD__MAHD__09A971A2">
           <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
           <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
           <ReferentialConstraint>
@@ -83,7 +96,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CTHD__MASACH__73BA3083">
+        <Association Name="FK__CTHD__MASACH__0A9D95DB">
           <End Role="SACH" Type="Self.SACH" Multiplicity="1" />
           <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
           <ReferentialConstraint>
@@ -95,8 +108,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HOADON__MAKH__6C190EBB">
-          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+        <Association Name="FK__DAYKE__IDTANG__74AE54BC">
+          <End Role="TANG" Type="Self.TANG" Multiplicity="0..1" />
+          <End Role="DAYKE" Type="Self.DAYKE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TANG">
+              <PropertyRef Name="MATANG" />
+            </Principal>
+            <Dependent Role="DAYKE">
+              <PropertyRef Name="IDTANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOADON__MAKH__02FC7413">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
           <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KHACHHANG">
@@ -148,18 +173,23 @@
           <EntitySet Name="DAYKE" EntityType="Self.DAYKE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NHAPSACH" EntityType="Self.NHAPSACH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SACH" EntityType="Self.SACH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TANG" EntityType="Self.TANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USERROLE" EntityType="Self.USERROLE" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__CTHD__MAHD__72C60C4A" Association="Self.FK__CTHD__MAHD__72C60C4A">
+          <AssociationSet Name="FK__CTHD__MAHD__09A971A2" Association="Self.FK__CTHD__MAHD__09A971A2">
             <End Role="HOADON" EntitySet="HOADON" />
             <End Role="CTHD" EntitySet="CTHD" />
           </AssociationSet>
-          <AssociationSet Name="FK__CTHD__MASACH__73BA3083" Association="Self.FK__CTHD__MASACH__73BA3083">
+          <AssociationSet Name="FK__CTHD__MASACH__0A9D95DB" Association="Self.FK__CTHD__MASACH__0A9D95DB">
             <End Role="SACH" EntitySet="SACH" />
             <End Role="CTHD" EntitySet="CTHD" />
           </AssociationSet>
-          <AssociationSet Name="FK__HOADON__MAKH__6C190EBB" Association="Self.FK__HOADON__MAKH__6C190EBB">
+          <AssociationSet Name="FK__DAYKE__IDTANG__74AE54BC" Association="Self.FK__DAYKE__IDTANG__74AE54BC">
+            <End Role="TANG" EntitySet="TANG" />
+            <End Role="DAYKE" EntitySet="DAYKE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOADON__MAKH__02FC7413" Association="Self.FK__HOADON__MAKH__02FC7413">
             <End Role="KHACHHANG" EntitySet="KHACHHANG" />
             <End Role="HOADON" EntitySet="HOADON" />
           </AssociationSet>
@@ -185,22 +215,27 @@
           <EntitySet Name="DAYKEs" EntityType="masterlibraryModel.DAYKE" />
           <EntitySet Name="HOADONs" EntityType="masterlibraryModel.HOADON" />
           <EntitySet Name="KHACHHANGs" EntityType="masterlibraryModel.KHACHHANG" />
+          <EntitySet Name="NHAPSACHes" EntityType="masterlibraryModel.NHAPSACH" />
           <EntitySet Name="SACHes" EntityType="masterlibraryModel.SACH" />
           <EntitySet Name="TANGs" EntityType="masterlibraryModel.TANG" />
           <EntitySet Name="USERROLEs" EntityType="masterlibraryModel.USERROLE" />
-          <AssociationSet Name="FK__CTHD__MAHD__72C60C4A" Association="masterlibraryModel.FK__CTHD__MAHD__72C60C4A">
+          <AssociationSet Name="FK__CTHD__MAHD__09A971A2" Association="masterlibraryModel.FK__CTHD__MAHD__09A971A2">
             <End Role="HOADON" EntitySet="HOADONs" />
             <End Role="CTHD" EntitySet="CTHDs" />
           </AssociationSet>
-          <AssociationSet Name="FK__CTHD__MASACH__73BA3083" Association="masterlibraryModel.FK__CTHD__MASACH__73BA3083">
+          <AssociationSet Name="FK__CTHD__MASACH__0A9D95DB" Association="masterlibraryModel.FK__CTHD__MASACH__0A9D95DB">
             <End Role="SACH" EntitySet="SACHes" />
             <End Role="CTHD" EntitySet="CTHDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DAYKE__IDTANG__74AE54BC" Association="masterlibraryModel.FK__DAYKE__IDTANG__74AE54BC">
+            <End Role="TANG" EntitySet="TANGs" />
+            <End Role="DAYKE" EntitySet="DAYKEs" />
           </AssociationSet>
           <AssociationSet Name="FK__SACH__VITRIDAY__693CA210" Association="masterlibraryModel.FK__SACH__VITRIDAY__693CA210">
             <End Role="DAYKE" EntitySet="DAYKEs" />
             <End Role="SACH" EntitySet="SACHes" />
           </AssociationSet>
-          <AssociationSet Name="FK__HOADON__MAKH__6C190EBB" Association="masterlibraryModel.FK__HOADON__MAKH__6C190EBB">
+          <AssociationSet Name="FK__HOADON__MAKH__02FC7413" Association="masterlibraryModel.FK__HOADON__MAKH__02FC7413">
             <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
             <End Role="HOADON" EntitySet="HOADONs" />
           </AssociationSet>
@@ -218,11 +253,11 @@
             <PropertyRef Name="MAHD" />
             <PropertyRef Name="MASACH" />
           </Key>
-          <Property Name="MAHD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MAHD" Type="Int32" Nullable="false" />
           <Property Name="MASACH" Type="Int32" Nullable="false" />
           <Property Name="SOLUONG" Type="Int32" />
-          <NavigationProperty Name="HOADON" Relationship="masterlibraryModel.FK__CTHD__MAHD__72C60C4A" FromRole="CTHD" ToRole="HOADON" />
-          <NavigationProperty Name="SACH" Relationship="masterlibraryModel.FK__CTHD__MASACH__73BA3083" FromRole="CTHD" ToRole="SACH" />
+          <NavigationProperty Name="HOADON" Relationship="masterlibraryModel.FK__CTHD__MAHD__09A971A2" FromRole="CTHD" ToRole="HOADON" />
+          <NavigationProperty Name="SACH" Relationship="masterlibraryModel.FK__CTHD__MASACH__0A9D95DB" FromRole="CTHD" ToRole="SACH" />
         </EntityType>
         <EntityType Name="DAYKE">
           <Key>
@@ -230,17 +265,20 @@
           </Key>
           <Property Name="MADAY" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENDAY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDTANG" Type="Int32" />
+          <NavigationProperty Name="TANG" Relationship="masterlibraryModel.FK__DAYKE__IDTANG__74AE54BC" FromRole="DAYKE" ToRole="TANG" />
           <NavigationProperty Name="SACHes" Relationship="masterlibraryModel.FK__SACH__VITRIDAY__693CA210" FromRole="DAYKE" ToRole="SACH" />
         </EntityType>
         <EntityType Name="HOADON">
           <Key>
             <PropertyRef Name="MAHD" />
           </Key>
-          <Property Name="MAHD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MAKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MAHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NGHD" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MAKH" Type="Int32" />
           <Property Name="TRIGIA" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="CTHDs" Relationship="masterlibraryModel.FK__CTHD__MAHD__72C60C4A" FromRole="HOADON" ToRole="CTHD" />
-          <NavigationProperty Name="KHACHHANG" Relationship="masterlibraryModel.FK__HOADON__MAKH__6C190EBB" FromRole="HOADON" ToRole="KHACHHANG" />
+          <NavigationProperty Name="CTHDs" Relationship="masterlibraryModel.FK__CTHD__MAHD__09A971A2" FromRole="HOADON" ToRole="CTHD" />
+          <NavigationProperty Name="KHACHHANG" Relationship="masterlibraryModel.FK__HOADON__MAKH__02FC7413" FromRole="HOADON" ToRole="KHACHHANG" />
         </EntityType>
         <EntityType Name="KHACHHANG">
           <Key>
@@ -252,8 +290,19 @@
           <Property Name="TENKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IDROLE" Type="Int32" />
-          <NavigationProperty Name="HOADONs" Relationship="masterlibraryModel.FK__HOADON__MAKH__6C190EBB" FromRole="KHACHHANG" ToRole="HOADON" />
+          <Property Name="DIACHI" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="HOADONs" Relationship="masterlibraryModel.FK__HOADON__MAKH__02FC7413" FromRole="KHACHHANG" ToRole="HOADON" />
           <NavigationProperty Name="USERROLE" Relationship="masterlibraryModel.FK__KHACHHANG__IDROL__619B8048" FromRole="KHACHHANG" ToRole="USERROLE" />
+        </EntityType>
+        <EntityType Name="NHAPSACH">
+          <Key>
+            <PropertyRef Name="IDSACH" />
+          </Key>
+          <Property Name="IDSACH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TENSACH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GIANHAP" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SOLUONG" Type="Int32" />
+          <Property Name="NGNHAP" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="SACH">
           <Key>
@@ -271,7 +320,7 @@
           <Property Name="VITRITANG" Type="Int32" />
           <Property Name="VITRIDAY" Type="Int32" />
           <Property Name="NXB" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CTHDs" Relationship="masterlibraryModel.FK__CTHD__MASACH__73BA3083" FromRole="SACH" ToRole="CTHD" />
+          <NavigationProperty Name="CTHDs" Relationship="masterlibraryModel.FK__CTHD__MASACH__0A9D95DB" FromRole="SACH" ToRole="CTHD" />
           <NavigationProperty Name="DAYKE" Relationship="masterlibraryModel.FK__SACH__VITRIDAY__693CA210" FromRole="SACH" ToRole="DAYKE" />
           <NavigationProperty Name="TANG" Relationship="masterlibraryModel.FK__SACH__VITRITANG__68487DD7" FromRole="SACH" ToRole="TANG" />
         </EntityType>
@@ -281,6 +330,7 @@
           </Key>
           <Property Name="MATANG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENTANG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DAYKEs" Relationship="masterlibraryModel.FK__DAYKE__IDTANG__74AE54BC" FromRole="TANG" ToRole="DAYKE" />
           <NavigationProperty Name="SACHes" Relationship="masterlibraryModel.FK__SACH__VITRITANG__68487DD7" FromRole="TANG" ToRole="SACH" />
         </EntityType>
         <EntityType Name="USERROLE">
@@ -291,7 +341,7 @@
           <Property Name="DISPLAYNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="KHACHHANGs" Relationship="masterlibraryModel.FK__KHACHHANG__IDROL__619B8048" FromRole="USERROLE" ToRole="KHACHHANG" />
         </EntityType>
-        <Association Name="FK__CTHD__MAHD__72C60C4A">
+        <Association Name="FK__CTHD__MAHD__09A971A2">
           <End Type="masterlibraryModel.HOADON" Role="HOADON" Multiplicity="1" />
           <End Type="masterlibraryModel.CTHD" Role="CTHD" Multiplicity="*" />
           <ReferentialConstraint>
@@ -303,7 +353,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CTHD__MASACH__73BA3083">
+        <Association Name="FK__CTHD__MASACH__0A9D95DB">
           <End Type="masterlibraryModel.SACH" Role="SACH" Multiplicity="1" />
           <End Type="masterlibraryModel.CTHD" Role="CTHD" Multiplicity="*" />
           <ReferentialConstraint>
@@ -312,6 +362,18 @@
             </Principal>
             <Dependent Role="CTHD">
               <PropertyRef Name="MASACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DAYKE__IDTANG__74AE54BC">
+          <End Type="masterlibraryModel.TANG" Role="TANG" Multiplicity="0..1" />
+          <End Type="masterlibraryModel.DAYKE" Role="DAYKE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TANG">
+              <PropertyRef Name="MATANG" />
+            </Principal>
+            <Dependent Role="DAYKE">
+              <PropertyRef Name="IDTANG" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -327,8 +389,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HOADON__MAKH__6C190EBB">
-          <End Type="masterlibraryModel.KHACHHANG" Role="KHACHHANG" Multiplicity="1" />
+        <Association Name="FK__HOADON__MAKH__02FC7413">
+          <End Type="masterlibraryModel.KHACHHANG" Role="KHACHHANG" Multiplicity="0..1" />
           <End Type="masterlibraryModel.HOADON" Role="HOADON" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KHACHHANG">
@@ -381,6 +443,7 @@
           <EntitySetMapping Name="DAYKEs">
             <EntityTypeMapping TypeName="masterlibraryModel.DAYKE">
               <MappingFragment StoreEntitySet="DAYKE">
+                <ScalarProperty Name="IDTANG" ColumnName="IDTANG" />
                 <ScalarProperty Name="TENDAY" ColumnName="TENDAY" />
                 <ScalarProperty Name="MADAY" ColumnName="MADAY" />
               </MappingFragment>
@@ -391,6 +454,7 @@
               <MappingFragment StoreEntitySet="HOADON">
                 <ScalarProperty Name="TRIGIA" ColumnName="TRIGIA" />
                 <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+                <ScalarProperty Name="NGHD" ColumnName="NGHD" />
                 <ScalarProperty Name="MAHD" ColumnName="MAHD" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -398,12 +462,24 @@
           <EntitySetMapping Name="KHACHHANGs">
             <EntityTypeMapping TypeName="masterlibraryModel.KHACHHANG">
               <MappingFragment StoreEntitySet="KHACHHANG">
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
                 <ScalarProperty Name="IDROLE" ColumnName="IDROLE" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="TENKH" ColumnName="TENKH" />
                 <ScalarProperty Name="USERPASSWORD" ColumnName="USERPASSWORD" />
                 <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
                 <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHAPSACHes">
+            <EntityTypeMapping TypeName="masterlibraryModel.NHAPSACH">
+              <MappingFragment StoreEntitySet="NHAPSACH">
+                <ScalarProperty Name="NGNHAP" ColumnName="NGNHAP" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="GIANHAP" ColumnName="GIANHAP" />
+                <ScalarProperty Name="TENSACH" ColumnName="TENSACH" />
+                <ScalarProperty Name="IDSACH" ColumnName="IDSACH" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

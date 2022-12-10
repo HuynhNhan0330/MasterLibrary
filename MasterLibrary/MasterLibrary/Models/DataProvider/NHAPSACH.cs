@@ -15,27 +15,18 @@ namespace MasterLibrary.Models.DataProvider
 using System;
     using System.Collections.Generic;
     
-public partial class USERROLE
+public partial class NHAPSACH
 {
 
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public USERROLE()
-    {
+    public int IDSACH { get; set; }
 
-        this.KHACHHANGs = new HashSet<KHACHHANG>();
+    public string TENSACH { get; set; }
 
-    }
+    public Nullable<decimal> GIANHAP { get; set; }
 
+    public Nullable<int> SOLUONG { get; set; }
 
-    public int ID { get; set; }
-
-    public string DISPLAYNAME { get; set; }
-
-
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-    public virtual ICollection<KHACHHANG> KHACHHANGs { get; set; }
+    public Nullable<System.DateTime> NGNHAP { get; set; }
 
 }
 

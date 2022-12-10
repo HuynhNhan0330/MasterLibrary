@@ -273,6 +273,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MasterlibraryModels.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataProvider\NHAPSACH.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataProvider\SACH.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
