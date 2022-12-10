@@ -3,7 +3,9 @@ FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml;;
 FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\MainWindow.xaml;;
 FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\ResourcesXAML\MainResources.xaml;;
 FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\UserControlML\controlbar_uc.xaml;;
+FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\BookManagePage\AddingWindow.xaml;;
 FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\BookManagePage\BookManagePage.xaml;;
+FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\BookManagePage\updatingwindow.xaml;;
 FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\HistoryPage.xaml;;
 FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\MainAdminWindow.xaml;;
 FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\StatisticalPage\StatisticalPage.xaml;;
@@ -16,6 +18,4 @@ FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\LoginPage.x
 FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\LoginWindow.xaml;;
 FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\RegisterWindow.xaml;;
 FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\VerificationPage.xaml;;
-FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\BookManagePage\AddingWindow.xaml;;
-FD:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\BookManagePage\updatingwindow.xaml;;
 

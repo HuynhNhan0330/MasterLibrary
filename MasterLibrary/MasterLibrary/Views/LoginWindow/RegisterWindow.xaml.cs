@@ -17,7 +17,7 @@ namespace MasterLibrary.Views.LoginWindow
     /// <summary>
     /// Interaction logic for RegisterWindow.xaml
     /// </summary>
-    public partial class RegisterWindow : Window
+    public partial class RegisterWindow : System.Windows.Window
     {
         public RegisterWindow()
         {

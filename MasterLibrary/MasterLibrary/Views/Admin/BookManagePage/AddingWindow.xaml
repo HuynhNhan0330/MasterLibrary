@@ -4,12 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MasterLibrary.Views.Admin.BookManagePage"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Height="450" Width="800"
-        x:Name="addingwindow"
-        DataContext="{StaticResource AdminVM}" Loaded="addingwindow_Loaded">
+        x:Name="Addingwindow"
+        DataContext="{StaticResource BookManageVM}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -29,6 +29,7 @@
                         x:Name="name_book_txb"
                         materialDesign:HintAssist.Hint="Tên sách"
                         BorderBrush="#b29e84"
+                        Text="{Binding TenSach}"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin="10 10 10 10"/>
 
@@ -44,7 +45,7 @@
                         x:Name="name_aut_txb"
                         materialDesign:HintAssist.Hint="Tác giả"
                         BorderBrush="#b29e84"
-                        
+                        Text="{Binding TacGia}"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin="10 10 10 10"/>
 
@@ -60,10 +61,10 @@
                         x:Name="name_nxb_txb"
                         materialDesign:HintAssist.Hint="Nhà xuất bản"
                         BorderBrush="#b29e84"
-                        
+                        Text="{Binding NhaXuatBan}"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin="10 10 10 10"/>
-                    
+
 
                     <Label Margin="10 -10 10 0"
                        x:Name="Error3"
@@ -77,7 +78,7 @@
                         x:Name="namxb_txb"
                         materialDesign:HintAssist.Hint="Năm xuất bản"
                         BorderBrush="#b29e84"
-                       
+                        Text="{Binding NamXuatBan}"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin="10 10 10 10"/>
 
@@ -93,7 +94,7 @@
                         x:Name="count_txb"
                         materialDesign:HintAssist.Hint="Số lượng trong kho"
                         BorderBrush="#b29e84"
-                        
+                        Text ="{Binding SoLuong}"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin="10 10 10 10"/>
 
@@ -108,7 +109,7 @@
                     <TextBox
                         x:Name="cost_txb"
                         materialDesign:HintAssist.Hint="Giá"
-                       
+                        Text="{Binding Gia}"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin="10 10 10 10"/>
 
@@ -124,7 +125,7 @@
             </Grid>
         </Grid>
 
-        <Grid Grid.Column="1">
+        <Grid Grid.ColumnSpan="2" Margin="390,0,10,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="5*"/>
@@ -137,7 +138,7 @@
                         x:Name="type_txb"
                         materialDesign:HintAssist.Hint="Thể loại"
                         Margin="10 10 10 10"
-                        
+                        Text="{Binding TheLoai}"
                         Style="{StaticResource MaterialDesignFloatingHintComboBox}">
                         <ComboBoxItem>
                             Chính trị
@@ -164,7 +165,7 @@
                             Sách thiếu nhi
                         </ComboBoxItem>
                     </ComboBox>
-                    
+
                     <Label Margin="10 -10 10 0"
                        x:Name="Error7"
                        Height="20"
@@ -176,7 +177,7 @@
                     <TextBox
                         x:Name="about_txb"
                         materialDesign:HintAssist.Hint="Mô tả"
-                        
+                        Text="{Binding MoTa}"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin="10 10 10 10"/>
 
@@ -191,7 +192,7 @@
                     <TextBox
                         x:Name="tang_txb"
                         materialDesign:HintAssist.Hint="Tầng"
-                       
+                        Text ="{Binding Tang}"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin="10 10 10 10"/>
 
@@ -206,7 +207,7 @@
                     <TextBox
                         x:Name="day_txb"
                         materialDesign:HintAssist.Hint="Dãy"
-                        
+                        Text="{Binding Day}"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin="10 10 10 10"/>
 
@@ -221,7 +222,7 @@
                     <TextBox
                         x:Name="source_txb"
                         materialDesign:HintAssist.Hint="Source ảnh"
-                        
+                        Text="{Binding ImgSource}"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin="10 10 10 10"/>
 
@@ -234,20 +235,35 @@
                        Foreground="Red"/>
 
                     <materialDesign:Badged
-                        x:Name="save_btn"
                         BadgeColorZoneMode="PrimaryDark">
                         <Button
+                            x:Name="save_btn"
                             Style="{StaticResource MaterialDesignRaisedLightButton}"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Background="#b29e84"
                             Margin="110 20 0 0"
-                            Click="Save_Click">
+                            Command="{Binding SavingData}"
+                            CommandParameter="{Binding ElementName=Addingwindow}"
+                            >
                             Save!
                         </Button>
                     </materialDesign:Badged>
-                    
                 </StackPanel>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Button
+                    x:Name="import_btn"
+                    Margin="0 280 0 100"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Command="{Binding ImportImageForAddingWindow}"
+                    CommandParameter="{Binding ElementName=Addingwindow}"
+                    Background="White"
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                    materialDesign:ButtonProgressAssist.Value="100"
+                    Content="{materialDesign:PackIcon DotsHorizontal}" />
             </Grid>
         </Grid>
     </Grid>

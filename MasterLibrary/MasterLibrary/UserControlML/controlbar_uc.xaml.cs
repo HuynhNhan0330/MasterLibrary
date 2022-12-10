@@ -28,14 +28,14 @@ namespace MasterLibrary.UserControlML
         private void Button_Close(object sender, RoutedEventArgs e)
         {
             Button btnClose = sender as Button;
-            Window window = Window.GetWindow(btnClose);
+            System.Windows.Window window = System.Windows.Window.GetWindow(btnClose);
             window.Close();
         }
 
         private void Button_Maximize(object sender, RoutedEventArgs e)
         {
             Button btn_Maximize = sender as Button;
-            Window window = Window.GetWindow(btn_Maximize);
+            System.Windows.Window window = System.Windows.Window.GetWindow(btn_Maximize);
             if (window != null)
             {
                 if (window.WindowState != WindowState.Maximized)
@@ -56,14 +56,14 @@ namespace MasterLibrary.UserControlML
         private void Button_Minimize(object sender, RoutedEventArgs e)
         {
             Button btnMinimize = sender as Button;
-            Window window = Window.GetWindow(btnMinimize);
+            System.Windows.Window window = System.Windows.Window.GetWindow(btnMinimize);
             window.WindowState = WindowState.Minimized;
         }
 
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Grid grid = sender as Grid;
-            Window window = Window.GetWindow(grid);
+            System.Windows.Window window = System.Windows.Window.GetWindow(grid);
             window.DragMove();
         }
     }

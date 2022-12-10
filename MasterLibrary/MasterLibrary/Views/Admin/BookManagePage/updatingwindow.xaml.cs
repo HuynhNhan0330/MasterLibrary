@@ -21,7 +21,19 @@ namespace MasterLibrary.Views.Admin.BookManagePage
     /// </summary>
     public partial class updatingwindow : Window
     {
-        private string masach;
+        public static string masach;
+        public static TextBox TenSach;
+        public static TextBox TacGia;
+        public static TextBox NamXuatBan;
+        public static TextBox NhaXuatBan;
+        public static TextBox SoLuong;
+        public static TextBox Gia;
+        public static TextBox ImgSource;
+        public static ComboBox TheLoai;
+        public static TextBox MoTa;
+        public static TextBox Tang;
+        public static TextBox Day;
+
         public updatingwindow()
         {
             InitializeComponent();
@@ -31,41 +43,8 @@ namespace MasterLibrary.Views.Admin.BookManagePage
         {
             InitializeComponent();
             masach = a;
-        }
-
-        private void Update_Click(object sender, RoutedEventArgs e)
-        {
-            using (var context = new MasterlibraryEntities())
-            {
-                string connectionStr = context.Database.Connection.ConnectionString;
-                SqlConnection connect = new SqlConnection(connectionStr);
-                connect.Open();
-                SqlCommand command = new SqlCommand();
-                command.Connection = connect;
-                command.Parameters.AddWithValue("@masach", masach);
-                command.Parameters.AddWithValue("@tensach", name_book_txb.Text);
-                command.Parameters.AddWithValue("@tacgia", name_aut_txb.Text);
-                command.Parameters.AddWithValue("@namxb", namxb_txb.Text);
-                command.Parameters.AddWithValue("@nxb", name_nxb_txb.Text);
-                command.Parameters.AddWithValue("@sl", count_txb.Text);
-                command.Parameters.AddWithValue("@gia", cost_txb.Text);
-                command.Parameters.AddWithValue("@imagesource", source_txb.Text);
-                command.Parameters.AddWithValue("@theloai", type_txb.Text);
-                command.Parameters.AddWithValue("@mota", about_txb.Text);
-                command.Parameters.AddWithValue("@tang", tang_txb.Text);
-                command.Parameters.AddWithValue("@day", day_txb.Text);
-
-                command.CommandText = "UPDATE SACH " +
-                                      "SET TENSACH = @tensach, TACGIA = @tacgia, NAMXB = @namxb, NXB = @nxb, SL = @sl, GIA = @gia, IMAGESOURCE = @imagesource, THELOAI = @theloai, MOTA = @mota, VITRITANG = @tang, VITRIDAY = @day " +
-                                      "WHERE MASACH = @masach";
-                context.SaveChanges();
-                int a = command.ExecuteNonQuery();
-                if (a != 0)
-                {
-                    MessageBox.Show("Sửa thành công");
-                    this.Close();
-                }
-            }
+            TenSach = name_book_txb; TacGia = name_aut_txb; NamXuatBan = namxb_txb; NhaXuatBan = name_nxb_txb; SoLuong = count_txb;
+            Gia = cost_txb; ImgSource = source_txb; TheLoai = type_txb; MoTa = about_txb; Day = day_txb; Tang = tang_txb;
         }
     }
 }

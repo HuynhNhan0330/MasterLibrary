@@ -97,9 +97,9 @@ namespace MasterLibrary.ViewModel.LoginVM
             });
 
             // Bật window đăng kí
-            LoadRegister = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            LoadRegister = new RelayCommand<System.Windows.Window>((p) => { return true; }, (p) =>
             {
-                Window w1 = new RegisterWindow();
+                System.Windows.Window w1 = new RegisterWindow();
                 
                 //Mask.Visibility = Visibility.Visible;
 

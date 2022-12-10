@@ -17,7 +17,7 @@ namespace MasterLibrary.Views.Admin
     /// <summary>
     /// Interaction logic for MainAdminWindow.xaml
     /// </summary>
-    public partial class MainAdminWindow : Window
+    public partial class MainAdminWindow : System.Windows.Window
     {
         public MainAdminWindow()
         {

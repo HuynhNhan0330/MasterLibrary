@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MasterLibrary.Views.Admin.BookManagePage"
         mc:Ignorable="d"
+        DataContext="{StaticResource BookManageVM}"
+        x:Name="UpdatingWindow"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
         Title="updatingwindow" Height="450" Width="800">
     <Grid>
@@ -41,7 +43,6 @@
                         x:Name="name_aut_txb"
                         materialDesign:HintAssist.Hint="Tác giả"
                         BorderBrush="#b29e84"
-                        
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin="10 10 10 10"/>
 
@@ -57,7 +58,6 @@
                         x:Name="name_nxb_txb"
                         materialDesign:HintAssist.Hint="Nhà xuất bản"
                         BorderBrush="#b29e84"
-                        
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin="10 10 10 10"/>
 
@@ -74,7 +74,6 @@
                         x:Name="namxb_txb"
                         materialDesign:HintAssist.Hint="Năm xuất bản"
                         BorderBrush="#b29e84"
-                       
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin="10 10 10 10"/>
 
@@ -90,7 +89,6 @@
                         x:Name="count_txb"
                         materialDesign:HintAssist.Hint="Số lượng trong kho"
                         BorderBrush="#b29e84"
-                        
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin="10 10 10 10"/>
 
@@ -105,7 +103,6 @@
                     <TextBox
                         x:Name="cost_txb"
                         materialDesign:HintAssist.Hint="Giá"
-                       
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin="10 10 10 10"/>
 
@@ -134,7 +131,6 @@
                         x:Name="type_txb"
                         materialDesign:HintAssist.Hint="Thể loại"
                         Margin="10 10 10 10"
-                        
                         Style="{StaticResource MaterialDesignFloatingHintComboBox}">
                         <ComboBoxItem>
                             Chính trị
@@ -173,7 +169,6 @@
                     <TextBox
                         x:Name="about_txb"
                         materialDesign:HintAssist.Hint="Mô tả"
-                        
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin="10 10 10 10"/>
 
@@ -188,7 +183,6 @@
                     <TextBox
                         x:Name="tang_txb"
                         materialDesign:HintAssist.Hint="Tầng"
-                       
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin="10 10 10 10"/>
 
@@ -203,7 +197,6 @@
                     <TextBox
                         x:Name="day_txb"
                         materialDesign:HintAssist.Hint="Dãy"
-                        
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin="10 10 10 10"/>
 
@@ -218,7 +211,6 @@
                     <TextBox
                         x:Name="source_txb"
                         materialDesign:HintAssist.Hint="Source ảnh"
-                        
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin="10 10 10 10"/>
 
@@ -231,20 +223,36 @@
                        Foreground="Red"/>
 
                     <materialDesign:Badged
-                        x:Name="save_btn"
                         BadgeColorZoneMode="PrimaryDark">
                         <Button
+                            x:Name="update_btn"
                             Style="{StaticResource MaterialDesignRaisedLightButton}"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Background="#b29e84"
                             Margin="110 20 0 0"
-                            Click="Update_Click">
+                            Command="{Binding Updating}"
+                            CommandParameter="{Binding ElementName=UpdatingWindow}"
+                            >
                             Update
                         </Button>
                     </materialDesign:Badged>
 
                 </StackPanel>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Button
+                    x:Name="import_btn"
+                    Margin="0 280 0 100"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Command="{Binding ImportImageForUpdatingWindow}"
+                    CommandParameter="{Binding ElementName=Addingwindow}"
+                    Background="White"
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                    materialDesign:ButtonProgressAssist.Value="100"
+                    Content="{materialDesign:PackIcon DotsHorizontal}" />
             </Grid>
         </Grid>
     </Grid>
