@@ -130,8 +130,25 @@ namespace MasterLibrary.ViewModel.CustomerVM.BuyBookVM
                     TriGia = totalTien,
                 };
 
-                await BuyServices.Ins.CreateFullBill(bill, newbillDetailList);
+                try
+                {
+                    // Tạo hoá đơn mới
+                    int billId = await BuyServices.Ins.CreateNewBill(bill);
 
+                    //Tạo các chi tiết hoá đơn
+
+                    await BuyServices.Ins.CreateNewBillDetail(billId, newbillDetailList);
+
+                    selectBook.SoLuong -= Quantity;
+
+                    MessageBoxML ms = new MessageBoxML("Thông báo", "Mua thành công", MessageType.Accept, MessageButtons.OK);
+                    ms.ShowDialog();
+                }
+                catch (Exception)
+                {
+                    MessageBoxML ms = new MessageBoxML("Thông báo", "Mua thất bại ", MessageType.Error, MessageButtons.OK);
+                    ms.ShowDialog();
+                }
             });
 
             // Thay đổi số lượng
@@ -142,6 +159,7 @@ namespace MasterLibrary.ViewModel.CustomerVM.BuyBookVM
                     Quantity = selectBook.SoLuong;
                     p.Content = "Vượt số lượng hiện có";
                 }
+
                 if (Quantity <= 0) Quantity = 0;
 
                 TotalTien = Quantity * selectBook.Gia;

@@ -63,6 +63,11 @@ namespace MasterLibrary.Models.DataProvider
                         newCTHD.SOLUONG = BillDetailList[i].SoLuong;
 
                         newBillDetailList.Add(newCTHD);
+
+                        // Trừ đi số lượng sách đã mua
+
+                        var _sach = await context.SACHes.FindAsync(BillDetailList[i].MaSach);
+                        _sach.SL -= BillDetailList[i].SoLuong;
                     }
 
                     context.CTHDs.AddRange(newBillDetailList);
@@ -72,39 +77,12 @@ namespace MasterLibrary.Models.DataProvider
             }
             catch (System.Data.Entity.Infrastructure.DbUpdateException)
             {
-                MessageBoxML ms = new MessageBoxML("Lỗi", "Xãy ra lỗi khi thêm dữ liệu chi tiết hoá đơn vào database", MessageType.Error, MessageButtons.OK);
+                MessageBoxML ms = new MessageBoxML("Lỗi", "Xãy ra lỗi khi thêm dữ liệu vào database", MessageType.Error, MessageButtons.OK);
                 ms.ShowDialog();
             }
             catch (Exception)
             {
                 MessageBoxML ms = new MessageBoxML("Lỗi", "Xãy ra lỗi khi xử lí dữ liệu", MessageType.Error, MessageButtons.OK);
-                ms.ShowDialog();
-            }
-        }
-
-        
-
-        public async Task CreateFullBill(BillDTO bill, List<BillDetailDTO> BillDetailList)
-        {
-            try
-            {
-                
-                {
-                    // Tạo hoá đơn mới
-                    int billId = await CreateNewBill(bill);
-
-                    //Tạo các chi tiết hoá đơn
-
-                    await CreateNewBillDetail(billId, BillDetailList);
-
-                    MessageBoxML ms = new MessageBoxML("Thông báo", "Mua thành công", MessageType.Accept, MessageButtons.OK);
-                    ms.ShowDialog();
-                }
-
-            }
-            catch (Exception)
-            {
-                MessageBoxML ms = new MessageBoxML("Lỗi", "Mua thất bại ", MessageType.Error, MessageButtons.OK);
                 ms.ShowDialog();
             }
         }
