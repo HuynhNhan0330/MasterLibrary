@@ -1,23 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using MasterLibrary.Views.Admin.StatisticalPage;
 using MasterLibrary.Views.Admin.BookManagePage;
 using MasterLibrary.Views.Admin.HistoryPage;
 using MasterLibrary.Models.DataProvider;
-using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
 using System.Collections.ObjectModel;
 using MasterLibrary.DTOs;
-using System.Web.UI.WebControls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.ComponentModel;
 using System.Windows.Media.Imaging;
 
 namespace MasterLibrary.ViewModel.AdminVM

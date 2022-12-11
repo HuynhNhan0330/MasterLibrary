@@ -9,15 +9,18 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="MasterLibrary.Views.Admin.BookManagePage.BookManagePage"
       mc:Ignorable="d" 
       xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
-      d:DesignHeight="450"
+      d:DesignHeight="630" d:DesignWidth="1170"
       Title="BookManagePage"
-      Height="{x:Static SystemParameters.PrimaryScreenHeight}" 
-      Width="1500"
-      Margin="0 0"
-      DataContext="{StaticResource AdminVM}"
-      >
+      
+      DataContext="{StaticResource AdminVM}">
 
-    <StackPanel>
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
         <materialDesign:ColorZone
                 Mode="PrimaryMid"
                 Padding="16 16 16 16"
@@ -71,140 +74,140 @@
         </materialDesign:ColorZone>
 
         <!--Nơi đổ dữ liệu của sách từ db vào-->
-        
-        <StackPanel>
-
-            <ListView
+        <ListView Grid.Row="1"
                 FontSize="14"
-                Margin="-110 0 0 0"
                 x:Name="listview_managebook" 
                 ItemsSource="{Binding Listbookmanage}" 
                 SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical"
                 materialDesign:ScrollViewerAssist.SupportHorizontalScroll="True"
-                materialDesign:ColorZoneAssist.Background="#E8E8E8" RenderTransformOrigin="0.484,0.551"  Width="1382" Height="535"
+                materialDesign:ColorZoneAssist.Background="#E8E8E8" Margin="5"
                 >
-                <ListView.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem 
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem 
                             x:Name="Deleting"
                             Header="Xóa sách" 
                             IsEnabled="True"
                             FontSize="12" 
                             Command="{Binding DeletingBook}" 
                             CommandParameter="{Binding ElementName=Deleting}"/>
-                        <MenuItem 
+                    <MenuItem 
                             x:Name="Updating"
                             Header="Chỉnh sửa" 
                             IsEnabled="True"
                             FontSize="12"
                             Command="{Binding UpdatingBook}"
                             CommandParameter="{Binding ElementName=Updating}"/>
-                    </ContextMenu>
-                </ListView.ContextMenu>
-                <ListView.View >
-                    <GridView >
-                        <GridViewColumn
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.View >
+                <GridView >
+                    <GridViewColumn
                                 DisplayMemberBinding="{Binding MaSach}" 
                                  Width="auto">
-                            <GridViewColumnHeader 
+                        <GridViewColumnHeader 
                                 FontSize="16"
                                 Margin="-18" 
                                 Content="Mã" 
                                 />
-                        </GridViewColumn>
+                    </GridViewColumn>
 
-                        <GridViewColumn 
+                    <GridViewColumn 
                                 DisplayMemberBinding="{Binding TenSach}" 
                                 Width="auto">
-                            <GridViewColumnHeader
+                        <GridViewColumnHeader
                                     FontSize="16"
                                     Margin="-18" 
                                     Content="Tên sách" 
                                     />
-                        </GridViewColumn>
+                    </GridViewColumn>
 
-                        <GridViewColumn 
+                    <GridViewColumn 
                                 DisplayMemberBinding="{Binding TacGia}" 
                                 Width="auto">
-                            <GridViewColumnHeader
+                        <GridViewColumnHeader
                                     FontSize="16"
                                     Margin="-18" 
                                     Content="Tác giả"
                                     />
-                        </GridViewColumn>
+                    </GridViewColumn>
 
-                        <GridViewColumn 
+                    <GridViewColumn 
                                 DisplayMemberBinding="{Binding NXB}" 
                                 Width="auto">
-                            <GridViewColumnHeader 
+                        <GridViewColumnHeader 
                                     FontSize="16"
                                     Margin="-18"
                                     Content="Nhà xuất bản" Width="179"
                                     />
-                        </GridViewColumn>
+                    </GridViewColumn>
 
-                        <GridViewColumn 
+                    <GridViewColumn 
                                 DisplayMemberBinding="{Binding Gia}" 
                                 Width="100">
-                            <GridViewColumnHeader 
+                        <GridViewColumnHeader 
                                     Margin="-18" 
                                     Content="Giá"
                                     FontSize="16"
                                     />
-                        </GridViewColumn>
+                    </GridViewColumn>
 
-                        <GridViewColumn 
+                    <GridViewColumn 
                                 DisplayMemberBinding="{Binding TheLoai}" 
                                 Width="auto">
-                            <GridViewColumnHeader 
+                        <GridViewColumnHeader 
                                     FontSize="16"
                                     Margin="-18" 
                                     Content="Thể loại"
                                     />
-                        </GridViewColumn>
+                    </GridViewColumn>
 
-                        <GridViewColumn 
+                    <GridViewColumn 
                                 DisplayMemberBinding="{Binding NamXB}" 
                                 Width="auto">
-                            <GridViewColumnHeader 
+                        <GridViewColumnHeader 
                                     FontSize="16"
                                     Margin="-18" 
                                     Content="Năm xuất bản"
                                     />
-                        </GridViewColumn>
+                    </GridViewColumn>
 
-                        <GridViewColumn 
+                    <GridViewColumn 
                                 DisplayMemberBinding="{Binding SoLuong}" 
                                 Width="auto">
-                            <GridViewColumnHeader 
+                        <GridViewColumnHeader 
                                     FontSize="16"
                                     Margin="-18" 
                                     Content="Số lượng trong kho"
                                     />
-                        </GridViewColumn>
+                    </GridViewColumn>
 
-                        <GridViewColumn 
+                    <GridViewColumn 
                                 DisplayMemberBinding="{Binding ViTriDay}" 
                                 Width="auto">
-                            <GridViewColumnHeader
+                        <GridViewColumnHeader
                                     FontSize="16"
                                     Margin="-18" 
                                     Content="Dãy"
                                     />
-                        </GridViewColumn>
+                    </GridViewColumn>
 
-                        <GridViewColumn 
+                    <GridViewColumn 
                                 DisplayMemberBinding="{Binding ViTriTang}" 
                                 Width="auto">
-                            <GridViewColumnHeader
+                        <GridViewColumnHeader
                                     FontSize="16"
                                     Margin="-18" 
                                     Content="Tầng"
                                     />
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Grid.Row="2">
+
+
             <StackPanel Orientation="Horizontal">
                 <!--Nút thêm sách mới-->
                 <materialDesign:Badged
@@ -220,8 +223,7 @@
                                  MinWidth="90"
                                  Command="{Binding AddingBook}"
                                  CommandParameter="{Binding ElementName=Adding}"
-                                 Margin="650 10"
-                                 >
+                                 Margin="550,10,0,10">
                         Thêm
                     </Button>
                 </materialDesign:Badged>
@@ -236,5 +238,7 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </StackPanel>
-    </StackPanel>
+
+
+    </Grid>
 </Page>

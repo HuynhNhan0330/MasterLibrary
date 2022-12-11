@@ -13,7 +13,7 @@ namespace MasterLibrary.ViewModel.AdminVM.StatisticVM
         private SeriesCollection _IncomdeData;
         public SeriesCollection IncomdeData
         {
-            get { return _IncomdeData};
+            get { return _IncomdeData; }
             set { _IncomdeData = value; OnPropertyChanged(); }
         }
 

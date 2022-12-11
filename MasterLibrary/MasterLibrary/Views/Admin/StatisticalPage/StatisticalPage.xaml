@@ -15,7 +15,7 @@
     TextOptions.TextFormattingMode="Ideal"
     TextOptions.TextRenderingMode="Auto"
     FontFamily="{DynamicResource MaterialDesignFont}"
-      DataContext="{StaticResource statistcVM}"
+      DataContext="{StaticResource StatisticVM}"
       Title="StatisticalPage">
 
     <Grid>

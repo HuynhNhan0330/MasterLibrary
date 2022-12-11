@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MasterLibrary.Views.Admin"
         xmlns:uc="clr-namespace:MasterLibrary.UserControlML"
         mc:Ignorable="d"
-        Title="Quản trị viên" Height="700" Width="1300"
+        Title="Quản trị viên" 
         Name="MainAdminWD"
         xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -19,11 +19,8 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="none"
         AllowsTransparency="True"
-        DataContext="{StaticResource AdminVM}">
         DataContext="{StaticResource AdminVM}"
-        WindowState="Maximized"
-        Height="{x:Static SystemParameters.PrimaryScreenHeight}" 
-        Width="{x:Static SystemParameters.PrimaryScreenWidth}" >
+        Height="700" Width="1300" >
 
     <!--<i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -178,7 +175,8 @@
 
                 <!-- Phần nội dung frame -->
                 <Frame x:Name="mainFrame"
-                       NavigationUIVisibility="Hidden" HorizontalAlignment="Center" Width="1382" Grid.Row="1">
+                       NavigationUIVisibility="Hidden"
+                       Grid.Row="1">
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Loaded">
