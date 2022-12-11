@@ -15,7 +15,7 @@
     TextOptions.TextFormattingMode="Ideal"
     TextOptions.TextRenderingMode="Auto"
     FontFamily="{DynamicResource MaterialDesignFont}"
-      DataContext="{StaticResource statistcVM}"
+      DataContext="{StaticResource StatisticVM}"
       Title="StatisticalPage">
 
     <Grid>
@@ -57,11 +57,11 @@
                           SelectedItem="{Binding SelectedTime, Mode=OneWayToSource}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Loaded">
-                            <i:InvokeCommandAction Command="{Binding ChangeTimeML}"
+                            <i:InvokeCommandAction Command="{Binding ChangePeriodML}"
                                                        CommandParameter="{Binding ElementName=TimeBox}" />
                         </i:EventTrigger>
                         <i:EventTrigger EventName="SelectionChanged">
-                            <i:InvokeCommandAction Command="{Binding ChangeTimeML}"
+                            <i:InvokeCommandAction Command="{Binding ChangePeriodML}"
                                                        CommandParameter="{Binding ElementName=TimeBox}" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
@@ -87,7 +87,7 @@
                 <!--Sum of income-->
                 <!--Tổng thu-->
                 <Grid Grid.Row="0">
-                    <Border BorderThickness="1" CornerRadius="5" Margin="30,0,0,5">
+                    <Border BorderThickness="1" CornerRadius="5" Margin="30 0 0 5">
                         <materialDesign:Card Height="auto" Background="#FFE7E889">
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -114,7 +114,7 @@
 
                                 <Grid Grid.Row="1">
                                     <TextBlock Text="{Binding TotalIn}" FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" Padding="5"
-                                           FontWeight="Bold" Foreground="WhiteSmoke"></TextBlock>
+                                           FontWeight="Bold" Foreground="#FF393922"></TextBlock>
                                 </Grid>
                             </Grid>
                         </materialDesign:Card>
@@ -123,7 +123,7 @@
 
                 <!--Tổng chi-->
                 <Grid Grid.Row="1">
-                    <Border BorderThickness="1" CornerRadius="5" Margin="30,0,0,5">
+                    <Border BorderThickness="1" CornerRadius="5" Margin="30 0 0 5">
                         <materialDesign:Card Height="auto" Background="#FFF19874">
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -150,7 +150,7 @@
 
                                 <Grid Grid.Row="1">
                                     <TextBlock Text="{Binding TotalOut}" FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" Padding="5"
-                                           FontWeight="Bold" Foreground="WhiteSmoke"></TextBlock>
+                                           FontWeight="Bold" Foreground="#FF393922"></TextBlock>
                                 </Grid>
                             </Grid>
                         </materialDesign:Card>
@@ -159,7 +159,7 @@
 
                 <!--Lợi nhuận-->
                 <Grid Grid.Row="2">
-                    <Border BorderThickness="1" CornerRadius="5" Margin="30,0,0,5">
+                    <Border BorderThickness="1" CornerRadius="5" Margin="30 0 0 5">
                         <materialDesign:Card Height="auto" Background="#FFA8E8E3">
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -186,7 +186,7 @@
 
                                 <Grid Grid.Row="1">
                                     <TextBlock Text="{Binding TrueIncome}" FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" Padding="5"
-                                           FontWeight="Bold" Foreground="WhiteSmoke"></TextBlock>
+                                           FontWeight="Bold" Foreground="#FF393922"></TextBlock>
                                 </Grid>
                             </Grid>
                         </materialDesign:Card>
@@ -195,7 +195,7 @@
             </Grid>
 
             <!--Right-->
-            <Grid Grid.Column="1">
+            <StackPanel Grid.Column="1">
                 <materialDesign:Card Background="White" Width="800" Height="540" 
                                      VerticalAlignment="top" UniformCornerRadius="5">
                     <lvc:CartesianChart Series="{Binding IncomeData, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" LegendLocation="Bottom">
@@ -212,11 +212,12 @@
                         <lvc:CartesianChart.AxisY>
                             <lvc:Axis Title="Triệu đồng"
                                       FontFamily="arial"
-                                      MinValue="0"></lvc:Axis>
+                                      MinValue="0">
+                            </lvc:Axis>
                         </lvc:CartesianChart.AxisY>
                     </lvc:CartesianChart>
                 </materialDesign:Card>
-            </Grid>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

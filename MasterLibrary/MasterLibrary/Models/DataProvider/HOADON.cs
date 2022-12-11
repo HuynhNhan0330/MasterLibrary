@@ -20,8 +20,9 @@ namespace MasterLibrary.Models.DataProvider
             this.CTHDs = new HashSet<CTHD>();
         }
     
-        public string MAHD { get; set; }
-        public int MAKH { get; set; }
+        public int MAHD { get; set; }
+        public System.DateTime NGHD { get; set; }
+        public Nullable<int> MAKH { get; set; }
         public Nullable<decimal> TRIGIA { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

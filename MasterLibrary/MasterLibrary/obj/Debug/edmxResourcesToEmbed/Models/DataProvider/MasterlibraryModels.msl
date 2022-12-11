@@ -13,8 +13,18 @@
     <EntitySetMapping Name="DAYKEs">
       <EntityTypeMapping TypeName="masterlibraryModel.DAYKE">
         <MappingFragment StoreEntitySet="DAYKE">
+          <ScalarProperty Name="IDTANG" ColumnName="IDTANG" />
           <ScalarProperty Name="TENDAY" ColumnName="TENDAY" />
           <ScalarProperty Name="MADAY" ColumnName="MADAY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIOHANGs">
+      <EntityTypeMapping TypeName="masterlibraryModel.GIOHANG">
+        <MappingFragment StoreEntitySet="GIOHANG">
+          <ScalarProperty Name="SOLUONGHT" ColumnName="SOLUONGHT" />
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="MASACH" ColumnName="MASACH" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -23,6 +33,7 @@
         <MappingFragment StoreEntitySet="HOADON">
           <ScalarProperty Name="TRIGIA" ColumnName="TRIGIA" />
           <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="NGHD" ColumnName="NGHD" />
           <ScalarProperty Name="MAHD" ColumnName="MAHD" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -30,12 +41,24 @@
     <EntitySetMapping Name="KHACHHANGs">
       <EntityTypeMapping TypeName="masterlibraryModel.KHACHHANG">
         <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
           <ScalarProperty Name="IDROLE" ColumnName="IDROLE" />
           <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
           <ScalarProperty Name="TENKH" ColumnName="TENKH" />
           <ScalarProperty Name="USERPASSWORD" ColumnName="USERPASSWORD" />
           <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
           <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHAPSACHes">
+      <EntityTypeMapping TypeName="masterlibraryModel.NHAPSACH">
+        <MappingFragment StoreEntitySet="NHAPSACH">
+          <ScalarProperty Name="NGNHAP" ColumnName="NGNHAP" />
+          <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+          <ScalarProperty Name="GIANHAP" ColumnName="GIANHAP" />
+          <ScalarProperty Name="TENSACH" ColumnName="TENSACH" />
+          <ScalarProperty Name="IDSACH" ColumnName="IDSACH" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -17,6 +17,7 @@ namespace MasterLibrary.Models.DataProvider
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KHACHHANG()
         {
+            this.GIOHANGs = new HashSet<GIOHANG>();
             this.HOADONs = new HashSet<HOADON>();
         }
     
@@ -26,7 +27,10 @@ namespace MasterLibrary.Models.DataProvider
         public string TENKH { get; set; }
         public string EMAIL { get; set; }
         public Nullable<int> IDROLE { get; set; }
+        public string DIACHI { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GIOHANG> GIOHANGs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }
         public virtual USERROLE USERROLE { get; set; }
