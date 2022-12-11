@@ -15,8 +15,22 @@ namespace MasterLibrary.DTOs
         }
 
         public int MAKH { get; set; }
+        private string _cusID { get; set; }
+        public string cusID
+        {
+            get
+            {
+                if (_cusID == null) return "-1";
+                return _cusID;
+            }
+            set
+            {
+                _cusID = value;
+            }
+        }
         public int MAHD { get; set; }
         public int TRIGIA { get; set; }
+        public DateTime NGHD { get; set; }
 
         public string TRIGIAstr
         {

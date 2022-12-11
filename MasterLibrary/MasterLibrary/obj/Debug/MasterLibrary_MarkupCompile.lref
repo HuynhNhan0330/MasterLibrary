@@ -3,9 +3,13 @@ FD:\M\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml;;
 FD:\M\MasterLibrary\MasterLibrary\MasterLibrary\MainWindow.xaml;;
 FD:\M\MasterLibrary\MasterLibrary\MasterLibrary\ResourcesXAML\MainResources.xaml;;
 FD:\M\MasterLibrary\MasterLibrary\MasterLibrary\UserControlML\controlbar_uc.xaml;;
+<<<<<<< HEAD
 FD:\M\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\BookManagePage\AddingWindow.xaml;;
 FD:\M\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\BookManagePage\BookManagePage.xaml;;
 FD:\M\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\BookManagePage\updatingwindow.xaml;;
+=======
+FD:\M\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\BookManagePage\BookManagePage.xaml;;
+>>>>>>> namnam
 FD:\M\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\HistoryPage.xaml;;
 FD:\M\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\MainAdminWindow.xaml;;
 FD:\M\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\StatisticalPage\StatisticalPage.xaml;;
