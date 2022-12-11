@@ -17,7 +17,7 @@ namespace MasterLibrary.Views.Customer
     /// <summary>
     /// Interaction logic for MainCustomerWindow.xaml
     /// </summary>
-    public partial class MainCustomerWindow : Window
+    public partial class MainCustomerWindow : System.Windows.Window
     {
         public MainCustomerWindow()
         {

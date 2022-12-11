@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MasterLibrary.Views.Admin"
         xmlns:uc="clr-namespace:MasterLibrary.UserControlML"
         mc:Ignorable="d"
-        Title="Quản trị viên" Height="700" Width="1300"
+        Title="Quản trị viên" 
         Name="MainAdminWD"
         xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -19,7 +19,9 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="none"
         AllowsTransparency="True"
-        DataContext="{StaticResource AdminVM}">
+        DataContext="{StaticResource AdminVM}"
+        Height="700" Width="1300" >
+
     <!--<i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding FirstLoadML}" />
@@ -159,14 +161,23 @@
                 </Grid.RowDefinitions>
 
                 <!-- Thanh trên -->
-                <Grid Grid.Row="0"
-                          Background="#b29e84">
-                </Grid>
+                <materialDesign:ColorZone
+                        Background ="#b29e84"
+                        Padding="16" Height="84" VerticalAlignment="Center">
+                    <DockPanel>
+                        <StackPanel
+                             Orientation="Horizontal"
+                             materialDesign:RippleAssist.IsCentered="True" Height="47">
+
+                        </StackPanel>
+                    </DockPanel>
+                </materialDesign:ColorZone>
 
                 <!-- Phần nội dung frame -->
                 <Frame x:Name="mainFrame"
-                           Grid.Row="1"
-                           NavigationUIVisibility="Hidden">
+                       NavigationUIVisibility="Hidden"
+                       Grid.Row="1">
+
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Loaded">
                             <i:InvokeCommandAction Command="{Binding LoadStatisticalPageML}"

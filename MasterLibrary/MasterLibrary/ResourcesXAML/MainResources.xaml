@@ -11,6 +11,7 @@
     <viewmodel1:LoginViewModel x:Key= "RegisterML"/>
     <viewmodel1:ForgotPassViewModel x:Key= "ForgotPassVM"/>
     <viewmodel2:MainAdminViewModel x:Key= "AdminVM"/>
+    <viewmodel2:BookManageViewModel x:Key="BookManageVM"/>
     <viewmodel21:StatisticViewModel x:Key="StatisticVM"/>
     <viewmodel3:MainCustomerViewModel x:Key= "CustomerVM"/>
     <viewmodel31:DetailBookViewModel x:Key="DetailBookVM"/>
