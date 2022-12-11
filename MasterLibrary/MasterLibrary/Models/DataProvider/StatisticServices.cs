@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace MasterLibrary.Models.DataProvider
 {
@@ -24,36 +25,22 @@ namespace MasterLibrary.Models.DataProvider
             }
             private set => _ins = value;
         }
-        //public int calTongThuByYear(int year)
-        //{
-        //    int inputList = 0;
-        //    var billList = db.HOADONs.Where(b => b.NGHD.Year == year);
-        //    foreach (var bill in billList)
-        //    {
-        //        inputList = (int)db.HOADONs.Sum(b => b.TRIGIA);
-        //    }
 
-        //    //var revenueByMonth = billList.GroupBy(b => b.NGHD.Month).Select(gr => new { Month = gr.Key, Income = gr.Sum(b => (decimal?)b.TRIGIA) ?? 0 }).ToList();
-        //    //foreach (var re in revenueByMonth)
-        //    //{
-        //    //    revenueByMonthList[re.Month - 1] = decimal.Truncate(re.Income);
-        //    //}, ref List<decimal> revenueByMonthList
-        //    return (inputList);
-        //}
-
+        //Tính tiền thu theo năm
         public async Task<(List<decimal>, decimal)> GetRevenueByYear(int year)
         {
-            decimal inputList = 0;
+            decimal inputMoney = (decimal)0;
             List<decimal> revenueByMonthList = new List<decimal>(new decimal[12]);
 
             using (var context = new MasterlibraryEntities())
             {
                 var billList = context.HOADONs.Where(b => b.NGHD.Year == year);
-                
-                foreach (var bill in billList)
+
+                if (billList.ToList().Count != 0)
                 {
-                    inputList = (decimal)context.HOADONs.Sum(b => b.TRIGIA);
+                    inputMoney = (decimal) billList.Sum(b => b.TRIGIA);
                 }
+                
 
                 var revenueByMonth = billList.GroupBy(b => b.NGHD.Month).Select(gr => new { Month = gr.Key, Income = gr.Sum(b => (decimal?)b.TRIGIA) ?? 0 }).ToList();
             
@@ -61,32 +48,37 @@ namespace MasterLibrary.Models.DataProvider
                 {
                     revenueByMonthList[re.Month - 1] = decimal.Truncate(re.Income);
                 }
-                //revenueByMonthList[0] = revenueByMonthList[1];
-                return (revenueByMonthList, inputList);
+                return (revenueByMonthList, inputMoney);
             }
-            
-            //var billList = db.HOADONs.Where(b => b.NGHD.Year == year);
-            //foreach (var bill in billList)
-            //{
-            //    inputList = (decimal)db.HOADONs.Sum(b => b.TRIGIA);
-            //}
-
-            //var revenueByMonth = billList.GroupBy(b => b.NGHD.Month).Select(gr => new { Month = gr.Key, Income = gr.Sum(b => (decimal?)b.TRIGIA) ?? 0 }).ToList();
-            //foreach (var re in revenueByMonth)
-            //{
-            //    revenueByMonthList[re.Month - 1] = decimal.Truncate(re.Income);
-            //}
         }
 
-        //public async Task<(List<decimal>, decimal)> GetExpenseByYear(int year)
-        //{
-        //    decimal outputList = 0;
-        //    List<decimal> expenseByYearList = new List<decimal>(new decimal[12]);
+        //Tính tiền chi theo năm
+        public async Task<(List<decimal>, decimal)> GetExpenseByYear(int year)
+        {
+            decimal outputMoney = 0;
+            List<decimal> expenseByMonthList = new List<decimal>(new decimal[12]);
 
-        //    using (var context = new MasterlibraryEntities())
-        //    {
-        //        var receiptList = context.NHAPSACHes.Where(b => b.NGNHAP)
-        //    }
-        //}
+            using (var context = new MasterlibraryEntities())
+            {
+                var receiptList = context.NHAPSACHes.Where(b => b.NGNHAP.Year == year);
+
+                if (receiptList != null)
+                {
+                    outputMoney = (decimal)receiptList.Sum(b => b.SOLUONG * b.GIANHAP);
+                }
+               
+                var receiptByMonth = receiptList.GroupBy(b => b.NGNHAP.Month).Select(gr => new { Month = gr.Key, Output = gr.Sum(b => (decimal?)(b.SOLUONG * b.GIANHAP) ?? 0)}).ToList();
+
+                foreach (var re in receiptByMonth)
+                {
+                    expenseByMonthList[re.Month - 1] = decimal.Truncate(re.Output);
+                }
+
+                return (expenseByMonthList, outputMoney);
+            }
+        }
+
+        //tính tiền thu theo tháng
+
     }
 }

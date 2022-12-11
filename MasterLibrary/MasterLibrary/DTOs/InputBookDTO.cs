@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace MasterLibrary.DTOs
 {
-    internal class InputBookDTO
+    public class InputBookDTO
     {
+        public InputBookDTO() { }
+
+        public int IDBook { get; set; }
+        public string TenSach { get; set; }
+        public int GiaNhap { get; set; }
+        public int SoLuong { get; set; }
+        public DateTime NgNhap { get; set; }
     }
 }

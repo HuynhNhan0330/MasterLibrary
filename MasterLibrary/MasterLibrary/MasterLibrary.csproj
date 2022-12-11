@@ -244,6 +244,7 @@
     <Compile Include="DTOs\BillDTO.cs" />
     <Compile Include="DTOs\BookDTO.cs" />
     <Compile Include="DTOs\CustomerDTO.cs" />
+    <Compile Include="DTOs\InputBookDTO.cs" />
     <Compile Include="Models\DataProvider\AdminServices.cs" />
     <Compile Include="Models\DataProvider\BookServices.cs" />
     <Compile Include="Models\DataProvider\CTHD.cs">

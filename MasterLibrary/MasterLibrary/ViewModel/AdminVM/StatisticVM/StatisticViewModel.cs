@@ -117,15 +117,23 @@ namespace MasterLibrary.ViewModel.AdminVM.StatisticVM
             try
             {
                 (List<decimal> MonthlyRevenue, decimal totalin) = await Task.Run(() => StatisticServices.Ins.GetRevenueByYear(int.Parse(SelectedTime)));
+                (List<decimal> MonthlyExpense, decimal totalout) = await Task.Run(() => StatisticServices.Ins.GetExpenseByYear(int.Parse(SelectedTime)));
+
                 TotalIn = Helper.FormatVNMoney(totalin);
+                TotalOut = Helper.FormatVNMoney(totalout);
+                TrueIncome = Helper.FormatVNMoney(totalin - totalout);
+
                 MonthlyRevenue.Insert(0, 0);
+                MonthlyExpense.Insert(0, 0);
+
                 for (int i = 1; i <= 12; i++)
                 {
                     MonthlyRevenue[i] /= 1000000;
+                    MonthlyExpense[i] /= 1000000;
                 }
 
                 IncomeData = new SeriesCollection
-            {   
+            {
                 new LineSeries
                 {
                     Title = "Thu",
@@ -135,7 +143,8 @@ namespace MasterLibrary.ViewModel.AdminVM.StatisticVM
                 new LineSeries
                 {
                     Title = "Chi",
-                    
+                    Values = new ChartValues<decimal>(MonthlyExpense),
+                    Fill = Brushes.Transparent,
                 }
             };
             }
