@@ -113,7 +113,7 @@ namespace MasterLibrary.ViewModel.AdminVM.StatisticVM
         {
             if (SelectedTime.Length != 4) return;
             LabelMaxValue = 12;
-            List<decimal> RevenueByMonthList = new List<decimal>();
+
             try
             {
                 (List<decimal> MonthlyRevenue, decimal totalin) = await Task.Run(() => StatisticServices.Ins.GetRevenueByYear(int.Parse(SelectedTime)));
@@ -162,16 +162,61 @@ namespace MasterLibrary.ViewModel.AdminVM.StatisticVM
                 mb.ShowDialog();
                 throw;
             }
-
-    //(List<decimal> MonthlyRevenue, decimal totalin) = await Task.Run(() => StatisticServices.Ins.GetRevenueByYear(int.Parse(SelectedTime)));
-    //        TotalIn = Helper.FormatVNMoney(totalin);
-
-            
         }
 
-        public void LoadIncomeByMonth()
+        public async void LoadIncomeByMonth()
         {
+            if (SelectedTime.Length == 4) return;
+            LabelMaxValue = 31;
 
+            try
+            {
+                (List<decimal> DailyRevenue, decimal totalin) = await Task.Run(() => StatisticServices.Ins.GetRevenueByMonth(SelectedYear, int.Parse(SelectedTime.Remove(0, 6))));
+                (List<decimal> DailyExpense, decimal totalout) = await Task.Run(() => StatisticServices.Ins.GetExpenseByMonth(SelectedYear, int.Parse(SelectedTime.Remove(0, 6))));
+
+                TotalIn = Helper.FormatVNMoney(totalin);
+                TotalOut = Helper.FormatVNMoney(totalout);
+                TrueIncome = Helper.FormatVNMoney(totalin - totalout);
+
+                DailyRevenue.Insert(0, 0);
+                DailyExpense.Insert(0, 0);
+
+                for (int i = 1; i <= DailyRevenue.Count - 1; i++)
+                {
+                    DailyRevenue[i] /= 1000000;
+                    DailyExpense[i] /= 1000000;
+                }
+
+                IncomeData = new SeriesCollection
+                {
+                    new LineSeries
+                    {
+                        Title = "Thu",
+                        Values = new ChartValues<decimal> (DailyRevenue),
+                        Fill = Brushes.Transparent
+                    },
+                    new LineSeries
+                    {
+                        Title = "Chi",
+                        Values = new ChartValues<decimal> (DailyExpense),
+                        Fill = Brushes.Transparent
+                    }
+                };
+            }
+            catch (System.Data.Entity.Core.EntityException e)
+            {
+                Console.WriteLine(e);
+                MessageBoxML mb = new MessageBoxML("Lỗi", "Mất kết nối cơ sở dữ liệu", MessageType.Error, MessageButtons.OK);
+                mb.ShowDialog();
+                throw;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                MessageBoxML mb = new MessageBoxML("Lỗi", "Lỗi hệ thống", MessageType.Error, MessageButtons.OK);
+                mb.ShowDialog();
+                throw;
+            }
         }
     }
 }

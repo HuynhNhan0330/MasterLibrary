@@ -62,7 +62,7 @@ namespace MasterLibrary.Models.DataProvider
             {
                 var receiptList = context.NHAPSACHes.Where(b => b.NGNHAP.Year == year);
 
-                if (receiptList != null)
+                if (receiptList.ToList().Count != 0)
                 {
                     outputMoney = (decimal)receiptList.Sum(b => b.SOLUONG * b.GIANHAP);
                 }
@@ -79,6 +79,56 @@ namespace MasterLibrary.Models.DataProvider
         }
 
         //tính tiền thu theo tháng
+        public async Task<(List<decimal>, decimal)> GetRevenueByMonth(int year, int month)
+        {
+            decimal inputMoney = (decimal)0;
+            int days = DateTime.DaysInMonth(year, month);
+            List<decimal> revenueByDayList = new List<decimal>(new decimal[days]);
 
+            using (var context = new MasterlibraryEntities())
+            {
+                var billList = context.HOADONs.Where(b => b.NGHD.Year == year && b.NGHD.Month == month);
+
+                if (billList.ToList().Count != 0)
+                {
+                    inputMoney = (decimal)billList.Sum(b => b.TRIGIA);
+                }
+
+                var revenueByDay = billList.GroupBy(b => b.NGHD.Day).Select(gr => new { Day = gr.Key, Income = gr.Sum(b => (decimal?)b.TRIGIA) ?? 0 }).ToList();
+
+                foreach (var re in revenueByDay)
+                {
+                    revenueByDayList[re.Day - 1] = decimal.Truncate(re.Income);
+                }
+
+                return (revenueByDayList, inputMoney);
+            }
+        }
+
+        public async Task<(List<decimal>, decimal)> GetExpenseByMonth(int year, int month)
+        {
+            decimal outputMoney = (decimal)0;
+            int days = DateTime.DaysInMonth(year, month);
+            List<decimal> expenseByDayList = new List<decimal>(new decimal[days]);
+
+            using (var context = new MasterlibraryEntities())
+            {
+                var receiptList = context.NHAPSACHes.Where(b => b.NGNHAP.Year == year && b.NGNHAP.Month == month);
+
+                if (receiptList.ToList().Count != 0)
+                {
+                    outputMoney = (decimal)receiptList.Sum(b => (b.SOLUONG * b.GIANHAP));
+                }
+
+                var revenueByDay = receiptList.GroupBy(b => b.NGNHAP.Day).Select(gr => new { Day = gr.Key, Income = gr.Sum(b => (decimal?)(b.SOLUONG * b.GIANHAP) ?? 0 )}).ToList();
+
+                foreach (var re in revenueByDay)
+                {
+                    expenseByDayList[re.Day - 1] = decimal.Truncate(re.Income);
+                }
+
+                return (expenseByDayList, outputMoney);
+            }
+        }
     }
 }
