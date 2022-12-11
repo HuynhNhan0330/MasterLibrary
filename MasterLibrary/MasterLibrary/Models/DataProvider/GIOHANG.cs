@@ -12,12 +12,13 @@ namespace MasterLibrary.Models.DataProvider
     using System;
     using System.Collections.Generic;
     
-    public partial class NHAPSACH
+    public partial class GIOHANG
     {
-        public int IDSACH { get; set; }
-        public string TENSACH { get; set; }
-        public Nullable<decimal> GIANHAP { get; set; }
-        public Nullable<int> SOLUONG { get; set; }
-        public System.DateTime NGNHAP { get; set; }
+        public int MASACH { get; set; }
+        public int MAKH { get; set; }
+        public Nullable<int> SOLUONGHT { get; set; }
+    
+        public virtual KHACHHANG KHACHHANG { get; set; }
+        public virtual SACH SACH { get; set; }
     }
 }

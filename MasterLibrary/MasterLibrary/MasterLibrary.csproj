@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>MasterLibrary</RootNamespace>
     <AssemblyName>MasterLibrary</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -17,6 +17,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,6 +37,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Avalonia, Version=0.10.18.0, Culture=neutral, PublicKeyToken=c8d484a7012f9a8b, processorArchitecture=MSIL">
@@ -104,8 +108,32 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Haley.Abstractions, Version=1.0.19.0, Culture=neutral, PublicKeyToken=9b5f4902d3fea17a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Haley.Abstractions.1.0.19\lib\netstandard2.0\Haley.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Haley.Extensions, Version=2.0.1.0, Culture=neutral, PublicKeyToken=9b5f4902d3fea17a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Haley.Extensions.2.1.15.1\lib\netstandard2.0\Haley.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Haley.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9b5f4902d3fea17a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Haley.Helpers.2.1.9\lib\netstandard2.0\Haley.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Haley.IOC, Version=2.0.2.0, Culture=neutral, PublicKeyToken=9b5f4902d3fea17a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Haley.IOC.3.0.13\lib\netstandard2.0\Haley.IOC.dll</HintPath>
+    </Reference>
+    <Reference Include="Haley.MVVM, Version=4.0.2.0, Culture=neutral, PublicKeyToken=9b5f4902d3fea17a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Haley.MVVM.6.3.0\lib\net462\Haley.MVVM.dll</HintPath>
+    </Reference>
+    <Reference Include="Haley.WPF, Version=3.0.0.0, Culture=neutral, PublicKeyToken=9b5f4902d3fea17a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Haley.WPF.5.3.0\lib\net462\Haley.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="JetBrains.Annotations, Version=10.3.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
       <HintPath>..\packages\JetBrains.Annotations.10.3.0\lib\net\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="MaterialDesignColors, Version=2.0.9.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.2.0.9\lib\net462\MaterialDesignColors.dll</HintPath>
@@ -113,33 +141,55 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=4.6.1.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.4.6.1\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="protobuf-net, Version=3.0.0.0, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <HintPath>..\packages\protobuf-net.3.1.17\lib\net461\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <HintPath>..\packages\protobuf-net.Core.3.1.17\lib\net461\protobuf-net.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.CodeDom, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.6.0.0\lib\net461\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.6.0.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
     <Reference Include="System.Reactive, Version=5.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Reactive.5.0.0\lib\netstandard2.0\System.Reactive.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.6.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
@@ -148,8 +198,20 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
-    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Encodings.Web.4.5.1\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Xml, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Xml.6.0.0\lib\net461\System.Security.Cryptography.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.6.0.5\lib\net461\System.Text.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
@@ -157,7 +219,6 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -180,6 +241,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DTOs\AdminDTO.cs" />
+    <Compile Include="DTOs\BillDTO.cs" />
     <Compile Include="DTOs\BookDTO.cs" />
     <Compile Include="DTOs\CustomerDTO.cs" />
     <Compile Include="Models\DataProvider\AdminServices.cs" />
@@ -189,6 +251,9 @@
     </Compile>
     <Compile Include="Models\DataProvider\CustormerServices.cs" />
     <Compile Include="Models\DataProvider\DAYKE.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataProvider\GIOHANG.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\HOADON.cs">
@@ -227,21 +292,21 @@
     <Compile Include="UserControlML\controlbar_uc.xaml.cs">
       <DependentUpon>controlbar_uc.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\CloudinaryService.cs" />
     <Compile Include="Utils\Constant.cs" />
-    <Compile Include="ViewModel\AdminVM\BookManage\BookManageViewModel.cs" />
+    <Compile Include="Utils\Helper.cs" />
     <Compile Include="ViewModel\AdminVM\MainAdminViewModel.cs" />
+    <Compile Include="ViewModel\AdminVM\StatisticVM\StatisticViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\CustomerVM\BuyBookVM\BuyBookViewModel.cs" />
+    <Compile Include="ViewModel\CustomerVM\BuyBookVM\DetailBookViewModel.cs" />
+    <Compile Include="ViewModel\ControlBarViewModel.cs" />
     <Compile Include="ViewModel\CustomerVM\MainCustomerViewModel.cs" />
+    <Compile Include="ViewModel\CustomerVM\SettingVM\SettingViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\ForgotPassViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\LoginViewModel.cs" />
-    <Compile Include="Views\Admin\BookManagePage\AddingWindow.xaml.cs">
-      <DependentUpon>AddingWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Admin\BookManagePage\BookManagePage.xaml.cs">
       <DependentUpon>BookManagePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Admin\BookManagePage\updatingwindow.xaml.cs">
-      <DependentUpon>updatingwindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\HistoryPage\HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
@@ -258,8 +323,14 @@
     <Compile Include="Views\Customer\BuyBookPage\BuyBookPage.xaml.cs">
       <DependentUpon>BuyBookPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Customer\BuyBookPage\DetailBook.xaml.cs">
+      <DependentUpon>DetailBook.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Customer\MainCustomerWindow.xaml.cs">
       <DependentUpon>MainCustomerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\SettingPage\SettingPage.xaml.cs">
+      <DependentUpon>SettingPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginWindow\CreateNewPassPage.xaml.cs">
       <DependentUpon>CreateNewPassPage.xaml</DependentUpon>
@@ -278,6 +349,9 @@
     </Compile>
     <Compile Include="Views\LoginWindow\VerificationPage.xaml.cs">
       <DependentUpon>VerificationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessageBoxML\MessageBoxML.xaml.cs">
+      <DependentUpon>MessageBoxML.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -299,17 +373,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Admin\BookManagePage\AddingWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Admin\BookManagePage\BookManagePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Admin\BookManagePage\updatingwindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Admin\HistoryPage\HistoryPage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -331,7 +397,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Customer\BuyBookPage\DetailBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Customer\MainCustomerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Customer\SettingPage\SettingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -356,6 +430,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LoginWindow\VerificationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MessageBoxML\MessageBoxML.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -401,6 +479,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\AcceptBackground.png" />
+    <Resource Include="Resources\Images\ErrorBackground.png" />
+    <Resource Include="Resources\Images\ExitBackground.png" />
+    <Resource Include="Resources\Images\logo.ico" />
+    <Resource Include="Notes.txt" />
+    <Resource Include="logo.ico" />
     <Content Include="Models\DataProvider\MasterlibraryModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MasterlibraryModels.edmx</DependentUpon>
@@ -411,6 +495,10 @@
       <DependentUpon>MasterlibraryModels.edmx</DependentUpon>
       <LastGenOutput>MasterlibraryModels.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Images\image_2022-12-06_11-23-02.png" />
+    <Resource Include="Resources\Images\Invest.png" />
+    <Resource Include="Resources\Images\Income.png" />
+    <Resource Include="Resources\Images\Interest.png" />
     <Resource Include="Resources\Images\logo.png" />
     <Resource Include="Resources\Images\Logo.jpg" />
   </ItemGroup>
@@ -424,6 +512,8 @@
     <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets'))" />
     <Error Condition="!Exists('..\packages\Avalonia.0.10.18\build\Avalonia.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Avalonia.0.10.18\build\Avalonia.props'))" />
     <Error Condition="!Exists('..\packages\Avalonia.0.10.18\build\Avalonia.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Avalonia.0.10.18\build\Avalonia.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Text.Json.6.0.5\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Text.Json.6.0.5\build\System.Text.Json.targets'))" />
   </Target>
   <Import Project="..\packages\Avalonia.0.10.18\build\Avalonia.targets" Condition="Exists('..\packages\Avalonia.0.10.18\build\Avalonia.targets')" />
+  <Import Project="..\packages\System.Text.Json.6.0.5\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.5\build\System.Text.Json.targets')" />
 </Project>
