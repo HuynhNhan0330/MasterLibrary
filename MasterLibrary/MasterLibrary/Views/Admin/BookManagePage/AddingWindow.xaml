@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:MasterLibrary.Views.Admin.BookManagePage"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
         WindowStartupLocation="CenterScreen"
-        Height="450" Width="800"
+        Height="602" Width="828"
         x:Name="Addingwindow"
         DataContext="{StaticResource BookManageVM}">
     <Grid>
@@ -26,100 +27,122 @@
             <Grid Grid.Column="1" >
                 <StackPanel>
                     <TextBox
-                        x:Name="name_book_txb"
-                        materialDesign:HintAssist.Hint="Tên sách"
-                        BorderBrush="#b29e84"
-                        Text="{Binding TenSach}"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                        Margin="10 10 10 10"/>
+                            x:Name="TenSach_txb"
+                            FontSize="14"
+                            materialDesign:HintAssist.Hint="Tên sách"
+                            BorderBrush="#b29e84"
+                            Text="{Binding TenSach}"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                            Margin="10 10 10 10"/>
 
                     <Label Margin="10 -10 10 0"
-                       x:Name="Error1"
-                       Height="20"
-                       FontSize="9.5"
-                       FontFamily="UVN Viet Sach"
-                       Content=""
-                       Foreground="Red" />
+                            x:Name="Error1"
+                            Height="20"
+                            FontSize="9.5"
+                            FontFamily="UVN Viet Sach"
+                            Content=""
+                            Foreground="Red" />
 
                     <TextBox
-                        x:Name="name_aut_txb"
-                        materialDesign:HintAssist.Hint="Tác giả"
-                        BorderBrush="#b29e84"
-                        Text="{Binding TacGia}"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                        Margin="10 10 10 10"/>
+                            x:Name="TacGia_txb"
+                            FontSize="14"
+                            materialDesign:HintAssist.Hint="Tác giả"
+                            BorderBrush="#b29e84"
+                            Text="{Binding TacGia}"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                            Margin="10 10 10 10"/>
 
                     <Label Margin="10 -10 10 0"
-                       x:Name="Error2"
-                       Height="20"
-                       FontSize="9.5"
-                       FontFamily="UVN Viet Sach"
-                       Content=""
-                       Foreground="Red" />
+                            x:Name="Error2"
+                            Height="20"
+                            FontSize="9.5"
+                            FontFamily="UVN Viet Sach"
+                            Content=""
+                            Foreground="Red" />
 
                     <TextBox
-                        x:Name="name_nxb_txb"
-                        materialDesign:HintAssist.Hint="Nhà xuất bản"
-                        BorderBrush="#b29e84"
-                        Text="{Binding NhaXuatBan}"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                        Margin="10 10 10 10"/>
+                            x:Name="NhaXuatBan_txb"
+                            FontSize="14"
+                            materialDesign:HintAssist.Hint="Nhà xuất bản"
+                            BorderBrush="#b29e84"
+                            Text="{Binding NhaXuatBan}"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                            Margin="10 10 10 10"/>
 
 
                     <Label Margin="10 -10 10 0"
-                       x:Name="Error3"
-                       Height="20"
-                       FontSize="9.5"
-                       FontFamily="UVN Viet Sach"
-                       Content=""
-                       Foreground="Red"/>
+                            x:Name="Error3"
+                            Height="20"
+                            FontSize="9.5"
+                            FontFamily="UVN Viet Sach"
+                            Content=""
+                            Foreground="Red"/>
 
                     <TextBox
-                        x:Name="namxb_txb"
-                        materialDesign:HintAssist.Hint="Năm xuất bản"
-                        BorderBrush="#b29e84"
-                        Text="{Binding NamXuatBan}"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                        Margin="10 10 10 10"/>
+                            x:Name="NamXuatBan_txb"
+                            FontSize="14"
+                            materialDesign:HintAssist.Hint="Năm xuất bản"
+                            BorderBrush="#b29e84"
+                            Text="{Binding NamXuatBan}"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                            Margin="10 10 10 10"/>
 
                     <Label Margin="10 -10 10 0"
-                       x:Name="Error4"
-                       Height="20"
-                       FontSize="9.5"
-                       FontFamily="UVN Viet Sach"
-                       Content=""
-                       Foreground="Red"/>
+                            x:Name="Error4"
+                            Height="20"
+                            FontSize="9.5"
+                            FontFamily="UVN Viet Sach"
+                            Content=""
+                            Foreground="Red"/>
 
                     <TextBox
-                        x:Name="count_txb"
-                        materialDesign:HintAssist.Hint="Số lượng trong kho"
-                        BorderBrush="#b29e84"
-                        Text ="{Binding SoLuong}"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                        Margin="10 10 10 10"/>
+                            x:Name="SoLuong_txb"
+                            FontSize="14"
+                            materialDesign:HintAssist.Hint="Số lượng trong kho"
+                            BorderBrush="#b29e84"
+                            Text ="{Binding SoLuong}"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                            Margin="10 10 10 10"/>
 
                     <Label Margin="10 -10 10 0"
-                       x:Name="Error5"
-                       Height="20"
-                       FontSize="9.5"
-                       FontFamily="UVN Viet Sach"
-                       Content=""
-                       Foreground="Red"/>
+                            x:Name="Error5"
+                            Height="20"
+                            FontSize="9.5"
+                            FontFamily="UVN Viet Sach"
+                            Content=""
+                            Foreground="Red"/>
 
                     <TextBox
-                        x:Name="cost_txb"
-                        materialDesign:HintAssist.Hint="Giá"
-                        Text="{Binding Gia}"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                        Margin="10 10 10 10"/>
+                            x:Name="Gia_txb"
+                            FontSize="14"
+                            materialDesign:HintAssist.Hint="Giá"
+                            Text="{Binding Gia}"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                            Margin="10 10 10 10"/>
 
                     <Label Margin="10 -10 10 0"
-                       x:Name="Error6"
-                       Height="20"
-                       FontSize="9.5"
-                       FontFamily="UVN Viet Sach"
-                       Content=""
-                       Foreground="Red"/>
+                            x:Name="Error6"
+                            Height="20"
+                            FontSize="9.5"
+                            FontFamily="UVN Viet Sach"
+                            Content=""
+                            Foreground="Red"/>
+
+                    <TextBox
+                            x:Name="MoTa_txb"
+                            FontSize="14"
+                            materialDesign:HintAssist.Hint="Mô tả"
+                            Text="{Binding MoTa}"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                            Margin="10 10 10 10"/>
+
+                    <Label Margin="10 -10 10 0"
+                            x:Name="Error7"
+                            Height="20"
+                            FontSize="9.5"
+                            FontFamily="UVN Viet Sach"
+                            Content=""
+                            Foreground="Red"/>
 
                 </StackPanel>
             </Grid>
@@ -135,7 +158,8 @@
             <Grid Grid.Column="1" >
                 <StackPanel>
                     <ComboBox
-                        x:Name="type_txb"
+                        x:Name="TheLoai_txb"
+                        FontSize="14"
                         materialDesign:HintAssist.Hint="Thể loại"
                         Margin="10 10 10 10"
                         Text="{Binding TheLoai}"
@@ -167,73 +191,69 @@
                     </ComboBox>
 
                     <Label Margin="10 -10 10 0"
-                       x:Name="Error7"
-                       Height="20"
-                       FontSize="9.5"
-                       FontFamily="UVN Viet Sach"
-                       Content=""
-                       Foreground="Red"/>
+                            x:Name="Error8"
+                            Height="20"
+                            FontSize="9.5"
+                            FontFamily="UVN Viet Sach"
+                            Content=""
+                            Foreground="Red"/>
+
 
                     <TextBox
-                        x:Name="about_txb"
-                        materialDesign:HintAssist.Hint="Mô tả"
-                        Text="{Binding MoTa}"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                        Margin="10 10 10 10"/>
+                            x:Name="Tang_txb"
+                            FontSize="14"
+                            materialDesign:HintAssist.Hint="Tầng"
+                            Text ="{Binding Tang}"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                            Margin="10 10 10 10"/>
 
                     <Label Margin="10 -10 10 0"
-                       x:Name="Error8"
-                       Height="20"
-                       FontSize="9.5"
-                       FontFamily="UVN Viet Sach"
-                       Content=""
-                       Foreground="Red"/>
+                            x:Name="Error9"
+                            Height="20"
+                            FontSize="9.5"
+                            FontFamily="UVN Viet Sach"
+                            Content=""
+                            Foreground="Red"/>
 
                     <TextBox
-                        x:Name="tang_txb"
-                        materialDesign:HintAssist.Hint="Tầng"
-                        Text ="{Binding Tang}"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                        Margin="10 10 10 10"/>
+                            x:Name="Day_txb"
+                            FontSize="14"
+                            materialDesign:HintAssist.Hint="Dãy"
+                            Text="{Binding Day}"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                            Margin="10 10 10 10"/>
 
                     <Label Margin="10 -10 10 0"
-                       x:Name="Error9"
-                       Height="20"
-                       FontSize="9.5"
-                       FontFamily="UVN Viet Sach"
-                       Content=""
-                       Foreground="Red"/>
+                            x:Name="Error10"
+                            Height="20"
+                            FontSize="9.5"
+                            FontFamily="UVN Viet Sach"
+                            Content=""
+                            Foreground="Red"/>
 
                     <TextBox
-                        x:Name="day_txb"
-                        materialDesign:HintAssist.Hint="Dãy"
-                        Text="{Binding Day}"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                        Margin="10 10 10 10"/>
+                            x:Name="Source_txb"
+                            FontSize="14"
+                            materialDesign:HintAssist.Hint="Source ảnh"
+                            Text="{Binding ImgSource}"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                            Margin="10 10 10 10"/>
 
                     <Label Margin="10 -10 10 0"
-                       x:Name="Error10"
-                       Height="20"
-                       FontSize="9.5"
-                       FontFamily="UVN Viet Sach"
-                       Content=""
-                       Foreground="Red"/>
+                        x:Name="Error11"
+                        Height="20"
+                        FontSize="9.5"
+                        FontFamily="UVN Viet Sach"
+                        Content=""
+                        Foreground="Red"/>
 
-                    <TextBox
-                        x:Name="source_txb"
-                        materialDesign:HintAssist.Hint="Source ảnh"
-                        Text="{Binding ImgSource}"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                        Margin="10 10 10 10"/>
 
-                    <Label Margin="10 -10 10 0"
-                       x:Name="Error11"
-                       Height="20"
-                       FontSize="9.5"
-                       FontFamily="UVN Viet Sach"
-                       Content=""
-                       Foreground="Red"/>
-
+                    <Image Height="211"
+                           x:Name="image_img"
+                           Margin="0 0"
+                           Stretch="Fill" StretchDirection="Both" Width="242">
+                    </Image>
+                    
                     <materialDesign:Badged
                         BadgeColorZoneMode="PrimaryDark">
                         <Button
@@ -249,12 +269,14 @@
                             Save!
                         </Button>
                     </materialDesign:Badged>
+                    
+                    
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="2">
                 <Button
                     x:Name="import_btn"
-                    Margin="0 280 0 100"
+                    Margin="0 40 0 100"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                     Command="{Binding ImportImageForAddingWindow}"
@@ -267,4 +289,10 @@
             </Grid>
         </Grid>
     </Grid>
+    <!--<i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding ILoaded}"
+                                   CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>-->
 </Window>

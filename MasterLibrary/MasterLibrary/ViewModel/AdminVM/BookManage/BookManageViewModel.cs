@@ -11,6 +11,7 @@ using MasterLibrary.Models.DataProvider;
 using MasterLibrary.Views.Admin.BookManagePage;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
+using System.Windows.Media.Imaging;
 
 namespace MasterLibrary.ViewModel.AdminVM
 {
@@ -95,6 +96,12 @@ namespace MasterLibrary.ViewModel.AdminVM
             set { _imgsource = value; OnPropertyChanged(); }
         }
         #endregion
+        private ICommand _ILoaded;
+        public ICommand ILoaded
+        {
+            get { return _ILoaded; }
+            set { _ILoaded = value; OnPropertyChanged(); }
+        }
         public ICommand SavingData { get; set; }
         public ICommand Updating { get; set; }
         public ICommand ImportImageForAddingWindow { get; set; }
@@ -102,6 +109,7 @@ namespace MasterLibrary.ViewModel.AdminVM
 
         public BookManageViewModel()
         {
+
             #region Nút save của chức năng thêm
             SavingData = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
@@ -149,6 +157,7 @@ namespace MasterLibrary.ViewModel.AdminVM
                     MessageBox.Show("Điền đầy đủ thông tin");
             });
             #endregion
+
             //Nút update của chức năng chỉnh sửa
             Updating = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
@@ -202,7 +211,11 @@ namespace MasterLibrary.ViewModel.AdminVM
                 Nullable<bool> result = dlg.ShowDialog();
                 if (result == true)
                 {
-                    string filename = dlg.FileName;
+                    BitmapImage img = new BitmapImage();
+                    img.BeginInit();
+                    img.UriSource = new Uri(dlg.FileName);
+                    img.EndInit();
+                    AddingWindow.Image.Source = img;
                     Account account = new Account(
                     "dsrqapm0a",
                     "957237172661889",
@@ -215,7 +228,6 @@ namespace MasterLibrary.ViewModel.AdminVM
                     File = new FileDescription(dlg.FileName)
                 };
                 var uploadResult = cloudinary.Upload(uploadParams);
-
                 AddingWindow.ImgSource.Text = uploadResult.Url.ToString();
                 }
             });
@@ -228,7 +240,11 @@ namespace MasterLibrary.ViewModel.AdminVM
                 Nullable<bool> result = dlg.ShowDialog();
                 if (result == true)
                 {
-                    string filename = dlg.FileName;
+                    BitmapImage img = new BitmapImage();
+                    img.BeginInit();
+                    img.UriSource = new Uri(dlg.FileName);
+                    img.EndInit();
+                    updatingwindow.Image.Source = img;
                     Account account = new Account(
                     "dsrqapm0a",
                     "957237172661889",

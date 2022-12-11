@@ -23,12 +23,13 @@ namespace MasterLibrary.Views.Admin.BookManagePage
     public partial class AddingWindow : Window
     {
         public static TextBox ImgSource;
-       
+        public static Image Image;
 
         public AddingWindow()
         {
             InitializeComponent();
-            ImgSource = source_txb;
+            ImgSource = Source_txb;
+            Image = image_img;
         }
     }
 }

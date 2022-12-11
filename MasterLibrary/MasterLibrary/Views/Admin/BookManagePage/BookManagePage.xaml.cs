@@ -32,15 +32,7 @@ namespace MasterLibrary.Views.Admin.BookManagePage
         public BookManagePage()
         {
             InitializeComponent();
-            Updating.IsEnabled = false;
-            Deleting.IsEnabled = false;
-        }
-
-        //Không cho chọn sửa và xóa khi chưa chọn sách trên listview
-        private void listview_managebook_MouseDown(object sender, RoutedEventArgs e)
-        {
-            Updating.IsEnabled = true;
-            Deleting.IsEnabled = true;
+            
         }
 
         #region Search

@@ -18,6 +18,7 @@ using System.Web.UI.WebControls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.ComponentModel;
+using System.Windows.Media.Imaging;
 
 namespace MasterLibrary.ViewModel.AdminVM
 {
@@ -81,7 +82,7 @@ namespace MasterLibrary.ViewModel.AdminVM
             });
 
             //Nút xóa sách ở trang quản lý sách
-            DeletingBook = new RelayCommand<System.Windows.Controls.Button>((p) => { return true; }, (p) =>
+            DeletingBook = new RelayCommand<System.Windows.Controls.MenuItem>((p) => { return true; }, (p) =>
             {
                 BookDTO item = listview_managebook.Items[listview_managebook.SelectedIndex] as BookDTO;
                 string masach = item.MaSach.ToString();
@@ -93,34 +94,50 @@ namespace MasterLibrary.ViewModel.AdminVM
                     SqlCommand command = new SqlCommand();
                     command.Connection = connect;
                     command.Parameters.AddWithValue("@masach", masach);
-                    command.CommandText = "DELETE FROM SACH WHERE MASACH = @masach";
-                    context.SaveChanges();
-                    if (command.ExecuteNonQuery() != 0)
+                    if(MessageBox.Show("Bạn có muốn xóa sách " + item.TenSach + "?", "Thông báo", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                     {
-                        MessageBox.Show("Xóa thành công");
-                        Loaded(listview_managebook);
-                    }
+                        try
+                        {
+                            command.CommandText = "DELETE FROM SACH WHERE MASACH = @masach";
+                            context.SaveChanges();
+                            if (command.ExecuteNonQuery() != 0)
+                            {
+                                MessageBox.Show("Xóa thành công");
+                                Loaded(listview_managebook);
+                            }
+                        }
+                        catch { MessageBox.Show("Không thể xóa sách"); }
+                    }    
                 }
             });
 
-            UpdatingBook = new RelayCommand<System.Windows.Controls.Button>((p) => { return true; }, (p) =>
+            UpdatingBook = new RelayCommand<System.Windows.Controls.MenuItem>((p) => { return true; }, (p) =>
             {
                 BookDTO item = listview_managebook.Items[listview_managebook.SelectedIndex] as BookDTO;
                 var masach = item.MaSach.ToString();
                 updatingwindow window = new updatingwindow(masach);
 
-                window.name_book_txb.Text = item.TenSach.ToString();
-                window.name_aut_txb.Text = item.TacGia.ToString();
-                window.name_nxb_txb.Text = item.NXB.ToString();
-                window.namxb_txb.Text = item.NamXB.ToString();
-                window.type_txb.Text = item.TheLoai.ToString();
-                window.cost_txb.Text = item.Gia.ToString();
-                window.tang_txb.Text = item.ViTriTang.ToString();
-                window.day_txb.Text = item.ViTriDay.ToString();
-                window.count_txb.Text = item.SoLuong.ToString();
-                window.source_txb.Text = item.ImageSource.ToString();
-                window.about_txb.Text = item.MoTa.ToString();
+                window.TenSach_txb.Text = item.TenSach.ToString();
+                window.TacGia_txb.Text = item.TacGia.ToString();
+                window.NhaXuatBan_txb.Text = item.NXB.ToString();
+                window.NamXuatBan_txb.Text = item.NamXB.ToString();
+                window.TheLoai_cbb.Text = item.TheLoai.ToString();
+                window.Gia_txb.Text = item.Gia.ToString();
+                window.Tang_txb.Text = item.ViTriTang.ToString();
+                window.Day_txb.Text = item.ViTriDay.ToString();
+                window.SoLuong_txb.Text = item.SoLuong.ToString();
+                window.Source_txb.Text = item.ImageSource.ToString();
+                window.MoTa_txb.Text = item.MoTa.ToString();
+
+                //Load ảnh hiện tai lên trang chỉnh sửa
+                BitmapImage img = new BitmapImage();
+                img.BeginInit();
+                img.UriSource = new Uri(item.ImageSource);
+                img.EndInit();
+                window.image_img.Source = img;
                 window.ShowDialog();
+
+                //load lại trang quản lý sách
                 Loaded(listview_managebook);
             });
             #endregion

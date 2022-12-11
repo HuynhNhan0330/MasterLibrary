@@ -33,6 +33,7 @@ namespace MasterLibrary.Views.Admin.BookManagePage
         public static TextBox MoTa;
         public static TextBox Tang;
         public static TextBox Day;
+        public static Image Image;
 
         public updatingwindow()
         {
@@ -43,8 +44,9 @@ namespace MasterLibrary.Views.Admin.BookManagePage
         {
             InitializeComponent();
             masach = a;
-            TenSach = name_book_txb; TacGia = name_aut_txb; NamXuatBan = namxb_txb; NhaXuatBan = name_nxb_txb; SoLuong = count_txb;
-            Gia = cost_txb; ImgSource = source_txb; TheLoai = type_txb; MoTa = about_txb; Day = day_txb; Tang = tang_txb;
+            TenSach = TenSach_txb; TacGia = TacGia_txb; NamXuatBan = NamXuatBan_txb; NhaXuatBan = NhaXuatBan_txb; SoLuong = SoLuong_txb;
+            Gia = Gia_txb; ImgSource = Source_txb; TheLoai = TheLoai_cbb; MoTa = MoTa_txb; Day = Day_txb; Tang = Tang_txb;
+            Image = image_img;
         }
     }
 }
