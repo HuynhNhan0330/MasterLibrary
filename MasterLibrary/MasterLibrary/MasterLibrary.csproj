@@ -241,6 +241,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DTOs\AdminDTO.cs" />
+    <Compile Include="DTOs\BillDTO.cs" />
     <Compile Include="DTOs\BookDTO.cs" />
     <Compile Include="DTOs\CustomerDTO.cs" />
     <Compile Include="Models\DataProvider\AdminServices.cs" />
