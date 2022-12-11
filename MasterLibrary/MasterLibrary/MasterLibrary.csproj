@@ -253,6 +253,9 @@
     <Compile Include="Models\DataProvider\DAYKE.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataProvider\GIOHANG.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataProvider\HOADON.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>

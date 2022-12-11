@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\UIT\ML2\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MasterLibrary.exe.config
 D:\UIT\ML2\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MasterLibrary.exe
 D:\UIT\ML2\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MasterLibrary.pdb
@@ -162,3 +163,5 @@ D:\UIT\ML2\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csp
 D:\UIT\ML2\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.CopyComplete
 D:\UIT\ML2\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.exe
 D:\UIT\ML2\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.pdb
+=======
+>>>>>>> manageBook/updatedb/main

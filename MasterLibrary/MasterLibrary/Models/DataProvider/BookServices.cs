@@ -33,21 +33,21 @@ namespace MasterLibrary.Models.DataProvider
                 using (var context = new MasterlibraryEntities())
                 {
                     books = await (from sach in context.SACHes
-                                    select new BookDTO
-                                    {
-                                        MaSach = sach.MASACH,
-                                        TenSach = sach.TENSACH,
-                                        TacGia = sach.TACGIA,
-                                        MoTa = sach.MOTA,
-                                        NXB = sach.NXB,
-                                        NamXB = (int)sach.NAMXB,
-                                        TheLoai = sach.THELOAI,
-                                        Gia = (decimal)sach.GIA,
-                                        SoLuong = (int)sach.SL,
-                                        ImageSource = sach.IMAGESOURCE,
-                                        ViTriTang = (int)sach.VITRITANG,
-                                        ViTriDay = (int)sach.VITRIDAY
-                                    }
+                                   select new BookDTO
+                                   {
+                                       MaSach = sach.MASACH,
+                                       TenSach = sach.TENSACH,
+                                       TacGia = sach.TACGIA,
+                                       MoTa = sach.MOTA,
+                                       NXB = sach.NXB,
+                                       NamXB = (int)sach.NAMXB,
+                                       TheLoai = sach.THELOAI,
+                                       Gia = (decimal)sach.GIA,
+                                       SoLuong = (int)sach.SL,
+                                       ImageSource = sach.IMAGESOURCE,
+                                       ViTriTang = (int)sach.VITRITANG,
+                                       ViTriDay = (int)sach.VITRIDAY
+                                   }
                      ).ToListAsync();
                 }
             }

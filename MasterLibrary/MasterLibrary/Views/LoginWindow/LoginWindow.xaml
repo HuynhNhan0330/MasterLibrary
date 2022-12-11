@@ -17,6 +17,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{StaticResource LoginVM}"
         WindowStartupLocation="CenterScreen"
+        
         WindowStyle="None"
         AllowsTransparency="True">
 

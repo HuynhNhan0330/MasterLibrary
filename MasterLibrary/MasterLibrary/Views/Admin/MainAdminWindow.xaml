@@ -20,6 +20,11 @@
         WindowStyle="none"
         AllowsTransparency="True"
         DataContext="{StaticResource AdminVM}">
+        DataContext="{StaticResource AdminVM}"
+        WindowState="Maximized"
+        Height="{x:Static SystemParameters.PrimaryScreenHeight}" 
+        Width="{x:Static SystemParameters.PrimaryScreenWidth}" >
+
     <!--<i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding FirstLoadML}" />
@@ -159,14 +164,22 @@
                 </Grid.RowDefinitions>
 
                 <!-- Thanh trên -->
-                <Grid Grid.Row="0"
-                          Background="#b29e84">
-                </Grid>
+                <materialDesign:ColorZone
+                        Background ="#b29e84"
+                        Padding="16" Height="84" VerticalAlignment="Center">
+                    <DockPanel>
+                        <StackPanel
+                             Orientation="Horizontal"
+                             materialDesign:RippleAssist.IsCentered="True" Height="47">
+
+                        </StackPanel>
+                    </DockPanel>
+                </materialDesign:ColorZone>
 
                 <!-- Phần nội dung frame -->
                 <Frame x:Name="mainFrame"
-                           Grid.Row="1"
-                           NavigationUIVisibility="Hidden">
+                       NavigationUIVisibility="Hidden" HorizontalAlignment="Center" Width="1382" Grid.Row="1">
+
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Loaded">
                             <i:InvokeCommandAction Command="{Binding LoadStatisticalPageML}"
