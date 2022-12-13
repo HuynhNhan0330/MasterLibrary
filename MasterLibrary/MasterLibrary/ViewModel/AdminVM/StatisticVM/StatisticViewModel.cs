@@ -75,7 +75,7 @@ namespace MasterLibrary.ViewModel.AdminVM.StatisticVM
         {
             get { return _LabelMaxValue; }
             set { _LabelMaxValue = value; OnPropertyChanged(); }
-        }
+        }     
         #endregion
         public StatisticViewModel()
         {
@@ -182,7 +182,7 @@ namespace MasterLibrary.ViewModel.AdminVM.StatisticVM
                 DailyExpense.Insert(0, 0);
 
                 for (int i = 1; i <= DailyRevenue.Count - 1; i++)
-                {
+        {
                     DailyRevenue[i] /= 1000000;
                     DailyExpense[i] /= 1000000;
                 }

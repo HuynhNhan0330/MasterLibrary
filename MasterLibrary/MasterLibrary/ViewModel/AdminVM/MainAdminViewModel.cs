@@ -10,6 +10,8 @@ using System.Windows;
 using System.Collections.ObjectModel;
 using MasterLibrary.DTOs;
 using System.Windows.Media.Imaging;
+using MasterLibrary.Views.Admin.ImportBookPage;
+using MasterLibrary.Views.Admin.LocationPage;
 
 namespace MasterLibrary.ViewModel.AdminVM
 {
@@ -30,6 +32,8 @@ namespace MasterLibrary.ViewModel.AdminVM
         public ICommand LoadBookManagerPageML { get; set; }
         public ICommand LoadHistoryPageML { get; set; }
         public ICommand LoadManageBookData { get; set; }
+        public ICommand LoadImportBookPageML { get; set; }
+        public ICommand LoadLocationPageML { get; set; }
         public ICommand AddingBook { get; set; }
         public ICommand DeletingBook { get; set; }
         public ICommand UpdatingBook { get; set; }
@@ -54,6 +58,18 @@ namespace MasterLibrary.ViewModel.AdminVM
             LoadHistoryPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
                 p.Content = new HistoryPage();
+            });
+
+            // Load trang nhập sách
+            LoadImportBookPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            {
+                p.Content = new ImportBookPage();
+            });
+
+            // Load trang tầng dẫy
+            LoadLocationPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            {
+                p.Content = new LocationPage();
             });
 
             #region Page quản lý sách

@@ -29,7 +29,7 @@ namespace MasterLibrary.DTOs
             }
         }
         public int MAHD { get; set; }
-        public int TRIGIA { get; set; }
+        public decimal TRIGIA { get; set; }
         public DateTime NGHD { get; set; }
 
         public string TRIGIAstr
@@ -37,6 +37,4 @@ namespace MasterLibrary.DTOs
             get { return Helper.FormatVNMoney(TRIGIA); }
         }
     }
-
-
 }

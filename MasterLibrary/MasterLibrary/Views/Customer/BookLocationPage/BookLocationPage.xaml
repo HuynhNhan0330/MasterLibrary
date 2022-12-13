@@ -11,9 +11,11 @@
 
     <Grid>
         <!-- Nội dung chính -->
-        
-        
-        
+
+        <!--<Grid.Background>
+            <ImageBrush ImageSource="/Images/Background.jpg" Stretch="Uniform"/>
+        </Grid.Background>-->
+
         <!-- Mặt nạ làm mờ -->
         <!--<Grid Background="Gray"
               Opacity="0.3"

@@ -46,6 +46,7 @@ namespace MasterLibrary.Models.DataProvider
                                           EMAIL= s.EMAIL,
                                           USERNAME= s.USERNAME,
                                           USERPASSWORD= s.USERPASSWORD,
+                                          DIACHI = s.DIACHI,
                                       }).FirstOrDefaultAsync();
 
                     if (cus == null)
@@ -108,6 +109,7 @@ namespace MasterLibrary.Models.DataProvider
                                          EMAIL = s.EMAIL,
                                          USERNAME = s.USERNAME,
                                          USERPASSWORD = s.USERPASSWORD,
+                                         DIACHI = s.DIACHI,
                                      }).FirstOrDefaultAsync();
 
                     return cus;
@@ -137,6 +139,7 @@ namespace MasterLibrary.Models.DataProvider
                                          EMAIL = s.EMAIL,
                                          USERNAME = s.USERNAME,
                                          USERPASSWORD = s.USERPASSWORD,
+                                         DIACHI = s.DIACHI,
                                      }).FirstOrDefaultAsync();
                     if (cus == null) return false;
                     return true;
@@ -150,10 +153,11 @@ namespace MasterLibrary.Models.DataProvider
             }
         }
 
-        public async Task<bool> updateCustomer(int _makh, string _tenkh, string _email)
+        public async Task<bool> updateCustomer(int _makh, string _tenkh, string _email, string _diachi)
         {
             try
             {
+                // Cập nhật thông tin
                 using (var context = new MasterlibraryEntities())
                 {
                     var cus = context.KHACHHANGs.SingleOrDefault(s => s.MAKH == _makh);
@@ -162,6 +166,8 @@ namespace MasterLibrary.Models.DataProvider
 
                     cus.TENKH = _tenkh;
                     cus.EMAIL = _email;
+                    cus.DIACHI= _diachi;
+
                     context.SaveChanges();
                     return true;
                 }
@@ -176,6 +182,7 @@ namespace MasterLibrary.Models.DataProvider
         {
             try
             {
+                // Đổi mật khẩu
                 using (var context = new MasterlibraryEntities())
                 {
                     var cus = context.KHACHHANGs.SingleOrDefault(s => s.MAKH == _makh && s.USERPASSWORD == _oldpassword);
@@ -183,7 +190,7 @@ namespace MasterLibrary.Models.DataProvider
                     if (cus == null) return false;
 
                     cus.USERPASSWORD = _newpassword;
-
+                    
                     context.SaveChanges();
                     return true;
                 }

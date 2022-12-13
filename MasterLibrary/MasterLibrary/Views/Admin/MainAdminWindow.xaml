@@ -127,6 +127,30 @@
                         </StackPanel>
                     </Border>
 
+                    <!-- Button nhập sách -->
+                    <Border CornerRadius="5">
+                        <StackPanel Tag="{Binding ElementName=btnImportBook}"
+                                        Orientation="Horizontal"
+                                        Height="60"
+                                        Width="130"
+                                        Style= "{StaticResource EffectMenuButton}">
+                            <materialDesign:PackIcon Kind="BookPlus"
+                                                         Width="35"
+                                                         Height="32"
+                                                         VerticalAlignment="Center"
+                                                         Cursor="Hand"
+                                                         Foreground="White" />
+                            <RadioButton Style="{StaticResource MenuButtonMain}"
+                                             GroupName="mainOptions"
+                                             Content="Nhập sách"
+                                             FontWeight="Bold"
+                                             x:Name="btnImportBook"
+                                             Width="auto"
+                                             Command="{Binding LoadImportBookPageML}"
+                                             CommandParameter="{Binding ElementName=mainFrame}" />
+                        </StackPanel>
+                    </Border>
+
                     <!-- Button lịch sử -->
                     <Border CornerRadius="5">
                         <StackPanel Tag="{Binding ElementName=btnHistory}"
@@ -147,6 +171,30 @@
                                              x:Name="btnHistory"
                                              Width="110"
                                              Command="{Binding LoadHistoryPageML}"
+                                             CommandParameter="{Binding ElementName=mainFrame}" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Button tầng dãy -->
+                    <Border CornerRadius="5">
+                        <StackPanel Tag="{Binding ElementName=btnLocation}"
+                                        Orientation="Horizontal"
+                                        Height="60"
+                                        Width="130"
+                                        Style= "{StaticResource EffectMenuButton}">
+                            <materialDesign:PackIcon Kind="OfficeBuildingMarker"
+                                                         Width="35"
+                                                         Height="32"
+                                                         VerticalAlignment="Center"
+                                                         Cursor="Hand"
+                                                         Foreground="White" />
+                            <RadioButton Style="{StaticResource MenuButtonMain}"
+                                             Content= "Tầng dãy"
+                                             FontWeight="Bold"
+                                             GroupName="mainOptions"
+                                             x:Name="btnLocation"
+                                             Width="110"
+                                             Command="{Binding LoadLocationPageML}"
                                              CommandParameter="{Binding ElementName=mainFrame}" />
                         </StackPanel>
                     </Border>

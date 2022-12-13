@@ -1,4 +1,4 @@
-﻿using MasterLibrary.DTOs;
+﻿    using MasterLibrary.DTOs;
 using MasterLibrary.Models.DataProvider;
 using MasterLibrary.Views.Customer;
 using MasterLibrary.Views.Customer.BuyBookPage;
@@ -47,6 +47,13 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
             set { _Email = value; OnPropertyChanged(); }
         }
 
+        private string _DiaChi;
+        public string DiaChi
+        {
+            get { return _DiaChi; }
+            set { _DiaChi = value; OnPropertyChanged(); }
+        }
+
         private string _CurrentPassword;
         public string CurrentPassword
         {
@@ -90,6 +97,7 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
                 MaKH = Cus.MAKH;
                 TenKH = Cus.TENKH;
                 Email = Cus.EMAIL;
+                DiaChi = Cus.DIACHI;
             });
 
             UpdateInfo = new RelayCommand<object>((p) => { return true; }, async (p) =>
@@ -111,12 +119,14 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
                     return;
                 }
 
-                if (await Task.Run(() => CustormerServices.Ins.updateCustomer(MaKH, TenKH, Email)))
+                if (await Task.Run(() => CustormerServices.Ins.updateCustomer(MaKH, TenKH, Email, DiaChi)))
                 {
                     MessageBoxML ms = new MessageBoxML("Thông báo", "Chỉnh sửa thông tin thành công", MessageType.Accept, MessageButtons.OK);
 
                     MainCustomerWindow w = Application.Current.Windows.OfType<MainCustomerWindow>().FirstOrDefault();
                     w._CustomerName.Text = TenKH;
+
+                    MainCustomerViewModel.CurrentCustomer = await Task<CustomerDTO>.Run(() => CustormerServices.Ins.FindCustomer(MaKH));
 
                     ms.ShowDialog();
                 }

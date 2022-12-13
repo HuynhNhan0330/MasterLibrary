@@ -9,15 +9,16 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="BuyBookPage"
-      DataContext="{StaticResource CustomerVM}">
+      DataContext="{StaticResource BuyBookVM}">
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding MaskNameML}"
+            <i:InvokeCommandAction Command="{Binding FirstLoadBuyBook}"/>
+            <i:InvokeCommandAction Command="{Binding MaskNameBuyBook}"
                                    CommandParameter="{Binding ElementName=ShadowMask}" />
-            <i:InvokeCommandAction Command="{Binding LoadIconAscending}"
+            <i:InvokeCommandAction Command="{Binding SaveIconAscending}"
                                    CommandParameter="{Binding ElementName=IconAscending}" />
-            <i:InvokeCommandAction Command="{Binding LoadIconDecreasing}"
+            <i:InvokeCommandAction Command="{Binding SaveIconDecreasing}"
                                    CommandParameter="{Binding ElementName=IconDecreasing}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
@@ -203,20 +204,6 @@
                                                TextAlignment="Left"/>
                                         
                                         <TextBlock Text="{Binding TacGia}"
-                                               FontSize="14"
-                                               FontWeight="Bold"
-                                               Foreground="#a47100"
-                                               TextAlignment="Left"/>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation ="Horizontal"
-                                                Margin="10,0,0,0">
-                                        <TextBlock Text="Số lượng: "
-                                               FontSize="14"
-                                               Foreground="#3f2016"
-                                               TextAlignment="Left"/>
-
-                                        <TextBlock Text="{Binding SoLuong}"
                                                FontSize="14"
                                                FontWeight="Bold"
                                                Foreground="#a47100"

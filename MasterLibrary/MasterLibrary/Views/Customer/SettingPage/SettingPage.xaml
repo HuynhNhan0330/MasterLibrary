@@ -31,7 +31,6 @@
             <materialDesign:Card
                     Grid.Row="0"
                     Background="#FFFFFFFF"
-                    HorizontalAlignment="Center" 
                     Width="400"
                     Height="500">
                 <Grid>
@@ -152,9 +151,9 @@
                     Grid.Column="1"
                     Background="#FFFFFFFF"
                     HorizontalAlignment="Right" 
+                    Height="550"
                     Width="650"
-                    Height="550" 
-                    Margin="20,30" 
+                    Margin="20,20" 
                     UniformCornerRadius="8"
                     VerticalAlignment="Top">
                 <Grid
@@ -169,22 +168,23 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     
                     <TextBlock
                                 Text="Thông tin khách hàng"
                                 HorizontalAlignment="Left"
-                                Margin="20,20,0,0" 
+                                Margin="40,20,0,0" 
                                 TextWrapping="Wrap" 
                                 VerticalAlignment="Center" 
-                                FontSize="48"
+                                FontSize="40"
                                 Foreground="#a47100"
                                 FontWeight="Bold"/>
                     <materialDesign:PackIcon  
                             Kind="AccountEditOutline"
-                            Width="65" 
-                            Height="65" 
-                            Margin="0,20,45,0" 
+                            Width="50" 
+                            Height="50" 
+                            Margin="0,20,120,0" 
                             VerticalAlignment="Center" 
                             Cursor="Hand" 
                             Foreground="#a47100"
@@ -192,25 +192,25 @@
 
                     <Grid 
                             Grid.Row="1"
-                            Margin="10,0"
+                            Margin="20,0"
                             VerticalAlignment="Center" 
                             Width="600" 
                             HorizontalAlignment="Left">
                         <Label
                                 Content="Mã khách hàng" 
                                 HorizontalAlignment="Left"
-                                FontSize="25" 
+                                FontSize="22" 
                                 FontWeight="SemiBold" 
                                 Foreground="#3f2016"
                                 Height="55"
-                                Width="200"
+                                Width="170"
                                 Padding="5,10"
                                 VerticalAlignment="Center"
                                 Background="{x:Null}"/>
 
                         <Rectangle
                                 Width="380" 
-                                Height="80"
+                                Height="60"
                                 RadiusY="6"
                                 RadiusX="6" 
                                 Margin="0"
@@ -224,7 +224,7 @@
                                 HorizontalAlignment="Right"  
                                 Width="380" 
                                 Height="75" 
-                                FontSize="22" 
+                                FontSize="19" 
                                 MaxLines="1"
                                 Padding="10,0,0,0" 
                                 Foreground="#3f2016"
@@ -233,7 +233,7 @@
                                 VerticalAlignment="Center" 
                                 IsReadOnly="True" 
                                 IsEnabled="False"
-                                SelectionBrush="{x:Null}"
+                                SelectionBrush="#ffde59"
                                 BorderThickness="0"
                                 FontWeight="SemiBold" >
                         </TextBox>
@@ -241,25 +241,25 @@
 
                     <Grid 
                             Grid.Row="2"
-                            Margin="10,0"
+                            Margin="20,0"
                             VerticalAlignment="Center" 
                             Width="600" 
                             HorizontalAlignment="Left">
                         <Label
                                 Content="Họ và tên" 
                                 HorizontalAlignment="Left"
-                                FontSize="25" 
+                                FontSize="22" 
                                 FontWeight="SemiBold" 
                                 Foreground="#3f2016"
                                 Height="55"
-                                Width="200"
+                                Width="170"
                                 Padding="5,10"
                                 VerticalAlignment="Center"
                                 Background="{x:Null}"/>
 
                         <Rectangle
                                 Width="380" 
-                                Height="80"
+                                Height="60"
                                 RadiusY="6"
                                 RadiusX="6" 
                                 Margin="0"
@@ -273,14 +273,14 @@
                                 HorizontalAlignment="Right"  
                                 Width="380" 
                                 Height="75" 
-                                FontSize="22" 
+                                FontSize="19" 
                                 MaxLines="1"
                                 Padding="10,0,0,0" 
                                 Foreground="#3f2016"
                                 HorizontalContentAlignment="Left"
                                 VerticalContentAlignment="Center" 
                                 VerticalAlignment="Center"
-                                 SelectionBrush="{x:Null}"
+                                SelectionBrush="#ffde59"
                                 BorderThickness="0"
                                 FontWeight="SemiBold" >
                         </TextBox>
@@ -288,25 +288,25 @@
 
                     <Grid 
                             Grid.Row="3"
-                            Margin="10,0"
+                            Margin="20,0"
                             VerticalAlignment="Center" 
                             Width="600" 
                             HorizontalAlignment="Left">
                         <Label
                                 Content="Email" 
                                 HorizontalAlignment="Left"
-                                FontSize="25" 
+                                FontSize="22" 
                                 FontWeight="SemiBold" 
                                 Foreground="#3f2016"
                                 Height="55"
-                                Width="200"
+                                Width="170"
                                 Padding="5,10"
                                 VerticalAlignment="Center"
                                 Background="{x:Null}"/>
 
                         <Rectangle
                                 Width="380" 
-                                Height="80"
+                                Height="60"
                                 RadiusY="6"
                                 RadiusX="6" 
                                 Margin="0"
@@ -320,20 +320,67 @@
                                 HorizontalAlignment="Right"  
                                 Width="380" 
                                 Height="75" 
-                                FontSize="20" 
+                                FontSize="19" 
                                 MaxLines="1"
                                 Padding="10,0,0,0" 
                                 Foreground="#3f2016"
                                 HorizontalContentAlignment="Left"
                                 VerticalContentAlignment="Center" 
                                 VerticalAlignment="Center" 
-                                SelectionBrush="{x:Null}"
+                                SelectionBrush="#ffde59"
                                 BorderThickness="0"
                                 FontWeight="SemiBold" >
                         </TextBox>
                     </Grid>
 
-                    <Button Grid.Row="4"
+                    <Grid 
+                            Grid.Row="4"
+                            Margin="20,0"
+                            VerticalAlignment="Center" 
+                            Width="600" 
+                            HorizontalAlignment="Left">
+                        <Label
+                                Content="Địa chỉ" 
+                                HorizontalAlignment="Left"
+                                FontSize="22" 
+                                FontWeight="SemiBold" 
+                                Foreground="#3f2016"
+                                Height="55"
+                                Width="170"
+                                Padding="5,10"
+                                VerticalAlignment="Center"
+                                Background="{x:Null}"/>
+
+                        <Rectangle
+                                Width="380" 
+                                Height="60"
+                                RadiusY="6"
+                                RadiusX="6" 
+                                Margin="0"
+                                Stroke="LightGray" 
+                                HorizontalAlignment="Right" 
+                                Fill="White"/>
+
+                        <TextBox Text="{Binding DiaChi}"
+                                materialDesign:HintAssist.Hint="Địa chỉ"
+                                BorderBrush="LightGray"
+                                HorizontalAlignment="Right"  
+                                Width="380" 
+                                Height="75" 
+                                FontSize="19" 
+                                MaxLines="1"
+                                Padding="10,0,0,0" 
+                                Foreground="#3f2016"
+                                HorizontalContentAlignment="Left"
+                                VerticalContentAlignment="Center" 
+                                VerticalAlignment="Center" 
+                                SelectionBrush="#ffde59"
+                                BorderThickness="0"
+                                FontWeight="SemiBold" >
+                        </TextBox>
+                    </Grid>
+
+                    <Button Grid.Row="5"
                             Height="50" 
                             Width="140"
                             materialDesign:ButtonAssist.CornerRadius="2"
