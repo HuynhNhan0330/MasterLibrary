@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\N\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\
 MasterLibrary
 none
 false
 DEBUG;TRACE
-D:\N\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml
 24-557626335
 2-1465087467
 70-1920817270
-178-2070753749
+178-1949595273
 MainWindow.xaml;ResourcesXAML\MainResources.xaml;UserControlML\controlbar_uc.xaml;Views\Admin\BookManagePage\AddingWindow.xaml;Views\Admin\BookManagePage\BookManagePage.xaml;Views\Admin\BookManagePage\updatingwindow.xaml;Views\Admin\HistoryPage\HistoryPage.xaml;Views\Admin\ImportBookPage\ImportBookPage.xaml;Views\Admin\LocationPage\LocationPage.xaml;Views\Admin\MainAdminWindow.xaml;Views\Admin\StatisticalPage\StatisticalPage.xaml;Views\Customer\BookCartPage\BookCartPage.xaml;Views\Customer\BookLocationPage\BookLocationPage.xaml;Views\Customer\BuyBookPage\BuyBookPage.xaml;Views\Customer\BuyBookPage\DetailBook.xaml;Views\Customer\MainCustomerWindow.xaml;Views\Customer\SettingPage\SettingPage.xaml;Views\LoginWindow\CreateNewPassPage.xaml;Views\LoginWindow\ForgotPassPage.xaml;Views\LoginWindow\LoginPage.xaml;Views\LoginWindow\LoginWindow.xaml;Views\LoginWindow\RegisterWindow.xaml;Views\LoginWindow\VerificationPage.xaml;Views\MessageBoxML\MessageBoxML.xaml;
 
 True
