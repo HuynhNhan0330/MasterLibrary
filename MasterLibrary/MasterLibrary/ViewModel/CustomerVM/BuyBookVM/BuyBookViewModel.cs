@@ -91,9 +91,9 @@ namespace MasterLibrary.ViewModel.CustomerVM.BuyBookVM
             {
                 DetailBook w;
 
-                MaskName.Visibility = System.Windows.Visibility.Visible;
+                MaskName.Visibility = Visibility.Visible;
 
-                DetailBookViewModel.selectBook = SelectedItem;
+                DetailBookViewModel.selectBookId = SelectedItem.MaSach;
 
                 w = new DetailBook();
                 w.ShowDialog();

@@ -47,7 +47,7 @@ namespace MasterLibrary.Models.DataProvider
             }
         }
 
-        public async Task CreateNewBillDetail(int IdBill, List<BillDetailDTO> BillDetailList)
+        public async Task<(bool, string)> CreateNewBillDetail(int IdBill, List<BillDetailDTO> BillDetailList)
         {
             try
             {
@@ -73,17 +73,17 @@ namespace MasterLibrary.Models.DataProvider
                     context.CTHDs.AddRange(newBillDetailList);
 
                     context.SaveChanges();
+
+                    return (true, "Mua thành công");
                 }
             }
             catch (System.Data.Entity.Infrastructure.DbUpdateException)
             {
-                MessageBoxML ms = new MessageBoxML("Lỗi", "Xãy ra lỗi khi thêm dữ liệu vào database", MessageType.Error, MessageButtons.OK);
-                ms.ShowDialog();
+                return (false, "Xãy ra lỗi khi thêm dữ liệu vào cơ sở dữ liệu");
             }
             catch (Exception)
             {
-                MessageBoxML ms = new MessageBoxML("Lỗi", "Xãy ra lỗi khi xử lí dữ liệu", MessageType.Error, MessageButtons.OK);
-                ms.ShowDialog();
+                return (false, "Xãy ra lỗi khi thực hiện thao tác");
             }
         }
     }

@@ -22,6 +22,8 @@ public partial class KHACHHANG
     public KHACHHANG()
     {
 
+        this.GIOHANGs = new HashSet<GIOHANG>();
+
         this.HOADONs = new HashSet<HOADON>();
 
     }
@@ -42,6 +44,10 @@ public partial class KHACHHANG
     public string DIACHI { get; set; }
 
 
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<GIOHANG> GIOHANGs { get; set; }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 

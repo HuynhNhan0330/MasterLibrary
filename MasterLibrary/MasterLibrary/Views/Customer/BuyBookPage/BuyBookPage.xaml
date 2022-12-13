@@ -212,20 +212,6 @@
 
                                     <StackPanel Orientation ="Horizontal"
                                                 Margin="10,0,0,0">
-                                        <TextBlock Text="Số lượng: "
-                                               FontSize="14"
-                                               Foreground="#3f2016"
-                                               TextAlignment="Left"/>
-
-                                        <TextBlock Text="{Binding SoLuong}"
-                                               FontSize="14"
-                                               FontWeight="Bold"
-                                               Foreground="#a47100"
-                                               TextAlignment="Left"/>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation ="Horizontal"
-                                                Margin="10,0,0,0">
                                         <TextBlock Text="Giá/quyển: "
                                                FontSize="14"
                                                Foreground="#3f2016"

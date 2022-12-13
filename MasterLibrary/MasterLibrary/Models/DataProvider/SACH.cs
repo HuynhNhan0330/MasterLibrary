@@ -24,6 +24,8 @@ public partial class SACH
 
         this.CTHDs = new HashSet<CTHD>();
 
+        this.GIOHANGs = new HashSet<GIOHANG>();
+
     }
 
 
@@ -58,6 +60,10 @@ public partial class SACH
     public virtual ICollection<CTHD> CTHDs { get; set; }
 
     public virtual DAYKE DAYKE { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<GIOHANG> GIOHANGs { get; set; }
 
     public virtual TANG TANG { get; set; }
 

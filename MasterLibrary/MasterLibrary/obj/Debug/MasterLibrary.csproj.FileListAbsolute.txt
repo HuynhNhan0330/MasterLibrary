@@ -1,5 +1,4 @@
-D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\Avalonia.Themes.Fluent.dll
-D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\CloudinaryDotNet.xml
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\EntityFramework.dll
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MasterLibrary.exe.config
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MasterLibrary.exe
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MasterLibrary.pdb
@@ -20,9 +19,9 @@ D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\Avalonia.OpenGL.dll
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\Avalonia.Remote.Protocol.dll
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\Avalonia.Styling.dll
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\Avalonia.Themes.Default.dll
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\Avalonia.Themes.Fluent.dll
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\Avalonia.Visuals.dll
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\CloudinaryDotNet.dll
-D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\EntityFramework.dll
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\EntityFramework.SqlServer.dll
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\Haley.Abstractions.dll
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\Haley.Extensions.dll
@@ -77,6 +76,7 @@ D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\Avalonia.Styling.xml
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\Avalonia.Themes.Default.xml
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\Avalonia.Themes.Fluent.xml
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\Avalonia.Visuals.xml
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\CloudinaryDotNet.xml
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\EntityFramework.xml
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\EntityFramework.SqlServer.xml
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\JetBrains.Annotations.xml
@@ -162,3 +162,6 @@ D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.CopyComplete
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.exe
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.pdb
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Customer\BookCartPage\BookCartPage.g.cs
+D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Customer\BookCartPage\BookCartPage.baml
+D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MaterialDesignThemes.Wpf.dll

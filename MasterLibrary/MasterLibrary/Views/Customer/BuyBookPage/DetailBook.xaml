@@ -51,7 +51,7 @@
                         </i:Interaction.Triggers>
                     </Label>
 
-                    <Image Source="{Binding selectBook.ImageSource}"
+                    <Image Source="{Binding BookCurrent.ImageSource}"
                            Height="220"
                            Width="290"
                            Margin="5"
@@ -88,7 +88,7 @@
                             </i:Interaction.Triggers>
                         </Border>
 
-                        <TextBox Text="{Binding Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        <TextBox Text="{Binding Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, TargetNullValue = 0}"
                                  PreviewTextInput="NumberValidationTextBox"
                                  TextAlignment="Center"
                                  Padding="2,6,1,0"
@@ -103,6 +103,8 @@
                                 <i:EventTrigger EventName="TextChanged">
                                     <i:InvokeCommandAction Command="{Binding QuantityChange}"
                                                CommandParameter="{Binding ElementName=Error}"/>
+                                    <i:InvokeCommandAction Command="{Binding CheckNullTxb}"
+                                               CommandParameter="{Binding ElementName=txbQuantity}"/>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </TextBox>
@@ -213,7 +215,7 @@
 
                 <!--Bên phải-->
                 <StackPanel Grid.Column="1">
-                    <TextBlock Text="{Binding selectBook.TenSach}"
+                    <TextBlock Text="{Binding BookCurrent.TenSach}"
                                FontSize="20"
                                Foreground="#3f2016"
                                FontWeight="Bold"
@@ -229,7 +231,7 @@
                                    FontSize="16"
                                    Foreground="#3f2016"
                                    TextAlignment="Left"/>
-                        <TextBlock Text="{Binding selectBook.TacGia}"
+                        <TextBlock Text="{Binding BookCurrent.TacGia}"
                                    FontSize="16"
                                    FontWeight="Bold"
                                    Foreground="#a47100"
@@ -242,7 +244,7 @@
                                    FontSize="16"
                                    Foreground="#3f2016"
                                    TextAlignment="Left"/>
-                        <TextBlock Text="{Binding selectBook.TheLoai}"
+                        <TextBlock Text="{Binding BookCurrent.TheLoai}"
                                    FontSize="16"
                                    FontWeight="Bold"
                                    Foreground="#a47100"
@@ -255,7 +257,7 @@
                                    FontSize="16"
                                    Foreground="#3f2016"
                                    TextAlignment="Left"/>
-                        <TextBlock Text="{Binding selectBook.NXB}"
+                        <TextBlock Text="{Binding BookCurrent.NXB}"
                                    FontSize="16"
                                    FontWeight="Bold"
                                    Foreground="#a47100"
@@ -268,7 +270,7 @@
                                    FontSize="16"
                                    Foreground="#3f2016"
                                    TextAlignment="Left"/>
-                        <TextBlock Text="{Binding selectBook.NamXB}"
+                        <TextBlock Text="{Binding BookCurrent.NamXB}"
                                    FontSize="16"
                                    FontWeight="Bold"
                                    Foreground="#a47100"
@@ -287,7 +289,7 @@
                                    FontWeight="Bold"
                                    Foreground="#a47100"
                                    TextAlignment="Left"/>
-                        <TextBlock Text="{Binding selectBook.ViTriTang}"
+                        <TextBlock Text="{Binding BookCurrent.ViTriTang}"
                                    FontSize="16"
                                    FontWeight="Bold"
                                    Foreground="#a47100"
@@ -298,7 +300,7 @@
                                    FontWeight="Bold"
                                    Foreground="#a47100"
                                    TextAlignment="Left"/>
-                        <TextBlock Text="{Binding selectBook.ViTriDay}"
+                        <TextBlock Text="{Binding BookCurrent.ViTriDay}"
                                    FontSize="16"
                                    FontWeight="Bold"
                                    Foreground="#a47100"
@@ -311,7 +313,7 @@
                                    FontSize="16"
                                    Foreground="#3f2016"
                                    TextAlignment="Left"/>
-                        <TextBlock Text="{Binding selectBook.SoLuong}"
+                        <TextBlock Text="{Binding soluongBook}"
                                    FontSize="16"
                                    FontWeight="Bold"
                                    Foreground="#a47100"
@@ -322,15 +324,16 @@
                         
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="6*"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="5*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="Mô tả: "
                                    Grid.Column="0"
                                    FontSize="16"
                                    Foreground="#3f2016"
                                    TextAlignment="Left"/>
-                        <TextBlock Text="{Binding selectBook.MoTa}"
-                                   Grid.Column="1"
+                        <TextBlock Text="{Binding BookCurrent.MoTa}"
+                                   Grid.Column="2"
                                    MaxHeight="150"
                                    FontSize="16"
                                    FontWeight="Bold"
@@ -346,7 +349,7 @@
                                    FontSize="16"
                                    Foreground="#3f2016"
                                    TextAlignment="Left"/>
-                        <TextBlock Text="{Binding selectBook.GiaStr}"
+                        <TextBlock Text="{Binding BookCurrent.GiaStr}"
                                    FontSize="16"
                                    FontWeight="Bold"
                                    Foreground="#a47100"

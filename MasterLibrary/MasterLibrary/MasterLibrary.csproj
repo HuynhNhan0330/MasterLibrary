@@ -262,10 +262,12 @@
     <Compile Include="DTOs\BillDetailDTO.cs" />
     <Compile Include="DTOs\BillDTO.cs" />
     <Compile Include="DTOs\BookDTO.cs" />
+    <Compile Include="DTOs\BookInCartDTO.cs" />
     <Compile Include="DTOs\CustomerDTO.cs" />
     <Compile Include="Models\DataProvider\AdminServices.cs" />
     <Compile Include="Models\DataProvider\BillDetailServices.cs" />
     <Compile Include="Models\DataProvider\BillServices.cs" />
+    <Compile Include="Models\DataProvider\BookInCartServices.cs" />
     <Compile Include="Models\DataProvider\BookServices.cs" />
     <Compile Include="Models\DataProvider\BuyServices.cs" />
     <Compile Include="Models\DataProvider\CTHD.cs">
@@ -273,6 +275,9 @@
     </Compile>
     <Compile Include="Models\DataProvider\CustormerServices.cs" />
     <Compile Include="Models\DataProvider\DAYKE.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataProvider\GIOHANG.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\HOADON.cs">
@@ -296,6 +301,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MasterlibraryModels.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataProvider\NHAPSACH.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataProvider\SACH.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
@@ -313,6 +321,7 @@
     <Compile Include="Utils\Helper.cs" />
     <Compile Include="ViewModel\AdminVM\MainAdminViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\CustomerVM\BookCartVM\BookCartViewModel.cs" />
     <Compile Include="ViewModel\CustomerVM\BuyBookVM\BuyBookViewModel.cs" />
     <Compile Include="ViewModel\CustomerVM\BuyBookVM\DetailBookViewModel.cs" />
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
@@ -331,6 +340,9 @@
     </Compile>
     <Compile Include="Views\Admin\StatisticalPage\StatisticalPage.xaml.cs">
       <DependentUpon>StatisticalPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\BookCartPage\BookCartPage.xaml.cs">
+      <DependentUpon>BookCartPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Customer\BookLocationPage\BookLocationPage.xaml.cs">
       <DependentUpon>BookLocationPage.xaml</DependentUpon>
@@ -403,6 +415,10 @@
     <Page Include="Views\Admin\StatisticalPage\StatisticalPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Customer\BookCartPage\BookCartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Customer\BookLocationPage\BookLocationPage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -494,6 +510,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\WaittingBackground.png" />
+    <Resource Include="Resources\Images\DeleteFileBackground.png" />
     <Resource Include="Resources\Images\AcceptBackground.png" />
     <Resource Include="Resources\Images\ErrorBackground.png" />
     <Resource Include="Resources\Images\ExitBackground.png" />

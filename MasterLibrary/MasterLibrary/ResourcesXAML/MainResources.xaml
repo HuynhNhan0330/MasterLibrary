@@ -5,6 +5,7 @@
                     xmlns:viewmodel3 = "clr-namespace:MasterLibrary.ViewModel.CustomerVM"
                     xmlns:viewmodel31 ="clr-namespace:MasterLibrary.ViewModel.CustomerVM.BuyBookVM"
                     xmlns:viewmodel32 ="clr-namespace:MasterLibrary.ViewModel.CustomerVM.SettingVM"
+                    xmlns:viewmodel33 ="clr-namespace:MasterLibrary.ViewModel.CustomerVM.BookCartVM"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <viewmodel1:LoginViewModel x:Key= "LoginVM"/>
     <viewmodel1:LoginViewModel x:Key= "RegisterML"/>
@@ -14,4 +15,5 @@
     <viewmodel31:DetailBookViewModel x:Key="DetailBookVM"/>
     <viewmodel31:BuyBookViewModel x:Key="BuyBookVM"/>
     <viewmodel32:SettingViewModel x:Key="SettingVM"/>
+    <viewmodel33:BookCartViewModel x:Key="BookCartVM"/>
 </ResourceDictionary>   

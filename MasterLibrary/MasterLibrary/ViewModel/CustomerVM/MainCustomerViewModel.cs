@@ -6,6 +6,7 @@ using MasterLibrary.DTOs;
 using MasterLibrary.Views.Customer.SettingPage;
 using System.Windows;
 using MasterLibrary.Views.LoginWindow;
+using MasterLibrary.Views.Customer.BookCartPage;
 
 namespace MasterLibrary.ViewModel.CustomerVM
 {
@@ -31,6 +32,8 @@ namespace MasterLibrary.ViewModel.CustomerVM
         public ICommand TurnOnBookLocation { get; set; }
         public ICommand LoadSettingPageML { get; set; }
         public ICommand TurnOnSetting { get; set; }
+        public ICommand LoadBookCartPageML { get; set; }
+        public ICommand TurnOnCartBook { get; set; }
         public ICommand SignOutML { get; set; }
         #endregion
 
@@ -40,6 +43,12 @@ namespace MasterLibrary.ViewModel.CustomerVM
             LoadBuyBookPageML = new RelayCommand<Frame>((p) => { return true; }, async (p) => 
             {
                 p.Content = new BuyBookPage();
+            });
+
+            // Load trang giỏ hàng
+            LoadBookCartPageML = new RelayCommand<Frame>((p) => { return true; }, async (p) =>
+            {
+                p.Content = new BookCartPage();
             });
 
             // Load trang vị trí sách
@@ -56,6 +65,12 @@ namespace MasterLibrary.ViewModel.CustomerVM
 
             // Bật button mua sách
             TurnOnBuyBook = new RelayCommand<RadioButton>((p) => { return true; }, (p) =>
+            {
+                p.IsChecked = true;
+            });
+
+            // Bật button mua sách
+            TurnOnCartBook = new RelayCommand<RadioButton>((p) => { return true; }, (p) =>
             {
                 p.IsChecked = true;
             });
