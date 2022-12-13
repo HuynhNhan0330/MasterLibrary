@@ -69,7 +69,7 @@ namespace MasterLibrary.ViewModel.CustomerVM
                 p.IsChecked = true;
             });
 
-            // Bật button mua sách
+            // Bật button giỏ hàng
             TurnOnCartBook = new RelayCommand<RadioButton>((p) => { return true; }, (p) =>
             {
                 p.IsChecked = true;

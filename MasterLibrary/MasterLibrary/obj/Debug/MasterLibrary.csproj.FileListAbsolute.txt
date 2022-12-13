@@ -164,4 +164,3 @@ D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.exe
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.pdb
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Customer\BookCartPage\BookCartPage.g.cs
 D:\Doan\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Customer\BookCartPage\BookCartPage.baml
-D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\MaterialDesignThemes.Wpf.dll

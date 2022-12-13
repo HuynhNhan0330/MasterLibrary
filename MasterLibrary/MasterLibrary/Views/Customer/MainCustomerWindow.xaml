@@ -289,13 +289,23 @@
                                                  Background="Transparent"
                                                  Margin="20,0,20,0"
                                                  VerticalAlignment="Center"
+                                                 Cursor="Hand"
                                                  Foreground="#ffd940" >
-                            <hw:BadgeSetter.Badge>
+                            <!--<hw:BadgeSetter.Badge>
                                 <hw:Badge Label = "99+" 
                                           Background="#ff1616" 
                                           Foreground="White" 
                                           MarginY="5"/>
-                            </hw:BadgeSetter.Badge>
+                            </hw:BadgeSetter.Badge>-->
+
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                    <i:InvokeCommandAction Command="{Binding LoadBookCartPageML}"
+                                         CommandParameter="{Binding ElementName=mainFrame}"/>
+                                    <i:InvokeCommandAction Command="{Binding TurnOnCartBook}"
+                                         CommandParameter="{Binding ElementName=btnCart}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
                         </materialDesign:PackIcon>
                     </StackPanel>
                 </Grid>
