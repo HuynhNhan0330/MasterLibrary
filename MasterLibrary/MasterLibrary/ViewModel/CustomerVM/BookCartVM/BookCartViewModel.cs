@@ -223,8 +223,8 @@ namespace MasterLibrary.ViewModel.CustomerVM.BookCartVM
                     BillDTO bill = new BillDTO
                     {
                         NGHD = DateTime.Now,
-                        MaKH = MainCustomerViewModel.CurrentCustomer.MAKH,
-                        TriGia = totalTien,
+                        MAKH = MainCustomerViewModel.CurrentCustomer.MAKH,
+                        TRIGIA = totalTien,
                     };
 
                     // Tạo hoá đơn mới
@@ -244,6 +244,9 @@ namespace MasterLibrary.ViewModel.CustomerVM.BookCartVM
                         FilterBookInCart();
                         ReCalculateMoney();
                         ReCalculateQuantity();
+
+                        await BookInCartServices.Ins.DeleteAllBookInCart(MainCustomerViewModel.CurrentCustomer.MAKH);
+
                     }
                     else
                     {

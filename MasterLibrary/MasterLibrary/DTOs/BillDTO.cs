@@ -29,14 +29,12 @@ namespace MasterLibrary.DTOs
             }
         }
         public int MAHD { get; set; }
-        public int TRIGIA { get; set; }
+        public decimal TRIGIA { get; set; }
         public DateTime NGHD { get; set; }
 
         public string TRIGIAstr
         {
             get { return Helper.FormatVNMoney(TRIGIA); }
         }
-        public int MaKH { get; set; }
-        public decimal TriGia { get; set; }
     }
 }

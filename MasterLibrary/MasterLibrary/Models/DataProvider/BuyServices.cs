@@ -36,8 +36,8 @@ namespace MasterLibrary.Models.DataProvider
 
                 HOADON newBill = new HOADON();
                 newBill.NGHD = bill.NGHD;
-                newBill.MAKH = bill.MaKH;
-                newBill.TRIGIA = bill.TriGia;
+                newBill.MAKH = bill.MAKH;
+                newBill.TRIGIA = bill.TRIGIA;
 
                 context.HOADONs.Add(newBill);
 

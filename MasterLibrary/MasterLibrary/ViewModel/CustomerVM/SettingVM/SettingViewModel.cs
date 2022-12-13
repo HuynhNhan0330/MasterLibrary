@@ -97,6 +97,7 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
                 MaKH = Cus.MAKH;
                 TenKH = Cus.TENKH;
                 Email = Cus.EMAIL;
+                DiaChi = Cus.DIACHI;
             });
 
             UpdateInfo = new RelayCommand<object>((p) => { return true; }, async (p) =>

@@ -170,8 +170,8 @@ namespace MasterLibrary.ViewModel.CustomerVM.BuyBookVM
                 BillDTO bill = new BillDTO
                 {
                     NGHD = DateTime.Now,
-                    MaKH = MainCustomerViewModel.CurrentCustomer.MAKH,
-                    TriGia = totalTien,
+                    MAKH = MainCustomerViewModel.CurrentCustomer.MAKH,
+                    TRIGIA = totalTien,
                 };
 
                 // Tạo hoá đơn mới
