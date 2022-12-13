@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\N\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml
-21-773473005
+22-1850145321
 2-1465087467
-6075660317
+68735135500
 178-2070753749
-MainWindow.xaml;ResourcesXAML\MainResources.xaml;UserControlML\controlbar_uc.xaml;Views\Admin\BookManagePage\AddingWindow.xaml;Views\Admin\BookManagePage\BookManagePage.xaml;Views\Admin\BookManagePage\updatingwindow.xaml;Views\Admin\HistoryPage\HistoryPage.xaml;Views\Admin\MainAdminWindow.xaml;Views\Admin\StatisticalPage\StatisticalPage.xaml;Views\Customer\BookLocationPage\BookLocationPage.xaml;Views\Customer\BuyBookPage\BuyBookPage.xaml;Views\Customer\BuyBookPage\DetailBook.xaml;Views\Customer\MainCustomerWindow.xaml;Views\Customer\SettingPage\SettingPage.xaml;Views\LoginWindow\CreateNewPassPage.xaml;Views\LoginWindow\ForgotPassPage.xaml;Views\LoginWindow\LoginPage.xaml;Views\LoginWindow\LoginWindow.xaml;Views\LoginWindow\RegisterWindow.xaml;Views\LoginWindow\VerificationPage.xaml;Views\MessageBoxML\MessageBoxML.xaml;
+MainWindow.xaml;ResourcesXAML\MainResources.xaml;UserControlML\controlbar_uc.xaml;Views\Admin\BookManagePage\AddingWindow.xaml;Views\Admin\BookManagePage\BookManagePage.xaml;Views\Admin\BookManagePage\updatingwindow.xaml;Views\Admin\HistoryPage\HistoryPage.xaml;Views\Admin\MainAdminWindow.xaml;Views\Admin\StatisticalPage\StatisticalPage.xaml;Views\Customer\BookCartPage\BookCartPage.xaml;Views\Customer\BookLocationPage\BookLocationPage.xaml;Views\Customer\BuyBookPage\BuyBookPage.xaml;Views\Customer\BuyBookPage\DetailBook.xaml;Views\Customer\MainCustomerWindow.xaml;Views\Customer\SettingPage\SettingPage.xaml;Views\LoginWindow\CreateNewPassPage.xaml;Views\LoginWindow\ForgotPassPage.xaml;Views\LoginWindow\LoginPage.xaml;Views\LoginWindow\LoginWindow.xaml;Views\LoginWindow\RegisterWindow.xaml;Views\LoginWindow\VerificationPage.xaml;Views\MessageBoxML\MessageBoxML.xaml;
 
 True
 

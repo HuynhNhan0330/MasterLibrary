@@ -36,7 +36,7 @@ namespace MasterLibrary.DTOs
         {
             get { return Helper.FormatVNMoney(TRIGIA); }
         }
+        public int MaKH { get; set; }
+        public decimal TriGia { get; set; }
     }
-
-
 }

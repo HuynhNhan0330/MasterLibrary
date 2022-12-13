@@ -58,5 +58,39 @@ namespace MasterLibrary.Models.DataProvider
 
             return books;
         }
+
+        public async Task<BookDTO> GetBook(int _BookId)
+        {
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    var book = await (from sach in context.SACHes
+                                     where sach.MASACH == _BookId
+                                     select new BookDTO
+                                     {
+                                         MaSach = sach.MASACH,
+                                         TenSach = sach.TENSACH,
+                                         TacGia = sach.TACGIA,
+                                         MoTa = sach.MOTA,
+                                         NXB = sach.NXB,
+                                         NamXB = (int)sach.NAMXB,
+                                         TheLoai = sach.THELOAI,
+                                         Gia = (decimal)sach.GIA,
+                                         SoLuong = (int)sach.SL,
+                                         ImageSource = sach.IMAGESOURCE,
+                                         ViTriTang = (int)sach.VITRITANG,
+                                         ViTriDay = (int)sach.VITRIDAY
+                                     }).FirstOrDefaultAsync();
+
+                    return book;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
+        }
     }
 }

@@ -23,6 +23,10 @@ namespace MasterLibrary.Views.MessageBoxML
                     System.Media.SystemSounds.Beep.Play();
                     BackgroundBorder.ImageSource = new BitmapImage(new Uri("pack://application:,,,/MasterLibrary;component/Resources/Images/AcceptBackground.png"));
                     break;
+                case MessageType.Waitting:
+                    System.Media.SystemSounds.Beep.Play();
+                    BackgroundBorder.ImageSource = new BitmapImage(new Uri("pack://application:,,,/MasterLibrary;component/Resources/Images/WaittingBackground.png"));
+                    break;
                 case MessageType.Error:
                     System.Media.SystemSounds.Beep.Play();
                     BackgroundBorder.ImageSource = new BitmapImage(new Uri("pack://application:,,,/MasterLibrary;component/Resources/Images/ErrorBackground.png"));
@@ -87,6 +91,7 @@ namespace MasterLibrary.Views.MessageBoxML
     public enum MessageType
     {
         Accept,
+        Waitting,
         Error
     }
 }

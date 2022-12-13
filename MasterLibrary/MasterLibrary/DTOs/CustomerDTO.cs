@@ -14,13 +14,14 @@ namespace MasterLibrary.DTOs
             IDROLE = ROLE.Customer;
         }
 
-        public CustomerDTO(int id, string name, string email, string user, string password)
+        public CustomerDTO(int id, string name, string email, string diachi, string user, string password)
         {
             MAKH = id;
             TENKH = name;
             EMAIL = email;
             USERNAME = user;
             USERPASSWORD = password;
+            DIACHI = diachi;
             IDROLE = ROLE.Customer;
         }
 
@@ -30,5 +31,6 @@ namespace MasterLibrary.DTOs
         public string USERNAME { get; set; }
         public string USERPASSWORD { get; set; }
         public string IDROLE { get; set; }
+        public string DIACHI { get; set; }
     }
 }

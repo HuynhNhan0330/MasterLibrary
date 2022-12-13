@@ -25,7 +25,7 @@
         DataContext="{StaticResource CustomerVM}">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding FirstLoadML}" />
+            <i:InvokeCommandAction Command="{Binding FirstLoadCustomer}" />
             <i:InvokeCommandAction Command="{Binding LoadBuyBookPageML}"
                                    CommandParameter="{Binding ElementName=mainFrame}" />
         </i:EventTrigger>
@@ -112,6 +112,39 @@
                                          CommandParameter="{Binding ElementName=mainFrame}"/>
                                 <i:InvokeCommandAction Command="{Binding TurnOnBuyBook}"
                                          CommandParameter="{Binding ElementName=btnBuyBook}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Border>
+
+                    <!-- Button Giỏ hàng -->
+                    <Border CornerRadius="5"
+                            Cursor="Hand">
+                        <StackPanel Tag="{Binding ElementName=btnCart}"
+                                    Orientation="Horizontal"
+                                    Height="60"
+                                    Width="130"
+                                    Style= "{StaticResource EffectMenuButton}">
+                            <materialDesign:PackIcon Kind="CartVariant"
+                                                     Width="35"
+                                                     Height="32"
+                                                     VerticalAlignment="Center"
+                                                     Foreground="White"/>
+                            <RadioButton Style="{StaticResource MenuButtonMain}"
+                                         GroupName="mainOptions"
+                                         Content="Giỏ hàng"
+                                         FontWeight="Bold"
+                                         x:Name="btnCart"
+                                         Width="auto"
+                                         Command="{Binding LoadBookCartPageML}"
+                                         CommandParameter="{Binding ElementName=mainFrame}"/>
+                        </StackPanel>
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding LoadBookCartPageML}"
+                                         CommandParameter="{Binding ElementName=mainFrame}"/>
+                                <i:InvokeCommandAction Command="{Binding TurnOnCartBook}"
+                                         CommandParameter="{Binding ElementName=btnCart}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </Border>
@@ -253,20 +286,30 @@
                             </i:Interaction.Triggers>
                         </materialDesign:PackIcon>
 
-                        <!--<materialDesign:PackIcon Kind="Cart"
+                        <materialDesign:PackIcon Kind="Cart"
                                                  Width="40"
                                                  Height="40"
                                                  Background="Transparent"
                                                  Margin="20,0,20,0"
                                                  VerticalAlignment="Center"
+                                                 Cursor="Hand"
                                                  Foreground="#ffd940" >
-                            <hw:BadgeSetter.Badge>
+                            <!--<hw:BadgeSetter.Badge>
                                 <hw:Badge Label = "99+" 
                                           Background="#ff1616" 
                                           Foreground="White" 
                                           MarginY="5"/>
-                            </hw:BadgeSetter.Badge>
-                        </materialDesign:PackIcon>-->
+                            </hw:BadgeSetter.Badge>-->
+
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                    <i:InvokeCommandAction Command="{Binding LoadBookCartPageML}"
+                                         CommandParameter="{Binding ElementName=mainFrame}"/>
+                                    <i:InvokeCommandAction Command="{Binding TurnOnCartBook}"
+                                         CommandParameter="{Binding ElementName=btnCart}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </materialDesign:PackIcon>
                     </StackPanel>
                 </Grid>
 
