@@ -264,12 +264,15 @@
     <Compile Include="DTOs\BookDTO.cs" />
     <Compile Include="DTOs\BookInCartDTO.cs" />
     <Compile Include="DTOs\CustomerDTO.cs" />
+    <Compile Include="DTOs\DayDTO.cs" />
     <Compile Include="DTOs\InputBookDTO.cs" />
+    <Compile Include="DTOs\TangDTO.cs" />
     <Compile Include="Models\DataProvider\AdminServices.cs" />
     <Compile Include="Models\DataProvider\BillDetailServices.cs" />
     <Compile Include="Models\DataProvider\BillServices.cs" />
     <Compile Include="Models\DataProvider\BookInCartServices.cs" />
     <Compile Include="Models\DataProvider\BookServices.cs" />
+    <Compile Include="Models\DataProvider\BuildingServices.cs" />
     <Compile Include="Models\DataProvider\BuyServices.cs" />
     <Compile Include="Models\DataProvider\CTHD.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
@@ -322,6 +325,7 @@
     <Compile Include="Utils\Constant.cs" />
     <Compile Include="Utils\Helper.cs" />
     <Compile Include="ViewModel\AdminVM\BookManage\BookManageViewModel.cs" />
+    <Compile Include="ViewModel\AdminVM\LocationVM\LocationViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\MainAdminViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\StatisticVM\StatisticViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
@@ -347,6 +351,9 @@
     </Compile>
     <Compile Include="Views\Admin\ImportBookPage\ImportBookPage.xaml.cs">
       <DependentUpon>ImportBookPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\LocationPage\BookInRow.xaml.cs">
+      <DependentUpon>BookInRow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\LocationPage\LocationPage.xaml.cs">
       <DependentUpon>LocationPage.xaml</DependentUpon>
@@ -433,6 +440,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Admin\ImportBookPage\ImportBookPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\LocationPage\BookInRow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -542,6 +553,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\LocationBackground.png" />
     <Resource Include="Resources\Images\DeleteFileBackground.png" />
     <Resource Include="Resources\Images\WaittingBackground.png" />
     <Resource Include="Resources\Images\AcceptBackground.png" />
@@ -567,7 +579,9 @@
     <Resource Include="Resources\Images\logo.png" />
     <Resource Include="Resources\Images\Logo.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModel\CustomerVM\LocationBookVM\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

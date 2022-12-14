@@ -219,7 +219,7 @@
                                FontSize="20"
                                Foreground="#3f2016"
                                FontWeight="Bold"
-                               Width="220"
+                               
                                TextAlignment="Left"
                                HorizontalAlignment="Center"
                                TextWrapping="Wrap"
@@ -334,12 +334,13 @@
                                    TextAlignment="Left"/>
                         <TextBlock Text="{Binding BookCurrent.MoTa}"
                                    Grid.Column="2"
-                                   MaxHeight="150"
+                                   MaxHeight="100"
                                    FontSize="16"
                                    FontWeight="Bold"
                                    Foreground="#a47100"
                                    TextAlignment="Left" 
                                    TextWrapping="Wrap"
+                                   TextTrimming="CharacterEllipsis" 
                                    HorizontalAlignment="Left"/>
                     </Grid>
 
