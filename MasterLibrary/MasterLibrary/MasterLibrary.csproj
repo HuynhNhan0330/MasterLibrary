@@ -562,6 +562,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\LocationBackground.png" />
     <Resource Include="Resources\Images\DeleteFileBackground.png" />
     <Resource Include="Resources\Images\WaittingBackground.png" />
     <Resource Include="Resources\Images\AcceptBackground.png" />
