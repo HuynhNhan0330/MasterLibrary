@@ -172,7 +172,6 @@ namespace MasterLibrary.ViewModel.CustomerVM.BookCartVM
 
                         ListBooksInCart.Clear();
 
-                        FilterBookInCart();
                         ReCalculateMoney();
                         ReCalculateQuantity();
                     }
@@ -241,7 +240,6 @@ namespace MasterLibrary.ViewModel.CustomerVM.BookCartVM
 
                         ListBooksInCart.Clear();
 
-                        FilterBookInCart();
                         ReCalculateMoney();
                         ReCalculateQuantity();
 
@@ -320,7 +318,6 @@ namespace MasterLibrary.ViewModel.CustomerVM.BookCartVM
                 {
                     ListBooksInCart.RemoveAt(indexDelete);
 
-                    FilterBookInCart();
                     ReCalculateMoney();
                     ReCalculateQuantity();
                 }

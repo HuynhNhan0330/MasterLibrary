@@ -152,7 +152,7 @@ namespace MasterLibrary.ViewModel.CustomerVM.BuyBookVM
                     // Load hết sách
                     try
                     {
-                        ListBook = new ObservableCollection<BookDTO>(await Task.Run(() => BookServices.Ins.GetAllbook()));
+                        ListBook = new ObservableCollection<BookDTO>(ListBook1);
                     }
                     catch (Exception)
                     {
