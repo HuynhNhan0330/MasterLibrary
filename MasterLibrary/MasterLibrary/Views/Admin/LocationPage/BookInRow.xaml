@@ -114,10 +114,10 @@
 
                 <!-- Hiển thị các sách -->
                 <Grid Grid.Row="1">
-                    <ListBox ItemsSource="{Binding ListBook}"
+                    <ListBox ItemsSource="{Binding ListBook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                          Grid.Row="1"
                          x:Name="MainListBox"
-                         SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}">
+                         SelectedItem="{Binding SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         <ListBox.ItemContainerStyle>
                             <Style TargetType="ListBoxItem"
                                BasedOn="{StaticResource styleListBoxItems}" />
@@ -178,12 +178,13 @@
                                                FontSize="14"
                                                FontWeight="Bold"
                                                Foreground="#a47100"
-                                               TextAlignment="Left"/>
+                                               TextAlignment="Left"
+                                               Padding="0,0,0,15"/>
                                         </StackPanel>
                                     </StackPanel>
                                     <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="MouseUp">
-                                            <i:InvokeCommandAction Command="{Binding ElementName=MainListBox, Path=DataContext.LoadDetailBook}" />
+                                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=MainListBox, Path=DataContext.LoadDetailBookInRow}" />
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </materialDesign:Card>

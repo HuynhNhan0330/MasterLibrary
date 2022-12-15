@@ -45,7 +45,7 @@
                                          Height="26"
                                          Width="26" />
                         <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:EventTrigger EventName="MouseLeftButtonUp">
                                 <i:InvokeCommandAction Command="{Binding CloseDetailBook}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>

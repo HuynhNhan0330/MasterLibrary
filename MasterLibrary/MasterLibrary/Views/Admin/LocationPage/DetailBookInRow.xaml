@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
-        Title="DetailBookInRow" Height="450" Width="600"
+        Title="DetailBookInRow" Height="400" Width="600"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True"
@@ -45,14 +45,14 @@
                                          Height="26"
                                          Width="26" />
                             <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:EventTrigger EventName="MouseLeftButtonUp">
                                     <i:InvokeCommandAction Command="{Binding CloseDetailBookInRow}"/>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </Label>
 
                         <Image Source="{Binding BookCurrent.ImageSource}"
-                           Height="270"
+                           Height="320"
                            Width="260"
                            Margin="5"
                            Stretch="Fill">
@@ -160,7 +160,7 @@
                                    FontSize="16"
                                    Foreground="#3f2016"
                                    TextAlignment="Left"/>
-                            <TextBlock Text="{Binding soluongBook}"
+                            <TextBlock Text="{Binding BookCurrent.SoLuong}"
                                    FontSize="16"
                                    FontWeight="Bold"
                                    Foreground="#a47100"
