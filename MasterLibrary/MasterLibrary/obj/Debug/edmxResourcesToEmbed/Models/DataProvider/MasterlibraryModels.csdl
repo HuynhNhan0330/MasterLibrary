@@ -107,9 +107,10 @@
   </EntityType>
   <EntityType Name="NHAPSACH">
     <Key>
-      <PropertyRef Name="IDSACH" />
+      <PropertyRef Name="IDNHAP" />
     </Key>
-    <Property Name="IDSACH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDNHAP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDSACH" Type="Int32" />
     <Property Name="TENSACH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="GIANHAP" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="SOLUONG" Type="Int32" />

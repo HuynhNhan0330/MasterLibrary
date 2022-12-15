@@ -78,6 +78,7 @@
                     </Frame>
 
                     <!--IsIndeterminate: thanh tiến trình không xác định-->
+                    <!--Tạo hiệu ứng load-->
                     <ProgressBar Value="0"
                                  IsIndeterminate="{Binding IsGettingSource}"
                                  Width="100"

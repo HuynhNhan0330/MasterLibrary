@@ -174,3 +174,4 @@ D:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\Histo
 D:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\RevenueDetail.g.cs
 D:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\ExpenseDetail.baml
 D:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\RevenueDetail.baml
+D:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.ResolveComReference.cache

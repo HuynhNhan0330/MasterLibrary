@@ -49,9 +49,10 @@
   </EntityType>
   <EntityType Name="NHAPSACH">
     <Key>
-      <PropertyRef Name="IDSACH" />
+      <PropertyRef Name="IDNHAP" />
     </Key>
-    <Property Name="IDSACH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDNHAP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDSACH" Type="int" />
     <Property Name="TENSACH" Type="nvarchar" MaxLength="100" />
     <Property Name="GIANHAP" Type="money" />
     <Property Name="SOLUONG" Type="int" />

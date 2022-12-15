@@ -101,5 +101,16 @@ namespace MasterLibrary.Models.DataProvider
                 throw e;
             }
         }
+
+        //public async Task<BillDTO> GetDetail(string ID)
+        //{
+        //    try
+        //    {
+        //        using (var context = new MasterlibraryEntities())
+        //        {
+        //            var bill = 
+        //        }
+        //    }
+        //}
     }
 }

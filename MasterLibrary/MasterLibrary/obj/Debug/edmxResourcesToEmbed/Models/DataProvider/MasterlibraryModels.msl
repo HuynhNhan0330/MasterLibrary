@@ -59,6 +59,7 @@
           <ScalarProperty Name="GIANHAP" ColumnName="GIANHAP" />
           <ScalarProperty Name="TENSACH" ColumnName="TENSACH" />
           <ScalarProperty Name="IDSACH" ColumnName="IDSACH" />
+          <ScalarProperty Name="IDNHAP" ColumnName="IDNHAP" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

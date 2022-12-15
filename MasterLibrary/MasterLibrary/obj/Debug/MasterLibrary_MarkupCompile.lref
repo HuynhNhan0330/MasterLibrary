@@ -6,8 +6,10 @@ FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\UserControlML\controlbar_u
 FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\BookManagePage\AddingWindow.xaml;;
 FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\BookManagePage\BookManagePage.xaml;;
 FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\BookManagePage\updatingwindow.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\ExpenseDetail.xaml;;
 FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\ExpensePage.xaml;;
 FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\HistoryPage.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\RevenueDetail.xaml;;
 FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\RevenuePage.xaml;;
 FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\MainAdminWindow.xaml;;
 FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\StatisticalPage\StatisticalPage.xaml;;
@@ -23,6 +25,4 @@ FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\LoginWin
 FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\RegisterWindow.xaml;;
 FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\VerificationPage.xaml;;
 FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\MessageBoxML\MessageBoxML.xaml;;
-FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\ExpenseDetail.xaml;;
-FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\RevenueDetail.xaml;;
 

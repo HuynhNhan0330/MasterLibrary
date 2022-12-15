@@ -153,7 +153,7 @@
                       VerticalAlignment="Top"
                       ToolTip="Double-click để xem chi tiết"
                       ItemsSource="{Binding ListRevenue}"
-                      SelectedItem="{Binding SelectedRevenue}"
+                      SelectedItem="{Binding SelectedItemRevenue}"
                       HorizontalAlignment="Stretch">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseDoubleClick">
@@ -163,10 +163,10 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Mã đơn"
-                                        Width="auto">
+                                        Width="150">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock  Text="{Binding Id}"
+                                    <TextBlock  Text="{Binding MAHD}"
                                                 FontSize="18"
                                                 Margin="10,0,0,0" />
                                 </DataTemplate>
@@ -174,10 +174,10 @@
                         </GridViewColumn>
 
                         <GridViewColumn Header="Mã khách hàng"
-                                        Width="auto">
+                                        Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock  Text="{Binding IdCus}"
+                                    <TextBlock Text="{Binding MAKH}"
                                                 FontSize="18"
                                                 Margin="10,0,0,0" />
                                 </DataTemplate>
@@ -185,10 +185,10 @@
                         </GridViewColumn>
 
                         <GridViewColumn Header="Tên khách hàng"
-                                        Width="auto">
+                                        Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock  Text="{Binding NameCus}"
+                                    <TextBlock  Text="{Binding cusName}"
                                                 FontSize="18"
                                                 Margin="10,0,0,0" />
                                 </DataTemplate>
@@ -199,18 +199,7 @@
                                         Width="auto">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock  Text="{Binding DateBuy}"
-                                                FontSize="18"
-                                                Margin="10,0,0,0" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-
-                        <GridViewColumn Header="Số lượng"
-                                        Width="auto">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock  Text="{Binding Quantity}"
+                                    <TextBlock  Text="{Binding NGHD}"
                                                 FontSize="18"
                                                 Margin="10,0,0,0" />
                                 </DataTemplate>
@@ -218,10 +207,10 @@
                         </GridViewColumn>
 
                         <GridViewColumn Header="Tổng giá"
-                                        Width="auto">
+                                        Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock  Text="{Binding Values}"
+                                    <TextBlock  Text="{Binding TRIGIA}"
                                                 FontSize="18"
                                                 Margin="10,0,0,0" />
                                 </DataTemplate>

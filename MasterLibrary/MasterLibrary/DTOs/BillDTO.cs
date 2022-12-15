@@ -45,10 +45,7 @@ namespace MasterLibrary.DTOs
         public decimal TRIGIA { get; set; }
         public DateTime NGHD { get; set; }
 
-        public string TRIGIAstr
-        {
-            get { return Helper.FormatVNMoney(TRIGIA); }
-        }
+        //public List<>
     }
 
 
