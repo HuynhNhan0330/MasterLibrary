@@ -10,6 +10,7 @@ namespace MasterLibrary.DTOs
     {
         public InputBookDTO() { }
 
+        public int IDInput { get; set; }
         public int IDBook { get; set; }
         public string TenSach { get; set; }
         public int GiaNhap { get; set; }

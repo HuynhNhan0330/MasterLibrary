@@ -145,7 +145,7 @@
                                              FontWeight="Bold"
                                              GroupName="mainOptions"
                                              x:Name="btnHistory"
-                                             Width="110"
+                                             Width="94"
                                              Command="{Binding LoadHistoryPageML}"
                                              CommandParameter="{Binding ElementName=mainFrame}" />
                         </StackPanel>
@@ -166,9 +166,10 @@
                         Padding="16" Height="84" VerticalAlignment="Center">
                     <DockPanel>
                         <StackPanel
-                             Orientation="Horizontal"
-                             materialDesign:RippleAssist.IsCentered="True" Height="47">
-
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                materialDesign:RippleAssist.IsCentered="True" Height="47">
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="{Binding textHeading}"></TextBlock>
                         </StackPanel>
                     </DockPanel>
                 </materialDesign:ColorZone>

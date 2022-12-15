@@ -14,7 +14,8 @@ namespace MasterLibrary.Models.DataProvider
     
     public partial class NHAPSACH
     {
-        public int IDSACH { get; set; }
+        public int IDNHAP { get; set; }
+        public Nullable<int> IDSACH { get; set; }
         public string TENSACH { get; set; }
         public Nullable<decimal> GIANHAP { get; set; }
         public Nullable<int> SOLUONG { get; set; }

@@ -15,21 +15,34 @@ namespace MasterLibrary.DTOs
         }
 
         public int MAKH { get; set; }
-        private string _cusID { get; set; }
-        public string cusID
+        private int _cusId;
+        public int cusId
         {
             get
             {
-                if (_cusID == null) return "-1";
-                return _cusID;
+                if (_cusId.ToString() is null)
+                {
+                    return -1;
+                }
+                return _cusId; 
             }
-            set
+            set { _cusId = value; }
+        }
+        private string _cusName;
+        public string cusName
+        {
+            set { _cusName = value; }
+            get 
             {
-                _cusID = value;
+                if (_cusName is null)
+                {
+                    return "Khách hàng mới";
+                }
+                return _cusName; 
             }
         }
         public int MAHD { get; set; }
-        public int TRIGIA { get; set; }
+        public decimal TRIGIA { get; set; }
         public DateTime NGHD { get; set; }
 
         public string TRIGIAstr
