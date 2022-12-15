@@ -23,6 +23,7 @@
         WindowStyle="None"
         AllowsTransparency="True"
         DataContext="{StaticResource CustomerVM}">
+    
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding FirstLoadCustomer}" />
@@ -30,6 +31,7 @@
                                    CommandParameter="{Binding ElementName=mainFrame}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
+    
     <Window.Clip>
         <RectangleGeometry Rect="0, 0, 1300, 700" RadiusX="10" RadiusY="10"></RectangleGeometry>
     </Window.Clip>
@@ -300,7 +302,6 @@
                                           Foreground="White" 
                                           MarginY="5"/>
                             </hw:BadgeSetter.Badge>-->
-
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                     <i:InvokeCommandAction Command="{Binding LoadBookCartPageML}"

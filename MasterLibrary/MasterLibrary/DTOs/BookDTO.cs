@@ -15,7 +15,9 @@ namespace MasterLibrary.DTOs
         public int NamXB { get; set; }
         public string MoTa { get; set; }
         public int ViTriTang { get; set; }
+        public string TenTang { get; set; }
         public int ViTriDay { get; set; }
+        public string TenDay { get; set; }
         public string ImageSource { get; set; }
         public decimal Gia { get; set; }
         public int SoLuong { get; set; }

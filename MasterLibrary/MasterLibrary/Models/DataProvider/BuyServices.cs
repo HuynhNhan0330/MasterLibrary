@@ -32,8 +32,6 @@ namespace MasterLibrary.Models.DataProvider
         {
             using (var context = new MasterlibraryEntities())
             {
-                int newIdBill = await context.HOADONs.MaxAsync(hd => hd.MAHD) + 1;
-
                 HOADON newBill = new HOADON();
                 newBill.NGHD = bill.NGHD;
                 newBill.MAKH = bill.MAKH;
@@ -42,6 +40,8 @@ namespace MasterLibrary.Models.DataProvider
                 context.HOADONs.Add(newBill);
 
                 context.SaveChanges();
+
+                int newIdBill = await context.HOADONs.MaxAsync(hd => hd.MAHD);
 
                 return newIdBill;
             }
