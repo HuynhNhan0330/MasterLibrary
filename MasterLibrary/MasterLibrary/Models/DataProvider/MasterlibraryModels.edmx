@@ -54,9 +54,10 @@
         </EntityType>
         <EntityType Name="NHAPSACH">
           <Key>
-            <PropertyRef Name="IDSACH" />
+            <PropertyRef Name="IDNHAP" />
           </Key>
-          <Property Name="IDSACH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDNHAP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDSACH" Type="int" />
           <Property Name="TENSACH" Type="nvarchar" MaxLength="100" />
           <Property Name="GIANHAP" Type="money" />
           <Property Name="SOLUONG" Type="int" />
@@ -359,9 +360,10 @@
         </EntityType>
         <EntityType Name="NHAPSACH">
           <Key>
-            <PropertyRef Name="IDSACH" />
+            <PropertyRef Name="IDNHAP" />
           </Key>
-          <Property Name="IDSACH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDNHAP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDSACH" Type="Int32" />
           <Property Name="TENSACH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="GIANHAP" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="SOLUONG" Type="Int32" />
@@ -577,6 +579,7 @@
                 <ScalarProperty Name="GIANHAP" ColumnName="GIANHAP" />
                 <ScalarProperty Name="TENSACH" ColumnName="TENSACH" />
                 <ScalarProperty Name="IDSACH" ColumnName="IDSACH" />
+                <ScalarProperty Name="IDNHAP" ColumnName="IDNHAP" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
