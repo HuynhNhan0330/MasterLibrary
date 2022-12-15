@@ -1,5 +1,6 @@
 ﻿using MasterLibrary.DTOs;
 using MasterLibrary.Models.DataProvider;
+using MasterLibrary.Views.Admin.LocationPage;
 using MasterLibrary.Views.MessageBoxML;
 using System;
 using System.Collections.Generic;
@@ -111,7 +112,8 @@ namespace MasterLibrary.ViewModel.AdminVM.LocationVM
 
         #region Icommand
         public ICommand FirstLoadLocationPage { get; set; }
-        public ICommand LoadDetailDay { get; set; }
+        public ICommand MaskNameLocation { get; set; }
+        public ICommand LoadBookInRow { get; set; }
         public ICommand OpenFloorOrRow { get; set; }
         public ICommand AddOrDeleteCommand { get; set; }
         public ICommand AddBuildingCommand { get; set; }
@@ -122,6 +124,8 @@ namespace MasterLibrary.ViewModel.AdminVM.LocationVM
 
         #region Thuộc tính tạm thời
         public int CurretPositionFloor { get; set; }
+        public DayDTO SelectedDay { get; set; }
+        public Grid MaskName { get; set; }
 
         #endregion
 
@@ -152,9 +156,19 @@ namespace MasterLibrary.ViewModel.AdminVM.LocationVM
                 }
             });
 
-            LoadDetailDay = new RelayCommand<object>((p) => { return true; }, (p) =>
+            MaskNameLocation = new RelayCommand<Grid>((p) => { return true; }, (p) =>
             {
-                MessageBox.Show("LoadDetilDay");
+                MaskName = p;
+            });
+
+            LoadBookInRow = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                BookInRowViewModel.currentDay = SelectedDay;
+
+                BookInRow w = new BookInRow();
+                MaskName.Visibility = Visibility.Visible;
+                w.ShowDialog();
+                MaskName.Visibility = Visibility.Collapsed;
             });
 
             OpenFloorOrRow = new RelayCommand<Button>((p) => { return true; }, (p) =>

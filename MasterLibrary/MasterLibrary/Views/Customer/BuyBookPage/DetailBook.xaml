@@ -289,7 +289,7 @@
                                    FontWeight="Bold"
                                    Foreground="#a47100"
                                    TextAlignment="Left"/>
-                        <TextBlock Text="{Binding BookCurrent.ViTriTang}"
+                        <TextBlock Text="{Binding BookCurrent.TenTang}"
                                    FontSize="16"
                                    FontWeight="Bold"
                                    Foreground="#a47100"
@@ -300,7 +300,7 @@
                                    FontWeight="Bold"
                                    Foreground="#a47100"
                                    TextAlignment="Left"/>
-                        <TextBlock Text="{Binding BookCurrent.ViTriDay}"
+                        <TextBlock Text="{Binding BookCurrent.TenDay}"
                                    FontSize="16"
                                    FontWeight="Bold"
                                    Foreground="#a47100"

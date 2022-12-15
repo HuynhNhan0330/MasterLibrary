@@ -33,6 +33,8 @@ namespace MasterLibrary.Models.DataProvider
                 using (var context = new MasterlibraryEntities())
                 {
                     books = await (from sach in context.SACHes
+                                   join t in context.TANGs on sach.VITRIDAY equals t.MATANG
+                                   join d in context.DAYKEs on sach.VITRIDAY equals d.MADAY
                                    select new BookDTO
                                    {
                                        MaSach = sach.MASACH,
@@ -46,7 +48,49 @@ namespace MasterLibrary.Models.DataProvider
                                        SoLuong = (int)sach.SL,
                                        ImageSource = sach.IMAGESOURCE,
                                        ViTriTang = (int)sach.VITRITANG,
-                                       ViTriDay = (int)sach.VITRIDAY
+                                       TenTang = t.TENTANG,
+                                       ViTriDay = (int)sach.VITRIDAY,
+                                       TenDay = d.TENDAY
+                                   }
+                     ).ToListAsync();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return books;
+        }
+
+        public async Task<List<BookDTO>> GetBookInRow(int _Matang, int _MaDay)
+        {
+            List<BookDTO> books = null;
+
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    books = await (from sach in context.SACHes
+                                   join t in context.TANGs on sach.VITRIDAY equals t.MATANG
+                                   join d in context.DAYKEs on sach.VITRIDAY equals d.MADAY
+                                   where sach.VITRITANG == _Matang && sach.VITRIDAY == _MaDay
+                                   select new BookDTO
+                                   {
+                                       MaSach = sach.MASACH,
+                                       TenSach = sach.TENSACH,
+                                       TacGia = sach.TACGIA,
+                                       MoTa = sach.MOTA,
+                                       NXB = sach.NXB,
+                                       NamXB = (int)sach.NAMXB,
+                                       TheLoai = sach.THELOAI,
+                                       Gia = (decimal)sach.GIA,
+                                       SoLuong = (int)sach.SL,
+                                       ImageSource = sach.IMAGESOURCE,
+                                       ViTriTang = (int)sach.VITRITANG,
+                                       TenTang = t.TENTANG,
+                                       ViTriDay = (int)sach.VITRIDAY,
+                                       TenDay = d.TENDAY
                                    }
                      ).ToListAsync();
                 }
@@ -66,7 +110,9 @@ namespace MasterLibrary.Models.DataProvider
                 using (var context = new MasterlibraryEntities())
                 {
                     var book = await (from sach in context.SACHes
-                                     where sach.MASACH == _BookId
+                                      join t in context.TANGs on sach.VITRIDAY equals t.MATANG
+                                      join d in context.DAYKEs on sach.VITRIDAY equals d.MADAY
+                                      where sach.MASACH == _BookId
                                      select new BookDTO
                                      {
                                          MaSach = sach.MASACH,
@@ -80,7 +126,9 @@ namespace MasterLibrary.Models.DataProvider
                                          SoLuong = (int)sach.SL,
                                          ImageSource = sach.IMAGESOURCE,
                                          ViTriTang = (int)sach.VITRITANG,
-                                         ViTriDay = (int)sach.VITRIDAY
+                                         ViTriDay = (int)sach.VITRIDAY,
+                                         TenTang = t.TENTANG,
+                                         TenDay = d.TENDAY
                                      }).FirstOrDefaultAsync();
 
                     return book;

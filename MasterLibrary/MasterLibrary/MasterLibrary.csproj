@@ -325,6 +325,8 @@
     <Compile Include="Utils\Constant.cs" />
     <Compile Include="Utils\Helper.cs" />
     <Compile Include="ViewModel\AdminVM\BookManage\BookManageViewModel.cs" />
+    <Compile Include="ViewModel\AdminVM\LocationVM\BookInRowViewModel.cs" />
+    <Compile Include="ViewModel\AdminVM\LocationVM\DetailBookInRowViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\LocationViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\MainAdminViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\StatisticVM\StatisticViewModel.cs" />
@@ -354,6 +356,9 @@
     </Compile>
     <Compile Include="Views\Admin\LocationPage\BookInRow.xaml.cs">
       <DependentUpon>BookInRow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\LocationPage\DetailBookInRow.xaml.cs">
+      <DependentUpon>DetailBookInRow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\LocationPage\LocationPage.xaml.cs">
       <DependentUpon>LocationPage.xaml</DependentUpon>
@@ -444,6 +449,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Admin\LocationPage\BookInRow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\LocationPage\DetailBookInRow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
