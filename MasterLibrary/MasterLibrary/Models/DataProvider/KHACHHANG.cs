@@ -19,6 +19,7 @@ namespace MasterLibrary.Models.DataProvider
         {
             this.GIOHANGs = new HashSet<GIOHANG>();
             this.HOADONs = new HashSet<HOADON>();
+            this.SUCOes = new HashSet<SUCO>();
         }
     
         public int MAKH { get; set; }
@@ -34,5 +35,7 @@ namespace MasterLibrary.Models.DataProvider
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }
         public virtual USERROLE USERROLE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SUCO> SUCOes { get; set; }
     }
 }

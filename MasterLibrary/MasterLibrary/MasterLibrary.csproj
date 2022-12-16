@@ -267,6 +267,7 @@
     <Compile Include="DTOs\DayDTO.cs" />
     <Compile Include="DTOs\InputBookDTO.cs" />
     <Compile Include="DTOs\TangDTO.cs" />
+    <Compile Include="DTOs\TroubleDTO.cs" />
     <Compile Include="Models\DataProvider\AdminServices.cs" />
     <Compile Include="Models\DataProvider\BillDetailServices.cs" />
     <Compile Include="Models\DataProvider\BillServices.cs" />
@@ -288,6 +289,9 @@
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\KHACHHANG.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataProvider\LOAISUCO.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\MasterlibraryModels.Context.cs">
@@ -312,9 +316,16 @@
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\StatisticServices.cs" />
+    <Compile Include="Models\DataProvider\SUCO.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataProvider\TANG.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataProvider\TRANGTHAISC.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataProvider\TroubleServices.cs" />
     <Compile Include="Models\DataProvider\USERROLE.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
@@ -336,6 +347,9 @@
     <Compile Include="ViewModel\CustomerVM\BuyBookVM\DetailBookViewModel.cs" />
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
     <Compile Include="ViewModel\CustomerVM\MainCustomerViewModel.cs" />
+    <Compile Include="ViewModel\CustomerVM\ReportTroubleVM\AddOrEditTroubleViewModel.cs" />
+    <Compile Include="ViewModel\CustomerVM\ReportTroubleVM\OperatorCoverter.cs" />
+    <Compile Include="ViewModel\CustomerVM\ReportTroubleVM\ReportTroubleViewModel.cs" />
     <Compile Include="ViewModel\CustomerVM\SettingVM\SettingViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\ForgotPassViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\LoginViewModel.cs" />
@@ -383,6 +397,15 @@
     </Compile>
     <Compile Include="Views\Customer\MainCustomerWindow.xaml.cs">
       <DependentUpon>MainCustomerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\ReportTroublePage\AddRTrouble.xaml.cs">
+      <DependentUpon>AddRTrouble.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\ReportTroublePage\EditTrouble.xaml.cs">
+      <DependentUpon>EditTrouble.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\ReportTroublePage\ReportTroublePage.xaml.cs">
+      <DependentUpon>ReportTroublePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Customer\SettingPage\SettingPage.xaml.cs">
       <DependentUpon>SettingPage.xaml</DependentUpon>
@@ -485,6 +508,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Customer\MainCustomerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Customer\ReportTroublePage\AddRTrouble.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Customer\ReportTroublePage\EditTrouble.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Customer\ReportTroublePage\ReportTroublePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

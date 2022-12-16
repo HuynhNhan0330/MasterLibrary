@@ -1,4 +1,4 @@
-﻿D:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\GeneratedInternalTypeHelper.g.cs
+﻿
 FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml;;
 FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\MainWindow.xaml;;
 FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\ResourcesXAML\MainResources.xaml;;
@@ -18,6 +18,9 @@ FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\
 FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\BuyBookPage\BuyBookPage.xaml;;
 FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\BuyBookPage\DetailBook.xaml;;
 FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\MainCustomerWindow.xaml;;
+FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\ReportTroublePage\AddRTrouble.xaml;;
+FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\ReportTroublePage\EditTrouble.xaml;;
+FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\ReportTroublePage\ReportTroublePage.xaml;;
 FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\SettingPage\SettingPage.xaml;;
 FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\CreateNewPassPage.xaml;;
 FD:\Nhan's\CodeVS\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\ForgotPassPage.xaml;;

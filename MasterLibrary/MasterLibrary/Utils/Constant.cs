@@ -28,4 +28,14 @@ namespace MasterLibrary.Utils
             "Sách thiếu nhi"
         };
     }
+
+    public class Trouble
+    {
+        public static class STATUS
+        {
+            public static readonly string WAITTING = "Chờ giải quyết";
+            public static readonly string DONE = "Đã giải quyết";
+            public static readonly string CANCLE = "Đã huỷ";
+        }
+    }
 }
