@@ -1,4 +1,5 @@
 ﻿using MasterLibrary.DTOs;
+using MasterLibrary.Utils;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,6 +16,13 @@ namespace MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM
     public partial class ReportTroubleViewModel: BaseViewModel
     {
         #region Thuộc tính
+        private int _IdTrouble;
+        public int IdTrouble
+        {
+            get { return _IdTrouble; }
+            set { _IdTrouble = value; OnPropertyChanged(); }
+        }
+
         private string _TitleTrouble;
         public string TitleTrouble
         {
@@ -36,6 +44,13 @@ namespace MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM
             set { _NameTypeTrouble = value; OnPropertyChanged(); }
         }
 
+        private string _NameStatusTrouble;
+        public string NameStatusTrouble
+        {
+            get { return _NameStatusTrouble; }
+            set { _NameStatusTrouble = value; OnPropertyChanged(); }
+        }
+
         private ImageSource _ImageSource;
         public ImageSource ImageSource
         {
@@ -50,6 +65,20 @@ namespace MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM
             set { _DayReportTrouble = value; OnPropertyChanged(); }
         }
 
+        private decimal _Cost;
+        public decimal Cost
+        {
+            get { return _Cost; }
+            set { _Cost = value; OnPropertyChanged(); }
+        }
+
+        private string _CostStr;
+        public string CostStr
+        {
+            get { return _CostStr; }
+            set { _CostStr = value; OnPropertyChanged(); }
+        }
+
         private ObservableCollection<TypeTroubleDTO> _ListTypeTroubleAddOrEdit;
         public ObservableCollection<TypeTroubleDTO> ListTypeTroubleAddOrEdit
         {
@@ -60,10 +89,13 @@ namespace MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM
         #endregion
 
         #region ICommand
-        public ICommand FirstLoadAddOrEditReport { get; set; }
+        public ICommand FirstLoadAddReport { get; set; }
+        public ICommand FirstLoadEditReport { get; set; }
         public ICommand UploadImageCM { get; set; }
         public ICommand AddTroubleCommand { get; set; }
         public ICommand UpdateTroubleCommand { get; set; }
+        public ICommand CloseEditWindow { get; set; }
+        public ICommand CloseDetailTrouble { get; set; }
 
         #endregion
 
@@ -91,6 +123,16 @@ namespace MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM
             _image.UriSource = new Uri(filepath, UriKind.RelativeOrAbsolute);
             _image.EndInit();
             ImageSource = _image;
+        }
+
+        public async Task loadCurrentDataTrouble(TroubleDTO TroubleCurrent)
+        {
+            IdTrouble = SelectedTrouble.MaSC;
+            TitleTrouble = TroubleCurrent.TieuDe;
+            DescribeTrouble = TroubleCurrent.MoTa;
+            DayReportTrouble = DateTime.Now;
+            NameTypeTrouble = TroubleCurrent.TenLoaiSuCo;
+            ImageSource = await CloudinaryService.Ins.LoadImageFromURL(TroubleCurrent.Img);
         }
     }
 }

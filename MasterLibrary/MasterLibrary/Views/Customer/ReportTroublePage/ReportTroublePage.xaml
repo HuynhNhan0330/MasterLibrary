@@ -22,6 +22,7 @@
 
     <Page.Resources>
         <local1:OperatorCoverter x:Key="CoverterOperator"/>
+        <local1:ForegroundConverter x:Key="CoverterForeground"/>
     </Page.Resources>
 
     <Grid>
@@ -44,38 +45,11 @@
 
                     <!--Trên-->
                     <Grid>
-                        <StackPanel Grid.Column="0" Orientation="Horizontal">
-                            <ComboBox x:Name="OutlinedComboBoxStatusTrouble"
-                                      materialDesign:HintAssist.Hint="Trạng thái sự cố"
-                                  Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                  ItemsSource="{Binding ListStatusTrouble}"
-                                  Text="{Binding ChooseNameStatusTrouble, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
-                                  DisplayMemberPath="TenTrangThaiSuCo"
-                                  SelectedValuePath="TenTrangThaiSuCo"
-                                  VerticalAlignment="Bottom"
-                                  VerticalContentAlignment="Center"
-                                  HorizontalAlignment="Left"
-                                  HorizontalContentAlignment="Left"
-                                  Width="170"
-                                  FontSize="15"
-                                  Margin="20 10 0 0"
-                                  BorderBrush="#593000"
-                                  SelectedIndex="0">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="SelectionChanged">
-                                        <i:InvokeCommandAction Command="{Binding FilterStatusTroubleCommand}"
-                                                           CommandParameter="{Binding ElementName=OutlinedComboBoxStatusTrouble}" />
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </ComboBox>
-
-                            <ComboBox x:Name="OutlinedComboBoxTypeTrouble"
+                        <ComboBox x:Name="OutlinedComboBoxTypeTrouble"
                                       materialDesign:HintAssist.Hint="Loại sự cố"
                                       Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                      ItemsSource="{Binding ListTypeTrouble}"
-                                      Text="{Binding ChooseNameTypeTrouble, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                                      ItemsSource="{Binding Path=ListTypeTrouble}"
                                       DisplayMemberPath="TenLoaiSuCo"
-                                      SelectedValuePath="TenLoaiSuCo"
                                       VerticalAlignment="Bottom"
                                       VerticalContentAlignment="Center"
                                       HorizontalAlignment="Left"
@@ -84,37 +58,38 @@
                                       FontSize="15"
                                       Margin="20 10 0 0"
                                       BorderBrush="#593000"
-                                      SelectedIndex="0">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="SelectionChanged">
-                                        <i:InvokeCommandAction Command="{Binding FilterStatusTroubleCommand}"
-                                                           CommandParameter="{Binding ElementName=OutlinedComboBoxTypeTrouble}" />
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </ComboBox>
-                        </StackPanel>
-                        <Button Width="130"
-                                Height="50"
-                                Margin="0,0,0,0"
-                                materialDesign:ButtonAssist.CornerRadius="5"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Bottom"
-                                HorizontalContentAlignment="Center"
-                                VerticalContentAlignment="Center"
-                                Command="{Binding OpenAddTroubleCommand}"
-                                Background="#d10202">
-                            <StackPanel Orientation="Horizontal"
-                                        HorizontalAlignment="Center">
-                                <materialDesign:PackIcon Kind="AlertCircleOutline"
-                                                         Height="25"
-                                                         Width="25"
-                                                         VerticalAlignment="Center" />
-                                <TextBlock Text="Báo cáo"
-                                           Margin="5 0 0 0"
-                                           FontSize="18"
-                                           VerticalAlignment="Center" />
-                            </StackPanel>
-                        </Button>
+                                      SelectedIndex="0"
+                                      SelectedValuePath="TenLoaiSuCo"
+                                      SelectedValue="{Binding ChooseNameTypeTrouble, UpdateSourceTrigger=PropertyChanged}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding FilterTroubleCommand}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </ComboBox>
+
+                        <ComboBox x:Name="OutlinedComboBoxStatusTrouble"
+                                  materialDesign:HintAssist.Hint="Trạng thái sự cố"
+                                  Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                  ItemsSource="{Binding Path=ListStatusTrouble}"
+                                  DisplayMemberPath="TenTrangThaiSuCo"
+                                  VerticalAlignment="Bottom"
+                                  VerticalContentAlignment="Center"
+                                  HorizontalAlignment="Right"
+                                  HorizontalContentAlignment="Left"
+                                  Width="170"
+                                  FontSize="15"
+                                  Margin="20 10 0 0"
+                                  BorderBrush="#593000"
+                                  SelectedIndex="0"
+                                  SelectedValuePath="TenTrangThaiSuCo"
+                                  SelectedValue="{Binding ChooseNameStatusTrouble, UpdateSourceTrigger=PropertyChanged}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding FilterTroubleCommand}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </ComboBox>
                     </Grid>
 
                     <!--Dưới-->
@@ -129,13 +104,13 @@
                                   ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseDoubleClick">
-                                    <i:InvokeCommandAction Command="{Binding LoadDetailWindowCM}" />
+                                    <i:InvokeCommandAction Command="{Binding OpenDetailTroubleCommand}" />
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Sự cố"
-                                                    Width="420">
+                                                    Width="400">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel Orientation="Horizontal">
@@ -149,15 +124,14 @@
                                                     </Border>
                                                     <StackPanel Margin="20,0,0,0">
                                                         <Label Content="{Binding TieuDe}"
-                                                               FontSize="25"
+                                                               FontSize="22"
                                                                FontWeight="Bold" />
                                                         <StackPanel Orientation="Horizontal">
-                                                            <Label Content="Loại: "
-                                                                   FontSize="20" />
+                                                            <Label Content="Loại:"
+                                                                   FontSize="16" />
                                                             <Label Content="{Binding TenLoaiSuCo}"
-                                                                   FontSize="20" />
+                                                                   FontSize="16" />
                                                         </StackPanel>
-
                                                     </StackPanel>
                                                 </StackPanel>
                                             </DataTemplate>
@@ -168,7 +142,7 @@
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock Text="{Binding NgayBaoCao, StringFormat='dd/MM/yyyy'}"
-                                                           FontSize="25"
+                                                           FontSize="20"
                                                            Margin="0,30,0,0" />
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
@@ -179,17 +153,19 @@
                                             <DataTemplate>
                                                 <Border BorderThickness="1"
                                                         Margin="10,25,0,0"
+                                                        BorderBrush="#593000"
                                                         CornerRadius="20">
                                                     <TextBlock Text="{Binding TenTrangThaiSuCo}"
                                                                FontSize="20"
                                                                FontStyle="Italic"
                                                                Margin="7"
-                                                               FontWeight="Medium" />
+                                                               FontWeight="Medium"
+                                                               Foreground="{Binding TenTrangThaiSuCo, Converter={StaticResource CoverterForeground}}"/>
                                                 </Border>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                    <GridViewColumn>
+                                    <GridViewColumn Width="200">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel Orientation="Horizontal">
@@ -201,13 +177,13 @@
                                                         Background="#0f82af"
                                                         Width="30"
                                                         Height="30"
-                                                        Visibility="{Binding Status,Converter={StaticResource CoverterOperator}}">
+                                                        Visibility="{Binding TenTrangThaiSuCo,Converter={StaticResource CoverterOperator}}">
                                                         <materialDesign:PackIcon Kind="Pencil"
                                                                              Width="30"
                                                                              Height="30" />
                                                         <i:Interaction.Triggers>
                                                             <i:EventTrigger EventName="MouseLeftButtonUp">
-                                                                <i:InvokeCommandAction Command="{Binding ElementName=lvTrouble, Path=DataContext.LoadEditErrorCM}" />
+                                                                <i:InvokeCommandAction Command="{Binding ElementName=lvTrouble, Path=DataContext.OpenEditTroubleCommand}" />
                                                             </i:EventTrigger>
                                                         </i:Interaction.Triggers>
                                                     </Border>
@@ -220,18 +196,17 @@
                                                         Background="#c24040"
                                                         Width="30"
                                                         Height="30"
-                                                        Visibility="{Binding TrangThai, Converter={StaticResource CoverterOperator}}">
+                                                        Visibility="{Binding TenTrangThaiSuCo, Converter={StaticResource CoverterOperator}}">
                                                         <materialDesign:PackIcon Kind="Close"
                                                                              Width="30"
                                                                              Height="30" />
                                                         <i:Interaction.Triggers>
                                                             <i:EventTrigger EventName="MouseLeftButtonUp">
-                                                                <i:InvokeCommandAction Command="{Binding ElementName=lvTrouble, Path=DataContext.LoadEditErrorCM}" />
+                                                                <i:InvokeCommandAction Command="{Binding ElementName=lvTrouble, Path=DataContext.DeleteTroubleCommand}" />
                                                             </i:EventTrigger>
                                                         </i:Interaction.Triggers>
                                                     </Border>
                                                 </StackPanel>
-
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
@@ -242,12 +217,13 @@
                 </Grid>
 
                 <!--Bên phải-->
-                <Grid Grid.Column="1"
-                      VerticalAlignment="Top" Height="285">
+                <DockPanel LastChildFill="False"
+                           Grid.Column="1">
                     <Border BorderBrush="#bfad97"
-                        BorderThickness="0.5"
-                        Height="180"
-                        Margin="15,65,15,0">
+                            BorderThickness="0.5"
+                            Height="180"
+                            DockPanel.Dock="Top"
+                            Margin="30,85,25,0">
                         <StackPanel>
                             <TextBlock Text="Sự cố"
                                    Foreground="#593000"
@@ -260,7 +236,7 @@
                                        Foreground="#593000"
                                        FontSize="17"
                                        FontWeight="Bold"/>
-                                <TextBlock Text="{Binding TroubleWatting}"
+                                <TextBlock Text="{Binding QuantityWattingTrouble}"
                                        Foreground="#593000"
                                        FontSize="17"
                                        FontWeight="Bold"/>
@@ -272,7 +248,7 @@
                                        Foreground="#593000"
                                        FontSize="17"
                                        FontWeight="Bold"/>
-                                <TextBlock Text="{Binding TongTienStr}"
+                                <TextBlock Text="{Binding QuantityDoneTrouble}"
                                        Foreground="#593000"
                                        FontSize="17"
                                        FontWeight="Bold"/>
@@ -284,14 +260,36 @@
                                        Foreground="#593000"
                                        FontSize="17"
                                        FontWeight="Bold"/>
-                                <TextBlock Text="{Binding TongTienStr}"
+                                <TextBlock Text="{Binding QuantityCancleTrouble}"
                                        Foreground="#593000"
                                        FontSize="17"
                                        FontWeight="Bold"/>
                             </StackPanel>
                         </StackPanel>
                     </Border>
-                </Grid>
+
+                    <Button Width="200"
+                                Height="60"
+                                DockPanel.Dock="Bottom"
+                                materialDesign:ButtonAssist.CornerRadius="5"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Command="{Binding OpenAddTroubleCommand}"
+                                Background="#d10202"
+                                Margin="0,0,0,20">
+                        <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
+                            <materialDesign:PackIcon Kind="AlertCircleOutline"
+                                                         Height="35"
+                                                         Width="35"
+                                                         VerticalAlignment="Center" />
+                            <TextBlock Text="Báo cáo"
+                                           Margin="5 0 0 0"
+                                           FontSize="24"
+                                           VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                </DockPanel>
             </Grid>
         </Border>
 

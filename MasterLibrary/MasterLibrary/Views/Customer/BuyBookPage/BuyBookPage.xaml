@@ -69,20 +69,19 @@
                                                                  VerticalAlignment="Bottom" />
                             <ComboBox materialDesign:HintAssist.Hint="Thể loại"
                                       materialDesign:TextFieldAssist.HasClearButton="True"
-                                                  VerticalContentAlignment="Bottom"
-                                                  Width="150"
-                                                  Height="40"
-                                                  HorizontalAlignment="Left"
-                                                  FontSize="16"
-                                                  FontWeight="DemiBold"
-                                                  ItemsSource="{Binding GenreBook}"
-                                                  materialDesign:HintAssist.HintOpacity="0.5"
-                                                  BorderBrush="Black"
-                                                  Foreground="Black"
-                                                  VerticalAlignment="Bottom"
-                                                  SelectedItem="{Binding SelectedGenre,UpdateSourceTrigger=PropertyChanged}"
-                                                  x:Name="Filtercbb">
-                                
+                                      VerticalContentAlignment="Bottom"
+                                      Width="150"
+                                      Height="40"
+                                      HorizontalAlignment="Left"
+                                      FontSize="16"
+                                      FontWeight="DemiBold"
+                                      ItemsSource="{Binding GenreBook}"
+                                      materialDesign:HintAssist.HintOpacity="0.5"
+                                      BorderBrush="Black"
+                                      Foreground="Black"
+                                      VerticalAlignment="Bottom"
+                                      SelectedItem="{Binding SelectedGenre,UpdateSourceTrigger=PropertyChanged}"
+                                      x:Name="Filtercbb">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="SelectionChanged">
                                         <i:InvokeCommandAction Command="{Binding SelectedGenreML}" />

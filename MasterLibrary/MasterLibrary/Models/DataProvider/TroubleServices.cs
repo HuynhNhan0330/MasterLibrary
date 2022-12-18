@@ -36,10 +36,12 @@ namespace MasterLibrary.Models.DataProvider
                     Troubles = await (from sc in context.SUCOes
                                       join lsc in context.LOAISUCOes on sc.MALSC equals lsc.MALSC
                                       join ttsc in context.TRANGTHAISCs on sc.MATTSC equals ttsc.MATT
+                                      join kh in context.KHACHHANGs on sc.MAKH equals kh.MAKH
                                       select new TroubleDTO
                                       {
                                           MaSC = sc.MASC,
                                           MaKH = (int)sc.MAKH,
+                                          TenKH = kh.TENKH,
                                           TieuDe = sc.TIEUDE,
                                           MoTa = sc.MOTA,
                                           NgayBaoCao = (DateTime)sc.THOIGIANBAOCAO,
@@ -98,8 +100,7 @@ namespace MasterLibrary.Models.DataProvider
             return Troubles;
         }
 
-
-        public async Task<(bool, string)> CreateTrouble(TroubleDTO newTrouble)
+        public async Task<(bool, string, int)> CreateTrouble(TroubleDTO newTrouble)
         {
             try
             {
@@ -120,12 +121,76 @@ namespace MasterLibrary.Models.DataProvider
                     context.SUCOes.Add(_SuCo);
                     context.SaveChanges();
 
-                    return (true, "Báo cáo sự cố thành công");
+                    int newIdTrouble = await context.SUCOes.MaxAsync(sc => sc.MASC);
+
+                    return (true, "Báo cáo sự cố thành công", newIdTrouble);
+                }
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                return (false, "Xãy ra lỗi khi thêm dữ liệu vào cơ sở dữ liệu", -1);
+            }
+            catch (Exception)
+            {
+                return (false, "Xãy ra lỗi khi thực hiện thao tác", -1);
+            }
+        }
+
+        public async Task<(bool, string)> UpdateTrouble(TroubleDTO newTrouble)
+        {
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    var currentTrouble = context.SUCOes.FirstOrDefault(sc => sc.MASC == newTrouble.MaSC);
+
+                    currentTrouble.TIEUDE = newTrouble.TieuDe;
+                    currentTrouble.MOTA = newTrouble.MoTa;
+                    currentTrouble.THOIGIANBAOCAO = newTrouble.NgayBaoCao;
+                    currentTrouble.IMG = newTrouble.Img;
+                    currentTrouble.CHIPHI = newTrouble.ChiPhi;
+                    currentTrouble.MALSC = (from lsc in context.LOAISUCOes where lsc.TENLSC == newTrouble.TenLoaiSuCo select lsc.MALSC).FirstOrDefault();
+                    currentTrouble.MATTSC = (from ttsc in context.TRANGTHAISCs where ttsc.TENTT == newTrouble.TenTrangThaiSuCo select ttsc.MATT).FirstOrDefault();
+
+                    context.SaveChanges();
+
+                    return (true, "Lưu sự cố thành công");
                 }
             }
             catch (System.Data.Entity.Infrastructure.DbUpdateException)
             {
                 return (false, "Xãy ra lỗi khi thêm dữ liệu vào cơ sở dữ liệu");
+            }
+            catch (Exception)
+            {
+                return (false, "Xãy ra lỗi khi thực hiện thao tác");
+            }
+        }
+
+        public async Task<(bool, string)> DeleteTrouble(int _MaSC)
+        {
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    var TroubleRemove = context.SUCOes.FirstOrDefault(sc => sc.MASC == _MaSC);
+
+                    if (TroubleRemove != null)
+                    {
+                        context.SUCOes.Remove(TroubleRemove);
+                        await context.SaveChangesAsync();
+
+                        return (true, "Xoá sự cố thành công");
+                    }
+                    else
+                    {
+                        return (false, "Không có sự cố để xoá");
+                    }
+                }
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                return (false, "Xãy ra lỗi khi lưu dữ liệu vào cơ sở dữ liệu");
             }
             catch (Exception)
             {

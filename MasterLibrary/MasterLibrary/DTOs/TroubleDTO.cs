@@ -7,6 +7,7 @@ namespace MasterLibrary.DTOs
     {
         public int MaSC { get; set; }
         public int MaKH { get; set; }
+        public string TenKH { get; set; }
         public string TieuDe { get; set; }
         public string MoTa { get; set; }
         public string Img { get; set; }

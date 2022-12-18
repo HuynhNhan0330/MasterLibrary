@@ -17,7 +17,7 @@
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding FirstLoadAddOrEditReport}"/>
+            <i:InvokeCommandAction Command="{Binding FirstLoadAddReport}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
@@ -176,6 +176,53 @@
                             HorizontalContentAlignment="Center"/>
                 </Grid>
             </Grid>
+
+            <Grid Grid.ColumnSpan="2"
+                  Background="LightGray"
+                  Opacity="0.3">
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Visibility"
+                                Value="Collapsed" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsSaving}"
+                                         Value="True">
+                                <Setter Property="Visibility"
+                                        Value="Visible" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+            </Grid>
+            <materialDesign:Card Height="100"
+                                 Width="100"
+                                 Grid.ColumnSpan="2"
+                                 UniformCornerRadius="5">
+                <StackPanel>
+                    <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}"
+                                 IsIndeterminate="True"
+                                 Margin="0,30,0,0"
+                                 x:Name="prg" />
+                    <Label HorizontalContentAlignment="Center"
+                           FontSize="15"
+                           Content="Đang xử lý..."
+                           Margin="0,10,0,0">
+                    </Label>
+                </StackPanel>
+                <materialDesign:Card.Style>
+                    <Style TargetType="materialDesign:Card">
+                        <Setter Property="Visibility"
+                                Value="Collapsed" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsSaving}"
+                                         Value="True">
+                                <Setter Property="Visibility"
+                                        Value="Visible" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </materialDesign:Card.Style>
+            </materialDesign:Card>
         </Grid>
     </Grid>
 </Window>
