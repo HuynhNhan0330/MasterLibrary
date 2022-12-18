@@ -10,12 +10,12 @@
         <EntityTypeShape EntityType="masterlibraryModel.GIOHANG" Width="1.5" PointX="7.5" PointY="0.75" />
         <EntityTypeShape EntityType="masterlibraryModel.HOADON" Width="1.5" PointX="5.25" PointY="11.625" />
         <EntityTypeShape EntityType="masterlibraryModel.KHACHHANG" Width="1.5" PointX="5.25" PointY="7.625" />
-        <EntityTypeShape EntityType="masterlibraryModel.LOAISUCO" Width="1.5" PointX="5.25" PointY="15.25" />
+        <EntityTypeShape EntityType="masterlibraryModel.LOAISUCO" Width="1.5" PointX="5.25" PointY="17.625" />
         <EntityTypeShape EntityType="masterlibraryModel.NHAPSACH" Width="1.5" PointX="9.75" PointY="2.125" />
         <EntityTypeShape EntityType="masterlibraryModel.SACH" Width="1.5" PointX="5.25" PointY="2.75" />
         <EntityTypeShape EntityType="masterlibraryModel.SUCO" Width="1.5" PointX="7.5" PointY="7.5" />
         <EntityTypeShape EntityType="masterlibraryModel.TANG" Width="1.5" PointX="0.75" PointY="3.875" />
-        <EntityTypeShape EntityType="masterlibraryModel.TRANGTHAISC" Width="1.5" PointX="5.25" PointY="17.625" />
+        <EntityTypeShape EntityType="masterlibraryModel.TRANGTHAISC" Width="1.5" PointX="5.25" PointY="15.25" />
         <EntityTypeShape EntityType="masterlibraryModel.USERROLE" Width="1.5" PointX="3" PointY="8.375" />
         <AssociationConnector Association="masterlibraryModel.FK__CTHD__MAHD__43D61337" />
         <AssociationConnector Association="masterlibraryModel.FK__CTHD__MASACH__44CA3770" />
