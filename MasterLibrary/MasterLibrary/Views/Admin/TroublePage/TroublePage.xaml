@@ -202,7 +202,7 @@
                            Grid.Column="1">
                     <Border BorderBrush="#bfad97"
                             BorderThickness="0.5"
-                            Height="180"
+                            Height="220"
                             DockPanel.Dock="Top"
                             Margin="30,85,25,0">
                         <StackPanel>
@@ -237,12 +237,24 @@
 
                             <StackPanel Orientation="Horizontal"
                                     Margin="10,15,10,0">
-                                <TextBlock Text="Bị huỷ: "
+                                <TextBlock Text="Đã huỷ: "
                                        Foreground="#593000"
                                        FontSize="17"
                                        FontWeight="DemiBold"/>
                                 <TextBlock Text="{Binding QuantityCancleTrouble}"
                                        Foreground="#666565"
+                                       FontSize="17"
+                                       FontWeight="Bold"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal"
+                                    Margin="10,15,10,0">
+                                <TextBlock Text="Tổng sự cố: "
+                                       Foreground="#593000"
+                                       FontSize="17"
+                                       FontWeight="DemiBold"/>
+                                <TextBlock Text="{Binding QuantityTrouble}"
+                                       Foreground="#f9b126 "
                                        FontSize="17"
                                        FontWeight="Bold"/>
                             </StackPanel>

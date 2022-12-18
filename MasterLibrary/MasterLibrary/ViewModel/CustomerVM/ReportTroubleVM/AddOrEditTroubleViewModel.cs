@@ -94,6 +94,7 @@ namespace MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM
         public ICommand UploadImageCM { get; set; }
         public ICommand AddTroubleCommand { get; set; }
         public ICommand UpdateTroubleCommand { get; set; }
+        public ICommand CloseAddWindow { get; set; }
         public ICommand CloseEditWindow { get; set; }
         public ICommand CloseDetailTrouble { get; set; }
 

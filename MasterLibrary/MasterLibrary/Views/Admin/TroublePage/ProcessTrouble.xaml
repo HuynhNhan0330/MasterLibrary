@@ -183,7 +183,8 @@
                             Content="Xác nhận"
                             materialDesign:ButtonAssist.CornerRadius="8"
                             Margin="0,15,18,0"
-                            Command="{Binding UpdateTroubleCommand}">
+                            Command="{Binding UpdateTroubleCommand}"
+                            CommandParameter="{Binding ElementName=ProcessTroubleWindow}">
                     </Button>
                 </StackPanel>
             </Grid>

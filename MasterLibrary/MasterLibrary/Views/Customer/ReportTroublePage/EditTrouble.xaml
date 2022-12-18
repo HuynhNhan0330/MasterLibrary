@@ -179,6 +179,7 @@
                     <Button Cursor="Hand"
                             materialDesign:ButtonAssist.CornerRadius="10"
                             Command="{Binding UpdateTroubleCommand}"
+                            CommandParameter="{Binding ElementName=EditTroubleWindow}"
                             Height="50"
                             Width="150"
                             FontSize="18"

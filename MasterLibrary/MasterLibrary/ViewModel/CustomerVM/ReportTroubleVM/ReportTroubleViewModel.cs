@@ -68,6 +68,13 @@ namespace MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM
             set { _QuantityCancleTrouble = value; OnPropertyChanged(); }
         }
 
+        private int _QuantityTrouble;
+        public int QuantityTrouble
+        {
+            get { return _QuantityTrouble; }
+            set { _QuantityTrouble = value; OnPropertyChanged(); }
+        }
+
         private string _ChooseNameTypeTrouble;
         public string ChooseNameTypeTrouble
         {
@@ -213,7 +220,7 @@ namespace MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM
                 NameStatusTrouble = Utils.Trouble.STATUS.WAITTING;
             });
 
-            AddTroubleCommand = new RelayCommand<object>((p) => { return true; }, async (p) =>
+            AddTroubleCommand = new RelayCommand<Window>((p) => { return true; }, async (p) =>
             {
                 IsSaving = true;
 
@@ -249,6 +256,8 @@ namespace MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM
 
                     MessageBoxML ms = new MessageBoxML("Thông báo", lb, MessageType.Accept, MessageButtons.OK);
                     ms.ShowDialog();
+
+                    p.Close();
                 }
                 else
                 {
@@ -257,7 +266,7 @@ namespace MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM
                 }
             });
 
-            UpdateTroubleCommand = new RelayCommand<object>((p) => { return true; }, async (p) =>
+            UpdateTroubleCommand = new RelayCommand<Window>((p) => { return true; }, async (p) =>
             {
                 IsSaving = true;
 
@@ -302,6 +311,8 @@ namespace MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM
 
                     MessageBoxML ms = new MessageBoxML("Thông báo", lb, MessageType.Accept, MessageButtons.OK);
                     ms.ShowDialog();
+
+                    p.Close();
                 }
                 else
                 {
@@ -327,6 +338,11 @@ namespace MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM
                 }
             });
 
+            CloseAddWindow = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                p.Close();
+            });
+            
             CloseEditWindow = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 p.Close();
@@ -395,6 +411,8 @@ namespace MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM
             QuantityWattingTrouble = _numWaiting;
             QuantityDoneTrouble = _numDone;
             QuantityCancleTrouble = _numCancle;
+
+            QuantityTrouble = QuantityWattingTrouble + QuantityDoneTrouble + QuantityCancleTrouble;
         }
 
         public async Task FilterTroube()
