@@ -235,9 +235,9 @@
                                 <TextBlock Text="Đang đợi giải quyết: "
                                        Foreground="#593000"
                                        FontSize="17"
-                                       FontWeight="Bold"/>
+                                       FontWeight="DemiBold"/>
                                 <TextBlock Text="{Binding QuantityWattingTrouble}"
-                                       Foreground="#593000"
+                                       Foreground="#ba1111"
                                        FontSize="17"
                                        FontWeight="Bold"/>
                             </StackPanel>
@@ -247,9 +247,9 @@
                                 <TextBlock Text="Đã giải quyết: "
                                        Foreground="#593000"
                                        FontSize="17"
-                                       FontWeight="Bold"/>
+                                       FontWeight="DemiBold"/>
                                 <TextBlock Text="{Binding QuantityDoneTrouble}"
-                                       Foreground="#593000"
+                                       Foreground="#428720"
                                        FontSize="17"
                                        FontWeight="Bold"/>
                             </StackPanel>
@@ -259,9 +259,9 @@
                                 <TextBlock Text="Bị huỷ: "
                                        Foreground="#593000"
                                        FontSize="17"
-                                       FontWeight="Bold"/>
+                                       FontWeight="DemiBold"/>
                                 <TextBlock Text="{Binding QuantityCancleTrouble}"
-                                       Foreground="#593000"
+                                       Foreground="#666565"
                                        FontSize="17"
                                        FontWeight="Bold"/>
                             </StackPanel>

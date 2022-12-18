@@ -159,7 +159,6 @@ namespace MasterLibrary.ViewModel.AdminVM.TroubleVM
             #endregion
 
             #region DetailOrProcessTrouble
-
             UpdateTroubleCommand = new RelayCommand<object>((p) => { return true; }, async (p) =>
             {
                 IsSaving = true;
