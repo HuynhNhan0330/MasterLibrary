@@ -7,10 +7,26 @@
       xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      Name="LoginPageML"
       Title="LoginPage"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       DataContext="{StaticResource LoginVM}"
       TextElement.Foreground="{DynamicResource MaterialDesignBody}">
+
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Page.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <ThicknessAnimation Storyboard.TargetName="LoginPageML"
+                                        Storyboard.TargetProperty="Margin"
+                                        From="400,0,0,0"
+                                        To="0"
+                                        Duration="0:0:0.2" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
+
     <StackPanel Orientation="Vertical">
         <Label FontFamily="junegull"
                FontSize="35"

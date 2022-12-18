@@ -267,6 +267,7 @@
     <Compile Include="DTOs\DayDTO.cs" />
     <Compile Include="DTOs\InputBookDTO.cs" />
     <Compile Include="DTOs\TangDTO.cs" />
+    <Compile Include="DTOs\TroubleDTO.cs" />
     <Compile Include="Models\DataProvider\AdminServices.cs" />
     <Compile Include="Models\DataProvider\BillDetailServices.cs" />
     <Compile Include="Models\DataProvider\BillServices.cs" />
@@ -324,6 +325,7 @@
     <Compile Include="Models\DataProvider\TRANGTHAISC.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataProvider\TroubleServices.cs" />
     <Compile Include="Models\DataProvider\USERROLE.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
@@ -339,12 +341,17 @@
     <Compile Include="ViewModel\AdminVM\LocationVM\LocationViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\MainAdminViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\StatisticVM\StatisticViewModel.cs" />
+    <Compile Include="ViewModel\AdminVM\TroubleVM\DetailTroubleViewModel.cs" />
+    <Compile Include="ViewModel\AdminVM\TroubleVM\TroubleViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\CustomerVM\BookCartVM\BookCartViewModel.cs" />
     <Compile Include="ViewModel\CustomerVM\BuyBookVM\BuyBookViewModel.cs" />
     <Compile Include="ViewModel\CustomerVM\BuyBookVM\DetailBookViewModel.cs" />
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
     <Compile Include="ViewModel\CustomerVM\MainCustomerViewModel.cs" />
+    <Compile Include="ViewModel\CustomerVM\ReportTroubleVM\AddOrEditTroubleViewModel.cs" />
+    <Compile Include="ViewModel\CustomerVM\ReportTroubleVM\OperatorCoverter.cs" />
+    <Compile Include="ViewModel\CustomerVM\ReportTroubleVM\ReportTroubleViewModel.cs" />
     <Compile Include="ViewModel\CustomerVM\SettingVM\SettingViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\ForgotPassViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\LoginViewModel.cs" />
@@ -378,6 +385,15 @@
     <Compile Include="Views\Admin\StatisticalPage\StatisticalPage.xaml.cs">
       <DependentUpon>StatisticalPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Admin\TroublePage\DetailTroubleAdmin.xaml.cs">
+      <DependentUpon>DetailTroubleAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\TroublePage\ProcessTrouble.xaml.cs">
+      <DependentUpon>ProcessTrouble.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\TroublePage\TroublePage.xaml.cs">
+      <DependentUpon>TroublePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Customer\BookCartPage\BookCartPage.xaml.cs">
       <DependentUpon>BookCartPage.xaml</DependentUpon>
     </Compile>
@@ -392,6 +408,18 @@
     </Compile>
     <Compile Include="Views\Customer\MainCustomerWindow.xaml.cs">
       <DependentUpon>MainCustomerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\ReportTroublePage\AddRTrouble.xaml.cs">
+      <DependentUpon>AddRTrouble.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\ReportTroublePage\DetailTrouble.xaml.cs">
+      <DependentUpon>DetailTrouble.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\ReportTroublePage\EditTrouble.xaml.cs">
+      <DependentUpon>EditTrouble.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\ReportTroublePage\ReportTroublePage.xaml.cs">
+      <DependentUpon>ReportTroublePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Customer\SettingPage\SettingPage.xaml.cs">
       <DependentUpon>SettingPage.xaml</DependentUpon>
@@ -477,6 +505,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Admin\TroublePage\DetailTroubleAdmin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Admin\TroublePage\ProcessTrouble.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Admin\TroublePage\TroublePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Customer\BookCartPage\BookCartPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -496,6 +536,22 @@
     <Page Include="Views\Customer\MainCustomerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Customer\ReportTroublePage\AddRTrouble.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Customer\ReportTroublePage\DetailTrouble.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Customer\ReportTroublePage\EditTrouble.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Customer\ReportTroublePage\ReportTroublePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Customer\SettingPage\SettingPage.xaml">
       <SubType>Designer</SubType>

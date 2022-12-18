@@ -8,10 +8,24 @@
       xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
       mc:Ignorable="d" 
       DataContext="{StaticResource ForgotPassVM}"
-
+      Name="CreateNewPassPageML"
       d:DesignHeight="320" d:DesignWidth="410"
       Title="ForgotPassPage">
 
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Page.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <ThicknessAnimation Storyboard.TargetName="CreateNewPassPageML"
+                                        Storyboard.TargetProperty="Margin"
+                                        From="400,0,0,0"
+                                        To="0"
+                                        Duration="0:0:0.2" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="54*"/>

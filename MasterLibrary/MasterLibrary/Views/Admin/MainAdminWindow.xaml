@@ -198,6 +198,30 @@
                                              CommandParameter="{Binding ElementName=mainFrame}" />
                         </StackPanel>
                     </Border>
+
+                    <!-- Button sự cố -->
+                    <Border CornerRadius="5">
+                        <StackPanel Tag="{Binding ElementName=btnTrouble}"
+                                        Orientation="Horizontal"
+                                        Height="60"
+                                        Width="130"
+                                        Style= "{StaticResource EffectMenuButton}">
+                            <materialDesign:PackIcon Kind="WaterBoilerAlert"
+                                                         Width="35"
+                                                         Height="32"
+                                                         VerticalAlignment="Center"
+                                                         Cursor="Hand"
+                                                         Foreground="White" />
+                            <RadioButton Style="{StaticResource MenuButtonMain}"
+                                             Content= "Sự cố"
+                                             FontWeight="Bold"
+                                             GroupName="mainOptions"
+                                             x:Name="btnTrouble"
+                                             Width="110"
+                                             Command="{Binding LoadTroublePageML}"
+                                             CommandParameter="{Binding ElementName=mainFrame}" />
+                        </StackPanel>
+                    </Border>
                 </StackPanel>
             </Grid>
 
