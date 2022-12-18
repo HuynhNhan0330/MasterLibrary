@@ -290,6 +290,9 @@
     <Compile Include="Models\DataProvider\KHACHHANG.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataProvider\LOAISUCO.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataProvider\MasterlibraryModels.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -312,7 +315,13 @@
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\StatisticServices.cs" />
+    <Compile Include="Models\DataProvider\SUCO.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataProvider\TANG.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataProvider\TRANGTHAISC.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\USERROLE.cs">

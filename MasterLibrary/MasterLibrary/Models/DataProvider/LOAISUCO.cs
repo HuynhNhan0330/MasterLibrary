@@ -12,29 +12,17 @@ namespace MasterLibrary.Models.DataProvider
     using System;
     using System.Collections.Generic;
     
-    public partial class KHACHHANG
+    public partial class LOAISUCO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public KHACHHANG()
+        public LOAISUCO()
         {
-            this.GIOHANGs = new HashSet<GIOHANG>();
-            this.HOADONs = new HashSet<HOADON>();
             this.SUCOes = new HashSet<SUCO>();
         }
     
-        public int MAKH { get; set; }
-        public string USERNAME { get; set; }
-        public string USERPASSWORD { get; set; }
-        public string TENKH { get; set; }
-        public string EMAIL { get; set; }
-        public Nullable<int> IDROLE { get; set; }
-        public string DIACHI { get; set; }
+        public int MALSC { get; set; }
+        public string TENLSC { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GIOHANG> GIOHANGs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HOADON> HOADONs { get; set; }
-        public virtual USERROLE USERROLE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SUCO> SUCOes { get; set; }
     }
