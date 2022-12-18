@@ -184,6 +184,38 @@
                         </i:Interaction.Triggers>
                     </Border>
 
+                    <!-- Button báo cáo sự cố -->
+                    <Border CornerRadius="5"
+                            Cursor="Hand">
+                        <StackPanel Tag="{Binding ElementName=btnReportTrouble}"
+                                    Orientation="Horizontal"
+                                    Height="60"
+                                    Width="130"
+                                    Style= "{StaticResource EffectMenuButton}">
+                            <materialDesign:PackIcon Kind="AlertCircle"
+                                                     Width="35"
+                                                     Height="32"
+                                                     VerticalAlignment="Center"
+                                                     Foreground="White" />
+                            <RadioButton Style="{StaticResource MenuButtonMain}"
+                                         GroupName="mainOptions"
+                                         Content="Báo cáo sự cố"
+                                         FontWeight="Bold"
+                                         x:Name="btnReportTrouble"
+                                         Width="auto"
+                                         Command="{Binding LoadReportTroublePageML}"
+                                         CommandParameter="{Binding ElementName=mainFrame}"/>
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding LoadReportTroublePageML}"
+                                         CommandParameter="{Binding ElementName=mainFrame}"/>
+                                <i:InvokeCommandAction Command="{Binding TurnOnReportTrouble}"
+                                         CommandParameter="{Binding ElementName=btnReportTrouble}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Border>
+                    
                     <!-- Button cài đặt-->
                     <Border CornerRadius="5"
                             Cursor="Hand">
@@ -199,7 +231,7 @@
                                                      Foreground="White" />
                             <RadioButton Style="{StaticResource MenuButtonMain}"
                                          GroupName="mainOptions"
-                                         Content="Thông tin"
+                                         Content="Cài đặt"
                                          FontWeight="Bold"
                                          x:Name="btnSetting"
                                          Width="auto"

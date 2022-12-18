@@ -7,6 +7,8 @@ using MasterLibrary.Views.Customer.SettingPage;
 using System.Windows;
 using MasterLibrary.Views.LoginWindow;
 using MasterLibrary.Views.Customer.BookCartPage;
+using MasterLibrary.Views.Customer.ReportTroublePage;
+using MasterLibrary.Views.MessageBoxML;
 
 namespace MasterLibrary.ViewModel.CustomerVM
 {
@@ -34,6 +36,8 @@ namespace MasterLibrary.ViewModel.CustomerVM
         public ICommand TurnOnSetting { get; set; }
         public ICommand LoadBookCartPageML { get; set; }
         public ICommand TurnOnCartBook { get; set; }
+        public ICommand LoadReportTroublePageML { get; set; }
+        public ICommand TurnOnReportTrouble { get; set; }
         public ICommand SignOutML { get; set; }
         #endregion
 
@@ -63,6 +67,12 @@ namespace MasterLibrary.ViewModel.CustomerVM
                 p.Content = new SettingPage();
             });
 
+            // Load trang báo cáo sự cố
+            LoadReportTroublePageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            {
+                p.Content = new ReportTroublePage();
+            });
+
             // Bật button mua sách
             TurnOnBuyBook = new RelayCommand<RadioButton>((p) => { return true; }, (p) =>
             {
@@ -87,15 +97,26 @@ namespace MasterLibrary.ViewModel.CustomerVM
                 p.IsChecked = true;
             });
 
+            // Bật button báo cáo sự cố
+            TurnOnReportTrouble = new RelayCommand<RadioButton>((p) => { return true; }, (p) =>
+            {
+                p.IsChecked = true;
+            });
+
             // Đăng xuất
             SignOutML = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                p.Hide();
+                MessageBoxML ms = new MessageBoxML("Xác nhận", "Bạn muốn đăng xuất", MessageType.Waitting, MessageButtons.YesNo);
 
-                LoginWindow w = new LoginWindow();
-                w.Show();
+                if (ms.ShowDialog() == true)
+                {
+                    p.Hide();
 
-                p.Close();
+                    LoginWindow w = new LoginWindow();
+                    w.Show();
+
+                    p.Close();
+                }
             });
         }
     }

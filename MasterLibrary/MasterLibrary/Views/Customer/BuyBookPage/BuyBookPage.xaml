@@ -8,8 +8,23 @@
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      Name="BuyBookPageML"
       Title="BuyBookPage"
       DataContext="{StaticResource BuyBookVM}">
+
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Page.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="BuyBookPageML"
+                                     Storyboard.TargetProperty="Opacity"
+                                     From="0"
+                                     To="1"
+                                     Duration="0:0:0.3" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -69,20 +84,19 @@
                                                                  VerticalAlignment="Bottom" />
                             <ComboBox materialDesign:HintAssist.Hint="Thể loại"
                                       materialDesign:TextFieldAssist.HasClearButton="True"
-                                                  VerticalContentAlignment="Bottom"
-                                                  Width="150"
-                                                  Height="40"
-                                                  HorizontalAlignment="Left"
-                                                  FontSize="16"
-                                                  FontWeight="DemiBold"
-                                                  ItemsSource="{Binding GenreBook}"
-                                                  materialDesign:HintAssist.HintOpacity="0.5"
-                                                  BorderBrush="Black"
-                                                  Foreground="Black"
-                                                  VerticalAlignment="Bottom"
-                                                  SelectedItem="{Binding SelectedGenre,UpdateSourceTrigger=PropertyChanged}"
-                                                  x:Name="Filtercbb">
-                                
+                                      VerticalContentAlignment="Bottom"
+                                      Width="150"
+                                      Height="40"
+                                      HorizontalAlignment="Left"
+                                      FontSize="16"
+                                      FontWeight="DemiBold"
+                                      ItemsSource="{Binding GenreBook}"
+                                      materialDesign:HintAssist.HintOpacity="0.5"
+                                      BorderBrush="Black"
+                                      Foreground="Black"
+                                      VerticalAlignment="Bottom"
+                                      SelectedItem="{Binding SelectedGenre,UpdateSourceTrigger=PropertyChanged}"
+                                      x:Name="Filtercbb">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="SelectionChanged">
                                         <i:InvokeCommandAction Command="{Binding SelectedGenreML}" />
@@ -248,5 +262,25 @@
               VerticalAlignment="Center"
               HorizontalAlignment="Center">
         </Grid>
+
+        <!--Hiện load khi chưa load xong trang-->
+        <ProgressBar Height="100"
+                     Width="100"
+                     IsIndeterminate="{Binding IsLoading}">
+            <ProgressBar.Style>
+                <Style TargetType="ProgressBar"
+                       BasedOn="{StaticResource MaterialDesignCircularProgressBar}">
+                    <Setter Property="Visibility"
+                            Value="Collapsed" />
+                    <Style.Triggers>
+                        <Trigger Property="IsIndeterminate"
+                                 Value="True">
+                            <Setter Property="Visibility"
+                                    Value="Visible" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ProgressBar.Style>
+        </ProgressBar>
     </Grid>
 </Page>

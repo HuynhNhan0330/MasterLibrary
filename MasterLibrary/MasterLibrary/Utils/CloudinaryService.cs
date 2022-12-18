@@ -30,7 +30,7 @@ namespace MasterLibrary.Utils
         private Cloudinary cloudinary;
         private CloudinaryService()
         {
-            account = new Account("dclzpc4gd", "673248188376562", "YuE5o0-X2csdTsCaUQXt9BCYNMs");
+            account = new Account("dsrqapm0a", "957237172661889", "-1RSpajRMHkAQicQdFuyhIJfogE");
             cloudinary = new Cloudinary(account);
             cloudinary.Api.Secure = true;
         }
@@ -42,7 +42,6 @@ namespace MasterLibrary.Utils
                 var uploadParams = new ImageUploadParams()
                 {
                     File = new FileDescription(filePath),
-                    Folder = "MasterLibrary"
                 };
 
                 var uploadResult = await cloudinary.UploadAsync(uploadParams);

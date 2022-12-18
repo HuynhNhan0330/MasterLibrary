@@ -108,6 +108,13 @@ namespace MasterLibrary.ViewModel.AdminVM.LocationVM
             set { _SelectedBuildingName = value; OnPropertyChanged(); }
         }
 
+        private bool _IsLoading;
+        public bool IsLoading
+        {
+            get { return _IsLoading; }
+            set { _IsLoading = value; OnPropertyChanged(); }
+        }
+
         #endregion
 
         #region Icommand
@@ -133,6 +140,8 @@ namespace MasterLibrary.ViewModel.AdminVM.LocationVM
         {
             FirstLoadLocationPage = new RelayCommand<object>((p) => { return true; }, async (p) =>
             {
+                IsLoading = true;
+
                 VisibilityFloor = AddVisibilityFloor = DeleteVisibilityFloor = VisibilityRow = AddVisibilityRow = DeleteVisibilityRow = "Collapsed";
 
                 ListTang = new ObservableCollection<TangDTO>((await BuildingServices.Ins.GetAllFloor()).OrderBy(t => t.TenTang));
@@ -154,6 +163,8 @@ namespace MasterLibrary.ViewModel.AdminVM.LocationVM
                 {
                     CanMoveUp = false;
                 }
+
+                IsLoading = false;
             });
 
             MaskNameLocation = new RelayCommand<Grid>((p) => { return true; }, (p) =>
