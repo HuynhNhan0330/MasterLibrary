@@ -102,6 +102,13 @@ namespace MasterLibrary.ViewModel.AdminVM.TroubleVM
             set { _IsSaving = value; OnPropertyChanged(); }
         }
 
+        private bool _IsLoading;
+        public bool IsLoading
+        {
+            get { return _IsLoading; }
+            set { _IsLoading = value; OnPropertyChanged(); }
+        }
+
         #endregion
 
         #region Icommand
@@ -124,12 +131,16 @@ namespace MasterLibrary.ViewModel.AdminVM.TroubleVM
             #region Trouble
             FirstLoadTrouble = new RelayCommand<object>((p) => { return true; }, async (p) =>
             {
+                IsLoading = true;
+
                 ListTrouble = new ObservableCollection<TroubleDTO>((await TroubleServices.Ins.GetAllTrouble()).OrderByDescending(sc => sc.NgayBaoCao));
                 ListTrouble1 = new ObservableCollection<TroubleDTO>(ListTrouble);
 
                 await loadStatusTrouble();
                 await loadTypeTrouble();
                 await LoadQuantityTrouble();
+
+                IsLoading = false;
             });
 
             MaskNameTrouble = new RelayCommand<Grid>((p) => { return true; }, (p) =>

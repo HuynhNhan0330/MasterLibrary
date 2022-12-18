@@ -212,6 +212,8 @@
                     </Style>
                 </Grid.Style>
             </Grid>
+            
+            <!--Hiện lên đang xử lí-->
             <materialDesign:Card Height="100"
                                  Width="100"
                                  Grid.ColumnSpan="2"

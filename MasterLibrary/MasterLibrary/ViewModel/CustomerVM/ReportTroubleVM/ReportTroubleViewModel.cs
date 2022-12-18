@@ -103,6 +103,13 @@ namespace MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM
             set { _IsSaving = value; OnPropertyChanged(); }
         }
 
+        private bool _IsLoading;
+        public bool IsLoading
+        {
+            get { return _IsLoading; }
+            set { _IsLoading = value; OnPropertyChanged(); }
+        }
+
         #endregion
 
         #region Icommand
@@ -127,12 +134,16 @@ namespace MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM
             #region ReportTrouble
             FirstLoadReportTrouble = new RelayCommand<object>((p) => { return true; }, async (p) =>
             {
+                IsLoading = true;
+
                 ListTrouble = new ObservableCollection<TroubleDTO>((await TroubleServices.Ins.GetAllTroubleOfCustomer(MainCustomerViewModel.CurrentCustomer.MAKH)).OrderByDescending(sc => sc.NgayBaoCao));
                 ListTrouble1 = new ObservableCollection<TroubleDTO>(ListTrouble);
 
                 await loadStatusTrouble();
                 await loadTypeTrouble();
                 await LoadQuantityTrouble();
+
+                IsLoading = false;
             });
 
             MaskNameReportTrouble = new RelayCommand<Grid>((p) => { return true; }, (p) =>

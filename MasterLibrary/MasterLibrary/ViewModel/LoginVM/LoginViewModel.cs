@@ -77,6 +77,14 @@ namespace MasterLibrary.ViewModel.LoginVM
             get { return _passwordreg; }
             set { _passwordreg = value;OnPropertyChanged(); }
         }
+
+        private bool _IsSaving;
+        public bool IsSaving
+        {
+            get { return _IsSaving; }
+            set { _IsSaving = value; OnPropertyChanged(); }
+        }
+
         #endregion
         public LoginViewModel()
         {
@@ -129,7 +137,11 @@ namespace MasterLibrary.ViewModel.LoginVM
                 string password = Passwordlog;
 
                 // thực hiện đăng nhập
-                checkValidateAccount(username, password, p);
+                IsSaving = true;
+
+                await checkValidateAccount(username, password, p);
+
+                IsSaving = false;
             });
 
             // Nhận mật khẩu mỗi lần thay đổi

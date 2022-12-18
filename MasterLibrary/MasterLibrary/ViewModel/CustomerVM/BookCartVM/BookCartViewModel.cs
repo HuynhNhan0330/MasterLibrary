@@ -51,10 +51,25 @@ namespace MasterLibrary.ViewModel.CustomerVM.BookCartVM
             set { _TongSach = value; OnPropertyChanged(); }
         }
 
+        private bool _IsLoading;
+        public bool IsLoading
+        {
+            get { return _IsLoading; }
+            set { _IsLoading = value; OnPropertyChanged(); }
+        }
+
+        private bool _IsSaving;
+        public bool IsSaving
+        {
+            get { return _IsSaving; }
+            set { _IsSaving = value; OnPropertyChanged(); }
+        }
+
         #endregion
 
         #region Icommand
         public ICommand FirstLoadBookInCart { get; set; }
+        public ICommand MaskNameBookCartPage { get; set; }
         public ICommand PlusCommand { get; set; }
         public ICommand MinusCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
@@ -62,16 +77,28 @@ namespace MasterLibrary.ViewModel.CustomerVM.BookCartVM
         public ICommand PayAllCommand { get; set; }
         public ICommand ChecktxbQuantity { get; set; }
         public ICommand IsAllowedInput { get; set; }
-        
+
+        #endregion
+
+        #region Thuôc tính tạm thời
+        public Grid MaskName { get; set; }
+
         #endregion
 
         public BookCartViewModel()
         {
             FirstLoadBookInCart = new RelayCommand<object>((p) => { return true; }, async (p) =>
             {
+                IsLoading = true;
                 ListBooksInCart = new ObservableCollection<BookInCartDTO>(await BookInCartServices.Ins.GetAllBookInCart(MainCustomerViewModel.CurrentCustomer.MAKH));
                 ReCalculateMoney();
                 ReCalculateQuantity();
+                IsLoading = false;
+            });
+
+            MaskNameBookCartPage = new RelayCommand<Grid>((p) => { return true; }, (p) =>
+            {
+                MaskName = p;
             });
 
             PlusCommand = new RelayCommand<object>((p) => { return true; }, async (p) =>
@@ -141,12 +168,18 @@ namespace MasterLibrary.ViewModel.CustomerVM.BookCartVM
 
             DeleteCommand = new RelayCommand<object>((p) => { return true; }, async (p) =>
             {
+                IsSaving = true;
+                MaskName.Visibility = Visibility.Visible;
+
                 BookInCartDTO BookInCartCurrent = SelectedBookInCart;
 
                 if (BookInCartCurrent != null)
                 {
                     await deleteBook(BookInCartCurrent);
                 }
+
+                IsSaving = false;
+                MaskName.Visibility = Visibility.Collapsed;
             });
 
             DeleteAllCommand = new RelayCommand<object>((p) => { return true; }, async (p) =>
@@ -163,7 +196,13 @@ namespace MasterLibrary.ViewModel.CustomerVM.BookCartVM
 
                 if (ms.ShowDialog() == true)
                 {
+                    IsSaving = true;
+                    MaskName.Visibility = Visibility.Visible;
+
                     (bool isDeleteAll, string lb) = await BookInCartServices.Ins.DeleteAllBookInCart(MainCustomerViewModel.CurrentCustomer.MAKH);
+
+                    IsSaving = false;
+                    MaskName.Visibility = Visibility.Collapsed;
 
                     if (isDeleteAll == true)
                     {
@@ -197,6 +236,9 @@ namespace MasterLibrary.ViewModel.CustomerVM.BookCartVM
 
                 if (ms.ShowDialog() == true)
                 {
+                    IsSaving = true;
+                    MaskName.Visibility = Visibility.Visible;
+
                     decimal totalTien = TongTien;
 
                     List<BillDetailDTO> newbillDetailList = new List<BillDetailDTO>();
@@ -205,6 +247,9 @@ namespace MasterLibrary.ViewModel.CustomerVM.BookCartVM
                     {
                         if (ListBooksInCart[i].SoLuongHT > ListBooksInCart[i].SoLuongMax)
                         {
+                            IsSaving = false;
+                            MaskName.Visibility = Visibility.Collapsed;
+
                             MessageBoxML mb = new MessageBoxML("Lỗi", "Số lượng không phù hợp với vài vật phẩm", MessageType.Accept, MessageButtons.OK);
                             mb.ShowDialog();
 
@@ -232,6 +277,9 @@ namespace MasterLibrary.ViewModel.CustomerVM.BookCartVM
                     //Tạo các chi tiết hoá đơn
 
                     (bool isCreate, string lb) = await BuyServices.Ins.CreateNewBillDetail(billId, newbillDetailList);
+
+                    IsSaving = false;
+                    MaskName.Visibility = Visibility.Collapsed;
 
                     if (isCreate == true)
                     {

@@ -9,10 +9,26 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1170"
       Title="BookCartPage"
+      Name="BookCartPageML"
       DataContext="{StaticResource BookCartVM}">
+
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Page.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="BookCartPageML"
+                                     Storyboard.TargetProperty="Opacity"
+                                     From="0"
+                                     To="1"
+                                     Duration="0:0:0.3" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
+
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding MaskNameML}"
+            <i:InvokeCommandAction Command="{Binding MaskNameBookCartPage}"
                                    CommandParameter="{Binding ElementName=ShadowMask}" />
             <i:InvokeCommandAction Command="{Binding FirstLoadBookInCart}"/>
         </i:EventTrigger>
@@ -329,6 +345,36 @@
             </StackPanel>
         </Grid>
 
+        <!--Hiện lên đang xử lí-->
+        <materialDesign:Card Height="100"
+                             Width="100"
+                             UniformCornerRadius="5">
+            <StackPanel>
+                <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}"
+                                 IsIndeterminate="True"
+                                 Margin="0,30,0,0"
+                                 x:Name="prg" />
+                <Label HorizontalContentAlignment="Center"
+                           FontSize="15"
+                           Content="Đang xử lý..."
+                           Margin="0,10,0,0">
+                </Label>
+            </StackPanel>
+            <materialDesign:Card.Style>
+                <Style TargetType="materialDesign:Card">
+                    <Setter Property="Visibility"
+                                Value="Collapsed" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsSaving}"
+                                         Value="True">
+                            <Setter Property="Visibility"
+                                        Value="Visible" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </materialDesign:Card.Style>
+        </materialDesign:Card>
+
         <!-- Mặt nạ làm mờ -->
         <Grid Background="Gray"
               Opacity="0.3"
@@ -339,5 +385,25 @@
               VerticalAlignment="Center"
               HorizontalAlignment="Center">
         </Grid>
+
+        <!--Hiện load khi chưa load xong trang-->
+        <ProgressBar Height="100"
+                     Width="100"
+                     IsIndeterminate="{Binding IsLoading}">
+            <ProgressBar.Style>
+                <Style TargetType="ProgressBar"
+                       BasedOn="{StaticResource MaterialDesignCircularProgressBar}">
+                    <Setter Property="Visibility"
+                            Value="Collapsed" />
+                    <Style.Triggers>
+                        <Trigger Property="IsIndeterminate"
+                                 Value="True">
+                            <Setter Property="Visibility"
+                                    Value="Visible" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ProgressBar.Style>
+        </ProgressBar>
     </Grid>
 </Page>

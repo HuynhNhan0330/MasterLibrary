@@ -49,6 +49,14 @@ namespace MasterLibrary.ViewModel.CustomerVM.BuyBookVM
             get { return _SelectedItem; }
             set { _SelectedItem = value; OnPropertyChanged(); }
         }
+
+        private bool _IsLoading;
+        public bool IsLoading
+        {
+            get { return _IsLoading; }
+            set { _IsLoading = value; OnPropertyChanged(); }
+        }
+
         #endregion
 
         #region ICommand
@@ -73,11 +81,15 @@ namespace MasterLibrary.ViewModel.CustomerVM.BuyBookVM
             // Load ban đầu
             FirstLoadBuyBook = new RelayCommand<Frame>((p) => { return true; }, async (p) =>
             {
+                IsLoading = true;
+
                 ListBook1 = new ObservableCollection<BookDTO>(await BookServices.Ins.GetAllbook());
                 GenreBook = new ObservableCollection<string>(baseBook.ListTheLoai);
                 isAscending = false;
 
                 await LoadMainListBox(0);
+
+                IsLoading = false;
             });
 
             // Lọc thông tin theo thể loại

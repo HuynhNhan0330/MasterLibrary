@@ -75,6 +75,13 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
             set { _ConfirmNewPassword = value; OnPropertyChanged(); }
         }
 
+        private bool _IsLoading;
+        public bool IsLoading
+        {
+            get { return _IsLoading; }
+            set { _IsLoading = value; OnPropertyChanged(); }
+        }
+
         #endregion
 
         #region Icommand
@@ -92,12 +99,16 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
         {
             FirstLoadML = new RelayCommand<object> ((p) => { return true; }, async (p) => 
             {
+                IsLoading = true;
+
                 int MaKHcur = MainCustomerViewModel.CurrentCustomer.MAKH;
                 Cus = await Task<CustomerDTO>.Run(() => CustormerServices.Ins.FindCustomer(MaKHcur));
                 MaKH = Cus.MAKH;
                 TenKH = Cus.TENKH;
                 Email = Cus.EMAIL;
                 DiaChi = Cus.DIACHI;
+
+                IsLoading = false;
             });
 
             UpdateInfo = new RelayCommand<object>((p) => { return true; }, async (p) =>

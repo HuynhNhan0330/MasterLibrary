@@ -9,8 +9,23 @@
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1170"
+      Name="ReportTroublePageML"
       Title="ReportTroublePage"
       DataContext="{StaticResource ReportTroubleVM}">
+    
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Page.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="ReportTroublePageML"
+                                     Storyboard.TargetProperty="Opacity"
+                                     From="0"
+                                     To="1"
+                                     Duration="0:0:0.3" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -321,5 +336,25 @@
               VerticalAlignment="Center"
               HorizontalAlignment="Center">
         </Grid>
+
+        <!--Hiện load khi chưa load xong trang-->
+        <ProgressBar Height="100"
+                     Width="100"
+                     IsIndeterminate="{Binding IsLoading}">
+            <ProgressBar.Style>
+                <Style TargetType="ProgressBar"
+                       BasedOn="{StaticResource MaterialDesignCircularProgressBar}">
+                    <Setter Property="Visibility"
+                            Value="Collapsed" />
+                    <Style.Triggers>
+                        <Trigger Property="IsIndeterminate"
+                                 Value="True">
+                            <Setter Property="Visibility"
+                                    Value="Visible" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ProgressBar.Style>
+        </ProgressBar>
     </Grid>
 </Page>

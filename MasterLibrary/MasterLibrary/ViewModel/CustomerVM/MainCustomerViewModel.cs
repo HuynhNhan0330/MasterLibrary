@@ -8,6 +8,7 @@ using System.Windows;
 using MasterLibrary.Views.LoginWindow;
 using MasterLibrary.Views.Customer.BookCartPage;
 using MasterLibrary.Views.Customer.ReportTroublePage;
+using MasterLibrary.Views.MessageBoxML;
 
 namespace MasterLibrary.ViewModel.CustomerVM
 {
@@ -105,12 +106,17 @@ namespace MasterLibrary.ViewModel.CustomerVM
             // Đăng xuất
             SignOutML = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                p.Hide();
+                MessageBoxML ms = new MessageBoxML("Xác nhận", "Bạn muốn đăng xuất", MessageType.Waitting, MessageButtons.YesNo);
 
-                LoginWindow w = new LoginWindow();
-                w.Show();
+                if (ms.ShowDialog() == true)
+                {
+                    p.Hide();
 
-                p.Close();
+                    LoginWindow w = new LoginWindow();
+                    w.Show();
+
+                    p.Close();
+                }
             });
         }
     }
