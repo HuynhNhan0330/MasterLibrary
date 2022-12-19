@@ -217,7 +217,7 @@
                            Grid.Column="1">
                     <Border BorderBrush="#bfad97"
                             BorderThickness="0.5"
-                            Height="220"
+                            Height="210"
                             DockPanel.Dock="Top"
                             Margin="30,85,25,0">
                         <StackPanel>
@@ -273,6 +273,28 @@
                                        FontSize="17"
                                        FontWeight="Bold"/>
                             </StackPanel>
+
+                            
+                        </StackPanel>
+                    </Border>
+
+                    <Border BorderBrush="#bfad97"
+                            BorderThickness="0.5"
+                            Height="70"
+                            DockPanel.Dock="Top"
+                            Margin="30,25,25,0">
+                        <StackPanel Orientation="Vertical"
+                                    Margin="10,5,10,0">
+                            <TextBlock Text="Tổng chi phí: "
+                                       Foreground="#593000"
+                                       FontSize="17"
+                                       FontWeight="DemiBold"/>
+                            <TextBlock Text="{Binding TotalFeeStr}"
+                                       Foreground="#593000"
+                                       Margin="5,2,10,0"
+                                       FontSize="17"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Border>
                 </DockPanel>

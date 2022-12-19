@@ -74,6 +74,13 @@ namespace MasterLibrary.ViewModel.AdminVM.TroubleVM
             set { _QuantityTrouble = value; OnPropertyChanged(); }
         }
 
+        private string _TotalFeeStr;
+        public string TotalFeeStr
+        {
+            get { return _TotalFeeStr; }
+            set { _TotalFeeStr = value; OnPropertyChanged(); }
+        }
+
         private string _ChooseNameTypeTrouble;
         public string ChooseNameTypeTrouble
         {
@@ -139,6 +146,15 @@ namespace MasterLibrary.ViewModel.AdminVM.TroubleVM
                 await loadStatusTrouble();
                 await loadTypeTrouble();
                 await LoadQuantityTrouble();
+
+                decimal CurrentTotalFee = 0;
+
+                for (int i = 0; i < ListTrouble1.Count; ++i)
+                {
+                    CurrentTotalFee += ListTrouble1[i].ChiPhi;
+                }
+
+                TotalFeeStr = Utils.Helper.FormatVNMoney(CurrentTotalFee);
 
                 IsLoading = false;
             });
@@ -343,6 +359,15 @@ namespace MasterLibrary.ViewModel.AdminVM.TroubleVM
 
             await FilterTroube();
             await LoadQuantityTrouble();
+
+            decimal CurrentTotalFee = 0;
+
+            for (int i = 0; i < ListTrouble1.Count; ++i)
+            {
+                CurrentTotalFee += ListTrouble1[i].ChiPhi;
+            }
+
+            TotalFeeStr = Utils.Helper.FormatVNMoney(CurrentTotalFee);
         }
     }
 }

@@ -163,7 +163,7 @@
                     <Button Cursor="Hand"
                             materialDesign:ButtonAssist.CornerRadius="10"
                             Command="{Binding CloseAddWindow}"
-                            CommandParameter="{Binding ElementName=EditTroubleWindow}"
+                            CommandParameter="{Binding ElementName=AddTrouble}"
                             Height="50"
                             Width="150"
                             FontSize="18"
