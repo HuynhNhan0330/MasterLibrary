@@ -110,7 +110,7 @@
                                 FontSize="13"
                                 Margin="10 0 0 0"
                                 Padding="0 10 10 0"
-                                Visibility="Visible"
+                                Visibility="Collapsed"
                                 x:Name="timePicker"
                                 SelectedDate="{Binding SelectedRevenueDate, Mode=TwoWay}">
                         <i:Interaction.Triggers>
@@ -129,7 +129,7 @@
                             FontWeight="Bold"
                             Margin="46 10 0 0"
                             Padding="0"
-                            materialDesign:ButtonAssist.CornerRadius="2"
+                            materialDesign:ButtonAssist.CornerRadius="4"
                             Command="{Binding ExportFileML}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">

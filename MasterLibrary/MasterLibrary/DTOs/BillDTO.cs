@@ -1,4 +1,5 @@
-﻿using MasterLibrary.Utils;
+﻿using MasterLibrary.Models.DataProvider;
+using MasterLibrary.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +46,10 @@ namespace MasterLibrary.DTOs
         public decimal TRIGIA { get; set; }
         public DateTime NGHD { get; set; }
 
-        //public List<>
+
+        //sử dụng để gán thông tin cho hoá đơn bán hàng
+        public string cusAdd { get; set; }
+        public string bookName { get; set; }
     }
 
 

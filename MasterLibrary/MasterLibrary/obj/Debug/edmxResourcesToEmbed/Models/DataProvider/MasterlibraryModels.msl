@@ -51,6 +51,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="LOAISUCOes">
+      <EntityTypeMapping TypeName="masterlibraryModel.LOAISUCO">
+        <MappingFragment StoreEntitySet="LOAISUCO">
+          <ScalarProperty Name="TENLSC" ColumnName="TENLSC" />
+          <ScalarProperty Name="MALSC" ColumnName="MALSC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="NHAPSACHes">
       <EntityTypeMapping TypeName="masterlibraryModel.NHAPSACH">
         <MappingFragment StoreEntitySet="NHAPSACH">
@@ -81,11 +89,34 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SUCOes">
+      <EntityTypeMapping TypeName="masterlibraryModel.SUCO">
+        <MappingFragment StoreEntitySet="SUCO">
+          <ScalarProperty Name="MATTSC" ColumnName="MATTSC" />
+          <ScalarProperty Name="MALSC" ColumnName="MALSC" />
+          <ScalarProperty Name="THOIGIANBAOCAO" ColumnName="THOIGIANBAOCAO" />
+          <ScalarProperty Name="CHIPHI" ColumnName="CHIPHI" />
+          <ScalarProperty Name="IMG" ColumnName="IMG" />
+          <ScalarProperty Name="MOTA" ColumnName="MOTA" />
+          <ScalarProperty Name="TIEUDE" ColumnName="TIEUDE" />
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="MASC" ColumnName="MASC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="TANGs">
       <EntityTypeMapping TypeName="masterlibraryModel.TANG">
         <MappingFragment StoreEntitySet="TANG">
           <ScalarProperty Name="TENTANG" ColumnName="TENTANG" />
           <ScalarProperty Name="MATANG" ColumnName="MATANG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRANGTHAISCs">
+      <EntityTypeMapping TypeName="masterlibraryModel.TRANGTHAISC">
+        <MappingFragment StoreEntitySet="TRANGTHAISC">
+          <ScalarProperty Name="TENTT" ColumnName="TENTT" />
+          <ScalarProperty Name="MATT" ColumnName="MATT" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

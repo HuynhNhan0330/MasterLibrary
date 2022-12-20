@@ -8,7 +8,7 @@
         Title="RevenueDetail" Height="520" Width="450"
         x:Name="RevenueDetailML"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Background="Transparent"
+        Background="#00000000"
         WindowStyle="None"
     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
     TextElement.FontWeight="Regular"
@@ -32,7 +32,7 @@
             </BeginStoryboard>
         </EventTrigger>
     </Window.Triggers>
-    <Border Background="White"
+    <Border Background="#FFE5E5E5"
             BorderBrush="Gray"
             BorderThickness="1"
             CornerRadius="10">
@@ -45,12 +45,13 @@
 
             <!--Header-->
             <Grid Grid.Row="0">
-                <Label Content="CHI TIẾT HOÁ ĐƠN"
+                <Label Content="MASTER LIBRARY"
                        FontSize="25"
                        FontWeight="Bold"
                        BorderThickness="0 0 0 1"
                        BorderBrush="Black"
-                       Padding="20 20 0 0"/>
+                       Padding="20 20 0 0"
+                       HorizontalContentAlignment="Center"/>
 
                 <StackPanel Orientation="Horizontal"
                             VerticalAlignment="Top"
@@ -102,6 +103,19 @@
                                             <ColumnDefinition></ColumnDefinition>
                                         </Grid.ColumnDefinitions>
 
+                                        <Label Grid.Column="0" Content="Mã đơn hàng"
+                                           FontSize="15"></Label>
+                                        <Label Grid.Column="1" x:Name="idBill"
+                                           FontSize="15" HorizontalAlignment="Right"/>
+                                    </Grid>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Grid Margin="0 7 0 0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
                                         <Label Grid.Column="0" Content="Tên sách"
                                            FontSize="15"></Label>
                                         <Label Grid.Column="1" x:Name="bookName"
@@ -115,22 +129,9 @@
                                             <ColumnDefinition></ColumnDefinition>
                                         </Grid.ColumnDefinitions>
 
-                                        <Label Grid.Column="0" Content="Tên tác giả"
+                                        <Label Grid.Column="0" Content="Ngày mua hàng"
                                            FontSize="15"></Label>
-                                        <Label Grid.Column="1" x:Name="authorName"
-                                           FontSize="15" HorizontalAlignment="Right"/>
-                                    </Grid>
-                                </StackPanel>
-                                <StackPanel>
-                                    <Grid Margin="0 7 0 0">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
-
-                                        <Label Grid.Column="0" Content="Ngày xuất bản"
-                                           FontSize="15"></Label>
-                                        <Label Grid.Column="1" x:Name="debutDay"
+                                        <Label Grid.Column="1" x:Name="affordDay"
                                            FontSize="15" HorizontalAlignment="Right"/>
                                     </Grid>
                                 </StackPanel>
@@ -217,17 +218,12 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Content="Ngày mua hàng" FontSize="15"></Label>
-                    <Label Grid.Column="1" FontSize="15" x:Name="dateBuy" HorizontalAlignment="Right"></Label>
+                    <Label Grid.Column="0" Content="Tổng trị giá đơn hàng" FontSize="15"></Label>
+                    <Label Grid.Column="1" FontSize="15" x:Name="costBook" HorizontalAlignment="Right"></Label>
                 </Grid>
 
                 <Grid Margin="0 5 0 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Content="Tổng trị giá" FontSize="15"></Label>
-                    <Label Grid.Column="1" FontSize="15" x:Name="sumBill" HorizontalAlignment="Right"></Label>
+                    <Label Grid.Column="0" Content="Hẹn gặp lại quý khách " FontSize="15" HorizontalAlignment="Center"></Label>
                 </Grid>
             </StackPanel>
         </Grid>

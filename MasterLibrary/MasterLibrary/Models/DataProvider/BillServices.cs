@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MasterLibrary.Models.DataProvider
 {
@@ -102,14 +103,34 @@ namespace MasterLibrary.Models.DataProvider
             }
         }
 
-        //public async Task<BillDTO> GetDetail(string ID)
+        //public async Task<BillDTO> GetDetail(int ID)
         //{
         //    try
         //    {
         //        using (var context = new MasterlibraryEntities())
         //        {
-        //            var bill = 
+        //            var bill = await context.HOADONs.FindAsync(ID);
+        //            var cthd = bill.CTHDs;
+        //            //MessageBox.Show(cthd.First().MASACH.ToString());
+        //            //var IDBook = cthd.FirstOrDefault().MASACH;
+        //            //var namebook = context.SACHes.Where(p => p.MASACH == IDBook).Take(1).ToString();
+        //            BillDTO billInfo = new BillDTO
+        //            {
+        //                MAHD = bill.MAHD,
+        //                MAKH = (int)bill.MAKH,
+        //                NGHD = bill.NGHD,
+        //                TRIGIA = (decimal)bill.TRIGIA,
+        //                cusName = bill.KHACHHANG.TENKH,
+        //                cusAdd = bill.KHACHHANG.DIACHI,
+        //                //bookName = namebook,
+        //            };
+
+        //            return billInfo;
         //        }
+        //    }
+        //    catch (Exception e) 
+        //    {
+        //        throw e;
         //    }
         //}
     }

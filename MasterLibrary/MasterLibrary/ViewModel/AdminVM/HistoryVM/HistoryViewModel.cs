@@ -136,6 +136,7 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
             closeML = new RelayCommand<Window>((p) => { return true; }, (p) =>
             { 
                 MaskName.Visibility = Visibility.Collapsed;
+                SelectedItemRevenue = null;
                 p.Close();
             });
 
@@ -191,18 +192,33 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
                 ExportFile();
             });
 
-            //LoadInforRevenueML = new RelayCommand<object>((p) => { return true; }, async (p) =>
-            //{ 
-            //    if (SelectedItemRevenue != null)
-            //    {
-            //        try
-            //        {
-            //            IsGettingSource = true;
-            //            DetailRevenue = await Task.Run(() => BillServices.Ins.)
-            //        }
-            //    }
-            //});
-            
+            LoadInforRevenueML = new RelayCommand<object>((p) => { return true; }, async (p) =>
+            {
+                if (SelectedItemRevenue != null)
+                {
+                    try
+                    {
+                        IsGettingSource = true;
+                        //DetailRevenue = await Task.Run(() => BillServices.Ins.GetDetail(SelectedItemRevenue.MAHD));
+                        IsGettingSource = false;
+                    }
+                    catch (System.Data.Entity.Core.EntityException e)
+                    {
+                        MessageBoxML mb = new MessageBoxML("Lỗi", "Mất kết nối cơ sở dữ liệu", MessageType.Error, MessageButtons.OK);
+                        mb.ShowDialog();
+                        throw;
+                    }
+                    catch
+                    {
+                        MessageBoxML mb = new MessageBoxML("Lỗi", "Lỗi hệ thống", MessageType.Error, MessageButtons.OK);
+                        mb.ShowDialog();
+                        throw;
+                    }
+                    RevenueDetail rd = new RevenueDetail();
+                    rd.idBill.Content = DetailRevenue.MAHD;
+                }
+            });
+
         }
 
         public async Task checkExpenseMonthFilter()
@@ -229,7 +245,7 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
         {
             try
             {
-                ListRevenue = new ObservableCollection<BillDTO>(await BillServices.Ins.GetBillByMonth(SelectedExpenseMonth + 1));
+                ListRevenue = new ObservableCollection<BillDTO>(await BillServices.Ins.GetBillByMonth(SelectedRevenueMonth + 1));
             }
             catch (System.Data.Entity.Core.EntityException e)
             {

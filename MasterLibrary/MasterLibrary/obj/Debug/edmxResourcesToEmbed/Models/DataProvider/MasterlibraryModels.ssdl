@@ -47,6 +47,13 @@
     <Property Name="IDROLE" Type="int" />
     <Property Name="DIACHI" Type="varchar(max)" />
   </EntityType>
+  <EntityType Name="LOAISUCO">
+    <Key>
+      <PropertyRef Name="MALSC" />
+    </Key>
+    <Property Name="MALSC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENLSC" Type="nvarchar" MaxLength="100" />
+  </EntityType>
   <EntityType Name="NHAPSACH">
     <Key>
       <PropertyRef Name="IDNHAP" />
@@ -75,12 +82,33 @@
     <Property Name="VITRIDAY" Type="int" />
     <Property Name="NXB" Type="nvarchar" MaxLength="100" />
   </EntityType>
+  <EntityType Name="SUCO">
+    <Key>
+      <PropertyRef Name="MASC" />
+    </Key>
+    <Property Name="MASC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MAKH" Type="int" />
+    <Property Name="TIEUDE" Type="nvarchar" MaxLength="100" />
+    <Property Name="MOTA" Type="nvarchar(max)" />
+    <Property Name="IMG" Type="varchar" MaxLength="200" />
+    <Property Name="CHIPHI" Type="money" />
+    <Property Name="THOIGIANBAOCAO" Type="smalldatetime" />
+    <Property Name="MALSC" Type="int" />
+    <Property Name="MATTSC" Type="varchar" MaxLength="20" />
+  </EntityType>
   <EntityType Name="TANG">
     <Key>
       <PropertyRef Name="MATANG" />
     </Key>
     <Property Name="MATANG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TENTANG" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TRANGTHAISC">
+    <Key>
+      <PropertyRef Name="MATT" />
+    </Key>
+    <Property Name="MATT" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TENTT" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="USERROLE">
     <Key>
@@ -89,7 +117,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DISPLAYNAME" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <Association Name="FK__CTHD__MAHD__09A971A2">
+  <Association Name="FK__CTHD__MAHD__43D61337">
     <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
     <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
     <ReferentialConstraint>
@@ -101,7 +129,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CTHD__MASACH__0A9D95DB">
+  <Association Name="FK__CTHD__MASACH__44CA3770">
     <End Role="SACH" Type="Self.SACH" Multiplicity="1" />
     <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
     <ReferentialConstraint>
@@ -125,7 +153,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__GIOHANG__MAKH__114A936A">
+  <Association Name="FK__GIOHANG__MAKH__489AC854">
     <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
     <End Role="GIOHANG" Type="Self.GIOHANG" Multiplicity="*" />
     <ReferentialConstraint>
@@ -137,7 +165,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__GIOHANG__MASACH__10566F31">
+  <Association Name="FK__GIOHANG__MASACH__47A6A41B">
     <End Role="SACH" Type="Self.SACH" Multiplicity="1" />
     <End Role="GIOHANG" Type="Self.GIOHANG" Multiplicity="*" />
     <ReferentialConstraint>
@@ -173,7 +201,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__SACH__VITRIDAY__693CA210">
+  <Association Name="FK__SACH__VITRIDAY__40058253">
     <End Role="DAYKE" Type="Self.DAYKE" Multiplicity="0..1" />
     <End Role="SACH" Type="Self.SACH" Multiplicity="*" />
     <ReferentialConstraint>
@@ -185,7 +213,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__SACH__VITRITANG__68487DD7">
+  <Association Name="FK__SACH__VITRITANG__3F115E1A">
     <End Role="TANG" Type="Self.TANG" Multiplicity="0..1" />
     <End Role="SACH" Type="Self.SACH" Multiplicity="*" />
     <ReferentialConstraint>
@@ -197,21 +225,60 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__SUCO__MAKH__37703C52">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="SUCO" Type="Self.SUCO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MAKH" />
+      </Principal>
+      <Dependent Role="SUCO">
+        <PropertyRef Name="MAKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SUCO__MALSC__3864608B">
+    <End Role="LOAISUCO" Type="Self.LOAISUCO" Multiplicity="0..1" />
+    <End Role="SUCO" Type="Self.SUCO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAISUCO">
+        <PropertyRef Name="MALSC" />
+      </Principal>
+      <Dependent Role="SUCO">
+        <PropertyRef Name="MALSC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SUCO__MATTSC__395884C4">
+    <End Role="TRANGTHAISC" Type="Self.TRANGTHAISC" Multiplicity="0..1" />
+    <End Role="SUCO" Type="Self.SUCO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRANGTHAISC">
+        <PropertyRef Name="MATT" />
+      </Principal>
+      <Dependent Role="SUCO">
+        <PropertyRef Name="MATTSC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="masterlibraryModelStoreContainer">
     <EntitySet Name="CTHD" EntityType="Self.CTHD" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DAYKE" EntityType="Self.DAYKE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GIOHANG" EntityType="Self.GIOHANG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAISUCO" EntityType="Self.LOAISUCO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NHAPSACH" EntityType="Self.NHAPSACH" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SACH" EntityType="Self.SACH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUCO" EntityType="Self.SUCO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TANG" EntityType="Self.TANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TRANGTHAISC" EntityType="Self.TRANGTHAISC" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="USERROLE" EntityType="Self.USERROLE" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__CTHD__MAHD__09A971A2" Association="Self.FK__CTHD__MAHD__09A971A2">
+    <AssociationSet Name="FK__CTHD__MAHD__43D61337" Association="Self.FK__CTHD__MAHD__43D61337">
       <End Role="HOADON" EntitySet="HOADON" />
       <End Role="CTHD" EntitySet="CTHD" />
     </AssociationSet>
-    <AssociationSet Name="FK__CTHD__MASACH__0A9D95DB" Association="Self.FK__CTHD__MASACH__0A9D95DB">
+    <AssociationSet Name="FK__CTHD__MASACH__44CA3770" Association="Self.FK__CTHD__MASACH__44CA3770">
       <End Role="SACH" EntitySet="SACH" />
       <End Role="CTHD" EntitySet="CTHD" />
     </AssociationSet>
@@ -219,11 +286,11 @@
       <End Role="TANG" EntitySet="TANG" />
       <End Role="DAYKE" EntitySet="DAYKE" />
     </AssociationSet>
-    <AssociationSet Name="FK__GIOHANG__MAKH__114A936A" Association="Self.FK__GIOHANG__MAKH__114A936A">
+    <AssociationSet Name="FK__GIOHANG__MAKH__489AC854" Association="Self.FK__GIOHANG__MAKH__489AC854">
       <End Role="KHACHHANG" EntitySet="KHACHHANG" />
       <End Role="GIOHANG" EntitySet="GIOHANG" />
     </AssociationSet>
-    <AssociationSet Name="FK__GIOHANG__MASACH__10566F31" Association="Self.FK__GIOHANG__MASACH__10566F31">
+    <AssociationSet Name="FK__GIOHANG__MASACH__47A6A41B" Association="Self.FK__GIOHANG__MASACH__47A6A41B">
       <End Role="SACH" EntitySet="SACH" />
       <End Role="GIOHANG" EntitySet="GIOHANG" />
     </AssociationSet>
@@ -235,13 +302,25 @@
       <End Role="USERROLE" EntitySet="USERROLE" />
       <End Role="KHACHHANG" EntitySet="KHACHHANG" />
     </AssociationSet>
-    <AssociationSet Name="FK__SACH__VITRIDAY__693CA210" Association="Self.FK__SACH__VITRIDAY__693CA210">
+    <AssociationSet Name="FK__SACH__VITRIDAY__40058253" Association="Self.FK__SACH__VITRIDAY__40058253">
       <End Role="DAYKE" EntitySet="DAYKE" />
       <End Role="SACH" EntitySet="SACH" />
     </AssociationSet>
-    <AssociationSet Name="FK__SACH__VITRITANG__68487DD7" Association="Self.FK__SACH__VITRITANG__68487DD7">
+    <AssociationSet Name="FK__SACH__VITRITANG__3F115E1A" Association="Self.FK__SACH__VITRITANG__3F115E1A">
       <End Role="TANG" EntitySet="TANG" />
       <End Role="SACH" EntitySet="SACH" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SUCO__MAKH__37703C52" Association="Self.FK__SUCO__MAKH__37703C52">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="SUCO" EntitySet="SUCO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SUCO__MALSC__3864608B" Association="Self.FK__SUCO__MALSC__3864608B">
+      <End Role="LOAISUCO" EntitySet="LOAISUCO" />
+      <End Role="SUCO" EntitySet="SUCO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SUCO__MATTSC__395884C4" Association="Self.FK__SUCO__MATTSC__395884C4">
+      <End Role="TRANGTHAISC" EntitySet="TRANGTHAISC" />
+      <End Role="SUCO" EntitySet="SUCO" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -127,7 +127,7 @@
                                             <ColumnDefinition></ColumnDefinition>
                                         </Grid.ColumnDefinitions>
 
-                                        <Label Grid.Column="0" Content="Ngày xuất bản"
+                                        <Label Grid.Column="0" Content="Ngày nhập hàng"
                                            FontSize="15"></Label>
                                         <Label Grid.Column="1" x:Name="debutDayInput"
                                            FontSize="15" HorizontalAlignment="Right"/>
