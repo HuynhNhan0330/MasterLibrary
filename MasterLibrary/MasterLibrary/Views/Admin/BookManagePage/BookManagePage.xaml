@@ -11,8 +11,25 @@
       xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
       d:DesignHeight="630" d:DesignWidth="1170"
       Title="BookManagePage"
-      
+      x:Name="BookManagePageML"
       DataContext="{StaticResource AdminVM}">
+
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Page.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="BookManagePageML"
+                                     Storyboard.TargetProperty="Opacity"
+                                     From="0"
+                                     To="1"
+                                     Duration="0:0:0.5" />
+
+
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
+
 
     <Grid Background="White">
         <Grid.RowDefinitions>
