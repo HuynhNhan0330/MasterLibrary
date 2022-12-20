@@ -16,7 +16,24 @@
     TextOptions.TextRenderingMode="Auto"
     FontFamily="{DynamicResource MaterialDesignFont}"
       DataContext="{StaticResource StatisticVM}"
-      Title="StatisticalPage">
+      Title="StatisticalPage"
+      x:Name="StatisticalPageML">
+
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Page.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="StatisticalPageML"
+                                     Storyboard.TargetProperty="Opacity"
+                                     From="0"
+                                     To="1"
+                                     Duration="0:0:0.5" />
+
+
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
 
     <Grid>
         <Grid.RowDefinitions>

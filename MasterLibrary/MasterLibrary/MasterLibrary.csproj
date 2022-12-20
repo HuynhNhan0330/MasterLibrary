@@ -237,6 +237,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -269,9 +270,13 @@
     <Compile Include="DTOs\TangDTO.cs" />
     <Compile Include="DTOs\TroubleDTO.cs" />
     <Compile Include="Models\DataProvider\AdminServices.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\DataProvider\BillDetailServices.cs" />
     <Compile Include="Models\DataProvider\BillServices.cs" />
     <Compile Include="Models\DataProvider\BookInCartServices.cs" />
+=======
+    <Compile Include="Models\DataProvider\BillServices.cs" />
+>>>>>>> nam/history
     <Compile Include="Models\DataProvider\BookServices.cs" />
     <Compile Include="Models\DataProvider\BuildingServices.cs" />
     <Compile Include="Models\DataProvider\BuyServices.cs" />
@@ -288,6 +293,7 @@
     <Compile Include="Models\DataProvider\HOADON.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataProvider\InputBookServices.cs" />
     <Compile Include="Models\DataProvider\KHACHHANG.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
@@ -325,7 +331,10 @@
     <Compile Include="Models\DataProvider\TRANGTHAISC.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Models\DataProvider\TroubleServices.cs" />
+=======
+>>>>>>> nam/history
     <Compile Include="Models\DataProvider\USERROLE.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
@@ -336,9 +345,13 @@
     <Compile Include="Utils\Constant.cs" />
     <Compile Include="Utils\Helper.cs" />
     <Compile Include="ViewModel\AdminVM\BookManage\BookManageViewModel.cs" />
+<<<<<<< HEAD
     <Compile Include="ViewModel\AdminVM\LocationVM\BookInRowViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\DetailBookInRowViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\LocationViewModel.cs" />
+=======
+    <Compile Include="ViewModel\AdminVM\HistoryVM\HistoryViewModel.cs" />
+>>>>>>> nam/history
     <Compile Include="ViewModel\AdminVM\MainAdminViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\StatisticVM\StatisticViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\TroubleVM\DetailTroubleViewModel.cs" />
@@ -364,9 +377,16 @@
     <Compile Include="Views\Admin\BookManagePage\updatingwindow.xaml.cs">
       <DependentUpon>updatingwindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Admin\HistoryPage\ExpenseDetail.xaml.cs">
+      <DependentUpon>ExpenseDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\HistoryPage\ExpensePage.xaml.cs">
+      <DependentUpon>ExpensePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Admin\HistoryPage\HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Views\Admin\ImportBookPage\ImportBookPage.xaml.cs">
       <DependentUpon>ImportBookPage.xaml</DependentUpon>
     </Compile>
@@ -378,6 +398,13 @@
     </Compile>
     <Compile Include="Views\Admin\LocationPage\LocationPage.xaml.cs">
       <DependentUpon>LocationPage.xaml</DependentUpon>
+=======
+    <Compile Include="Views\Admin\HistoryPage\RevenueDetail.xaml.cs">
+      <DependentUpon>RevenueDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\HistoryPage\RevenuePage.xaml.cs">
+      <DependentUpon>RevenuePage.xaml</DependentUpon>
+>>>>>>> nam/history
     </Compile>
     <Compile Include="Views\Admin\MainAdminWindow.xaml.cs">
       <DependentUpon>MainAdminWindow.xaml</DependentUpon>
@@ -477,10 +504,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Admin\HistoryPage\ExpenseDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\HistoryPage\ExpensePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Admin\HistoryPage\HistoryPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+<<<<<<< HEAD
     <Page Include="Views\Admin\ImportBookPage\ImportBookPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -494,6 +530,13 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Admin\LocationPage\LocationPage.xaml">
+=======
+    <Page Include="Views\Admin\HistoryPage\RevenueDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\HistoryPage\RevenuePage.xaml">
+>>>>>>> nam/history
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -653,7 +696,35 @@
     <Resource Include="Resources\Images\logo.png" />
     <Resource Include="Resources\Images\Logo.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿D:\X\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\GeneratedInternalTypeHelper.g.cs
 FD:\X\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml;;
 FD:\X\MasterLibrary\MasterLibrary\MasterLibrary\MainWindow.xaml;;
@@ -33,4 +34,33 @@ FD:\X\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\LoginWindow.xa
 FD:\X\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\RegisterWindow.xaml;;
 FD:\X\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\VerificationPage.xaml;;
 FD:\X\MasterLibrary\MasterLibrary\MasterLibrary\Views\MessageBoxML\MessageBoxML.xaml;;
+=======
+﻿
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\MainWindow.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\ResourcesXAML\MainResources.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\UserControlML\controlbar_uc.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\BookManagePage\AddingWindow.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\BookManagePage\BookManagePage.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\BookManagePage\updatingwindow.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\ExpenseDetail.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\ExpensePage.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\HistoryPage.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\RevenueDetail.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\RevenuePage.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\MainAdminWindow.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\StatisticalPage\StatisticalPage.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\BookLocationPage\BookLocationPage.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\BuyBookPage\BuyBookPage.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\BuyBookPage\DetailBook.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\MainCustomerWindow.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\SettingPage\SettingPage.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\CreateNewPassPage.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\ForgotPassPage.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\LoginPage.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\LoginWindow.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\RegisterWindow.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\VerificationPage.xaml;;
+FD:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\Views\MessageBoxML\MessageBoxML.xaml;;
+>>>>>>> nam/history
 
