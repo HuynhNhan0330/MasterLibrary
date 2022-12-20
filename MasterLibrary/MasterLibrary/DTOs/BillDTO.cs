@@ -1,5 +1,4 @@
-﻿using MasterLibrary.Models.DataProvider;
-using MasterLibrary.Utils;
+﻿using MasterLibrary.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,39 +15,26 @@ namespace MasterLibrary.DTOs
         }
 
         public int MAKH { get; set; }
-        private int _cusId;
-        public int cusId
+        private string _cusID { get; set; }
+        public string cusID
         {
             get
             {
-                if (_cusId.ToString() is null)
-                {
-                    return -1;
-                }
-                return _cusId; 
+                if (_cusID == null) return "-1";
+                return _cusID;
             }
-            set { _cusId = value; }
-        }
-        private string _cusName;
-        public string cusName
-        {
-            set { _cusName = value; }
-            get 
+            set
             {
-                if (_cusName is null)
-                {
-                    return "Khách hàng mới";
-                }
-                return _cusName; 
+                _cusID = value;
             }
         }
         public int MAHD { get; set; }
         public decimal TRIGIA { get; set; }
         public DateTime NGHD { get; set; }
 
-
-        //sử dụng để gán thông tin cho hoá đơn bán hàng
-        public string cusAdd { get; set; }
-        public string bookName { get; set; }
+        public string TRIGIAstr
+        {
+            get { return Helper.FormatVNMoney(TRIGIA); }
+        }
     }
 }

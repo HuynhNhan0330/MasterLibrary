@@ -24,13 +24,7 @@ namespace MasterLibrary.ViewModel.AdminVM
         {
             get { return _listbookmanage; }
             set { _listbookmanage = value; OnPropertyChanged(); }
-        }
-        private string _textHeading;
-        public string textHeading
-        {
-            get { return _textHeading; }
-            set { _textHeading = value; OnPropertyChanged(); }
-        }
+        }    
 
         #region ICommand
 
@@ -53,21 +47,18 @@ namespace MasterLibrary.ViewModel.AdminVM
             // Load trang phân tích
             LoadStatisticalPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
-                textHeading = "Thống kê doanh thu";
                 p.Content = new StatisticalPage();
             });
 
             // Load trang quản lí sách
             LoadBookManagerPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
-                textHeading = "Quản lý sách";
                 p.Content = new BookManagePage();
             });
 
             // Load trang lịch sử
             LoadHistoryPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
-                textHeading = "Lịch sử giao dịch";
                 p.Content = new HistoryPage();
             });
 
