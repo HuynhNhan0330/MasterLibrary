@@ -271,6 +271,9 @@
     <Compile Include="Models\DataProvider\BookInCartServices.cs" />
     <Compile Include="Models\DataProvider\BookServices.cs" />
     <Compile Include="Models\DataProvider\BuyServices.cs" />
+    <Compile Include="Models\DataProvider\CHITIET_NHAP.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataProvider\CTHD.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
@@ -285,6 +288,9 @@
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\KHACHHANG.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataProvider\LOAISUCO.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\MasterlibraryModels.Context.cs">
@@ -302,14 +308,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MasterlibraryModels.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataProvider\NHAPSACH.cs">
+    <Compile Include="Models\DataProvider\NHAPKHO.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\SACH.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\StatisticServices.cs" />
+    <Compile Include="Models\DataProvider\SUCO.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataProvider\TANG.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataProvider\TRANGTHAISC.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\USERROLE.cs">
@@ -322,6 +334,7 @@
     <Compile Include="Utils\Constant.cs" />
     <Compile Include="Utils\Helper.cs" />
     <Compile Include="ViewModel\AdminVM\BookManage\BookManageViewModel.cs" />
+    <Compile Include="ViewModel\AdminVM\ImportVM\ImportViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\MainAdminViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\StatisticVM\StatisticViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
@@ -333,9 +346,6 @@
     <Compile Include="ViewModel\CustomerVM\SettingVM\SettingViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\ForgotPassViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\LoginViewModel.cs" />
-    <Compile Include="Views\Admin\BookManagePage\AddingWindow.xaml.cs">
-      <DependentUpon>AddingWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Admin\BookManagePage\BookManagePage.xaml.cs">
       <DependentUpon>BookManagePage.xaml</DependentUpon>
     </Compile>
@@ -413,10 +423,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlML\controlbar_uc.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Admin\BookManagePage\AddingWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

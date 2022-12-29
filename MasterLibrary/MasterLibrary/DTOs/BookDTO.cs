@@ -14,8 +14,10 @@ namespace MasterLibrary.DTOs
         public string TacGia { get; set; }
         public int NamXB { get; set; }
         public string MoTa { get; set; }
-        public int ViTriTang { get; set; }
-        public int ViTriDay { get; set; }
+        public int MaTang { get; set; }
+        public string TenTang { get; set; }
+        public int MaDay { get; set; }
+        public string TenDay { get; set; }
         public string ImageSource { get; set; }
         public decimal Gia { get; set; }
         public int SoLuong { get; set; }

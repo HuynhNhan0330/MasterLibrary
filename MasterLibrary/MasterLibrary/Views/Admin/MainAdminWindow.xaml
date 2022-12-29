@@ -134,7 +134,7 @@
                                         Height="60"
                                         Width="130"
                                         Style= "{StaticResource EffectMenuButton}">
-                            <materialDesign:PackIcon Kind="BookPlus"
+                            <materialDesign:PackIcon Kind="Import"
                                                          Width="35"
                                                          Height="32"
                                                          VerticalAlignment="Center"

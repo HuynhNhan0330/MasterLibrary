@@ -45,8 +45,10 @@ namespace MasterLibrary.Models.DataProvider
                                        Gia = (decimal)sach.GIA,
                                        SoLuong = (int)sach.SL,
                                        ImageSource = sach.IMAGESOURCE,
-                                       ViTriTang = (int)sach.VITRITANG,
-                                       ViTriDay = (int)sach.VITRIDAY
+                                       MaTang = (int)sach.VITRITANG,
+                                       MaDay = (int)sach.VITRIDAY,
+                                       TenTang = (from tang in context.TANGs where tang.MATANG == sach.VITRITANG select tang.TENTANG).FirstOrDefault() ,
+                                       TenDay = (from day in context.DAYKEs where day.MADAY == sach.VITRIDAY select day.TENDAY).FirstOrDefault()
                                    }
                      ).ToListAsync();
                 }
@@ -79,8 +81,10 @@ namespace MasterLibrary.Models.DataProvider
                                          Gia = (decimal)sach.GIA,
                                          SoLuong = (int)sach.SL,
                                          ImageSource = sach.IMAGESOURCE,
-                                         ViTriTang = (int)sach.VITRITANG,
-                                         ViTriDay = (int)sach.VITRIDAY
+                                         MaTang = (int)sach.VITRITANG,
+                                         MaDay = (int)sach.VITRIDAY,
+                                         TenTang = (from tang in context.TANGs where tang.MATANG == sach.VITRITANG select tang.TENTANG).FirstOrDefault(),
+                                         TenDay = (from day in context.DAYKEs where day.MADAY == sach.VITRIDAY select day.TENDAY).FirstOrDefault()
                                      }).FirstOrDefaultAsync();
 
                     return book;

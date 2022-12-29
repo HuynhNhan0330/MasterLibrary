@@ -12,12 +12,23 @@ using MasterLibrary.Views.Admin.BookManagePage;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using System.Windows.Media.Imaging;
+using MasterLibrary.Views.MessageBoxML;
+using System.Collections.ObjectModel;
+using MasterLibrary.DTOs;
 
 namespace MasterLibrary.ViewModel.AdminVM
 {
     public class BookManageViewModel : BaseViewModel
     {
         #region Property
+
+        private ObservableCollection<BookDTO> _listbookmanage;
+        public ObservableCollection<BookDTO> Listbookmanage
+        {
+            get { return _listbookmanage; }
+            set { _listbookmanage = value; OnPropertyChanged(); }
+        }
+        private static ListView listview_tmp;
 
         private string _tensach;
         public string TenSach
@@ -96,68 +107,16 @@ namespace MasterLibrary.ViewModel.AdminVM
             set { _imgsource = value; OnPropertyChanged(); }
         }
         #endregion
-        private ICommand _ILoaded;
-        public ICommand ILoaded
-        {
-            get { return _ILoaded; }
-            set { _ILoaded = value; OnPropertyChanged(); }
-        }
+        public ICommand LoadManageBookData { get; set; }
         public ICommand SavingData { get; set; }
         public ICommand Updating { get; set; }
+        public ICommand DeletingBook { get; set; }
+        public ICommand UpdatingBook { get; set; }
         public ICommand ImportImageForAddingWindow { get; set; }
         public ICommand ImportImageForUpdatingWindow { get; set; }
 
         public BookManageViewModel()
         {
-
-            #region Nút save của chức năng thêm
-            SavingData = new RelayCommand<Window>((p) => { return true; }, (p) =>
-            {
-                if (TenSach != "" && TacGia != "" && NamXuatBan != "" && NhaXuatBan != "" && SoLuong != "" &&
-               Gia != "" && AddingWindow.ImgSource.Text != "" && MoTa != "" && Tang != "" && Day != "" && TheLoai != "")
-                {
-                    using (var context = new MasterlibraryEntities())
-                    {
-                        string connectionStr = context.Database.Connection.ConnectionString;
-                        SqlConnection connect = new SqlConnection(connectionStr);
-                        connect.Open();
-                        SqlCommand command = new SqlCommand();
-                        command.Connection = connect;
-
-                        command.Parameters.AddWithValue("@tensach", TenSach);
-                        command.Parameters.AddWithValue("@tacgia", TacGia);
-                        command.Parameters.AddWithValue("@namxb", NamXuatBan);
-                        command.Parameters.AddWithValue("@nxb", NhaXuatBan);
-                        command.Parameters.AddWithValue("@sl", SoLuong);
-                        command.Parameters.AddWithValue("@gia", Gia);
-                        command.Parameters.AddWithValue("@imagesource", AddingWindow.ImgSource.Text);
-                        command.Parameters.AddWithValue("@theloai", TheLoai);
-                        command.Parameters.AddWithValue("@mota", MoTa);
-                        command.Parameters.AddWithValue("@tang", Tang);
-                        command.Parameters.AddWithValue("@day", Day);
-
-                        try
-                        {
-                            command.CommandText = "INSERT INTO SACH(TENSACH, TACGIA, NAMXB, NXB, SL, GIA, IMAGESOURCE, THELOAI, MOTA, VITRITANG, VITRIDAY) VALUES(@tensach, @tacgia, @namxb, @nxb, @sl, @gia, @imagesource, @theloai, @mota, @tang, @day)";
-                            context.SaveChanges();
-                            int a = command.ExecuteNonQuery();
-                            if (a != 0)
-                            {
-                                MessageBox.Show("Thêm thành công");
-                                p.Close();
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Vị trí không tồn tại trong hệ thống");
-                        }
-                    }
-                }
-                else
-                    MessageBox.Show("Điền đầy đủ thông tin");
-            });
-            #endregion
-
             //Nút update của chức năng chỉnh sửa
             Updating = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
@@ -191,45 +150,18 @@ namespace MasterLibrary.ViewModel.AdminVM
                         int a = command.ExecuteNonQuery();
                         if (a != 0)
                         {
-                            MessageBox.Show("Sửa thành công");
+                            MessageBoxML msb = new MessageBoxML("Thông báo", "Cập nhật sách thành công", MessageType.Accept, MessageButtons.OK);
+                            msb.ShowDialog();
                             p.Close();
                         }
                     }
                     catch
                     {
-                        MessageBox.Show("Vị trí không tồn tại");
+                        MessageBoxML msb = new MessageBoxML("Lỗi", "Vị trí không tồn tại", MessageType.Error, MessageButtons.OK);
+                        msb.ShowDialog();
                     }
                 }
                 
-            });
-
-            // Nút import của chức năng thêm
-            ImportImageForAddingWindow = new RelayCommand<Window>((p) => { return true; }, (p) =>
-            {
-                Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-                dlg.Filter = "JPG File (.jpg)|*.jpg";
-                Nullable<bool> result = dlg.ShowDialog();
-                if (result == true)
-                {
-                    BitmapImage img = new BitmapImage();
-                    img.BeginInit();
-                    img.UriSource = new Uri(dlg.FileName);
-                    img.EndInit();
-                    AddingWindow.Image.Source = img;
-                    Account account = new Account(
-                    "dsrqapm0a",
-                    "957237172661889",
-                    "-1RSpajRMHkAQicQdFuyhIJfogE");
-
-                Cloudinary cloudinary = new Cloudinary(account);
-                cloudinary.Api.Secure = true;
-                var uploadParams = new ImageUploadParams()
-                {
-                    File = new FileDescription(dlg.FileName)
-                };
-                var uploadResult = cloudinary.Upload(uploadParams);
-                AddingWindow.ImgSource.Text = uploadResult.Url.ToString();
-                }
             });
 
             // Nút import của chức năng sửa
@@ -261,6 +193,127 @@ namespace MasterLibrary.ViewModel.AdminVM
                     updatingwindow.ImgSource.Text = uploadResult.Url.ToString();
                 }
             });
+
+            // Load dữ liệu vào trang quản lý sách
+            LoadManageBookData = new RelayCommand<ListView>((p) => { return true; }, (p) =>
+            {
+                Loaded(p);
+                listview_tmp = p;
+            });
+
+            //Nút xóa sách ở trang quản lý sách
+            DeletingBook = new RelayCommand<System.Windows.Controls.MenuItem>((p) => { return true; }, (p) =>
+            {
+                BookDTO item = listview_tmp.Items[listview_tmp.SelectedIndex] as BookDTO;
+                string masach = item.MaSach.ToString();
+                using (var context = new MasterlibraryEntities())
+                {
+                    string connectionStr = context.Database.Connection.ConnectionString;
+                    SqlConnection connect = new SqlConnection(connectionStr);
+                    connect.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connect;
+                    command.Parameters.AddWithValue("@masach", masach);
+                    MessageBoxML msb = new MessageBoxML("Cảnh báo", "Bạn có muốn xóa sách này không", MessageType.Waitting, MessageButtons.YesNo);
+                    
+                    if (msb.ShowDialog() == true)
+                    {
+                        try
+                        {
+                            command.CommandText = "DELETE FROM SACH WHERE MASACH = @masach";
+                            context.SaveChanges();
+                            if (command.ExecuteNonQuery() != 0)
+                            {
+                                msb = new MessageBoxML("Thông báo", "Thành công", MessageType.Accept, MessageButtons.OK);
+                                msb.ShowDialog();
+                                Loaded(listview_tmp);
+                            }
+                        }
+                        catch 
+                        {
+                            msb = new MessageBoxML("Thông báo", "Không thể xóa sách ", MessageType.Error, MessageButtons.OK);
+                            msb.ShowDialog();
+                        }
+                    }
+                }
+            });
+
+            UpdatingBook = new RelayCommand<System.Windows.Controls.MenuItem>((p) => { return true; }, (p) =>
+            {
+                BookDTO item = listview_tmp.Items[listview_tmp.SelectedIndex] as BookDTO;
+                var masach = item.MaSach.ToString();
+                updatingwindow window = new updatingwindow(masach);
+
+                if (item.TenDay == null)
+                {
+                    window.TacGia_txb.Text = item.TacGia.ToString();
+                    window.NhaXuatBan_txb.Text = item.NXB.ToString();
+                    window.Gia_txb.Text = item.Gia.ToString();
+                    window.TenSach_txb.Text = item.TenSach.ToString();
+                }
+                else 
+                {
+                    window.TenSach_txb.Text = item.TenSach.ToString();
+                    window.TacGia_txb.Text = item.TacGia.ToString();
+                    window.NhaXuatBan_txb.Text = item.NXB.ToString();
+                    window.NamXuatBan_txb.Text = item.NamXB.ToString();
+                    window.TheLoai_cbb.Text = item.TheLoai.ToString();
+                    window.Gia_txb.Text = item.Gia.ToString();
+                    window.Tang_txb.Text = item.TenTang;
+                    window.Day_txb.Text = item.TenDay;
+                    window.Source_txb.Text = item.ImageSource.ToString();
+                    window.MoTa_txb.Text = item.MoTa.ToString();
+
+                    //Load ảnh hiện tai lên trang chỉnh sửa
+                    BitmapImage img = new BitmapImage();
+                    img.BeginInit();
+                    img.UriSource = new Uri(item.ImageSource);
+                    img.EndInit();
+                    window.image_img.Source = img;
+                }
+                window.ShowDialog();
+
+                //load lại trang quản lý sách
+                Loaded(listview_tmp);
+            });
+        }
+
+        public void Loaded(ListView p)
+        {
+            Listbookmanage = new ObservableCollection<BookDTO>();
+            using (var context = new MasterlibraryEntities())
+            {
+                foreach (var item in context.SACHes)
+                {
+                    BookDTO book = new BookDTO();
+                    if(item.IMAGESOURCE == null)
+                    {
+                        book.MaSach = item.MASACH;
+                        book.TenSach = item.TENSACH;
+                        book.TacGia = item.TACGIA;
+                        book.SoLuong = (int)item.SL;
+                        book.Gia = (int)item.GIA;
+                        book.NXB = item.NXB;
+                    }
+                    else
+                    {
+                        book.MaSach = item.MASACH;
+                        book.TenSach = item.TENSACH;
+                        book.TacGia = item.TACGIA;
+                        book.SoLuong = (int)item.SL;
+                        book.Gia = (int)item.GIA;
+                        book.NXB = item.NXB;
+                        book.NamXB = (int)item.NAMXB;
+                        book.TheLoai = item.THELOAI;
+                        book.ImageSource = item.IMAGESOURCE;
+                        book.MoTa = item.MOTA;
+                        book.TenDay = (from s in context.DAYKEs where s.MADAY == item.VITRIDAY select s.TENDAY).FirstOrDefault();
+                        book.TenTang = (from s in context.TANGs where s.MATANG == item.VITRITANG select s.TENTANG).FirstOrDefault();
+                    }    
+                    Listbookmanage.Add(book);
+                }
+            }
+            p.ItemsSource = Listbookmanage;
         }
     }
 }

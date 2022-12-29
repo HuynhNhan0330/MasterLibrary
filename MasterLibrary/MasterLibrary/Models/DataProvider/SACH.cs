@@ -25,7 +25,6 @@ namespace MasterLibrary.Models.DataProvider
         public string TENSACH { get; set; }
         public string TACGIA { get; set; }
         public Nullable<int> NAMXB { get; set; }
-        public Nullable<int> SL { get; set; }
         public Nullable<decimal> GIA { get; set; }
         public string IMAGESOURCE { get; set; }
         public string THELOAI { get; set; }
@@ -33,6 +32,7 @@ namespace MasterLibrary.Models.DataProvider
         public Nullable<int> VITRITANG { get; set; }
         public Nullable<int> VITRIDAY { get; set; }
         public string NXB { get; set; }
+        public Nullable<int> SL { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTHD> CTHDs { get; set; }

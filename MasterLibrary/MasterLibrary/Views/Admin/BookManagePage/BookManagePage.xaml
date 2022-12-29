@@ -11,8 +11,7 @@
       xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
       d:DesignHeight="630" d:DesignWidth="1170"
       Title="BookManagePage"
-      
-      DataContext="{StaticResource AdminVM}">
+      DataContext="{StaticResource BookManageVM}">
 
     <Grid Background="White">
         <Grid.RowDefinitions>
@@ -36,7 +35,7 @@
                     <materialDesign:ColorZone
                             Width="991"
                             Mode="Standard"
-                            Padding="8 0 8 4"
+                            Padding="8 0 8 4" 
                             CornerRadius="2"
                             Panel.ZIndex="1"
                             Margin="16 0 0 0"
@@ -106,7 +105,7 @@
                                 DisplayMemberBinding="{Binding MaSach}" 
                                  Width="auto">
                         <GridViewColumnHeader 
-                                FontSize="16"
+                                FontSize="1"
                                 Margin="-18" 
                                 Content="Mã" 
                                 />
@@ -183,7 +182,7 @@
                     </GridViewColumn>
 
                     <GridViewColumn 
-                                DisplayMemberBinding="{Binding ViTriDay}" 
+                                DisplayMemberBinding="{Binding TenDay}" 
                                 Width="auto">
                         <GridViewColumnHeader
                                     FontSize="16"
@@ -193,7 +192,7 @@
                     </GridViewColumn>
 
                     <GridViewColumn 
-                                DisplayMemberBinding="{Binding ViTriTang}" 
+                                DisplayMemberBinding="{Binding TenTang}" 
                                 Width="auto">
                         <GridViewColumnHeader
                                     FontSize="16"
