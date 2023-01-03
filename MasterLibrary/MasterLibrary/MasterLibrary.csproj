@@ -263,6 +263,7 @@
     <Compile Include="DTOs\BillDetailDTO.cs" />
     <Compile Include="DTOs\BillDTO.cs" />
     <Compile Include="DTOs\BookDTO.cs" />
+    <Compile Include="DTOs\BookInBorrowDTO.cs" />
     <Compile Include="DTOs\BookInCartDTO.cs" />
     <Compile Include="DTOs\CustomerDTO.cs" />
     <Compile Include="DTOs\DayDTO.cs" />
@@ -276,6 +277,9 @@
     <Compile Include="Models\DataProvider\BookServices.cs" />
     <Compile Include="Models\DataProvider\BuildingServices.cs" />
     <Compile Include="Models\DataProvider\BuyServices.cs" />
+    <Compile Include="Models\DataProvider\CHITIET_NHAP.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataProvider\CTHD.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
@@ -289,7 +293,6 @@
     <Compile Include="Models\DataProvider\HOADON.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataProvider\InputBookServices.cs" />
     <Compile Include="Models\DataProvider\KHACHHANG.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
@@ -311,13 +314,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MasterlibraryModels.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataProvider\NHAPSACH.cs">
+    <Compile Include="Models\DataProvider\NHAPKHO.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\SACH.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataProvider\StatisticServices.cs" />
     <Compile Include="Models\DataProvider\SUCO.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
@@ -336,14 +338,19 @@
     </Compile>
     <Compile Include="Utils\CloudinaryService.cs" />
     <Compile Include="Utils\Constant.cs" />
+    <Compile Include="Utils\ConverterValue\BoolValueConverter.cs" />
+    <Compile Include="Utils\ConverterValue\ChangePasswordMultiValueConverter.cs" />
+    <Compile Include="Utils\ConverterValue\NotNullValidationConverter.cs" />
     <Compile Include="Utils\Helper.cs" />
+    <Compile Include="Validations\NotNullValidation.cs" />
     <Compile Include="ViewModel\AdminVM\BookManage\BookManageViewModel.cs" />
+    <Compile Include="ViewModel\AdminVM\BorrowBookVM\BorrowBookViewModel.cs" />
+    <Compile Include="ViewModel\AdminVM\BorrowBookVM\BorrowBookVorcherViewModel.cs" />
+    <Compile Include="ViewModel\AdminVM\BorrowBookVM\CollectionBookVorcherViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\BookInRowViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\DetailBookInRowViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\LocationViewModel.cs" />
-    <Compile Include="ViewModel\AdminVM\HistoryVM\HistoryViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\MainAdminViewModel.cs" />
-    <Compile Include="ViewModel\AdminVM\StatisticVM\StatisticViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\TroubleVM\DetailTroubleViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\TroubleVM\TroubleViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
@@ -353,7 +360,7 @@
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
     <Compile Include="ViewModel\CustomerVM\MainCustomerViewModel.cs" />
     <Compile Include="ViewModel\CustomerVM\ReportTroubleVM\AddOrEditTroubleViewModel.cs" />
-    <Compile Include="ViewModel\CustomerVM\ReportTroubleVM\OperatorCoverter.cs" />
+    <Compile Include="Utils\ConverterValue\OperatorTroubleConverter.cs" />
     <Compile Include="ViewModel\CustomerVM\ReportTroubleVM\ReportTroubleViewModel.cs" />
     <Compile Include="ViewModel\CustomerVM\SettingVM\SettingViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\ForgotPassViewModel.cs" />
@@ -366,6 +373,15 @@
     </Compile>
     <Compile Include="Views\Admin\BookManagePage\updatingwindow.xaml.cs">
       <DependentUpon>updatingwindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\BorrowBookPage\BorrowBookPage.xaml.cs">
+      <DependentUpon>BorrowBookPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\BorrowBookPage\BorrowBookVorcherPage.xaml.cs">
+      <DependentUpon>BorrowBookVorcherPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\BorrowBookPage\CollectionBookVorcherPage.xaml.cs">
+      <DependentUpon>CollectionBookVorcherPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\HistoryPage\ExpenseDetail.xaml.cs">
       <DependentUpon>ExpenseDetail.xaml</DependentUpon>
@@ -491,6 +507,18 @@
     <Page Include="Views\Admin\BookManagePage\updatingwindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Admin\BorrowBookPage\BorrowBookPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\BorrowBookPage\BorrowBookVorcherPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\BorrowBookPage\CollectionBookVorcherPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Admin\HistoryPage\ExpenseDetail.xaml">
       <SubType>Designer</SubType>
@@ -713,6 +741,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

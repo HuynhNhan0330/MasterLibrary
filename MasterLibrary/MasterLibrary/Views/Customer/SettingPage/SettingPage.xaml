@@ -6,11 +6,18 @@
       xmlns:local="clr-namespace:MasterLibrary.Views.Customer.SettingPage"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+      xmlns:cv="clr-namespace:MasterLibrary.Utils.ConverterValue"
       mc:Ignorable="d" 
-      d:DesignHeight="630" d:DesignWidth="1170"
+      d:DesignHeight="600" d:DesignWidth="1170"
       DataContext="{StaticResource SettingVM}"
       Name="SettingPageML"
       Title="SettingPage">
+
+    <Page.Resources>
+        <cv:NotNullValidationConverter x:Key="ConverterNotNullValue"/>
+        <cv:ChangePasswordMultiValueConverter x:Key="ConverterChangePasswordMultiValue"/>
+    </Page.Resources>
 
     <Page.Triggers>
         <EventTrigger RoutedEvent="Page.Loaded">
@@ -37,37 +44,39 @@
     <Grid>
         <!-- Nội dung chính -->
         <Grid Background="#fff">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"></ColumnDefinition>
-                <ColumnDefinition Width="3*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            
-            <!-- Bên trái -->
-            <materialDesign:Card
+            <Grid.RowDefinitions>
+                <RowDefinition Height="527*"/>
+                <RowDefinition Height="73*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <!-- Bên trái -->
+                <materialDesign:Card
                     Grid.Row="0"
                     Background="#FFFFFFFF"
+                    Margin="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
                     Width="400"
-                    Height="500">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="3*"/>
-                        <RowDefinition Height="2*"/>
-                        <RowDefinition Height="2*"/>
-                        <RowDefinition Height="2*"/>
-                        <RowDefinition Height="3*"/>
-                    </Grid.RowDefinitions>
-                    
-                    <TextBlock
+                    Height="410">
+                    <StackPanel>
+                        <Grid Margin="0 10 0 0">
+                            <TextBlock
                             Text="Đổi mật khẩu"
                             HorizontalAlignment="Left"
                             TextWrapping="Wrap" 
                             VerticalAlignment="Center" 
-                            FontSize="40" 
-                            Margin="15,0,0,0"
+                            FontSize="35" 
+                            Margin="40,0,0,0"
                             Foreground="#a47100" 
                             FontWeight="Bold"/>
 
-                    <materialDesign:PackIcon  
+                            <materialDesign:PackIcon  
                             Kind="Lock"
                             Width="50" 
                             Height="50" 
@@ -75,156 +84,151 @@
                             Cursor="Hand" 
                             Foreground="Black"
                             HorizontalAlignment="Right" 
-                            Margin="0,0,40,0" />
+                            Margin="0,0,20,0" />
 
-                    <PasswordBox x:Name="FloatingCurrentPassword"
-                                Grid.Row="1"
+                        </Grid>
+
+                        <PasswordBox x:Name="FloatingCurrentPassword"
+                                 Margin="10 30 10 0"
                                 materialDesign:HintAssist.Hint="Mật khẩu hiện tại"
                                 materialDesign:TextFieldAssist.HasClearButton="True"
                                 Password=""
                                 Foreground="Black"
                                 BorderBrush="LightGray"
-                                FontSize="19"
-                                Width="300"
+                                FontSize="18"
+                                Width="350"
                                 VerticalAlignment="Center" 
                                 Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="PasswordChanged">
-                                <i:InvokeCommandAction Command="{Binding CurrentPasswordChange}"
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="PasswordChanged">
+                                    <i:InvokeCommandAction Command="{Binding CurrentPasswordChange}"
                                                        CommandParameter="{Binding ElementName=FloatingCurrentPassword}" />
-                                <i:InvokeCommandAction Command="{Binding EnableBtnSavePass}"
-                                                       CommandParameter="{Binding ElementName=btnSavePassword}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </PasswordBox>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </PasswordBox>
 
-                    <PasswordBox x:Name="FloatingNewPassword"
-                                Grid.Row="2"
+                        <PasswordBox x:Name="FloatingNewPassword"
+                                 Margin="10 20 10 0"
                                 materialDesign:HintAssist.Hint="Mật khẩu mới"
                                 materialDesign:TextFieldAssist.HasClearButton="True"
                                 Password=""
                                 Foreground="Black"
                                 BorderBrush="LightGray"
-                                FontSize="19"
-                                Width="300"
+                                FontSize="18"
+                                Width="350"
                                 VerticalAlignment="Center" 
                                 Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="PasswordChanged">
-                                <i:InvokeCommandAction Command="{Binding NewPasswordChange}"
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="PasswordChanged">
+                                    <i:InvokeCommandAction Command="{Binding NewPasswordChange}"
                                                        CommandParameter="{Binding ElementName=FloatingNewPassword}" />
-                                <i:InvokeCommandAction Command="{Binding EnableBtnSavePass}"
-                                                       CommandParameter="{Binding ElementName=btnSavePassword}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </PasswordBox>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </PasswordBox>
 
-                    <PasswordBox x:Name="FloatingConfirmNewPassword"
-                                Grid.Row="3"
-                                materialDesign:HintAssist.Hint="Xác nhận mật khẩu mới"
+                        <PasswordBox x:Name="FloatingConfirmNewPassword"
+                                Margin="10 20 10 0"
+                                 materialDesign:HintAssist.Hint="Xác nhận mật khẩu mới"
                                 materialDesign:TextFieldAssist.HasClearButton="True"
                                 Password=""
                                 Foreground="Black"
                                 BorderBrush="LightGray"
-                                FontSize="19"
-                                Width="300"
+                                FontSize="18"
+                                Width="350"
                                 VerticalAlignment="Center" 
                                 Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="PasswordChanged">
-                                <i:InvokeCommandAction Command="{Binding ConfirmNewPasswordChange}"
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="PasswordChanged">
+                                    <i:InvokeCommandAction Command="{Binding ConfirmNewPasswordChange}"
                                                        CommandParameter="{Binding ElementName=FloatingConfirmNewPassword}" />
-                                <i:InvokeCommandAction Command="{Binding EnableBtnSavePass}"
-                                                       CommandParameter="{Binding ElementName=btnSavePassword}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </PasswordBox>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </PasswordBox>
 
-
-                    <Button
-                            Grid.Row="4"
+                        <TextBlock Text="Vui lòng xác nhận mật khẩu"
+                           Foreground="#FFF44336"
+                           FontWeight="DemiBold"
+                           Margin="7,4,30,0"
+                           HorizontalAlignment="Right"
+                           FontSize="14">
+                            <TextBlock.Visibility>
+                                <MultiBinding Converter="{StaticResource ConverterChangePasswordMultiValue}">
+                                    <Binding Path="CurrentPassword" />
+                                    <Binding Path="NewPassword" />
+                                    <Binding Path="ConfirmNewPassword" />
+                                </MultiBinding>
+                            </TextBlock.Visibility>
+                        </TextBlock>
+                        
+                        <Button
                             x:Name="btnSavePassword"
                             Command="{Binding SaveNewPasswordCommand}"
                             Height="40" 
                             Width="120"
                             materialDesign:ButtonAssist.CornerRadius="2"
-                            ToolTip="Lưu thông tin" 
-                            Margin="0,0,40,10" 
+                            ToolTip="Lưu mật khẩu" 
+                            Margin="0 15 27 0" 
                             HorizontalAlignment="Right"
                             FocusVisualStyle="{x:Null}"
                             Content="Lưu" 
                             FontSize="20" 
                             VerticalAlignment="Center"
-                            Padding="0" 
-                            IsEnabled="False"/>
-                    
-                </Grid>
-            </materialDesign:Card>
-            
-            <!-- Bên phải -->
-            <materialDesign:Card
+                            Padding="0" />
+
+                    </StackPanel>
+                </materialDesign:Card>
+
+                <!-- Bên phải -->
+                <materialDesign:Card
                     Grid.Column="1"
                     Background="#FFFFFFFF"
                     HorizontalAlignment="Right" 
-                    Height="550"
+                    Height="500"
                     Width="650"
-                    Margin="20,20" 
+                    Margin="0,20,20,0" 
                     UniformCornerRadius="8"
                     VerticalAlignment="Top">
-                <Grid
-                        Background="{DynamicResource White}" 
-                        HorizontalAlignment="Right" 
-                        Width="650"
-                        Height="540" 
-                        VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    
-                    <TextBlock
+                    <StackPanel>
+                        <Grid Margin="0 15 0 0">
+                            <TextBlock
                                 Text="Thông tin khách hàng"
                                 HorizontalAlignment="Left"
-                                Margin="40,20,0,0" 
+                                Margin="40,0,0,0" 
                                 TextWrapping="Wrap" 
                                 VerticalAlignment="Center" 
-                                FontSize="40"
+                                FontSize="35"
                                 Foreground="#a47100"
                                 FontWeight="Bold"/>
-                    <materialDesign:PackIcon  
+                            <materialDesign:PackIcon  
                             Kind="AccountEditOutline"
                             Width="50" 
                             Height="50" 
-                            Margin="0,20,120,0" 
+                            Margin="0,0,45,0" 
                             VerticalAlignment="Center" 
                             Cursor="Hand" 
                             Foreground="#a47100"
                             HorizontalAlignment="Right"/>
+                        </Grid>
 
-                    <Grid 
-                            Grid.Row="1"
-                            Margin="20,0"
+                        <Grid 
+                            Margin="20 20 20 0"
                             VerticalAlignment="Center" 
                             Width="600" 
                             HorizontalAlignment="Left">
-                        <Label
+                            <Label
                                 Content="Mã khách hàng" 
                                 HorizontalAlignment="Left"
-                                FontSize="22" 
+                                FontSize="18" 
                                 FontWeight="SemiBold" 
                                 Foreground="#3f2016"
                                 Height="55"
-                                Width="170"
+                                Width="135"
                                 Padding="5,10"
                                 VerticalAlignment="Center"
                                 Background="{x:Null}"/>
 
-                        <Rectangle
-                                Width="380" 
+                            <Rectangle
+                                Width="420" 
                                 Height="60"
                                 RadiusY="6"
                                 RadiusX="6" 
@@ -233,13 +237,13 @@
                                 HorizontalAlignment="Right" 
                                 Fill="White"/>
 
-                        <TextBox Text="{Binding MaKH}"
+                            <TextBox Text="{Binding MaKH}"
                                 materialDesign:HintAssist.Hint="Mã tự động"
                                 BorderBrush="LightGray"
                                 HorizontalAlignment="Right"  
-                                Width="380" 
+                                Width="420" 
                                 Height="75" 
-                                FontSize="19" 
+                                FontSize="18" 
                                 MaxLines="1"
                                 Padding="10,0,0,0" 
                                 Foreground="#3f2016"
@@ -251,29 +255,28 @@
                                 SelectionBrush="#ffde59"
                                 BorderThickness="0"
                                 FontWeight="SemiBold" >
-                        </TextBox>
-                    </Grid>
+                            </TextBox>
+                        </Grid>
 
-                    <Grid 
-                            Grid.Row="2"
-                            Margin="20,0"
+                        <Grid 
+                            Margin="20 0"
                             VerticalAlignment="Center" 
                             Width="600" 
                             HorizontalAlignment="Left">
-                        <Label
+                            <Label
                                 Content="Họ và tên" 
                                 HorizontalAlignment="Left"
-                                FontSize="22" 
+                                FontSize="18" 
                                 FontWeight="SemiBold" 
                                 Foreground="#3f2016"
                                 Height="55"
-                                Width="170"
+                                Width="135"
                                 Padding="5,10"
                                 VerticalAlignment="Center"
                                 Background="{x:Null}"/>
 
-                        <Rectangle
-                                Width="380" 
+                            <Rectangle
+                                Width="420" 
                                 Height="60"
                                 RadiusY="6"
                                 RadiusX="6" 
@@ -282,13 +285,13 @@
                                 HorizontalAlignment="Right" 
                                 Fill="White"/>
 
-                        <TextBox Text="{Binding TenKH}"
+                            <TextBox Text="{Binding TenKH, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                 materialDesign:HintAssist.Hint="Họ và tên"
                                 BorderBrush="LightGray"
                                 HorizontalAlignment="Right"  
-                                Width="380" 
+                                Width="420" 
                                 Height="75" 
-                                FontSize="19" 
+                                FontSize="18" 
                                 MaxLines="1"
                                 Padding="10,0,0,0" 
                                 Foreground="#3f2016"
@@ -297,45 +300,54 @@
                                 VerticalAlignment="Center"
                                 SelectionBrush="#ffde59"
                                 BorderThickness="0"
-                                FontWeight="SemiBold" >
-                        </TextBox>
-                    </Grid>
+                                FontWeight="SemiBold">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="PreviewTextInput" >
+                                        <ei:CallMethodAction TargetObject="{Binding }" 
+                                         MethodName="ValueValidationTextBox"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                        </Grid>
 
-                    <Grid 
-                            Grid.Row="3"
-                            Margin="20,0"
+                        <Grid 
+                            Margin="20 0"
                             VerticalAlignment="Center" 
                             Width="600" 
                             HorizontalAlignment="Left">
-                        <Label
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="311*"/>
+                                <ColumnDefinition Width="289*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label
                                 Content="Email" 
                                 HorizontalAlignment="Left"
-                                FontSize="22" 
+                                FontSize="18" 
                                 FontWeight="SemiBold" 
                                 Foreground="#3f2016"
                                 Height="55"
-                                Width="170"
+                                Width="135"
                                 Padding="5,10"
                                 VerticalAlignment="Center"
                                 Background="{x:Null}"/>
 
-                        <Rectangle
-                                Width="380" 
+                            <Rectangle
+                                Width="420" 
                                 Height="60"
                                 RadiusY="6"
                                 RadiusX="6" 
-                                Margin="0"
+                                Margin="180,8,0,7"
                                 Stroke="LightGray" 
-                                HorizontalAlignment="Right" 
-                                Fill="White"/>
+                                HorizontalAlignment="Left" 
+                                Fill="White" Grid.ColumnSpan="2"/>
 
-                        <TextBox Text="{Binding Email}"
+                            <TextBox Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                 materialDesign:HintAssist.Hint="Email"
                                 BorderBrush="LightGray"
-                                HorizontalAlignment="Right"  
-                                Width="380" 
+                                HorizontalAlignment="Left"  
+                                Width="420" 
                                 Height="75" 
-                                FontSize="19" 
+                                FontSize="18" 
                                 MaxLines="1"
                                 Padding="10,0,0,0" 
                                 Foreground="#3f2016"
@@ -344,30 +356,29 @@
                                 VerticalAlignment="Center" 
                                 SelectionBrush="#ffde59"
                                 BorderThickness="0"
-                                FontWeight="SemiBold" >
-                        </TextBox>
-                    </Grid>
+                                FontWeight="SemiBold" Grid.ColumnSpan="2" Margin="180,0,0,0" >
+                            </TextBox>
+                        </Grid>
 
-                    <Grid 
-                            Grid.Row="4"
-                            Margin="20,0"
+                        <Grid 
+                            Margin="20 0"
                             VerticalAlignment="Center" 
                             Width="600" 
                             HorizontalAlignment="Left">
-                        <Label
+                            <Label
                                 Content="Địa chỉ" 
                                 HorizontalAlignment="Left"
-                                FontSize="22" 
+                                FontSize="18" 
                                 FontWeight="SemiBold" 
                                 Foreground="#3f2016"
                                 Height="55"
-                                Width="170"
+                                Width="135"
                                 Padding="5,10"
                                 VerticalAlignment="Center"
                                 Background="{x:Null}"/>
 
-                        <Rectangle
-                                Width="380" 
+                            <Rectangle
+                                Width="420" 
                                 Height="60"
                                 RadiusY="6"
                                 RadiusX="6" 
@@ -376,13 +387,13 @@
                                 HorizontalAlignment="Right" 
                                 Fill="White"/>
 
-                        <TextBox Text="{Binding DiaChi}"
+                            <TextBox Text="{Binding DiaChi, UpdateSourceTrigger=PropertyChanged}"
                                 materialDesign:HintAssist.Hint="Địa chỉ"
                                 BorderBrush="LightGray"
                                 HorizontalAlignment="Right"  
-                                Width="380" 
+                                Width="420" 
                                 Height="75" 
-                                FontSize="19" 
+                                FontSize="18" 
                                 MaxLines="1"
                                 Padding="10,0,0,0" 
                                 Foreground="#3f2016"
@@ -391,16 +402,24 @@
                                 VerticalAlignment="Center" 
                                 SelectionBrush="#ffde59"
                                 BorderThickness="0"
-                                FontWeight="SemiBold" >
-                        </TextBox>
-                    </Grid>
+                                FontWeight="SemiBold">
+                            </TextBox>
+                        </Grid>
 
-                    <Button Grid.Row="5"
+                        <TextBlock Text="Vui lòng nhập địa chỉ để mua hàng"
+                           Foreground="#FFF44336"
+                           FontWeight="DemiBold"
+                           Margin="7,2,35,0"
+                           HorizontalAlignment="Right"
+                           FontSize="14"
+                           Visibility="{Binding DiaChi, Converter={StaticResource ConverterNotNullValue}}"/>
+
+                        <Button 
                             Height="50" 
                             Width="140"
                             materialDesign:ButtonAssist.CornerRadius="2"
                             ToolTip="Lưu thông tin" 
-                            Margin="0,0,40,10" 
+                            Margin="0,15,30,0" 
                             HorizontalAlignment="Right"
                             FocusVisualStyle="{x:Null}"
                             Content="Lưu" 
@@ -408,8 +427,19 @@
                             VerticalAlignment="Center"
                             Command="{Binding UpdateInfo}"
                             Padding="0"/>
-                </Grid>
-            </materialDesign:Card>
+                    </StackPanel>
+                </materialDesign:Card>
+            </Grid>
+
+            <Button Grid.Row="1"
+                    ToolTip="Đăng xuất"
+                    materialDesign:ButtonAssist.CornerRadius="10"
+                    Background="#9b3409"
+                    Height="50" 
+                    Width="800"
+                    Content="Đăng xuất"
+                    Command="{Binding Logout}"
+                    FontSize="20"/>
         </Grid>
 
         <!-- Mặt nạ làm mờ -->

@@ -25,13 +25,14 @@ namespace MasterLibrary.Models.DataProvider
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<CHITIET_NHAP> CHITIET_NHAP { get; set; }
         public virtual DbSet<CTHD> CTHDs { get; set; }
         public virtual DbSet<DAYKE> DAYKEs { get; set; }
         public virtual DbSet<GIOHANG> GIOHANGs { get; set; }
         public virtual DbSet<HOADON> HOADONs { get; set; }
         public virtual DbSet<KHACHHANG> KHACHHANGs { get; set; }
         public virtual DbSet<LOAISUCO> LOAISUCOes { get; set; }
-        public virtual DbSet<NHAPSACH> NHAPSACHes { get; set; }
+        public virtual DbSet<NHAPKHO> NHAPKHOes { get; set; }
         public virtual DbSet<SACH> SACHes { get; set; }
         public virtual DbSet<SUCO> SUCOes { get; set; }
         public virtual DbSet<TANG> TANGs { get; set; }

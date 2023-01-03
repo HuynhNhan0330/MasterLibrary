@@ -199,6 +199,30 @@
                         </StackPanel>
                     </Border>
 
+                    <!-- Button tầng dãy -->
+                    <Border CornerRadius="5">
+                        <StackPanel Tag="{Binding ElementName=btnBorrowBook}"
+                                        Orientation="Horizontal"
+                                        Height="60"
+                                        Width="130"
+                                        Style= "{StaticResource EffectMenuButton}">
+                            <materialDesign:PackIcon Kind="BookAccount"
+                                                         Width="35"
+                                                         Height="32"
+                                                         VerticalAlignment="Center"
+                                                         Cursor="Hand"
+                                                         Foreground="White" />
+                            <RadioButton Style="{StaticResource MenuButtonMain}"
+                                             Content= "Mượn sách"
+                                             FontWeight="Bold"
+                                             GroupName="mainOptions"
+                                             x:Name="btnBorrowBook"
+                                             Width="110"
+                                             Command="{Binding LoadBorrowBookPageML}"
+                                             CommandParameter="{Binding ElementName=mainFrame}" />
+                        </StackPanel>
+                    </Border>
+
                     <!-- Button sự cố -->
                     <Border CornerRadius="5">
                         <StackPanel Tag="{Binding ElementName=btnTrouble}"

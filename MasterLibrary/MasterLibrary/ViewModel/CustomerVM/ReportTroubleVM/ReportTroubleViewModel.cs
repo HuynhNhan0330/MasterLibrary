@@ -231,7 +231,16 @@ namespace MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM
                 NameStatusTrouble = Utils.Trouble.STATUS.WAITTING;
             });
 
-            AddTroubleCommand = new RelayCommand<Window>((p) => { return true; }, async (p) =>
+            AddTroubleCommand = new RelayCommand<Window>((p) =>
+            { 
+                if (string.IsNullOrEmpty(TitleTrouble) ||
+                    string.IsNullOrEmpty(filepath))
+                {
+                    return false;
+                }
+
+                return true;
+            }, async (p) =>
             {
                 IsSaving = true;
 
@@ -277,7 +286,15 @@ namespace MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM
                 }
             });
 
-            UpdateTroubleCommand = new RelayCommand<Window>((p) => { return true; }, async (p) =>
+            UpdateTroubleCommand = new RelayCommand<Window>((p) =>
+            {
+                if (string.IsNullOrEmpty(TitleTrouble))
+                {
+                    return false;
+                }
+
+                return true;
+            }, async (p) =>
             {
                 IsSaving = true;
 

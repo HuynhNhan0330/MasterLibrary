@@ -2,6 +2,7 @@
 using MasterLibrary.Models.DataProvider;
 using MasterLibrary.Views.Customer;
 using MasterLibrary.Views.Customer.BuyBookPage;
+using MasterLibrary.Views.LoginWindow;
 using MasterLibrary.Views.MessageBoxML;
 using System;
 using System.Collections.Generic;
@@ -90,8 +91,8 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
         public ICommand CurrentPasswordChange { get; set; }
         public ICommand NewPasswordChange { get; set; }
         public ICommand ConfirmNewPasswordChange { get; set; }
-        public ICommand EnableBtnSavePass { get; set; }
         public ICommand SaveNewPasswordCommand { get; set; }
+        public ICommand Logout { get; set; }
 
         #endregion
 
@@ -111,7 +112,16 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
                 IsLoading = false;
             });
 
-            UpdateInfo = new RelayCommand<object>((p) => { return true; }, async (p) =>
+            UpdateInfo = new RelayCommand<object>((p) =>
+            {
+                if (string.IsNullOrEmpty(TenKH) ||
+                    string.IsNullOrEmpty(Email))
+                {
+                    return false;
+                }
+
+                return true;
+            }, async (p) =>
             {
                 string match = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
                 Regex reg = new Regex(match);
@@ -163,21 +173,17 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
                 ConfirmNewPassword = p.Password;
             });
 
-            EnableBtnSavePass = new RelayCommand<Button>((p) => { return true; }, (p) =>
+            SaveNewPasswordCommand = new RelayCommand<object>((p) =>
             {
                 if (string.IsNullOrEmpty(CurrentPassword) ||
                     string.IsNullOrEmpty(NewPassword) ||
                     string.IsNullOrEmpty(ConfirmNewPassword))
                 {
-                    p.IsEnabled= false;
+                    return false;
                 }
-                else
-                {
-                    p.IsEnabled= true;
-                }
-            });
 
-            SaveNewPasswordCommand = new RelayCommand<object>((p) => { return true; }, async (p) =>
+                return true; 
+            }, async (p) =>
             {
                 if (NewPassword != ConfirmNewPassword)
                 {
@@ -196,6 +202,17 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
                     MessageBoxML ms = new MessageBoxML("Thông báo", "Mật khẩu hiện tại không chính xác", MessageType.Error, MessageButtons.OK);
                     ms.ShowDialog();
                 }
+            });
+
+            Logout = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                MainCustomerWindow w = Application.Current.Windows.OfType<MainCustomerWindow>().FirstOrDefault();
+                w.Hide();
+
+                LoginWindow nw = new LoginWindow();
+                nw.Show();
+
+                w.Close();
             });
         }
     }
