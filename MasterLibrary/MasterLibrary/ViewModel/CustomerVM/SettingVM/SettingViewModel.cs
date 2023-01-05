@@ -83,10 +83,18 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
             set { _IsLoading = value; OnPropertyChanged(); }
         }
 
+        private bool _IsSaving;
+        public bool IsSaving
+        {
+            get { return _IsSaving; }
+            set { _IsSaving = value; OnPropertyChanged(); }
+        }
+
         #endregion
 
         #region Icommand
         public ICommand FirstLoadML { get; set; }
+        public ICommand MaskNameSetting { get; set; }
         public ICommand UpdateInfo { get; set; }
         public ICommand CurrentPasswordChange { get; set; }
         public ICommand NewPasswordChange { get; set; }
@@ -94,6 +102,10 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
         public ICommand SaveNewPasswordCommand { get; set; }
         public ICommand Logout { get; set; }
 
+        #endregion
+
+        #region Thuộc tính tạm thời
+        public Grid MaskName { get; set; }
         #endregion
 
         public SettingViewModel()
@@ -133,13 +145,15 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
                     return;
                 }
 
+                IsSaving = true;
+                MaskName.Visibility = Visibility.Visible;
+
                 if (await Task<bool>.Run(() => CustormerServices.Ins.CheckEmailCustormer(Email, MaKH)))
                 {
                     MessageBoxML ms = new MessageBoxML("Thông báo", "Email đã tồn tại", MessageType.Error, MessageButtons.OK);
                     ms.ShowDialog();
-                    return;
                 }
-
+                else
                 if (await Task.Run(() => CustormerServices.Ins.updateCustomer(MaKH, TenKH, Email, DiaChi)))
                 {
                     MessageBoxML ms = new MessageBoxML("Thông báo", "Chỉnh sửa thông tin thành công", MessageType.Accept, MessageButtons.OK);
@@ -156,6 +170,9 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
                     MessageBoxML ms = new MessageBoxML("Lỗi", "Xảy ra lỗi khi thực hiện thao tác", MessageType.Error, MessageButtons.OK);
                     ms.ShowDialog();
                 }
+
+                IsSaving = false;
+                MaskName.Visibility = Visibility.Collapsed;
             });
 
             CurrentPasswordChange = new RelayCommand<PasswordBox>((p) => { return true; }, (p) =>
@@ -192,6 +209,9 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
                     return;
                 }
 
+                IsSaving = true;
+                MaskName.Visibility = Visibility.Visible;
+
                 if (await Task<bool>.Run(() => CustormerServices.Ins.ChangePassword(MaKH, NewPassword, CurrentPassword)))
                 {
                     MessageBoxML ms = new MessageBoxML("Thông báo", "Đổi mật khẩu thành công", MessageType.Accept, MessageButtons.OK);
@@ -202,6 +222,9 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
                     MessageBoxML ms = new MessageBoxML("Thông báo", "Mật khẩu hiện tại không chính xác", MessageType.Error, MessageButtons.OK);
                     ms.ShowDialog();
                 }
+
+                IsSaving = false;
+                MaskName.Visibility = Visibility.Collapsed;
             });
 
             Logout = new RelayCommand<object>((p) => { return true; }, (p) =>
@@ -213,6 +236,11 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
                 nw.Show();
 
                 w.Close();
+            });
+
+            MaskNameSetting = new RelayCommand<Grid>((p) => { return true; }, (p) =>
+            {
+                MaskName = p;
             });
         }
     }
