@@ -175,6 +175,4 @@ D:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\Histo
 D:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\ExpenseDetail.baml
 D:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\RevenueDetail.baml
 D:\UIT\ML3\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.ResolveComReference.cache
-D:\X\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\EntityFramework.SqlServer.dll
-D:\X\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\EntityFramework.xml
 D:\x1\MasterLibrary\MasterLibrary\MasterLibrary\bin\Debug\Avalonia.Themes.Fluent.dll
