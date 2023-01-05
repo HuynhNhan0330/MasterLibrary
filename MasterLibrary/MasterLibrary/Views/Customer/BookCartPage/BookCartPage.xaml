@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:MasterLibrary.Views.Customer.BookCartPage"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1170"
       Title="BookCartPage"
@@ -189,7 +190,6 @@
                                                 </Border>
 
                                                 <TextBox Text="{Binding SoLuongHT, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                                         IsReadOnly="True"
                                                          TextAlignment="Center"
                                                          Padding="1,3,1,0"
                                                          FontSize="15"
@@ -200,15 +200,12 @@
                                                          BorderBrush="#bfad97 "
                                                          BorderThickness="1"
                                                          x:Name="txbQuantity">
-                                                    <!--<i:Interaction.Triggers>
-                                                        <i:EventTrigger EventName="SelectionChanged">
-                                                            <i:InvokeCommandAction Command="{Binding ChecktxbQuantity}"
-                                                                                   CommandParameter="{Binding ElementName=txbQuantity}"/>
-                                                        </i:EventTrigger>
-                                                        <i:EventTrigger EventName="PreviewTextInput" >
-                                                            <i:InvokeCommandAction Command="{Binding IsAllowedInput}" />
-                                                        </i:EventTrigger>
-                                                    </i:Interaction.Triggers>-->
+                                                    <i:Interaction.Triggers>
+                                                        <!--<i:EventTrigger EventName="PreviewTextInput" >
+                                                            <ei:CallMethodAction TargetObject="{Binding DataContext}" 
+                                                                MethodName="NumberValidationTextBox"/>
+                                                        </i:EventTrigger>-->
+                                                    </i:Interaction.Triggers>
                                                 </TextBox>
                                                 <Border Background="#df933d "
                                                         Width="30"

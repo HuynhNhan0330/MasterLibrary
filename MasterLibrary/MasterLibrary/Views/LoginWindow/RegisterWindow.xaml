@@ -4,14 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MasterLibrary.Views.LoginWindow"
+        xmlns:cv ="clr-namespace:MasterLibrary.Utils.ConverterValue"
         mc:Ignorable="d"
         xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="RegisterWindow" Height="450" Width="350"
+        Title="RegisterWindow" Height="500" Width="350"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         DataContext="{StaticResource RegisterML}"
         AllowsTransparency="True">
+
+    <Window.Resources>
+        <cv:BoolValueConverter x:Key="ConverterBoolValue"/>
+    </Window.Resources>
+    
     <Grid>
         <StackPanel Orientation="Vertical">
             <Label FontFamily="junegull"
@@ -22,11 +29,11 @@
                VerticalAlignment="Center"
                HorizontalAlignment="Center"
                Height="50"
-               Margin="20,30,0,0">
+               Margin="20,20,0,0">
             </Label>
 
             <!-- Phần đăng kí -->
-            <StackPanel Margin="0,10,0,10"
+            <StackPanel Margin="0,10,0,0"
                     HorizontalAlignment="Center"
                     Orientation="Horizontal">
                 <materialDesign:PackIcon Kind= "BadgeAccountHorizontalOutline"
@@ -40,9 +47,24 @@
                      Margin="5,0,0,0"
                      BorderBrush="LightGray"
                      Text="{Binding Fullnamereg}"
-                     Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PreviewTextInput" >
+                            <ei:CallMethodAction TargetObject="{Binding }" 
+                                         MethodName="ValueValidationTextBox"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
             </StackPanel>
-            <StackPanel Margin="0,0,0,10"
+            <TextBlock Text="Vui lòng nhập họ tên"
+                           Foreground="#FFF44336"
+                           FontWeight="DemiBold"
+                           Margin="0,2,65,0"
+                           HorizontalAlignment="Right"
+                           FontSize="12"
+                           Visibility="{Binding IsNullNameReg, Converter={StaticResource ConverterBoolValue}}"/>
+            
+            <StackPanel Margin="0,10,0,0"
                     HorizontalAlignment="Center"
                     Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Email"
@@ -59,7 +81,15 @@
                     Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
                 
             </StackPanel>
-            <StackPanel Margin="0,0,0,10"
+            <TextBlock Text="Vui lòng nhập email"
+                           Foreground="#FFF44336"
+                           FontWeight="DemiBold"
+                           Margin="0,2,65,0"
+                           HorizontalAlignment="Right"
+                           FontSize="12"
+                           Visibility="{Binding IsNullEmailReg, Converter={StaticResource ConverterBoolValue}}"/>
+            
+            <StackPanel Margin="0,10,0,0"
                     HorizontalAlignment="Center"
                     Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Account"
@@ -75,8 +105,16 @@
                      Text="{Binding Usernamereg}"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
             </StackPanel>
+            <TextBlock Text="Vui lòng nhập tên đăng nhập"
+                           Foreground="#FFF44336"
+                           FontWeight="DemiBold"
+                           Margin="0,2,65,0"
+                           HorizontalAlignment="Right"
+                           FontSize="12"
+                           Visibility="{Binding IsNullUserReg, Converter={StaticResource ConverterBoolValue}}"/>
 
             <StackPanel HorizontalAlignment="Center"
+                        Margin="0 10 0 0"
                     Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Lock"
                                      Height="20"
@@ -101,10 +139,18 @@
                     </i:Interaction.Triggers>
                 </PasswordBox>
             </StackPanel>
+            <TextBlock Text="Vui lòng nhập mật khẩu"
+                           Foreground="#FFF44336"
+                           FontWeight="DemiBold"
+                           Margin="0,2,65,0"
+                           HorizontalAlignment="Right"
+                           FontSize="12"
+                           Visibility="{Binding IsNullPasswordReg, Converter={StaticResource ConverterBoolValue}}"/>
 
             <!-- Phần bấm nút -->
             <StackPanel Orientation = "Vertical"
-                    HorizontalAlignment="Center">
+                    HorizontalAlignment="Center"
+                        Margin="0 10 0 0">
                 <!-- Đã có tài khoản -->
 
                 <StackPanel Orientation="Horizontal" 

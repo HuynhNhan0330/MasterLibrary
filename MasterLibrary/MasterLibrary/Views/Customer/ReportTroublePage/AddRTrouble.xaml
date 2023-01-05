@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:MasterLibrary.Views.Customer.ReportTroublePage"
         xmlns:uc="clr-namespace:MasterLibrary.UserControlML"
         xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:cv="clr-namespace:MasterLibrary.Utils.ConverterValue"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Name="AddTrouble"
@@ -20,6 +21,10 @@
             <i:InvokeCommandAction Command="{Binding FirstLoadAddReport}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
+
+    <Window.Resources>
+        <cv:NotNullValidationConverter x:Key="ConverterNotNullValue"/>
+    </Window.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -40,7 +45,7 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0"
-                        Margin="10,5,10,20">
+                        Margin="10,5,10,10">
                 <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
                          AcceptsReturn="True"
                          materialDesign:HintAssist.Hint="Tiêu đề"
@@ -50,6 +55,14 @@
                          FontSize="22"
                          BorderBrush="#593000"
                          Text="{Binding TitleTrouble, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                
+                <TextBlock Text="Vui lòng nhập tiêu đề"
+                           Foreground="#FFF44336"
+                           FontWeight="DemiBold"
+                           Margin="7,2,0,0"
+                           HorizontalAlignment="Left"
+                           FontSize="14"
+                           Visibility="{Binding TitleTrouble, Converter={StaticResource ConverterNotNullValue}}"/>
 
                 <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
                          AcceptsReturn="True"
@@ -69,9 +82,9 @@
 
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="38*"/>
-                    <RowDefinition Height="203*"/>
-                    <RowDefinition Height="46*"/>
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="140*"/>
+                    <RowDefinition Height="23*"/>
                 </Grid.RowDefinitions>
 
                 <StackPanel Grid.Row="0"
@@ -110,7 +123,7 @@
                 <Border Grid.Row="1"
                         BorderBrush="#bfad97"
                         BorderThickness="0.5"
-                        Margin="0,10,10,10">
+                        Margin="0,28,10,10">
                     <StackPanel>
                         <TextBox Text="Trạng thái xử lí: Chờ giải quyết"
                                  Foreground="#593000"
@@ -176,7 +189,7 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             Margin="20,0,0,0"/>
-                    
+
                     <Button Cursor="Hand"
                             materialDesign:ButtonAssist.CornerRadius="10"
                             Command="{Binding AddTroubleCommand}"
@@ -213,7 +226,7 @@
                     </Style>
                 </Grid.Style>
             </Grid>
-            
+
             <!--Hiện lên đang xử lí-->
             <materialDesign:Card Height="100"
                                  Width="100"
