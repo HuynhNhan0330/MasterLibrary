@@ -276,6 +276,9 @@
     <Compile Include="Models\DataProvider\BookServices.cs" />
     <Compile Include="Models\DataProvider\BuildingServices.cs" />
     <Compile Include="Models\DataProvider\BuyServices.cs" />
+    <Compile Include="Models\DataProvider\CHITIET_NHAP.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataProvider\CTHD.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
@@ -311,7 +314,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MasterlibraryModels.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataProvider\NHAPSACH.cs">
+    <Compile Include="Models\DataProvider\NHAPKHO.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\SACH.cs">
