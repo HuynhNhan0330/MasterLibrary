@@ -14,12 +14,14 @@ using MasterLibrary.Views.Admin;
 using MasterLibrary.Views.Customer;
 using MaterialDesignThemes.Wpf;
 using MasterLibrary.ViewModel.CustomerVM;
+using MasterLibrary.Views.MessageBoxML;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Text.RegularExpressions;
 
 namespace MasterLibrary.ViewModel.LoginVM
 {
     public class LoginViewModel: BaseViewModel
     {
-        public Window loginW { get; set; }
         public static Frame MainFrame { get; set; }
         public static Grid Mask { get; set; }
 
@@ -33,8 +35,6 @@ namespace MasterLibrary.ViewModel.LoginVM
         public ICommand PasswordChangedML { get; set; }
         public ICommand RegisterML { get; set; }
         public ICommand PasswordRegChangedML { get; set; }
-
-        public ICommand SaveLoginWindowNameML { get; set; }
 
         #region property
         private string _usernamelog;
@@ -85,6 +85,34 @@ namespace MasterLibrary.ViewModel.LoginVM
             set { _IsSaving = value; OnPropertyChanged(); }
         }
 
+        private bool _IsNullNameReg;
+        public bool IsNullNameReg
+        {
+            get { return _IsNullNameReg; }
+            set { _IsNullNameReg = value; OnPropertyChanged(); }
+        }
+
+        private bool _IsNullEmailReg;
+        public bool IsNullEmailReg
+        {
+            get { return _IsNullEmailReg; }
+            set { _IsNullEmailReg = value; OnPropertyChanged(); }
+        }
+
+        private bool _IsNullUserReg;
+        public bool IsNullUserReg
+        {
+            get { return _IsNullUserReg; }
+            set { _IsNullUserReg = value; OnPropertyChanged(); }
+        }
+
+        private bool _IsNullPasswordReg;
+        public bool IsNullPasswordReg
+        {
+            get { return _IsNullPasswordReg; }
+            set { _IsNullPasswordReg = value; OnPropertyChanged(); }
+        }
+
         #endregion
         public LoginViewModel()
         {
@@ -93,6 +121,7 @@ namespace MasterLibrary.ViewModel.LoginVM
             {
                 MainFrame = p;
                 p.Content = new LoginPage();
+                Passwordlog = "";
             });
 
             // Load page quên mật khẩu
@@ -123,12 +152,6 @@ namespace MasterLibrary.ViewModel.LoginVM
                 MainFrame.Content = new VerificationPage();
             });
 
-            // Lưu widow login
-            SaveLoginWindowNameML = new RelayCommand<Window>((p) => { return true; }, (p) =>
-            {
-                loginW = p;   
-            });
-
             #region Login
             // Thực hiện đăng nhập tài khoản
             LoginML = new RelayCommand<Label>((p) => { return true; }, async (p) =>
@@ -138,10 +161,12 @@ namespace MasterLibrary.ViewModel.LoginVM
 
                 // thực hiện đăng nhập
                 IsSaving = true;
+                Mask.Visibility = Visibility.Visible;
 
                 await checkValidateAccount(username, password, p);
 
                 IsSaving = false;
+                Mask.Visibility = Visibility.Hidden;
             });
 
             // Nhận mật khẩu mỗi lần thay đổi
@@ -154,6 +179,32 @@ namespace MasterLibrary.ViewModel.LoginVM
             #region Register
             RegisterML = new RelayCommand<Label>((p) => { return true; }, async (p) =>
             {
+                IsNullNameReg = IsNullEmailReg = IsNullUserReg = IsNullPasswordReg = false;
+
+                if (string.IsNullOrEmpty(Fullnamereg)) IsNullNameReg = true;
+                if (string.IsNullOrEmpty(Emailreg)) IsNullEmailReg = true;
+                if (string.IsNullOrEmpty(Usernamereg)) IsNullUserReg = true;
+                if (string.IsNullOrEmpty(Passwordreg)) IsNullPasswordReg = true;
+
+                if (IsNullNameReg || IsNullEmailReg || IsNullUserReg || IsNullPasswordReg) return;
+
+                string match = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
+                Regex reg = new Regex(match);
+
+                if (reg.IsMatch(Emailreg) == false)
+                {
+                    MessageBoxML ms = new MessageBoxML("Thông báo", "Email không hợp lệ", MessageType.Error, MessageButtons.OK);
+                    ms.ShowDialog();
+                    return;
+                }
+
+                if (await Task.Run(() => CustormerServices.Ins.CheckEmailCustormer(Emailreg, -1)))
+                {
+                    MessageBoxML ms = new MessageBoxML("Thông báo", "Email đã tồn tại", MessageType.Error, MessageButtons.OK);
+                    ms.ShowDialog();
+                    return;
+                }
+
                 string fullname = Fullnamereg;
                 string email = Emailreg;
                 string usernamereg = Usernamereg;
@@ -193,13 +244,17 @@ namespace MasterLibrary.ViewModel.LoginVM
                 MainCustomerViewModel.CurrentCustomer = cus;
                 w1._CustomerName.Text = cus.TENKH;
                 w1.Show();
-                loginW.Close();
+
+                LoginWindow w = Application.Current.Windows.OfType<LoginWindow>().FirstOrDefault();
+                w.Close();
             }
             else if (loginAdmin)
             {
                 MainAdminWindow w1 = new MainAdminWindow();
                 w1.Show();
-                loginW.Close();
+
+                LoginWindow w = Application.Current.Windows.OfType<LoginWindow>().FirstOrDefault();
+                w.Close();
             }
             else
             {

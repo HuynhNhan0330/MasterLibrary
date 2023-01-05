@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using MasterLibrary.Views.Admin.ImportBookPage;
 using MasterLibrary.Views.Admin.LocationPage;
 using MasterLibrary.Views.Admin.TroublePage;
+using MasterLibrary.Views.Admin.BorrowBookPage;
 
 namespace MasterLibrary.ViewModel.AdminVM
 {
@@ -41,6 +42,7 @@ namespace MasterLibrary.ViewModel.AdminVM
         public ICommand LoadManageBookData { get; set; }
         public ICommand LoadImportBookPageML { get; set; }
         public ICommand LoadLocationPageML { get; set; }
+        public ICommand LoadBorrowBookPageML { get; set; }
         public ICommand LoadTroublePageML { get; set; }
         public ICommand AddingBook { get; set; }
         public ICommand DeletingBook { get; set; }
@@ -81,6 +83,12 @@ namespace MasterLibrary.ViewModel.AdminVM
             LoadLocationPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
                 p.Content = new LocationPage();
+            });
+
+            // Load trang quản lí đồ ăn
+            LoadBorrowBookPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            {
+                p.Content = new BorrowBookPage();
             });
 
             // Load trang sự cố
