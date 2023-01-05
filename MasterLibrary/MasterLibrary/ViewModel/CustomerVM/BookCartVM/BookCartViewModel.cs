@@ -224,6 +224,14 @@ namespace MasterLibrary.ViewModel.CustomerVM.BookCartVM
 
             PayAllCommand = new RelayCommand<object>((p) => { return true; }, async (p) =>
             {
+                if (string.IsNullOrEmpty(MainCustomerViewModel.CurrentCustomer.DIACHI) == true)
+                {
+                    MessageBoxML mb = new MessageBoxML("Thông báo", "Vui lòng vào cài đặt để cập nhật địa chỉ của bạn để mua hàng", MessageType.Error, MessageButtons.OK);
+                    mb.ShowDialog();
+
+                    return;
+                }
+
                 if (TongSach == 0)
                 {
                     MessageBoxML mx = new MessageBoxML("Thông báo", "Số lượng sách bằng 0 nên không thể thanh toán", MessageType.Error, MessageButtons.OK);

@@ -148,6 +148,14 @@ namespace MasterLibrary.ViewModel.CustomerVM.BuyBookVM
             // Mua ngay
             BuyIt = new RelayCommand<object>((p) => { return true; }, async (p) =>
             {
+                if (string.IsNullOrEmpty(MainCustomerViewModel.CurrentCustomer.DIACHI) == true)
+                {
+                    MessageBoxML ms = new MessageBoxML("Thông báo", "Vui lòng vào cài đặt để cập nhật địa chỉ của bạn để mua hàng", MessageType.Error, MessageButtons.OK);
+                    ms.ShowDialog();
+
+                    return;
+                }
+
                 if (Quantity == 0)
                 {
                     MessageBoxML ms = new MessageBoxML("Thông báo", "Số lượng bằng 0 nên không thực hiện mua được", MessageType.Error, MessageButtons.OK);
