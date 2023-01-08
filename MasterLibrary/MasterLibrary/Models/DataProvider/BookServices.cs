@@ -47,9 +47,9 @@ namespace MasterLibrary.Models.DataProvider
                                        Gia = (decimal)sach.GIA,
                                        SoLuong = (int)sach.SL,
                                        ImageSource = sach.IMAGESOURCE,
-                                       ViTriTang = (int)sach.VITRITANG,
+                                       MaTang = (int)sach.VITRITANG,
                                        TenTang = t.TENTANG,
-                                       ViTriDay = (int)sach.VITRIDAY,
+                                       MaDay = (int)sach.VITRIDAY,
                                        TenDay = d.TENDAY
                                    }
                      ).ToListAsync();

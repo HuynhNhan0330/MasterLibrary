@@ -347,6 +347,7 @@
     <Compile Include="ViewModel\AdminVM\BorrowBookVM\BorrowBookViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\BorrowBookVM\BorrowBookVorcherViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\BorrowBookVM\CollectionBookVorcherViewModel.cs" />
+    <Compile Include="ViewModel\AdminVM\ImportVM\ImportViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\BookInRowViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\DetailBookInRowViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\LocationViewModel.cs" />

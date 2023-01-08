@@ -33,30 +33,26 @@ namespace MasterLibrary.ViewModel.AdminVM
         
         public ICommand LoadBorrowBookPageML { get; set; }
         public ICommand LoadTroublePageML { get; set; }
-        
 
-        #endregion
+
 
         public MainAdminViewModel()
         {
             // Load trang phân tích
             LoadStatisticalPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
-                textHeading = "Thống kê doanh thu";
                 p.Content = new StatisticalPage();
             });
 
             // Load trang quản lí sách
             LoadBookManagerPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
-                textHeading = "Quản lý sách";
                 p.Content = new BookManagePage();
             });
 
             // Load trang lịch sử
             LoadHistoryPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
-                textHeading = "Lịch sử giao dịch";
                 p.Content = new HistoryPage();
             });
 
@@ -71,7 +67,7 @@ namespace MasterLibrary.ViewModel.AdminVM
             {
                 p.Content = new LocationPage();
             });
-           
+
 
             // Load trang thuê sách
             LoadBorrowBookPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
@@ -85,6 +81,6 @@ namespace MasterLibrary.ViewModel.AdminVM
                 p.Content = new TroublePage();
             });
 
-            
+        }  
     }
 }
