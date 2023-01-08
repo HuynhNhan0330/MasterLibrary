@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MasterLibrary.DTOs;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MasterLibrary.ViewModel.AdminVM;
 
 namespace MasterLibrary.Views.Admin.ImportBookPage
 {
@@ -25,4 +28,5 @@ namespace MasterLibrary.Views.Admin.ImportBookPage
             InitializeComponent();
         }
     }
+
 }

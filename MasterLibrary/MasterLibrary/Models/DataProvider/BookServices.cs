@@ -47,9 +47,9 @@ namespace MasterLibrary.Models.DataProvider
                                        Gia = (decimal)sach.GIA,
                                        SoLuong = (int)sach.SL,
                                        ImageSource = sach.IMAGESOURCE,
-                                       ViTriTang = (int)sach.VITRITANG,
+                                       MaTang = (int)sach.VITRITANG,
                                        TenTang = t.TENTANG,
-                                       ViTriDay = (int)sach.VITRIDAY,
+                                       MaDay = (int)sach.VITRIDAY,
                                        TenDay = d.TENDAY
                                    }
                      ).ToListAsync();
@@ -87,10 +87,10 @@ namespace MasterLibrary.Models.DataProvider
                                        Gia = (decimal)sach.GIA,
                                        SoLuong = (int)sach.SL,
                                        ImageSource = sach.IMAGESOURCE,
-                                       ViTriTang = (int)sach.VITRITANG,
-                                       TenTang = t.TENTANG,
-                                       ViTriDay = (int)sach.VITRIDAY,
-                                       TenDay = d.TENDAY
+                                       MaTang = (int)sach.VITRITANG,
+                                       MaDay = (int)sach.VITRIDAY,
+                                       TenTang = (from tang in context.TANGs where tang.MATANG == sach.VITRITANG select tang.TENTANG).FirstOrDefault() ,
+                                       TenDay = (from day in context.DAYKEs where day.MADAY == sach.VITRIDAY select day.TENDAY).FirstOrDefault()
                                    }
                      ).ToListAsync();
                 }
@@ -110,9 +110,7 @@ namespace MasterLibrary.Models.DataProvider
                 using (var context = new MasterlibraryEntities())
                 {
                     var book = await (from sach in context.SACHes
-                                      join t in context.TANGs on sach.VITRIDAY equals t.MATANG
-                                      join d in context.DAYKEs on sach.VITRIDAY equals d.MADAY
-                                      where sach.MASACH == _BookId
+                                     where sach.MASACH == _BookId
                                      select new BookDTO
                                      {
                                          MaSach = sach.MASACH,
@@ -125,10 +123,10 @@ namespace MasterLibrary.Models.DataProvider
                                          Gia = (decimal)sach.GIA,
                                          SoLuong = (int)sach.SL,
                                          ImageSource = sach.IMAGESOURCE,
-                                         ViTriTang = (int)sach.VITRITANG,
-                                         ViTriDay = (int)sach.VITRIDAY,
-                                         TenTang = t.TENTANG,
-                                         TenDay = d.TENDAY
+                                         MaTang = (int)sach.VITRITANG,
+                                         MaDay = (int)sach.VITRIDAY,
+                                         TenTang = (from tang in context.TANGs where tang.MATANG == sach.VITRITANG select tang.TENTANG).FirstOrDefault(),
+                                         TenDay = (from day in context.DAYKEs where day.MADAY == sach.VITRIDAY select day.TENDAY).FirstOrDefault()
                                      }).FirstOrDefaultAsync();
 
                     return book;

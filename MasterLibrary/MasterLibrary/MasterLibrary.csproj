@@ -347,6 +347,7 @@
     <Compile Include="ViewModel\AdminVM\BorrowBookVM\BorrowBookViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\BorrowBookVM\BorrowBookVorcherViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\BorrowBookVM\CollectionBookVorcherViewModel.cs" />
+    <Compile Include="ViewModel\AdminVM\ImportVM\ImportViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\BookInRowViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\DetailBookInRowViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\LocationViewModel.cs" />
@@ -365,9 +366,6 @@
     <Compile Include="ViewModel\CustomerVM\SettingVM\SettingViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\ForgotPassViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\LoginViewModel.cs" />
-    <Compile Include="Views\Admin\BookManagePage\AddingWindow.xaml.cs">
-      <DependentUpon>AddingWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Admin\BookManagePage\BookManagePage.xaml.cs">
       <DependentUpon>BookManagePage.xaml</DependentUpon>
     </Compile>
@@ -493,10 +491,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlML\controlbar_uc.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Admin\BookManagePage\AddingWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

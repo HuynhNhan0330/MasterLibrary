@@ -16,7 +16,6 @@ namespace MasterLibrary.Models.DataProvider
     {
         private CustormerServices() { }
         private static CustormerServices _ins;
-
         public static CustormerServices Ins
         {
             get
@@ -53,7 +52,10 @@ namespace MasterLibrary.Models.DataProvider
                     {
                         return (false, "Sai tài khoản hoặc mật khẩu", null);
                     }
-                    return (true, "", cus);
+                    else
+                    {
+                        return (true, "", cus);
+                    }
                 }
 
             }

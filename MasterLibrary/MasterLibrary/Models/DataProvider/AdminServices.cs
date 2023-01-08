@@ -11,6 +11,10 @@ namespace MasterLibrary.Models.DataProvider
     public class AdminServices
     {
         private AdminServices() { }
+        public static string TenNhanVien { get; set; }
+
+        public static int MaNhanVien { get; set; }
+
         private static AdminServices _ins;
         public static AdminServices Ins
         {
@@ -40,12 +44,17 @@ namespace MasterLibrary.Models.DataProvider
                                        }).FirstOrDefaultAsync();
 
 
-
                     if (admin == null)
                     {
                         return (false, "Sai tài khoản hoặc mật khẩu");
                     }
-                    return (true, "");
+                    else
+                    {
+
+                        TenNhanVien = (from s in context.KHACHHANGs where s.USERNAME == username && s.USERPASSWORD == password select s.TENKH).FirstOrDefault();
+                        MaNhanVien = (from s in context.KHACHHANGs where s.USERNAME == username && s.USERPASSWORD == password select s.MAKH).FirstOrDefault();
+                        return (true, "");
+                    }
                 }
 
             }
