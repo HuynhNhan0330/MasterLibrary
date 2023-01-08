@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿D:\Nhan's\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\GeneratedInternalTypeHelper.g.cs
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml;;
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\MainWindow.xaml;;
@@ -40,4 +41,31 @@ FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\Logi
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\RegisterWindow.xaml;;
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\VerificationPage.xaml;;
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\Views\MessageBoxML\MessageBoxML.xaml;;
+=======
+﻿
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\MainWindow.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\ResourcesXAML\MainResources.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\UserControlML\controlbar_uc.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\BookManagePage\BookManagePage.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\BookManagePage\updatingwindow.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\HistoryPage.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\ImportBookPage\ImportBookPage.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\LocationPage\LocationPage.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\MainAdminWindow.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\StatisticalPage\StatisticalPage.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\BookCartPage\BookCartPage.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\BookLocationPage\BookLocationPage.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\BuyBookPage\BuyBookPage.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\BuyBookPage\DetailBook.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\MainCustomerWindow.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\Customer\SettingPage\SettingPage.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\CreateNewPassPage.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\ForgotPassPage.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\LoginPage.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\LoginWindow.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\RegisterWindow.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\VerificationPage.xaml;;
+FD:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\Views\MessageBoxML\MessageBoxML.xaml;;
+>>>>>>> Import/main
 

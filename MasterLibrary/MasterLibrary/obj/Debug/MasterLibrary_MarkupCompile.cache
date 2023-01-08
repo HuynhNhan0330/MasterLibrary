@@ -4,17 +4,30 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 D:\Nhan's\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\
+=======
+D:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\
+>>>>>>> Import/main
 MasterLibrary
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 D:\Nhan's\DoAn\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml
 40-1102080767
 2-1465087467
 109-1839995845
 17914251559
 MainWindow.xaml;ResourcesXAML\MainResources.xaml;UserControlML\controlbar_uc.xaml;Views\Admin\BookManagePage\AddingWindow.xaml;Views\Admin\BookManagePage\BookManagePage.xaml;Views\Admin\BookManagePage\updatingwindow.xaml;Views\Admin\BorrowBookPage\BorrowBookPage.xaml;Views\Admin\BorrowBookPage\BorrowBookVorcherPage.xaml;Views\Admin\BorrowBookPage\CollectionBookVorcherPage.xaml;Views\Admin\HistoryPage\ExpenseDetail.xaml;Views\Admin\HistoryPage\ExpensePage.xaml;Views\Admin\HistoryPage\HistoryPage.xaml;Views\Admin\ImportBookPage\ImportBookPage.xaml;Views\Admin\LocationPage\BookInRow.xaml;Views\Admin\LocationPage\DetailBookInRow.xaml;Views\Admin\LocationPage\LocationPage.xaml;Views\Admin\HistoryPage\RevenueDetail.xaml;Views\Admin\HistoryPage\RevenuePage.xaml;Views\Admin\MainAdminWindow.xaml;Views\Admin\StatisticalPage\StatisticalPage.xaml;Views\Admin\TroublePage\DetailTroubleAdmin.xaml;Views\Admin\TroublePage\ProcessTrouble.xaml;Views\Admin\TroublePage\TroublePage.xaml;Views\Customer\BookCartPage\BookCartPage.xaml;Views\Customer\BookLocationPage\BookLocationPage.xaml;Views\Customer\BuyBookPage\BuyBookPage.xaml;Views\Customer\BuyBookPage\DetailBook.xaml;Views\Customer\MainCustomerWindow.xaml;Views\Customer\ReportTroublePage\AddRTrouble.xaml;Views\Customer\ReportTroublePage\DetailTrouble.xaml;Views\Customer\ReportTroublePage\EditTrouble.xaml;Views\Customer\ReportTroublePage\ReportTroublePage.xaml;Views\Customer\SettingPage\SettingPage.xaml;Views\LoginWindow\CreateNewPassPage.xaml;Views\LoginWindow\ForgotPassPage.xaml;Views\LoginWindow\LoginPage.xaml;Views\LoginWindow\LoginWindow.xaml;Views\LoginWindow\RegisterWindow.xaml;Views\LoginWindow\VerificationPage.xaml;Views\MessageBoxML\MessageBoxML.xaml;
+=======
+D:\Đồ án\MasterLibrary\MasterLibrary\MasterLibrary\App.xaml
+23-540462368
+2-1465087467
+73-2021623307
+178-998717297
+MainWindow.xaml;ResourcesXAML\MainResources.xaml;UserControlML\controlbar_uc.xaml;Views\Admin\BookManagePage\BookManagePage.xaml;Views\Admin\BookManagePage\updatingwindow.xaml;Views\Admin\HistoryPage\HistoryPage.xaml;Views\Admin\ImportBookPage\ImportBookPage.xaml;Views\Admin\LocationPage\LocationPage.xaml;Views\Admin\MainAdminWindow.xaml;Views\Admin\StatisticalPage\StatisticalPage.xaml;Views\Customer\BookCartPage\BookCartPage.xaml;Views\Customer\BookLocationPage\BookLocationPage.xaml;Views\Customer\BuyBookPage\BuyBookPage.xaml;Views\Customer\BuyBookPage\DetailBook.xaml;Views\Customer\MainCustomerWindow.xaml;Views\Customer\SettingPage\SettingPage.xaml;Views\LoginWindow\CreateNewPassPage.xaml;Views\LoginWindow\ForgotPassPage.xaml;Views\LoginWindow\LoginPage.xaml;Views\LoginWindow\LoginWindow.xaml;Views\LoginWindow\RegisterWindow.xaml;Views\LoginWindow\VerificationPage.xaml;Views\MessageBoxML\MessageBoxML.xaml;
+>>>>>>> Import/main
 
-True
+False
 

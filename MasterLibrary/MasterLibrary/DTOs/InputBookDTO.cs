@@ -13,8 +13,10 @@ namespace MasterLibrary.DTOs
         public int IDInput { get; set; }
         public int IDBook { get; set; }
         public string TenSach { get; set; }
+        public string TacGia { get; set; }
+        public string NhaXuatBan { get; set; }
         public int GiaNhap { get; set; }
+        public int GiaBan { get; set; }
         public int SoLuong { get; set; }
-        public DateTime NgNhap { get; set; }
     }
 }

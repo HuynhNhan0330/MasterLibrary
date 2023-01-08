@@ -60,14 +60,14 @@ namespace MasterLibrary.Models.DataProvider
 
             using (var context = new MasterlibraryEntities())
             {
-                var receiptList = context.NHAPSACHes.Where(b => b.NGNHAP.Year == year);
+                var receiptList = context.NHAPKHOes.Where(b => b.NGNHAP.Year == year);
 
                 if (receiptList.ToList().Count != 0)
                 {
-                    outputMoney = (decimal)receiptList.Sum(b => b.SOLUONG * b.GIANHAP);
+                    outputMoney = (decimal)receiptList.Sum(b => b.TRIGIA);
                 }
                
-                var receiptByMonth = receiptList.GroupBy(b => b.NGNHAP.Month).Select(gr => new { Month = gr.Key, Output = gr.Sum(b => (decimal?)(b.SOLUONG * b.GIANHAP) ?? 0)}).ToList();
+                var receiptByMonth = receiptList.GroupBy(b => b.NGNHAP.Month).Select(gr => new { Month = gr.Key, Output = gr.Sum(b => (decimal?)(b.TRIGIA) ?? 0)}).ToList();
 
                 foreach (var re in receiptByMonth)
                 {
@@ -113,14 +113,14 @@ namespace MasterLibrary.Models.DataProvider
 
             using (var context = new MasterlibraryEntities())
             {
-                var receiptList = context.NHAPSACHes.Where(b => b.NGNHAP.Year == year && b.NGNHAP.Month == month);
+                var receiptList = context.NHAPKHOes.Where(b => b.NGNHAP.Year == year && b.NGNHAP.Month == month);
 
                 if (receiptList.ToList().Count != 0)
                 {
-                    outputMoney = (decimal)receiptList.Sum(b => (b.SOLUONG * b.GIANHAP));
+                    outputMoney = (decimal)receiptList.Sum(b => (b.TRIGIA));
                 }
 
-                var revenueByDay = receiptList.GroupBy(b => b.NGNHAP.Day).Select(gr => new { Day = gr.Key, Income = gr.Sum(b => (decimal?)(b.SOLUONG * b.GIANHAP) ?? 0 )}).ToList();
+                var revenueByDay = receiptList.GroupBy(b => b.NGNHAP.Day).Select(gr => new { Day = gr.Key, Income = gr.Sum(b => (decimal?)(b.TRIGIA) ?? 0 )}).ToList();
 
                 foreach (var re in revenueByDay)
                 {
