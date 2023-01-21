@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MasterLibrary.Views.Admin.BorrowBookPage"
       xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="535" d:DesignWidth="1150"
@@ -14,7 +15,7 @@
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding FirstLoadBrrowBookVocher}"/>
+            <i:InvokeCommandAction Command="{Binding FirstLoadBrrowBookVocherCM}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
@@ -34,14 +35,50 @@
                     CornerRadius="4"
                     BorderBrush="#593000"
                     BorderThickness="2">
-                <ListView ItemsSource="{Binding ListBookInBorrow}"
-                                  SelectedItem="{Binding SelectedTrouble}"
-                                  x:Name="lvTrouble"
+                <ListView ItemsSource="{Binding ListBookInBorrow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  SelectedItem="{Binding SelectedBookInBorrow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  x:Name="lvBookBorrow"
                                   ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Background"
+                                        Value="Transparent" />
+                            <Setter Property="Foreground"
+                                        Value="Transparent" />
+                            <Style.Triggers>
+                                <MultiTrigger>
+                                    <Setter Property="Foreground"
+                                                            Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}}" />
+                                </MultiTrigger>
+                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                    <Setter Property="IsSelected"
+                                                            Value="True" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    
                     <ListView.View>
                         <GridView>
+                            <GridViewColumn Header="Mã sách"
+                                            Width="150">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding MaSach}" 
+                                                   TextWrapping="Wrap" 
+                                                   HorizontalAlignment="Left" 
+                                                   Margin="20,0,0,0" 
+                                                   VerticalAlignment="Center" 
+                                                   FontSize="16" 
+                                                   FontWeight="SemiBold" 
+                                                   Foreground="#FF333333"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            
                             <GridViewColumn Header="Tên sách"
-                                            Width="570">
+                                            Width="420">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding TenSach}" 
@@ -55,6 +92,7 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
+
                             <GridViewColumn Header="Số lượng"
                                             Width="150">
                                 <GridViewColumn.CellTemplate>
@@ -75,33 +113,34 @@
                                                 </Border>
                                                 <i:Interaction.Triggers>
                                                     <i:EventTrigger EventName="MouseLeftButtonUp">
-                                                        <i:InvokeCommandAction Command="{Binding ElementName=lvCartBook, Path=DataContext.MinusCommand}" />
+                                                        <i:InvokeCommandAction Command="{Binding ElementName=lvBookBorrow, Path=DataContext.MinusBookInBorrowCM}" />
                                                     </i:EventTrigger>
                                                 </i:Interaction.Triggers>
                                             </Border>
 
                                             <TextBox Text="{Binding SoLuong, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                                         IsReadOnly="True"
                                                          TextAlignment="Center"
                                                          Padding="1,3,1,0"
                                                          FontSize="15"
-                                                         Background="White"
                                                          Width="40"
                                                          Height="30"
                                                          Margin="10,0"
-                                                         BorderBrush="#bfad97 "
+                                                         BorderBrush="#bfad97"
                                                          BorderThickness="1"
+                                                         Foreground="#FF333333"   
                                                          x:Name="txbQuantity">
-                                                <!--<i:Interaction.Triggers>
-                                                        <i:EventTrigger EventName="SelectionChanged">
-                                                            <i:InvokeCommandAction Command="{Binding ChecktxbQuantity}"
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="PreviewTextInput" >
+                                                        <ei:CallMethodAction TargetObject="{Binding ElementName = lvBookBorrow, Path = DataContext}"
+                                                                             MethodName="NumberValidationTextBox"/>
+                                                    </i:EventTrigger>
+                                                    <i:EventTrigger EventName="TextChanged">
+                                                        <i:InvokeCommandAction Command="{Binding ElementName=lvBookBorrow, Path=DataContext.ReSLBookInBorrowCurrentCM}"
                                                                                    CommandParameter="{Binding ElementName=txbQuantity}"/>
-                                                        </i:EventTrigger>
-                                                        <i:EventTrigger EventName="PreviewTextInput" >
-                                                            <i:InvokeCommandAction Command="{Binding IsAllowedInput}" />
-                                                        </i:EventTrigger>
-                                                    </i:Interaction.Triggers>-->
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
                                             </TextBox>
+                                            
                                             <Border Background="#df933d "
                                                         Width="30"
                                                         Height="30"
@@ -117,7 +156,7 @@
                                                 </Border>
                                                 <i:Interaction.Triggers>
                                                     <i:EventTrigger EventName="MouseLeftButtonUp">
-                                                        <i:InvokeCommandAction Command="{Binding ElementName=lvCartBook, Path=DataContext.PlusCommand}" />
+                                                        <i:InvokeCommandAction Command="{Binding ElementName=lvBookBorrow, Path=DataContext.PlusBookInBorrowCM}" />
                                                     </i:EventTrigger>
                                                 </i:Interaction.Triggers>
                                             </Border>
@@ -146,7 +185,7 @@
                                                                              Height="25"/>
                                                 <i:Interaction.Triggers>
                                                     <i:EventTrigger EventName="MouseLeftButtonUp">
-                                                        <i:InvokeCommandAction Command="{Binding ElementName=lvTrouble, Path=DataContext.OpenProcessTroubleCommand}" />
+                                                        <i:InvokeCommandAction Command="{Binding ElementName=lvBookBorrow, Path=DataContext.DeleteBookInBorrowCM}" />
                                                     </i:EventTrigger>
                                                 </i:Interaction.Triggers>
                                             </Border>
@@ -164,7 +203,8 @@
             <StackPanel Orientation="Vertical"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
-                        Width="300">
+                        Width="300"
+                        MaxHeight="400">
                 <TextBlock 
                             Text="Mượn sách" 
                             TextWrapping="Wrap" 
@@ -196,8 +236,14 @@
                              FontWeight="SemiBold" 
                              Foreground="#FF333333"
                              PreviewTextInput="TextBox_PreviewTextInput"
-                             Text=""
-                             Width="170"/>
+                             Text="{Binding MaKH, UpdateSourceTrigger=PropertyChanged}"
+                             Width="170">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <i:InvokeCommandAction Command="{Binding FindNameCustomerCM}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
                 </Grid>
 
                 <Grid Margin="0,10,0,0">
@@ -221,7 +267,7 @@
                              FontSize="16" 
                              FontWeight="SemiBold" 
                              Foreground="#FF333333"
-                             Text="Huỳnh Mai Cao Nhânh"/>
+                             Text="{Binding TenKH, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </Grid>
 
                 <Grid Margin="0,10,0,0">
@@ -245,7 +291,7 @@
                              FontSize="16" 
                              FontWeight="SemiBold" 
                              Foreground="#FF333333"
-                             Text="20/10/2003"/>
+                             Text="{Binding ExpirationDate,StringFormat=dd/MM/yyyy}"/>
                 </Grid>
 
                 <Rectangle Margin="0,20,0,0"
@@ -263,8 +309,7 @@
                     Background="#593000"
                     Foreground="#ffde59"
                     Height="40"
-                    Command="{Binding ImportStockCommand}"
-                    CommandParameter="{Binding ElementName=wdImportStock}"
+                    Command="{Binding BorrowAllBookCM}"
                     materialDesign:ButtonAssist.CornerRadius="4"
                     BorderThickness="2"
                     Margin="0,0,0,20"  

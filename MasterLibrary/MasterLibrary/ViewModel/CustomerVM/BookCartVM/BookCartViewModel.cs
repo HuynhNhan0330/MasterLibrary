@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Controls;
+using JetBrains.Annotations;
 
 namespace MasterLibrary.ViewModel.CustomerVM.BookCartVM
 {
@@ -77,6 +78,7 @@ namespace MasterLibrary.ViewModel.CustomerVM.BookCartVM
         public ICommand PayAllCommand { get; set; }
         public ICommand ChecktxbQuantity { get; set; }
         public ICommand IsAllowedInput { get; set; }
+        public ICommand ReSLCurrent { get; set; }
 
         #endregion
 
@@ -306,6 +308,38 @@ namespace MasterLibrary.ViewModel.CustomerVM.BookCartVM
                     {
                         MessageBoxML mb = new MessageBoxML("Thông báo", lb, MessageType.Error, MessageButtons.OK);
                         mb.ShowDialog();
+                    }
+                }
+            });
+
+            ReSLCurrent = new RelayCommand<TextBox>((p) => { return true; }, async (p) =>
+            {
+                BookInCartDTO BookInCartCurrent = SelectedBookInCart;
+
+                if (BookInCartCurrent != null)
+                {
+                    for (int i = 0; i < ListBooksInCart.Count; i++)
+                    {
+                        if (BookInCartCurrent.MaSach == ListBooksInCart[i].MaSach)
+                        {
+                            if (BookInCartCurrent.SoLuongHT > ListBooksInCart[i].SoLuongMax)
+                            {
+                                ListBooksInCart[i].SoLuongHT = ListBooksInCart[i].SoLuongMax;
+                                FilterBookInCart();
+                                ReCalculateMoney();
+                                ReCalculateQuantity();
+                                await BookInCartServices.Ins.SetQuantity(MainCustomerViewModel.CurrentCustomer.MAKH, BookInCartCurrent.MaSach, ListBooksInCart[i].SoLuongMax);
+                            }
+                            else if (string.IsNullOrEmpty(p.Text))
+                            {
+                                ListBooksInCart[i].SoLuongHT = 1;
+                                FilterBookInCart();
+                                ReCalculateMoney();
+                                ReCalculateQuantity();
+                                await BookInCartServices.Ins.SetQuantity(MainCustomerViewModel.CurrentCustomer.MAKH, BookInCartCurrent.MaSach, 1);
+                            }
+                            break;
+                        }
                     }
                 }
             });
