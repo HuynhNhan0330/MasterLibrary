@@ -110,7 +110,7 @@
           <Property Name="MOTA" Type="nvarchar(max)" />
           <Property Name="IMG" Type="varchar" MaxLength="200" />
           <Property Name="CHIPHI" Type="money" />
-          <Property Name="THOIGIANBAOCAO" Type="smalldatetime" />
+          <Property Name="THOIGIANBAOCAO" Type="smalldatetime" Nullable="false" />
           <Property Name="MALSC" Type="int" />
           <Property Name="MATTSC" Type="varchar" MaxLength="20" />
         </EntityType>
@@ -575,7 +575,7 @@
           <Property Name="MOTA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IMG" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="CHIPHI" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="THOIGIANBAOCAO" Type="DateTime" Precision="0" />
+          <Property Name="THOIGIANBAOCAO" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="MALSC" Type="Int32" />
           <Property Name="MATTSC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="KHACHHANG" Relationship="masterlibraryModel.FK__SUCO__MAKH__37703C52" FromRole="SUCO" ToRole="KHACHHANG" />

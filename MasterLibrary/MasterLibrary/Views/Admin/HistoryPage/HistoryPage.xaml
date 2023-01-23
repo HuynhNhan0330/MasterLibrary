@@ -50,8 +50,17 @@
                              Height="50"
                              IsChecked="True"
                              Margin="20 30 0 0"
-                             Content="Nguồn chi"
+                             Content="Nhập sách"
                              Command="{Binding LoadExpensePage}"
+                             CommandParameter="{Binding ElementName=MainListViewFrame}"/>
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButtonTop}"
+                             BorderBrush="{DynamicResource PrimaryHueMidBrush}"
+                             VerticalAlignment="Top"
+                             Height="50"
+                             IsChecked="False"
+                             Margin="20 30 0 0"
+                             Content="Sự cố"
+                             Command="{Binding LoadTroublePage}"
                              CommandParameter="{Binding ElementName=MainListViewFrame}"/>
                 <RadioButton Style="{StaticResource MaterialDesignTabRadioButtonTop}"
                              BorderBrush="{DynamicResource PrimaryHueMidBrush}"

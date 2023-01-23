@@ -33,15 +33,14 @@ namespace MasterLibrary.Models.DataProvider
             {
                 using (var context = new MasterlibraryEntities())
                 {
-                    BookInput = await (from bi in context.NHAPSACHes
+                    BookInput = await (from ct in context.CHITIET_NHAP
                                        select new InputBookDTO
                                        {
-                                           IDInput = bi.IDNHAP,
-                                           IDBook = (int)bi.IDSACH,
-                                           TenSach = bi.TENSACH,
-                                           GiaNhap = (int)bi.GIANHAP,
-                                           NgNhap = bi.NGNHAP,
-                                           SoLuong = (int)bi.SOLUONG,
+                                           IDInput = ct.SOHD,
+                                           TenSach = ct.TENSACH,
+                                           GiaNhap = (int)ct.NHAPKHO.TRIGIA,
+                                           NgNhap = ct.NHAPKHO.NGNHAP,
+                                           SoLuong = (int)ct.SL,
                                        }).ToListAsync();
                 }
             }
@@ -54,23 +53,22 @@ namespace MasterLibrary.Models.DataProvider
 
 
         //get receipt by month
-        public async Task<List<InputBookDTO>> GetBookInput(int month)
+        public async Task<List<InputBookDTO>> GetBookInput(int month, int year)
         {
             List<InputBookDTO> BookInput;
             try
             {
                 using (var context = new MasterlibraryEntities())
                 {
-                    BookInput = await (from bi in context.NHAPSACHes
-                                       where bi.NGNHAP.Year == DateTime.Today.Year && bi.NGNHAP.Month == month
+                    BookInput = await (from ct in context.CHITIET_NHAP
+                                       where ct.NHAPKHO.NGNHAP.Year == year && ct.NHAPKHO.NGNHAP.Month == month
                                        select new InputBookDTO
                                        {
-                                           IDInput = bi.IDNHAP,
-                                           IDBook = (int)bi.IDSACH,
-                                           TenSach = bi.TENSACH,
-                                           GiaNhap = (int)bi.GIANHAP,
-                                           NgNhap = bi.NGNHAP,
-                                           SoLuong = (int)bi.SOLUONG,
+                                           IDInput = ct.SOHD,
+                                           TenSach = ct.TENSACH,
+                                           GiaNhap = (int)ct.NHAPKHO.TRIGIA,
+                                           NgNhap = ct.NHAPKHO.NGNHAP,
+                                           SoLuong = (int)ct.SL,
                                        }).ToListAsync();
                 }
             }

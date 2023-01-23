@@ -63,6 +63,32 @@ namespace MasterLibrary.Models.DataProvider
             return Troubles;
         }
 
+        public async Task<List<TroubleDTO>> GetTroubleByMonth(int month, int year)
+        {
+            List<TroubleDTO> Troubles = null;
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    Troubles = await (from ct in context.SUCOes
+                                      where ct.THOIGIANBAOCAO.Year == year && ct.THOIGIANBAOCAO.Month == month
+                                      select new TroubleDTO
+                                      {
+                                          MaSC = ct.MASC,
+                                          TenLoaiSuCo = ct.LOAISUCO.TENLSC,
+                                          NgayBaoCao = ct.THOIGIANBAOCAO,
+                                          ChiPhi = (decimal)ct.CHIPHI,
+                                          MoTa = ct.MOTA,
+                                      }).ToListAsync();
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return Troubles;
+        }
+
         public async Task<List<TroubleDTO>> GetAllTroubleOfCustomer(int _MaKH)
         {
             List<TroubleDTO> Troubles = null;

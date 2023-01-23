@@ -9,12 +9,10 @@ using DatePicker = System.Windows.Controls.DatePicker;
 using ComboBoxItem = System.Windows.Controls.ComboBoxItem;
 using Grid = System.Windows.Controls.Grid;
 using MasterLibrary.Views.Admin.HistoryPage;
-using Microsoft.Win32;
 using System.Windows.Forms;
 using SaveFileDialog = System.Windows.Forms.SaveFileDialog;
 using MasterLibrary.Views.MessageBoxML;
 using MasterLibrary.Models.DataProvider;
-using System.Windows.Navigation;
 using System.Windows;
 
 namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
@@ -65,6 +63,13 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
             set { _SelectedExpenseFilter = value; OnPropertyChanged(); }
         }
 
+        private ComboBoxItem _SelectedTroubleFilter;
+        public ComboBoxItem SelectedTroubleFilter
+        {
+            get => _SelectedTroubleFilter;
+            set { _SelectedTroubleFilter = value; OnPropertyChanged(); }
+        }
+
         private int _SelectedRevenueMonth;
         public int SelectedRevenueMonth
         { 
@@ -72,11 +77,39 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
             set { _SelectedRevenueMonth = value; OnPropertyChanged(); } 
         }
 
+        private int _SelectedRevenueYear;
+        public int SelectedRevenueYear
+        {
+            get => _SelectedRevenueYear;
+            set { _SelectedRevenueYear = value; OnPropertyChanged(); }
+        }
+
         private int _SelectedExpenseMonth;
         public int SelectedExpenseMonth
         {
             get => _SelectedExpenseMonth;
             set { _SelectedExpenseMonth = value; OnPropertyChanged(); }
+        }
+
+        private int _SelectedExpenseYear;
+        public int SelectedExpenseYear
+        {
+            get => _SelectedExpenseYear;
+            set { _SelectedExpenseYear = value; OnPropertyChanged(); }
+        }
+
+        private int _SelectedTroubleYear;
+        public int SelectedTroubleYear
+        {
+            get => _SelectedTroubleYear;
+            set { _SelectedTroubleYear = value; OnPropertyChanged(); }
+        }
+
+        private int _SelectedTroubleMonth;
+        public int SelectedTroubleMonth
+        {
+            get => _SelectedTroubleMonth;
+            set { _SelectedTroubleMonth = value; OnPropertyChanged();}
         }
 
         private BillDTO _SelectedItemRevenue;
@@ -109,18 +142,31 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
             set { _ListRevenue = value; OnPropertyChanged(); }
         }
 
+        private ObservableCollection<TroubleDTO> _ListTrouble;
+        public ObservableCollection<TroubleDTO> ListTrouble
+        {
+            get => _ListTrouble;
+            set { _ListTrouble = value; OnPropertyChanged(); }
+        }
+
         #endregion
 
         #region Icommand
         public ICommand LoadExpensePage { get; set; }
         public ICommand LoadRevenuePage { get; set; }
+        public ICommand LoadTroublePage { get; set; }
         public ICommand ExportFileML { get; set; }
         public ICommand MaskNameML { get; set; }
         public ICommand CheckSelectedExpenseFilterML { get; set; }
         public ICommand SelectedExpenseMonthML { get; set; }
+        public ICommand SelectedExpenseYearML { get; set; }
         public ICommand CheckSelectedRevenueFilterML { get; set; }
+        public ICommand CheckSelectedTroubleFilterML { get; set; }
         public ICommand SelectedRevenueMonthML { get; set; }
+        public ICommand SelectedRevenueYearML { get; set; }
         public ICommand SelectedRevenueDateML { get; set; }
+        public ICommand SelectedTroubleMonthML { get; set; }
+        public ICommand SelectedTroubleYearML { get; set; }
         public ICommand LoadInforRevenueML { get; set; }
         public ICommand closeML { get; set; }
         #endregion
@@ -131,6 +177,10 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
             SelectedRevenueDate = GetCurrentDate;
             SelectedRevenueMonth = DateTime.Now.Month - 1;
             SelectedExpenseMonth = DateTime.Now.Month - 1;
+            SelectedTroubleMonth = DateTime.Now.Month - 1;
+            SelectedRevenueYear = DateTime.Now.Year;
+            SelectedExpenseYear = DateTime.Now.Year;
+            SelectedTroubleYear = DateTime.Now.Year;
 
             MaskNameML = new RelayCommand<Grid>((p) => { return true; }, (p) => { MaskName = p; });
             closeML = new RelayCommand<Window>((p) => { return true; }, (p) =>
@@ -145,9 +195,29 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
                 await checkExpenseMonthFilter();
             });
 
+            SelectedExpenseYearML = new RelayCommand<ComboBox>((p) => { return true; }, async (p) =>
+            {
+                await checkExpenseMonthFilter();
+            });
+
             SelectedRevenueMonthML = new RelayCommand<ComboBox>((p) => { return true; }, async (p) =>
             {
                 await checkRevenueMonthFilter();
+            });
+
+            SelectedRevenueYearML = new RelayCommand<ComboBox>((p) => { return true; }, async (p) =>
+            {
+                await checkRevenueMonthFilter();
+            });
+
+            SelectedTroubleMonthML = new RelayCommand<ComboBox>((p) => { return true; }, async (p) =>
+            {
+                await checkTroubleMonthFilter();
+            });
+
+            SelectedTroubleYearML = new RelayCommand<ComboBox>((p) => { return true; }, async (p) =>
+            {
+                await checkTroubleMonthFilter();
             });
 
             SelectedRevenueDateML = new RelayCommand<DatePicker>((p) => { return true; }, async (p) => 
@@ -163,6 +233,11 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
             CheckSelectedRevenueFilterML = new RelayCommand<ComboBox>((p) => { return true; }, async (p) => 
             {
                 await checkRevenueFilter();
+            });
+
+            CheckSelectedTroubleFilterML = new RelayCommand<ComboBox>((p) => { return true; }, async (p) =>
+            {
+                await checkTroubleFilter();
             });
 
             LoadExpensePage = new RelayCommand<Frame>((p) => { return true; }, async (p) => 
@@ -187,45 +262,56 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
                 p.Content = page;
             });
 
+            LoadTroublePage = new RelayCommand<Frame>((p) => { return true; }, async (p) =>
+            {
+                view = 2;
+                IsGettingSource = true;
+                ListTrouble = new ObservableCollection<TroubleDTO>();
+                await GetTroubleListSource("");
+                IsGettingSource = false;
+                p.Content = new TroublePage_His();
+            });
+
             ExportFileML = new RelayCommand<object>((p) => { return true; }, async(p) =>
             {
                 ExportFile();
             });
 
-            LoadInforRevenueML = new RelayCommand<object>((p) => { return true; }, async (p) =>
-            {
-                if (SelectedItemRevenue != null)
-                {
-                    try
-                    {
-                        IsGettingSource = true;
-                        //DetailRevenue = await Task.Run(() => BillServices.Ins.GetDetail(SelectedItemRevenue.MAHD));
-                        IsGettingSource = false;
-                    }
-                    catch (System.Data.Entity.Core.EntityException e)
-                    {
-                        MessageBoxML mb = new MessageBoxML("Lỗi", "Mất kết nối cơ sở dữ liệu", MessageType.Error, MessageButtons.OK);
-                        mb.ShowDialog();
-                        throw;
-                    }
-                    catch
-                    {
-                        MessageBoxML mb = new MessageBoxML("Lỗi", "Lỗi hệ thống", MessageType.Error, MessageButtons.OK);
-                        mb.ShowDialog();
-                        throw;
-                    }
-                    RevenueDetail rd = new RevenueDetail();
-                    rd.idBill.Content = DetailRevenue.MAHD;
-                }
-            });
+            //LoadInforRevenueML = new RelayCommand<object>((p) => { return true; }, async (p) =>
+            //{
+            //    if (SelectedItemRevenue != null)
+            //    {
+            //        try
+            //        {
+            //            IsGettingSource = true;
+            //            DetailRevenue = await Task.Run(() => BillServices.Ins.GetDetail(SelectedItemRevenue.MAHD));
+            //            IsGettingSource = false;
+            //        }
+            //        catch (System.Data.Entity.Core.EntityException e)
+            //        {
+            //            MessageBoxML mb = new MessageBoxML("Lỗi", "Mất kết nối cơ sở dữ liệu", MessageType.Error, MessageButtons.OK);
+            //            mb.ShowDialog();
+            //            throw;
+            //        }
+            //        catch
+            //        {
+            //            MessageBoxML mb = new MessageBoxML("Lỗi", "Lỗi hệ thống", MessageType.Error, MessageButtons.OK);
+            //            mb.ShowDialog();
+            //            throw;
+            //        }
+            //        RevenueDetail rd = new RevenueDetail();
+            //        rd.idBill.Content = DetailRevenue.MAHD;
+            //    }
+            //});
 
         }
 
+        //filter tháng cho danh sách chi tiền
         public async Task checkExpenseMonthFilter()
         {
             try
             {
-                ListExpense = new ObservableCollection<InputBookDTO>(await InputBookServices.Ins.GetBookInput(SelectedExpenseMonth + 1));
+                ListExpense = new ObservableCollection<InputBookDTO>(await InputBookServices.Ins.GetBookInput(SelectedExpenseMonth + 1, SelectedExpenseYear));
             }
             catch (System.Data.Entity.Core.EntityException e)
             {
@@ -241,11 +327,12 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
             }
         }
 
+        //filter tháng cho danh sách lợi nhuận
         public async Task checkRevenueMonthFilter()
         {
             try
             {
-                ListRevenue = new ObservableCollection<BillDTO>(await BillServices.Ins.GetBillByMonth(SelectedRevenueMonth + 1));
+                ListRevenue = new ObservableCollection<BillDTO>(await BillServices.Ins.GetBillByMonth(SelectedRevenueMonth + 1, SelectedRevenueYear));
             }
             catch (System.Data.Entity.Core.EntityException e)
             {
@@ -261,6 +348,27 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
             }
         }
 
+        public async Task checkTroubleMonthFilter()
+        {
+            try
+            {
+                ListTrouble = new ObservableCollection<TroubleDTO>(await TroubleServices.Ins.GetTroubleByMonth(SelectedTroubleMonth + 1, SelectedTroubleYear));
+            }
+            catch (System.Data.Entity.Core.EntityException e)
+            {
+                MessageBoxML mb = new MessageBoxML("Lỗi", "Mất kết nối cơ sở dữ liệu", MessageType.Error, MessageButtons.OK);
+                mb.ShowDialog();
+                throw;
+            }
+            catch
+            {
+                MessageBoxML mb = new MessageBoxML("Lỗi", "Lỗi hệ thống", MessageType.Error, MessageButtons.OK);
+                mb.ShowDialog();
+                throw;
+            }
+        }
+
+        //lấy danh sách thu từ việc bán sách
         public async Task GetRevenueListSource(string s="")
         {
             ListRevenue = new ObservableCollection<BillDTO>();
@@ -320,6 +428,7 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
             }
         }
 
+        //lấy danh sách chi từ việc bán sách
         public async Task GetExpenseListSource(string s = "")
         {
             ListExpense = new ObservableCollection<InputBookDTO>();
@@ -357,6 +466,45 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
             }
         }
 
+        //Lấy danh sách sự cố
+        public async Task GetTroubleListSource(string s = "")
+        {
+            ListTrouble = new ObservableCollection<TroubleDTO>();
+            switch(s)
+            {
+                case "":
+                    {
+                        try
+                        {
+                            IsGettingSource = true;
+                            ListTrouble = new ObservableCollection<TroubleDTO>(await TroubleServices.Ins.GetAllTrouble());
+                            IsGettingSource = false;
+                            return;
+                        }
+                        catch (System.Data.Entity.Core.EntityException e)
+                        {
+                            MessageBoxML mb = new MessageBoxML("Lỗi", "Mất kết nối cơ sở dữ liệu", MessageType.Error, MessageButtons.OK);
+                            mb.ShowDialog();
+                            throw;
+                        }
+                        catch
+                        {
+                            MessageBoxML mb = new MessageBoxML("Lỗi", "Lỗi hệ thống", MessageType.Error, MessageButtons.OK);
+                            mb.ShowDialog();
+                            throw;
+                        }
+                    }
+                case "month":
+                    {
+                        IsGettingSource = true;
+                        await checkTroubleMonthFilter();
+                        IsGettingSource = false;
+                        return;
+                    }
+            }
+        }
+
+        //filter
         public async Task checkExpenseFilter()
         {
             switch(SelectedExpenseFilter.Content.ToString())
@@ -374,6 +522,7 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
             }
         }
 
+        //filter 
         public async Task checkRevenueFilter()
         {
             switch(SelectedRevenueFilter.Content.ToString())
@@ -396,9 +545,26 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
             }
         }
 
+        public async Task checkTroubleFilter()
+        {
+            switch (SelectedTroubleFilter.Content.ToString())
+            {
+                case "Toàn bộ":
+                    {
+                        await GetTroubleListSource("");
+                        return;
+                    }
+                case "Theo tháng":
+                    {
+                        await GetTroubleListSource("month");
+                        return;
+                    }
+            }
+        }
+        //xuất file excel
         public void ExportFile()
         {
-            switch(view)
+            switch (view)
             {
                 case 0:
                     {
@@ -428,7 +594,7 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
                                 ws.Cells[count, 2] = item.TenSach;
                                 ws.Cells[count, 3] = item.NgNhap;
                                 ws.Cells[count, 4] = item.SoLuong;
-                                ws.Cells[count, 5] = item.GiaNhap;
+                                ws.Cells[count, 5] = item.GiaNhapStr;
 
                                 count++;
                             }
@@ -471,7 +637,50 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
                                 ws.Cells[count, 2] = item.MAKH;
                                 ws.Cells[count, 3] = item.cusName;
                                 ws.Cells[count, 4] = item.NGHD;
-                                ws.Cells[count, 5] = item.TRIGIA;
+                                ws.Cells[count, 5] = item.TRIGIAStr;
+
+                                count++;
+                            }
+                            ws.SaveAs(sf.FileName);
+                            wb.Close();
+                            app.Quit();
+
+                            Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
+                            MessageBoxML mb = new MessageBoxML("Thông báo", "Xuất file thành công", MessageType.Accept, MessageButtons.OK);
+                            mb.ShowDialog();
+                        }
+                        break;
+                    }
+
+                case 2:
+                    {
+                        SaveFileDialog sf = new SaveFileDialog
+                        {
+                            Filter = "Excel |*.xlxs",
+                            ValidateNames = true
+                        };
+                        if (sf.ShowDialog() == DialogResult.OK)
+                        {
+                            Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
+                            Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+                            app.Visible = false;
+                            Microsoft.Office.Interop.Excel.Workbook wb = app.Workbooks.Add(1);
+                            Microsoft.Office.Interop.Excel.Worksheet ws = (Microsoft.Office.Interop.Excel.Worksheet)wb.Worksheets[1];
+
+                            ws.Cells[1, 1] = "Mã sự cố";
+                            ws.Cells[1, 2] = "Tên loại sự cố";
+                            ws.Cells[1, 3] = "Thời gian báo";
+                            ws.Cells[1, 4] = "Chi phí";
+                            ws.Cells[1, 5] = "Mô tả";
+
+                            int count = 2;
+                            foreach (var item in ListTrouble)
+                            {
+                                ws.Cells[count, 1] = item.MaSC;
+                                ws.Cells[count, 2] = item.TenLoaiSuCo;
+                                ws.Cells[count, 3] = item.NgayBaoCao;
+                                ws.Cells[count, 4] = item.ChiPhistr;
+                                ws.Cells[count, 5] = item.MoTa;
 
                                 count++;
                             }

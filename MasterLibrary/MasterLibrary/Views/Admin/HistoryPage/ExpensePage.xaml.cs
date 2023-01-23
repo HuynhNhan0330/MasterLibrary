@@ -53,15 +53,34 @@ namespace MasterLibrary.Views.Admin.HistoryPage
                     case 0:
                         {
                             cbbMonth.Visibility = Visibility.Collapsed;
+                            cbbYear.Visibility = Visibility.Collapsed;
                             break;
                         }
                     case 1:
                         {
                             cbbMonth.Visibility = Visibility.Visible;
+                            cbbYear.Visibility = Visibility.Visible;
                             break;
                         }
                 }
             }
+        }
+
+        private void cbbYear_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (cbbYear is null) return;
+
+            List<string> list = new List<string>();
+
+            int now = -1;
+            for (int i = 2021; i <= DateTime.Now.Year; i++)
+            {
+                now++;
+                list.Add(i.ToString());
+            }
+
+            cbbYear.ItemsSource = list;
+            cbbYear.SelectedIndex = now;
         }
     }
 }

@@ -78,6 +78,32 @@ namespace MasterLibrary.Models.DataProvider
             }
         }
 
+        //tính tiền sự cố theo năm
+        public async Task<(List<decimal>, decimal)> GetExpenseTroubleByYear(int year)
+        {
+            decimal troubleMoney = 0;
+            List<decimal> expenseTroubleList = new List<decimal>(new decimal[12]);
+
+            using (var context = new MasterlibraryEntities())
+            {
+                var troubleList = context.SUCOes.Where(b => b.THOIGIANBAOCAO.Year == year);
+
+                if (troubleList.ToList().Count != 0)
+                {
+                    troubleMoney = (decimal)troubleList.Sum(b => b.CHIPHI);
+                }
+
+                var troubleListByMonth = troubleList.GroupBy(b => b.THOIGIANBAOCAO.Month).Select(gr => new { Month = gr.Key, Output = gr.Sum(b => (decimal?)(b.CHIPHI) ?? 0) }).ToList();
+
+                foreach (var tr in troubleListByMonth)
+                {
+                    expenseTroubleList[tr.Month - 1] = decimal.Truncate(tr.Output);
+                }
+
+                return (expenseTroubleList, troubleMoney);
+            }
+        }
+
         //tính tiền thu theo tháng
         public async Task<(List<decimal>, decimal)> GetRevenueByMonth(int year, int month)
         {
@@ -105,6 +131,7 @@ namespace MasterLibrary.Models.DataProvider
             }
         }
 
+        //tính tiền thu sách theo tháng
         public async Task<(List<decimal>, decimal)> GetExpenseByMonth(int year, int month)
         {
             decimal outputMoney = (decimal)0;
@@ -128,6 +155,33 @@ namespace MasterLibrary.Models.DataProvider
                 }
 
                 return (expenseByDayList, outputMoney);
+            }
+        }
+
+        //tính tiền sự cố theo tháng
+        public async Task<(List<decimal>, decimal)> GetExpenseTroubleByMonth(int year, int month)
+        {
+            decimal troubleMoney = 0;
+            int days = DateTime.DaysInMonth(year, month);
+            List<decimal> expenseTroubleListByMonth = new List<decimal>(new decimal[days]);
+
+            using (var context = new MasterlibraryEntities())
+            {
+                var troubleList = context.SUCOes.Where(b => b.THOIGIANBAOCAO.Year == year && b.THOIGIANBAOCAO.Month == month);
+
+                if (troubleList.ToList().Count != 0)
+                {
+                    troubleMoney = (decimal)troubleList.Sum(b => b.CHIPHI);
+                }
+
+                var troubleListByMonth = troubleList.GroupBy(b => b.THOIGIANBAOCAO.Day).Select(gr => new { Day = gr.Key, Output = gr.Sum(b => (decimal?)(b.CHIPHI) ?? 0) }).ToList();
+
+                foreach (var tr in troubleListByMonth)
+                {
+                    expenseTroubleListByMonth[tr.Day - 1] = decimal.Truncate(tr.Output);
+                }
+
+                return (expenseTroubleListByMonth, troubleMoney);
             }
         }
     }

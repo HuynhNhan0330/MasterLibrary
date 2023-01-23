@@ -50,14 +50,14 @@ namespace MasterLibrary.Models.DataProvider
             }
         }
 
-        public async Task<List<BillDTO>> GetBillByMonth(int month)
+        public async Task<List<BillDTO>> GetBillByMonth(int month, int year)
         {
             try
             {
                 using (var context = new MasterlibraryEntities())
                 {
                     var BillList = (from hoadon in context.HOADONs
-                                    where hoadon.NGHD.Year == DateTime.Now.Year && hoadon.NGHD.Month == month
+                                    where hoadon.NGHD.Year == year && hoadon.NGHD.Month == month
                                     orderby hoadon.NGHD descending
                                     select new BillDTO
                                     {
