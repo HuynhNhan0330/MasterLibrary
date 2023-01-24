@@ -570,7 +570,7 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
                     {
                         SaveFileDialog sf = new SaveFileDialog
                         {
-                            Filter = "Excel |*.xlxs",
+                            Filter = "Excel |*.xlsx",
                             ValidateNames = true
                         };
                         if (sf.ShowDialog() == DialogResult.OK)
@@ -613,7 +613,7 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
                     {
                         SaveFileDialog sf = new SaveFileDialog
                         {
-                            Filter = "Excel |*.xlxs",
+                            Filter = "Excel |*.xlsx",
                             ValidateNames = true
                         };
                         if (sf.ShowDialog() == DialogResult.OK)
@@ -656,7 +656,7 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
                     {
                         SaveFileDialog sf = new SaveFileDialog
                         {
-                            Filter = "Excel |*.xlxs",
+                            Filter = "Excel |*.xlsx",
                             ValidateNames = true
                         };
                         if (sf.ShowDialog() == DialogResult.OK)
