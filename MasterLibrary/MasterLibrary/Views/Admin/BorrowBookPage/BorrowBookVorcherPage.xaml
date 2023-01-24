@@ -11,7 +11,7 @@
       d:DesignHeight="535" d:DesignWidth="1150"
       Title="BorrowBookVorcherPage"
       DataContext="{StaticResource BorrowBookVM}">
-    
+
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -25,80 +25,112 @@
             <ColumnDefinition Width="33*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Margin="10,10,0,10">
+        <Grid Grid.Column="0" Margin="10,0,0,10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="242*"/>
+                <RowDefinition Height="273*"/>
             </Grid.RowDefinitions>
 
-            <Border Grid.Row="0"
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="21*"/>
+                    <RowDefinition Height="100*"/>
+                </Grid.RowDefinitions>
+
+                <Button 
+                        Height="35"
+                                                     HorizontalAlignment="Right"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Background="#593000 "
+                        Foreground="White"
+                        x:Name="DeleteAllBookInBorrow"
+                        Command="{Binding DeleteAllBookInBorrowCM}"
+                        CommandParameter="{Binding ElementName=DeleteAllBookInBorrow}">
+                    <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="DeleteForever"
+                                                 Height="30"
+                                                 Width="30"
+                                                 Foreground="Red"
+                                                 VerticalAlignment="Center" />
+                        <TextBlock Text="Xoá tất cả vật phẩm"
+                                   Margin="3 0 0 0"
+                                   FontSize="14"
+                                   VerticalAlignment="Center" />
+
+                    </StackPanel>
+                </Button>
+                
+                <Border Grid.Row="1"
                     CornerRadius="4"
+                        Margin="0 5 0 0"
                     BorderBrush="#593000"
                     BorderThickness="2">
-                <ListView ItemsSource="{Binding ListBookInBorrow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    <ListView ItemsSource="{Binding ListBookInBorrow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                   SelectedItem="{Binding SelectedBookInBorrow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                   x:Name="lvBookBorrow"
                                   ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="Background"
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Background"
                                         Value="Transparent" />
-                            <Setter Property="Foreground"
+                                <Setter Property="Foreground"
                                         Value="Transparent" />
-                            <Style.Triggers>
-                                <MultiTrigger>
-                                    <Setter Property="Foreground"
+                                <Style.Triggers>
+                                    <MultiTrigger>
+                                        <Setter Property="Foreground"
                                                             Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}}" />
-                                </MultiTrigger>
-                                <Trigger Property="IsMouseOver"
+                                    </MultiTrigger>
+                                    <Trigger Property="IsMouseOver"
                                                          Value="True">
-                                    <Setter Property="IsSelected"
+                                        <Setter Property="IsSelected"
                                                             Value="True" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                    
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Mã sách"
-                                            Width="150">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding MaSach}" 
-                                                   TextWrapping="Wrap" 
-                                                   HorizontalAlignment="Left" 
-                                                   Margin="20,0,0,0" 
-                                                   VerticalAlignment="Center" 
-                                                   FontSize="16" 
-                                                   FontWeight="SemiBold" 
-                                                   Foreground="#FF333333"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            
-                            <GridViewColumn Header="Tên sách"
-                                            Width="420">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding TenSach}" 
-                                                   TextWrapping="Wrap" 
-                                                   HorizontalAlignment="Left" 
-                                                   Margin="20,0,0,0" 
-                                                   VerticalAlignment="Center" 
-                                                   FontSize="16" 
-                                                   FontWeight="SemiBold" 
-                                                   Foreground="#FF333333"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListView.ItemContainerStyle>
 
-                            <GridViewColumn Header="Số lượng"
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Mã sách"
                                             Width="150">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <DockPanel LastChildFill="False">
-                                            <Border Background="#df933d "
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding MaSach}" 
+                                                   TextWrapping="Wrap" 
+                                                   HorizontalAlignment="Left" 
+                                                   Margin="20,0,0,0" 
+                                                   VerticalAlignment="Center" 
+                                                   FontSize="16" 
+                                                   FontWeight="SemiBold" 
+                                                   Foreground="#FF333333"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Tên sách"
+                                            Width="420">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding TenSach}" 
+                                                   TextWrapping="Wrap" 
+                                                   HorizontalAlignment="Left" 
+                                                   Margin="20,0,0,0" 
+                                                   VerticalAlignment="Center" 
+                                                   FontSize="16" 
+                                                   FontWeight="SemiBold" 
+                                                   Foreground="#FF333333"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Số lượng"
+                                            Width="150">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <DockPanel LastChildFill="False">
+                                                <Border Background="#df933d "
                                                         Width="30"
                                                         Height="30"
                                                         BorderThickness="0.5"
@@ -106,19 +138,19 @@
                                                         BorderBrush="Gray"
                                                         x:Name="lblMinus"
                                                         Cursor="Hand">
-                                                <Border>
-                                                    <materialDesign:PackIcon Kind="Minus"
+                                                    <Border>
+                                                        <materialDesign:PackIcon Kind="Minus"
                                                                                  VerticalAlignment="Center"
                                                                                  HorizontalAlignment="Center"/>
+                                                    </Border>
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                                                            <i:InvokeCommandAction Command="{Binding ElementName=lvBookBorrow, Path=DataContext.MinusBookInBorrowCM}" />
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
                                                 </Border>
-                                                <i:Interaction.Triggers>
-                                                    <i:EventTrigger EventName="MouseLeftButtonUp">
-                                                        <i:InvokeCommandAction Command="{Binding ElementName=lvBookBorrow, Path=DataContext.MinusBookInBorrowCM}" />
-                                                    </i:EventTrigger>
-                                                </i:Interaction.Triggers>
-                                            </Border>
 
-                                            <TextBox Text="{Binding SoLuong, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                <TextBox Text="{Binding SoLuong, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                                          TextAlignment="Center"
                                                          Padding="1,3,1,0"
                                                          FontSize="15"
@@ -129,19 +161,19 @@
                                                          BorderThickness="1"
                                                          Foreground="#FF333333"   
                                                          x:Name="txbQuantity">
-                                                <i:Interaction.Triggers>
-                                                    <i:EventTrigger EventName="PreviewTextInput" >
-                                                        <ei:CallMethodAction TargetObject="{Binding ElementName = lvBookBorrow, Path = DataContext}"
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="PreviewTextInput" >
+                                                            <ei:CallMethodAction TargetObject="{Binding ElementName = lvBookBorrow, Path = DataContext}"
                                                                              MethodName="NumberValidationTextBox"/>
-                                                    </i:EventTrigger>
-                                                    <i:EventTrigger EventName="TextChanged">
-                                                        <i:InvokeCommandAction Command="{Binding ElementName=lvBookBorrow, Path=DataContext.ReSLBookInBorrowCurrentCM}"
+                                                        </i:EventTrigger>
+                                                        <i:EventTrigger EventName="TextChanged">
+                                                            <i:InvokeCommandAction Command="{Binding ElementName=lvBookBorrow, Path=DataContext.ReSLBookInBorrowCurrentCM}"
                                                                                    CommandParameter="{Binding ElementName=txbQuantity}"/>
-                                                    </i:EventTrigger>
-                                                </i:Interaction.Triggers>
-                                            </TextBox>
-                                            
-                                            <Border Background="#df933d "
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
+                                                </TextBox>
+
+                                                <Border Background="#df933d "
                                                         Width="30"
                                                         Height="30"
                                                         BorderThickness="0.5"
@@ -149,27 +181,27 @@
                                                         BorderBrush="Gray"
                                                         x:Name="lblPlus"
                                                         Cursor="Hand">
-                                                <Border>
-                                                    <materialDesign:PackIcon Kind="Plus"
+                                                    <Border>
+                                                        <materialDesign:PackIcon Kind="Plus"
                                                                                  VerticalAlignment="Center"
                                                                                  HorizontalAlignment="Center"/>
+                                                    </Border>
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                                                            <i:InvokeCommandAction Command="{Binding ElementName=lvBookBorrow, Path=DataContext.PlusBookInBorrowCM}" />
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
                                                 </Border>
-                                                <i:Interaction.Triggers>
-                                                    <i:EventTrigger EventName="MouseLeftButtonUp">
-                                                        <i:InvokeCommandAction Command="{Binding ElementName=lvBookBorrow, Path=DataContext.PlusBookInBorrowCM}" />
-                                                    </i:EventTrigger>
-                                                </i:Interaction.Triggers>
-                                            </Border>
-                                        </DockPanel>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            
-                            <GridViewColumn>
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Border Cursor="Hand"
+                                            </DockPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Border Cursor="Hand"
                                                         BorderBrush="Gray"
                                                         BorderThickness="1"
                                                         Margin="0,0,0,0"
@@ -177,34 +209,160 @@
                                                         Background="#593000"
                                                         Width="30"
                                                         Height="30">
-                                                <materialDesign:PackIcon Kind="Delete"
+                                                    <materialDesign:PackIcon Kind="Delete"
                                                                          Foreground="#FFF44336"
                                                                          VerticalAlignment="Center"
                                                                          HorizontalAlignment="Center"
                                                                              Width="25"
                                                                              Height="25"/>
-                                                <i:Interaction.Triggers>
-                                                    <i:EventTrigger EventName="MouseLeftButtonUp">
-                                                        <i:InvokeCommandAction Command="{Binding ElementName=lvBookBorrow, Path=DataContext.DeleteBookInBorrowCM}" />
-                                                    </i:EventTrigger>
-                                                </i:Interaction.Triggers>
-                                            </Border>
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                                                            <i:InvokeCommandAction Command="{Binding ElementName=lvBookBorrow, Path=DataContext.DeleteBookInBorrowCM}" />
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
+                                                </Border>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Border>
+            </Grid>
+            
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="53*"/>
+                    <RowDefinition Height="220*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Orientation="Horizontal"
+                            Grid.Row="0"
+                            VerticalAlignment="Center"
+                             HorizontalAlignment="Right"
+                            >
+                    <materialDesign:PackIcon Kind="Magnify"
+                                                                 Width="25"
+                                                                 Height="35"
+                                                                 Foreground="Black"
+                                                                 VerticalAlignment="Bottom" />
+                    <TextBox x:Name="FilterBox"
+                                                 Width="300"
+                                                 VerticalAlignment="Bottom"
+                                                 Height="35"
+                                                 FontSize="16"
+                                                 Foreground="Black"
+                             BorderBrush="#593000"
+                                                 Padding="0 7 0 0"
+                                                 materialDesign:HintAssist.Hint="Tìm kiếm sách"
+                                                 FontWeight="DemiBold"
+                                                 TextChanged="FilterBox_TextChanged" />
+                </StackPanel>
+
+                <Border Grid.Row="1"
+                    CornerRadius="4"
+                    BorderBrush="#593000"
+                    BorderThickness="2">
+                    <ListBox ItemsSource="{Binding ListBook}"
+                         Grid.Row="1"
+                         x:Name="ListBoxBook"
+                         SelectedItem="{Binding SelectedBook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem"
+                               BasedOn="{StaticResource styleListBoxItems}" />
+                        </ListBox.ItemContainerStyle>
+
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="4" />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <materialDesign:Card UniformCornerRadius="10"
+                                                 Cursor="Hand"
+                                                 VerticalAlignment="Top">
+                                    <materialDesign:Card.Style>
+                                        <Style TargetType="materialDesign:Card">
+                                            <Setter Property="Background"
+                                                Value="White" />
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                     Value="True">
+                                                    <Setter Property="Background"
+                                                        Value="LightGray" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </materialDesign:Card.Style>
+                                    <StackPanel>
+                                        <Image Source="{Binding ImageSource}"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Height="150"
+                                           Margin="10"
+                                           Stretch="Fill">
+                                        </Image>
+                                        <TextBlock Text="{Binding TenSach}"
+                                               FontSize="17"
+                                               Foreground="#3f2016"
+                                               FontWeight="Bold"
+                                               Width="220"
+                                               TextAlignment="Left"
+                                               HorizontalAlignment="Left"
+                                               TextWrapping="Wrap"
+                                               Margin="10,0"/>
+
+                                        <StackPanel Orientation ="Horizontal"
+                                                Margin="10,0,0,0">
+                                            <TextBlock Text="Mã sách: "
+                                               FontSize="14"
+                                               Foreground="#3f2016"
+                                               TextAlignment="Left"/>
+
+                                            <TextBlock Text="{Binding MaSach}"
+                                               FontSize="14"
+                                               FontWeight="Bold"
+                                               Foreground="#a47100"
+                                               TextAlignment="Left"/>
                                         </StackPanel>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-            </Border>
+
+                                        <StackPanel Orientation ="Horizontal"
+                                                Margin="10,0,0,0">
+                                            <TextBlock Text="Số lượng: "
+                                               FontSize="14"
+                                               Foreground="#3f2016"
+                                               TextAlignment="Left"/>
+
+                                            <TextBlock Text="{Binding SoLuong}"
+                                               FontSize="14"
+                                               FontWeight="Bold"
+                                               Foreground="#a47100"
+                                               TextAlignment="Left"
+                                               Padding="0,0,0,15"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseUp">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=ListBoxBook, Path=DataContext.AddBookToListBorrowCM}" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </materialDesign:Card>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Border>
+            </Grid>
         </Grid>
-        
+
         <Grid Grid.Column="1">
             <StackPanel Orientation="Vertical"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         Width="300"
-                        MaxHeight="400">
+                        MaxHeight="350">
                 <TextBlock 
                             Text="Mượn sách" 
                             TextWrapping="Wrap" 
@@ -292,6 +450,30 @@
                              FontWeight="SemiBold" 
                              Foreground="#FF333333"
                              Text="{Binding ExpirationDate,StringFormat=dd/MM/yyyy}"/>
+                </Grid>
+
+                <Grid Margin="0,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="127*"/>
+                        <ColumnDefinition Width="173*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock 
+                        HorizontalAlignment="Left" 
+                        TextWrapping="Wrap"
+                        Text="Tổng sách mượn" 
+                        VerticalAlignment="Center" 
+                        FontSize="16" 
+                        FontWeight="SemiBold" 
+                        Foreground="#FF333333"/>
+
+                    <TextBlock Grid.Column="1"
+                             HorizontalAlignment="Right"
+                             TextWrapping="Wrap"   
+                             VerticalAlignment="Top" 
+                             FontSize="16" 
+                             FontWeight="SemiBold" 
+                             Foreground="#FF333333"
+                             Text="{Binding ToTalBookInBorrow}"/>
                 </Grid>
 
                 <Rectangle Margin="0,20,0,0"
