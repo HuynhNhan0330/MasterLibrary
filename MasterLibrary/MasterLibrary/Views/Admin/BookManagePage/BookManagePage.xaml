@@ -105,7 +105,7 @@
                                 DisplayMemberBinding="{Binding MaSach}" 
                                  Width="auto">
                         <GridViewColumnHeader 
-                                FontSize="1"
+                                FontSize="16"
                                 Margin="-18" 
                                 Content="Mã" 
                                 />
