@@ -199,7 +199,7 @@
                         </StackPanel>
                     </Border>
 
-                    <!-- Button tầng dãy -->
+                    <!-- Button thuê sách -->
                     <Border CornerRadius="5">
                         <StackPanel Tag="{Binding ElementName=btnBorrowBook}"
                                         Orientation="Horizontal"

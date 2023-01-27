@@ -9,6 +9,7 @@ using MasterLibrary.Views.LoginWindow;
 using MasterLibrary.Views.Customer.BookCartPage;
 using MasterLibrary.Views.Customer.ReportTroublePage;
 using MasterLibrary.Views.MessageBoxML;
+using MasterLibrary.Views.Customer.BorrowBookPage;
 
 namespace MasterLibrary.ViewModel.CustomerVM
 {
@@ -38,6 +39,8 @@ namespace MasterLibrary.ViewModel.CustomerVM
         public ICommand TurnOnCartBook { get; set; }
         public ICommand LoadReportTroublePageML { get; set; }
         public ICommand TurnOnReportTrouble { get; set; }
+        public ICommand LoadBorrowBookPageML { get; set; }
+        public ICommand TurnOnBorrowBook { get; set; }
         public ICommand SignOutML { get; set; }
         #endregion
 
@@ -73,6 +76,12 @@ namespace MasterLibrary.ViewModel.CustomerVM
                 p.Content = new ReportTroublePage();
             });
 
+            // Load trang sách mượn
+            LoadBorrowBookPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            {
+                p.Content = new BorrowBookPage();
+            });
+
             // Bật button mua sách
             TurnOnBuyBook = new RelayCommand<RadioButton>((p) => { return true; }, (p) =>
             {
@@ -91,7 +100,7 @@ namespace MasterLibrary.ViewModel.CustomerVM
                 p.IsChecked = true;
             });
 
-            // Bật button setting
+            // Bật button cài đặt
             TurnOnSetting = new RelayCommand<RadioButton>((p) => { return true; }, (p) =>
             {
                 p.IsChecked = true;
@@ -99,6 +108,12 @@ namespace MasterLibrary.ViewModel.CustomerVM
 
             // Bật button báo cáo sự cố
             TurnOnReportTrouble = new RelayCommand<RadioButton>((p) => { return true; }, (p) =>
+            {
+                p.IsChecked = true;
+            });
+
+            // Bật button báo cáo sự cố
+            TurnOnBorrowBook = new RelayCommand<RadioButton>((p) => { return true; }, (p) =>
             {
                 p.IsChecked = true;
             });
