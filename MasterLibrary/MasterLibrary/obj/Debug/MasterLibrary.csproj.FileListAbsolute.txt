@@ -205,3 +205,4 @@ D:\UIT\ML6\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csp
 D:\UIT\ML6\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.CopyComplete
 D:\UIT\ML6\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\TroublePage_His.g.cs
 D:\UIT\ML6\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\TroublePage_His.baml
+D:\Nhan's\DoAn\MasterLibrary\MasterLibrary\bin\Debug\EntityFramework.dll
