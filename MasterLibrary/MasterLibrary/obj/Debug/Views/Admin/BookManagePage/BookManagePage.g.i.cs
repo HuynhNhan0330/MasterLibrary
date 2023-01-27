@@ -76,14 +76,6 @@ namespace MasterLibrary.Views.Admin.BookManagePage {
         #line default
         #line hidden
         
-        
-        #line 216 "..\..\..\..\..\Views\Admin\BookManagePage\BookManagePage.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button Adding;
-        
-        #line default
-        #line hidden
-        
         private bool _contentLoaded;
         
         /// <summary>
@@ -131,9 +123,6 @@ namespace MasterLibrary.Views.Admin.BookManagePage {
             return;
             case 4:
             this.Updating = ((System.Windows.Controls.MenuItem)(target));
-            return;
-            case 5:
-            this.Adding = ((System.Windows.Controls.Button)(target));
             return;
             }
             this._contentLoaded = true;
