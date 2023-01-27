@@ -10,6 +10,7 @@ namespace MasterLibrary.DTOs
     {
         public int MaSach { get; set; }
         public string TenSach { get; set; }
+        public string img { get; set; }
         public int SoLuong { get; set; }
         public int SoLuongMax { get; set; }
         public DateTime NgayHetHan { get; set; }

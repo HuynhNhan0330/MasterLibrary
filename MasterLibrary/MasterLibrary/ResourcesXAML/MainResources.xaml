@@ -13,22 +13,17 @@
                     xmlns:viewmodel32 ="clr-namespace:MasterLibrary.ViewModel.CustomerVM.SettingVM"
                     xmlns:viewmodel33 ="clr-namespace:MasterLibrary.ViewModel.CustomerVM.BookCartVM"
                     xmlns:viewmodel34="clr-namespace:MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM"
+                    xmlns:viewmodel35="clr-namespace:MasterLibrary.ViewModel.CustomerVM.BorrowBookCusVM"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <viewmodel1:LoginViewModel x:Key= "LoginVM"/>
     <viewmodel1:LoginViewModel x:Key= "RegisterML"/>
     <viewmodel1:ForgotPassViewModel x:Key= "ForgotPassVM"/>
     <viewmodel2:MainAdminViewModel x:Key= "AdminVM"/>
     <viewmodel2:BookManageViewModel x:Key="BookManageVM"/>
-
-    <!--<viewmodel2:BookManageViewModel x:Key="StatisticVM"/>-->
-    <!--<viewmodel2:BookManageViewModel x:Key="HistoryVM"/>-->
-    <!--xmlns:viewmodel21 ="clr-namespace:MasterLibrary.ViewModel.AdminVM.StatisticVM"-->
-    <!--xmlns:viewmodel22 ="clr-namespace:MasterLibrary.ViewModel.AdminVM.HistoryVM"-->
     <viewmodel21:StatisticViewModel x:Key="StatisticVM"/>
     <viewmodel22:HistoryViewModel x:Key="HistoryVM"/>
     <viewmodel23:LocationViewModel x:Key="LocationVM"/>
     <viewmodel23:BookInRowViewModel x:Key="BookInRowVM"/>
-    <viewmodel23:DetailBookInRowViewModel x:Key="DetailBookInRowVM"/>
     <viewmodel25:BorrowBookViewModel x:Key="BorrowBookVM"/>
     <viewmodel24:TroubleViewModel x:Key="TroubleVM"/>
     <viewmodel26:ImportViewModel x:Key="ImportVM"/>
@@ -38,4 +33,6 @@
     <viewmodel32:SettingViewModel x:Key="SettingVM"/>
     <viewmodel33:BookCartViewModel x:Key="BookCartVM"/>
     <viewmodel34:ReportTroubleViewModel x:Key="ReportTroubleVM"/>
+    <viewmodel35:BorrowBookViewModel x:Key="BorrowBookCusVM"/>
+    <!--<viewmodel:DetailBookViewModel x:Key="DetailBookMainVM"/>-->
 </ResourceDictionary>   

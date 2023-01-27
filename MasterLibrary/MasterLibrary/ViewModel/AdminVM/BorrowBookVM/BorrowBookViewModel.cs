@@ -104,6 +104,11 @@ namespace MasterLibrary.ViewModel.AdminVM.BorrowBookVM
                 AddBookToListBorrow();
             });
 
+            OpenDetailBookCM = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                OpenDetailBook();
+            });
+
             BorrowAllBookCM = new RelayCommand<object>((p) => 
             {
                 if (string.IsNullOrEmpty(TenKH) || ListBookInBorrow.Count <= 0)

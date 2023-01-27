@@ -90,7 +90,11 @@
                                 </Style.Triggers>
                             </Style>
                         </ListView.ItemContainerStyle>
-
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseDoubleClick">
+                                <i:InvokeCommandAction Command="{Binding OpenDetailBookCM}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Mã sách"

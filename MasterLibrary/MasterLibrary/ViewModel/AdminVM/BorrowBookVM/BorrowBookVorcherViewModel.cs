@@ -1,5 +1,6 @@
 ﻿using MasterLibrary.DTOs;
 using MasterLibrary.Models.DataProvider;
+using MasterLibrary.Views;
 using MasterLibrary.Views.MessageBoxML;
 using System;
 using System.Collections.Generic;
@@ -84,6 +85,7 @@ namespace MasterLibrary.ViewModel.AdminVM.BorrowBookVM
         public ICommand AddBookToListBorrowCM { get; set; }
         public ICommand BorrowAllBookCM { get; set; }
         public ICommand DeleteAllBookInBorrowCM { get; set; }
+        public ICommand OpenDetailBookCM { get; set; }
 
         #endregion
 
@@ -342,6 +344,12 @@ namespace MasterLibrary.ViewModel.AdminVM.BorrowBookVM
 
             MaskName.Visibility = Visibility.Collapsed;
             IsSaving = false;
+        }
+
+        void OpenDetailBook()
+        {
+            DetailBook w = new DetailBook();
+            w.ShowDialog();
         }
     }
 }

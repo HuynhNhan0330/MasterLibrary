@@ -3,6 +3,7 @@ using MasterLibrary.ViewModel.CustomerVM;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,6 +61,36 @@ namespace MasterLibrary.Models.DataProvider
             {
                 return (false, "Xãy ra lỗi khi thực hiện thao tác");
             }
+        }
+
+        public async Task<List<BookInBorrowDTO>> GetBookBorrowCustomer(int _makh)
+        {
+            List<BookInBorrowDTO> bookborrows = null;
+
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    bookborrows = await (from sachmuon in context.PHIEUMUONs
+                                   join sach in context.SACHes on sachmuon.MASACH equals sach.MASACH
+                                   where sachmuon.MAKH == _makh
+                                   select new BookInBorrowDTO
+                                   {
+                                       MaSach = (int)sachmuon.MASACH,
+                                       TenSach = sach.TENSACH,
+                                       img = sach.IMAGESOURCE,
+                                       NgayHetHan = (DateTime)sachmuon.NGAYHETHAN,
+                                       SoLuong = (int)sachmuon.SOLUONG
+                                   }
+                     ).ToListAsync();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return bookborrows;
         }
     }
 }

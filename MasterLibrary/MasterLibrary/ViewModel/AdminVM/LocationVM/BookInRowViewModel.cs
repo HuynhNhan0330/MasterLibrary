@@ -9,10 +9,11 @@ using System.Windows.Input;
 using System.Windows;
 using MasterLibrary.Views.MessageBoxML;
 using MasterLibrary.Views.Admin.LocationPage;
+using MasterLibrary.Views;
 
 namespace MasterLibrary.ViewModel.AdminVM.LocationVM
 {
-    public class BookInRowViewModel: BaseViewModel
+    public class BookInRowViewModel : BaseViewModel
     {
         #region Thuộc tính
         private ObservableCollection<BookDTO> _ListBook;
@@ -85,9 +86,8 @@ namespace MasterLibrary.ViewModel.AdminVM.LocationVM
             // Mở window detail book
             LoadDetailBookInRow = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                DetailBookInRow w = new DetailBookInRow();
-
-                DetailBookInRowViewModel.selectBook = SelectedItem;
+                DetailBook w = new DetailBook();
+                DetailBookViewModel._IdBook = SelectedItem.MaSach;
 
                 MaskName.Visibility = Visibility.Visible;
                 w.ShowDialog();
