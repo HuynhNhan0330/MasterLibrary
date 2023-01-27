@@ -15,9 +15,9 @@
 
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.2*"/>
             <RowDefinition Height="8*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
 
         <materialDesign:ColorZone
@@ -105,7 +105,7 @@
                                 DisplayMemberBinding="{Binding MaSach}" 
                                  Width="auto">
                         <GridViewColumnHeader 
-                                FontSize="1"
+                                FontSize="16"
                                 Margin="-18" 
                                 Content="Mã" 
                                 />
@@ -207,8 +207,8 @@
         <StackPanel Grid.Row="2">
 
 
-            <StackPanel Orientation="Horizontal">
-                <!--Nút thêm sách mới-->
+            <!--<StackPanel Orientation="Horizontal">
+                --><!--Nút thêm sách mới--><!--
                 <materialDesign:Badged
                             BadgeColorZoneMode="PrimaryDark">
                     <Button  Style="{StaticResource MaterialDesignRaisedLightButton}"
@@ -227,7 +227,7 @@
                     </Button>
                 </materialDesign:Badged>
 
-            </StackPanel>
+            </StackPanel>-->
 
             <!--Trigger event loaded để load dữ liệu vào listview-->
             <i:Interaction.Triggers>

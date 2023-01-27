@@ -17,6 +17,7 @@ using MasterLibrary.ViewModel.CustomerVM;
 using MasterLibrary.Views.MessageBoxML;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Text.RegularExpressions;
+using System.Collections.ObjectModel;
 
 namespace MasterLibrary.ViewModel.LoginVM
 {
@@ -24,6 +25,9 @@ namespace MasterLibrary.ViewModel.LoginVM
     {
         public static Frame MainFrame { get; set; }
         public static Grid Mask { get; set; }
+
+        public static DataGrid import_dtg;
+        public static ObservableCollection<InputBookDTO> ListInputbook = new ObservableCollection<InputBookDTO>();
 
         public ICommand LoadLoginPage { get; set; }
         public ICommand LoadForgotPassPage { get; set; }
