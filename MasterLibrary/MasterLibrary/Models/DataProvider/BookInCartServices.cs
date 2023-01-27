@@ -180,7 +180,6 @@ namespace MasterLibrary.Models.DataProvider
             {
                 return (false, "Gặp lỗi trong việc thực hiện thao tác");
             }
-
         }
 
         public async Task<(bool, string)> DeleteAllBookInCart(int _makh)
@@ -197,6 +196,38 @@ namespace MasterLibrary.Models.DataProvider
 
                     return (true, "Đã xoá tất cả vật phẩm");
                 }
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                return (false, "Không thể kết nối được với cơ sở dữ liệu");
+            }
+            catch (Exception)
+            {
+                return (false, "Gặp lỗi trong việc thực hiện thao tác");
+            }
+        }
+
+        public async Task<(bool, string)> SetQuantity(int _makh, int _masach, int _sl)
+        {
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    var BookInCartCurrent = context.GIOHANGs.SingleOrDefault(s => s.MAKH == _makh && s.MASACH == _masach);
+
+                    if (BookInCartCurrent != null)
+                    {
+                        BookInCartCurrent.SOLUONGHT = _sl;
+                        await context.SaveChangesAsync();
+
+                        return (true, "Thay đổi số lượng thành công");
+                    }
+                    else
+                    {
+                        return (false, "Thay đổi số lượng thất bại");
+                    }
+                }
+
             }
             catch (System.Data.Entity.Infrastructure.DbUpdateException)
             {

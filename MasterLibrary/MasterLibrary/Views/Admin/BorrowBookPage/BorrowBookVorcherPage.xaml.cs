@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MasterLibrary.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,27 @@ namespace MasterLibrary.Views.Admin.BorrowBookPage
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private bool Filter(object item)
+        {
+            if (String.IsNullOrEmpty(FilterBox.Text))
+                return true;
+            else
+                return ((item as BookDTO).TenSach.IndexOf(FilterBox.Text, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                    ((item as BookDTO).MaSach.ToString().IndexOf(FilterBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+
+        private void FilterBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(ListBoxBook.ItemsSource).Refresh();
+            CreateTextBoxFilter();
+        }
+
+        public void CreateTextBoxFilter()
+        {
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListBoxBook.ItemsSource);
+            view.Filter = Filter;
         }
     }
 }

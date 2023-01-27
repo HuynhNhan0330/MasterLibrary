@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MasterLibrary.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,15 @@ namespace MasterLibrary.DTOs
         public string TacGia { get; set; }
         public string NhaXuatBan { get; set; }
         public int GiaNhap { get; set; }
+        public string GiaNhapStr
+        {
+            get
+            {
+                return Helper.FormatVNMoney(GiaNhap);
+            }
+        }
         public int GiaBan { get; set; }
         public int SoLuong { get; set; }
+        public DateTime NgNhap { get; set; }
     }
 }

@@ -104,6 +104,23 @@
                         <ComboBoxItem Content="Tháng 11" />
                         <ComboBoxItem Content="Tháng 12" />
                     </ComboBox>
+
+                    <ComboBox Height="30"
+                              Width="100"
+                              Margin="10 0 0 0"
+                              Padding="0 10 10 0"
+                              FontSize="13"
+                              Visibility="Collapsed"
+                              x:Name="cbbYear"
+                              SelectedItem="{Binding SelectedExpenseYear, Mode=TwoWay}"
+                              Loaded="cbbYear_Loaded">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding SelectedExpenseYearML}"
+                                                       CommandParameter="{Binding ElementName=cbbYear}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" Orientation="Horizontal">

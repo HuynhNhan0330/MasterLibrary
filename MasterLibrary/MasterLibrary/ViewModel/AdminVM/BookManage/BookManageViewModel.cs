@@ -21,13 +21,13 @@ namespace MasterLibrary.ViewModel.AdminVM
     public class BookManageViewModel : BaseViewModel
     {
         #region Property
-
         private ObservableCollection<BookDTO> _listbookmanage;
-        public ObservableCollection<BookDTO> Listbookmanage
+        public  ObservableCollection<BookDTO> Listbookmanage
         {
             get { return _listbookmanage; }
             set { _listbookmanage = value; OnPropertyChanged(); }
         }
+        
         private static ListView listview_tmp;
 
         private string _tensach;
@@ -204,77 +204,95 @@ namespace MasterLibrary.ViewModel.AdminVM
             //Nút xóa sách ở trang quản lý sách
             DeletingBook = new RelayCommand<System.Windows.Controls.MenuItem>((p) => { return true; }, (p) =>
             {
-                BookDTO item = listview_tmp.Items[listview_tmp.SelectedIndex] as BookDTO;
-                string masach = item.MaSach.ToString();
-                using (var context = new MasterlibraryEntities())
+                try
                 {
-                    string connectionStr = context.Database.Connection.ConnectionString;
-                    SqlConnection connect = new SqlConnection(connectionStr);
-                    connect.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = connect;
-                    command.Parameters.AddWithValue("@masach", masach);
-                    MessageBoxML msb = new MessageBoxML("Cảnh báo", "Bạn có muốn xóa sách này không", MessageType.Waitting, MessageButtons.YesNo);
-                    
-                    if (msb.ShowDialog() == true)
+                    BookDTO item = listview_tmp.Items[listview_tmp.SelectedIndex] as BookDTO;
+                    string masach = item.MaSach.ToString();
+                    using (var context = new MasterlibraryEntities())
                     {
-                        try
+                        string connectionStr = context.Database.Connection.ConnectionString;
+                        SqlConnection connect = new SqlConnection(connectionStr);
+                        connect.Open();
+                        SqlCommand command = new SqlCommand();
+                        command.Connection = connect;
+                        command.Parameters.AddWithValue("@masach", masach);
+                        MessageBoxML msb = new MessageBoxML("Cảnh báo", "Bạn có muốn xóa sách này không", MessageType.Waitting, MessageButtons.YesNo);
+
+                        if (msb.ShowDialog() == true)
                         {
-                            command.CommandText = "DELETE FROM SACH WHERE MASACH = @masach";
-                            context.SaveChanges();
-                            if (command.ExecuteNonQuery() != 0)
+                            try
                             {
-                                msb = new MessageBoxML("Thông báo", "Thành công", MessageType.Accept, MessageButtons.OK);
-                                msb.ShowDialog();
-                                Loaded(listview_tmp);
+                                command.CommandText = "DELETE FROM SACH WHERE MASACH = @masach";
+                                context.SaveChanges();
+                                if (command.ExecuteNonQuery() != 0)
+                                {
+                                    msb = new MessageBoxML("Thông báo", "Thành công", MessageType.Accept, MessageButtons.OK);
+                                    msb.ShowDialog();
+                                    Loaded(listview_tmp);
+                                }
                             }
-                        }
-                        catch 
-                        {
-                            msb = new MessageBoxML("Thông báo", "Không thể xóa sách ", MessageType.Error, MessageButtons.OK);
-                            msb.ShowDialog();
+                            catch
+                            {
+                                msb = new MessageBoxML("Thông báo", "Không thể xóa sách ", MessageType.Error, MessageButtons.OK);
+                                msb.ShowDialog();
+                            }
                         }
                     }
                 }
+                catch
+                {
+                    MessageBoxML msb = new MessageBoxML("Cảnh báo", "Bạn chưa chọn dòng để xóa", MessageType.Waitting, MessageButtons.OK);
+                    msb.ShowDialog();
+                }
+                
             });
 
             UpdatingBook = new RelayCommand<System.Windows.Controls.MenuItem>((p) => { return true; }, (p) =>
             {
-                BookDTO item = listview_tmp.Items[listview_tmp.SelectedIndex] as BookDTO;
-                var masach = item.MaSach.ToString();
-                updatingwindow window = new updatingwindow(masach);
-
-                if (item.TenDay == null)
+                try
                 {
-                    window.TacGia_txb.Text = item.TacGia.ToString();
-                    window.NhaXuatBan_txb.Text = item.NXB.ToString();
-                    window.Gia_txb.Text = item.Gia.ToString();
-                    window.TenSach_txb.Text = item.TenSach.ToString();
+                    BookDTO item = listview_tmp.Items[listview_tmp.SelectedIndex] as BookDTO;
+                    var masach = item.MaSach.ToString();
+                    updatingwindow window = new updatingwindow(masach);
+
+                    if (item.TenDay == null)
+                    {
+                        window.TacGia_txb.Text = item.TacGia.ToString();
+                        window.NhaXuatBan_txb.Text = item.NXB.ToString();
+                        window.Gia_txb.Text = item.Gia.ToString();
+                        window.TenSach_txb.Text = item.TenSach.ToString();
+                    }
+                    else
+                    {
+                        window.SoLuong_txb.Text = item.SoLuong.ToString();
+                        window.TenSach_txb.Text = item.TenSach.ToString();
+                        window.TacGia_txb.Text = item.TacGia.ToString();
+                        window.NhaXuatBan_txb.Text = item.NXB.ToString();
+                        window.NamXuatBan_txb.Text = item.NamXB.ToString();
+                        window.TheLoai_cbb.Text = item.TheLoai.ToString();
+                        window.Gia_txb.Text = item.Gia.ToString();
+                        window.Tang_txb.Text = item.TenTang;
+                        window.Day_txb.Text = item.TenDay;
+                        window.Source_txb.Text = item.ImageSource.ToString();
+                        window.MoTa_txb.Text = item.MoTa.ToString();
+
+                        //Load ảnh hiện tai lên trang chỉnh sửa
+                        BitmapImage img = new BitmapImage();
+                        img.BeginInit();
+                        img.UriSource = new Uri(item.ImageSource);
+                        img.EndInit();
+                        window.image_img.Source = img;
+                    }
+                    window.ShowDialog();
+
+                    //load lại trang quản lý sách
+                    Loaded(listview_tmp);
                 }
-                else 
+                catch
                 {
-                    window.TenSach_txb.Text = item.TenSach.ToString();
-                    window.TacGia_txb.Text = item.TacGia.ToString();
-                    window.NhaXuatBan_txb.Text = item.NXB.ToString();
-                    window.NamXuatBan_txb.Text = item.NamXB.ToString();
-                    window.TheLoai_cbb.Text = item.TheLoai.ToString();
-                    window.Gia_txb.Text = item.Gia.ToString();
-                    window.Tang_txb.Text = item.TenTang;
-                    window.Day_txb.Text = item.TenDay;
-                    window.Source_txb.Text = item.ImageSource.ToString();
-                    window.MoTa_txb.Text = item.MoTa.ToString();
-
-                    //Load ảnh hiện tai lên trang chỉnh sửa
-                    BitmapImage img = new BitmapImage();
-                    img.BeginInit();
-                    img.UriSource = new Uri(item.ImageSource);
-                    img.EndInit();
-                    window.image_img.Source = img;
+                    MessageBoxML msb = new MessageBoxML("Cảnh báo", "Bạn chưa chọn dòng để chỉnh sửa", MessageType.Waitting, MessageButtons.OK);
+                    msb.ShowDialog();
                 }
-                window.ShowDialog();
-
-                //load lại trang quản lý sách
-                Loaded(listview_tmp);
             });
         }
 

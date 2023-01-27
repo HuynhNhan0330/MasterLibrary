@@ -20,7 +20,7 @@ namespace MasterLibrary.Models.DataProvider
         public string MOTA { get; set; }
         public string IMG { get; set; }
         public Nullable<decimal> CHIPHI { get; set; }
-        public Nullable<System.DateTime> THOIGIANBAOCAO { get; set; }
+        public System.DateTime THOIGIANBAOCAO { get; set; }
         public Nullable<int> MALSC { get; set; }
         public string MATTSC { get; set; }
     

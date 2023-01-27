@@ -11,6 +11,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using MasterLibrary.ViewModel.AdminVM;
+using System.Data.SqlClient;
+using MasterLibrary.ViewModel.LoginVM;
 
 namespace MasterLibrary.ViewModel.AdminVM.ImportVM
 {
@@ -18,15 +21,16 @@ namespace MasterLibrary.ViewModel.AdminVM.ImportVM
     {
         #region Property
         private static int count = 1;
-        private static DataGrid dtg_tmp;
+        //private static DataGrid dtg_tmp;
 
-        private ObservableCollection<InputBookDTO> _listInputbook = new ObservableCollection<InputBookDTO>();
-        public ObservableCollection<InputBookDTO> ListInputbook
-        {
-            get { return _listInputbook; }
-            set { _listInputbook = value; OnPropertyChanged(); }
-        }
+        //private ObservableCollection<InputBookDTO> _listInputbook = new ObservableCollection<InputBookDTO>();
+        //public ObservableCollection<InputBookDTO> ListInputbook
+        //{
+        //    get { return _listInputbook; }
+        //    set { _listInputbook = value; OnPropertyChanged(); }
+        //}
 
+        //private static ObservableCollection<InputBookDTO> ListInputbook = new ObservableCollection<InputBookDTO>();
         private string _tenMatHang;
         public string TenMatHang
         {
@@ -109,15 +113,22 @@ namespace MasterLibrary.ViewModel.AdminVM.ImportVM
         public ICommand EditBookDTG { get; set; }
         public ICommand CancelEditBookDTG { get; set; }
         public ICommand CommitEditBookDTG { get; set; }
+        public ICommand Loaded { get; set; }
         public ImportViewModel()
         {
             TenNhanVien = MasterLibrary.Models.DataProvider.AdminServices.TenNhanVien;
             MaNhanVien = MasterLibrary.Models.DataProvider.AdminServices.MaNhanVien;
 
+            Loaded = new RelayCommand<DataGrid>((p) => { return true; }, (p) =>
+            {
+                p.ItemsSource = LoginViewModel.ListInputbook;
+                LoginViewModel.import_dtg = p;
+            });
+
             //Thêm mặt hàng vào ds nhập
             AddBookToImportDTG = new RelayCommand<DataGrid>((p) => { return true; }, (p) =>
             {
-                p.ItemsSource = ListInputbook;
+                
                 if (TenMatHang != null && NhaXuatBan != null && TacGia != null && GiaNhap != null && GiaBan != null && SoLuong != null)
                 {
                     if ((TriGiaHoaDon + int.Parse(SoLuong) * int.Parse(GiaNhap)) > 1000000000)
@@ -127,9 +138,10 @@ namespace MasterLibrary.ViewModel.AdminVM.ImportVM
                     }
                     else
                     {
-                        ListInputbook.Add(new InputBookDTO { TenSach = TenMatHang, SoLuong = int.Parse(SoLuong), GiaNhap = int.Parse(GiaNhap), IDBook = count++, GiaBan = int.Parse(GiaBan), NhaXuatBan = NhaXuatBan, TacGia = TacGia });
+                        LoginViewModel.ListInputbook.Add(new InputBookDTO { TenSach = TenMatHang, SoLuong = int.Parse(SoLuong), GiaNhap = int.Parse(GiaNhap), IDBook = count++, GiaBan = int.Parse(GiaBan), NhaXuatBan = NhaXuatBan, TacGia = TacGia });
                         TriGiaHoaDon += int.Parse(SoLuong) * int.Parse(GiaNhap);
                         TriGiaChu = So_chu(TriGiaHoaDon);
+                        TenMatHang =  SoLuong =  GiaNhap = GiaBan = TacGia = NhaXuatBan = null;
                     }
                 }
                 else
@@ -137,15 +149,13 @@ namespace MasterLibrary.ViewModel.AdminVM.ImportVM
                     MessageBoxML msb = new MessageBoxML("Lỗi", "Điền vào đầy đủ các thông tin trên", MessageType.Error, MessageButtons.OK);
                     msb.ShowDialog();
                 }
-                dtg_tmp = p;
-
             });
 
             //Xóa mặt hàng trong danh sách nhập
             DeleteBookDTG = new RelayCommand<DataGrid>((p) => { return true; }, (p) =>
             {
-                InputBookDTO book = dtg_tmp.SelectedItems[0] as InputBookDTO;
-                ListInputbook.Remove(book);
+                InputBookDTO book = LoginViewModel.import_dtg.SelectedItems[0] as InputBookDTO;
+                LoginViewModel.ListInputbook.Remove(book);
                 CapNhatTriGia();
                 TriGiaChu = So_chu(TriGiaHoaDon);
                 CapNhatSTT();
@@ -154,14 +164,14 @@ namespace MasterLibrary.ViewModel.AdminVM.ImportVM
             //Sửa mặt hàng trong danh sách nhập
             EditBookDTG = new RelayCommand<DataGrid>((p) => { return true; }, (p) =>
             {
-                DataGridRow row = (DataGridRow)dtg_tmp.ItemContainerGenerator.ContainerFromItem(dtg_tmp.CurrentItem);
+                DataGridRow row = (DataGridRow)LoginViewModel.import_dtg.ItemContainerGenerator.ContainerFromItem(LoginViewModel.import_dtg.CurrentItem);
                 ShowCellsEditingTemplate(row);
             });
 
             // Đồng ý thay đổi mặt hàng
             CommitEditBookDTG = new RelayCommand<DataGrid>((p) => { return true; }, (p) =>
             {
-                DataGridRow row = (DataGridRow)dtg_tmp.ItemContainerGenerator.ContainerFromItem(dtg_tmp.CurrentItem);
+                DataGridRow row = (DataGridRow)LoginViewModel.import_dtg.ItemContainerGenerator.ContainerFromItem(LoginViewModel.import_dtg.CurrentItem);
                 ShowCellsNormalTemplate(row, true);
                 CapNhatTriGia();
                 TriGiaChu = So_chu(TriGiaHoaDon);
@@ -170,7 +180,7 @@ namespace MasterLibrary.ViewModel.AdminVM.ImportVM
             //Hủy thay đổi mặt hàng
             CancelEditBookDTG = new RelayCommand<DataGrid>((p) => { return true; }, (p) =>
             {
-                DataGridRow row = (DataGridRow)dtg_tmp.ItemContainerGenerator.ContainerFromItem(dtg_tmp.CurrentItem);
+                DataGridRow row = (DataGridRow)LoginViewModel.import_dtg.ItemContainerGenerator.ContainerFromItem(LoginViewModel.import_dtg.CurrentItem);
                 ShowCellsNormalTemplate(row);
             });
 
@@ -198,16 +208,35 @@ namespace MasterLibrary.ViewModel.AdminVM.ImportVM
 
                             int sohd = hoadon.SOHD;
                             //Thêm sách mới nhập vào quan hệ sách
-                            foreach (var item in ListInputbook)
+                            foreach (var item in LoginViewModel.ListInputbook)
                             {
-                                context.SACHes.Add(new SACH { TENSACH = item.TenSach, NXB = item.NhaXuatBan, TACGIA = item.TacGia, GIA = (decimal)item.GiaBan, SL = item.SoLuong });
                                 context.CHITIET_NHAP.Add(new CHITIET_NHAP { TENSACH = item.TenSach, NXB = item.NhaXuatBan, GIABAN = (decimal)item.GiaBan, GIANHAP = (decimal)item.GiaNhap, TACGIA = item.TacGia, SL = item.SoLuong, SOHD = sohd });
+                               
+                                bool boolFlag = false;
+                                foreach(var book in context.SACHes)
+                                {
+                                    if(book.TENSACH == item.TenSach && book.NXB == item.NhaXuatBan && book.TACGIA == item.TacGia)
+                                    {
+                                        boolFlag = true;
+                                        book.SL += item.SoLuong;
+                                        if(book.GIA != item.GiaBan)
+                                        {
+                                            MessageBoxML msb = new MessageBoxML("Thông báo", "Sản phẩm này đã tồn tại với giá bán khác, bạn có muốn cập nhật lại giá?!", MessageType.Accept, MessageButtons.YesNo);
+                                            if(msb.ShowDialog() == true)
+                                            {
+                                                book.GIA = item.GiaBan;
+                                            }
+                                        }    
+                                    }
+                                }
+                                if (boolFlag == false)
+                                    context.SACHes.Add(new SACH { TENSACH = item.TenSach, NXB = item.NhaXuatBan, TACGIA = item.TacGia, GIA = (decimal)item.GiaBan, SL = item.SoLuong });
                                 context.SaveChanges();
                             }
 
                             MessageBoxML tb = new MessageBoxML("Thông báo", "Thêm phiếu nhập thành công!", MessageType.Accept, MessageButtons.OK);
                             tb.ShowDialog();
-                            ListInputbook = null;
+                            LoginViewModel.ListInputbook = null;
                         }
                         catch
                         {
@@ -222,7 +251,7 @@ namespace MasterLibrary.ViewModel.AdminVM.ImportVM
         #region Custom Datagrid
         private void ShowCellsEditingTemplate(DataGridRow row)
         {
-            foreach (DataGridColumn col in dtg_tmp.Columns)
+            foreach (DataGridColumn col in LoginViewModel.import_dtg.Columns)
             {
                 DependencyObject parent = VisualTreeHelper.GetParent(col.GetCellContent(row));
                 while (parent.GetType().Name != "DataGridCell")
@@ -237,7 +266,7 @@ namespace MasterLibrary.ViewModel.AdminVM.ImportVM
 
         private void ShowCellsNormalTemplate(DataGridRow row, bool canCommit = false)
         {
-            foreach (DataGridColumn col in dtg_tmp.Columns)
+            foreach (DataGridColumn col in LoginViewModel.import_dtg.Columns)
             {
                 DependencyObject parent = VisualTreeHelper.GetParent(col.GetCellContent(row));
                 while (parent.GetType().Name != "DataGridCell")
@@ -273,7 +302,7 @@ namespace MasterLibrary.ViewModel.AdminVM.ImportVM
         private void CapNhatTriGia()
         {
             TriGiaHoaDon = 0;
-            foreach (var item in ListInputbook)
+            foreach (var item in LoginViewModel.ListInputbook)
             {
                 if ((TriGiaHoaDon) > 1000000000)
                 {
@@ -291,12 +320,12 @@ namespace MasterLibrary.ViewModel.AdminVM.ImportVM
         private void CapNhatSTT()
         {
             count = 1;
-            dtg_tmp.ItemsSource = null;
-            foreach (var item in ListInputbook)
+            LoginViewModel.import_dtg.ItemsSource = null;
+            foreach (var item in LoginViewModel.ListInputbook)
             {
                 item.IDBook = count++;
             }
-            dtg_tmp.ItemsSource = ListInputbook;
+            LoginViewModel.import_dtg.ItemsSource = LoginViewModel.ListInputbook;
         }
 
         #endregion

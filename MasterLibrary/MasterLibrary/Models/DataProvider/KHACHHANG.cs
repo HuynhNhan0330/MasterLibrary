@@ -20,6 +20,8 @@ namespace MasterLibrary.Models.DataProvider
             this.GIOHANGs = new HashSet<GIOHANG>();
             this.HOADONs = new HashSet<HOADON>();
             this.NHAPKHOes = new HashSet<NHAPKHO>();
+            this.PHIEUMUONs = new HashSet<PHIEUMUON>();
+            this.PHIEUTHUs = new HashSet<PHIEUTHU>();
             this.SUCOes = new HashSet<SUCO>();
         }
     
@@ -38,6 +40,10 @@ namespace MasterLibrary.Models.DataProvider
         public virtual USERROLE USERROLE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NHAPKHO> NHAPKHOes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PHIEUMUON> PHIEUMUONs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PHIEUTHU> PHIEUTHUs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SUCO> SUCOes { get; set; }
     }
