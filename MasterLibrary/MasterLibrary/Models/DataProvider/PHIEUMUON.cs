@@ -12,20 +12,15 @@ namespace MasterLibrary.Models.DataProvider
     using System;
     using System.Collections.Generic;
     
-    public partial class SUCO
+    public partial class PHIEUMUON
     {
-        public int MASC { get; set; }
+        public int MAPHIEUMUON { get; set; }
         public Nullable<int> MAKH { get; set; }
-        public string TIEUDE { get; set; }
-        public string MOTA { get; set; }
-        public string IMG { get; set; }
-        public Nullable<decimal> CHIPHI { get; set; }
-        public System.DateTime THOIGIANBAOCAO { get; set; }
-        public Nullable<int> MALSC { get; set; }
-        public string MATTSC { get; set; }
+        public Nullable<int> MASACH { get; set; }
+        public Nullable<int> SOLUONG { get; set; }
+        public Nullable<System.DateTime> NGAYHETHAN { get; set; }
     
         public virtual KHACHHANG KHACHHANG { get; set; }
-        public virtual LOAISUCO LOAISUCO { get; set; }
-        public virtual TRANGTHAISC TRANGTHAISC { get; set; }
+        public virtual SACH SACH { get; set; }
     }
 }

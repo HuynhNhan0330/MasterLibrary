@@ -19,6 +19,8 @@ namespace MasterLibrary.Models.DataProvider
         {
             this.CTHDs = new HashSet<CTHD>();
             this.GIOHANGs = new HashSet<GIOHANG>();
+            this.PHIEUMUONs = new HashSet<PHIEUMUON>();
+            this.PHIEUTHUs = new HashSet<PHIEUTHU>();
         }
     
         public int MASACH { get; set; }
@@ -39,6 +41,10 @@ namespace MasterLibrary.Models.DataProvider
         public virtual DAYKE DAYKE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GIOHANG> GIOHANGs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PHIEUMUON> PHIEUMUONs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PHIEUTHU> PHIEUTHUs { get; set; }
         public virtual TANG TANG { get; set; }
     }
 }
