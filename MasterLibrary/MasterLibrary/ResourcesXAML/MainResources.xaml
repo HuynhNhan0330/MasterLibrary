@@ -2,7 +2,8 @@
                     xmlns:viewmodel = "clr-namespace:MasterLibrary.ViewModel"
                     xmlns:viewmodel1 = "clr-namespace:MasterLibrary.ViewModel.LoginVM"
                     xmlns:viewmodel2 = "clr-namespace:MasterLibrary.ViewModel.AdminVM"
-                    
+                    xmlns:viewmodel21 ="clr-namespace:MasterLibrary.ViewModel.AdminVM.StatisticVM"
+                    xmlns:viewmodel22 ="clr-namespace:MasterLibrary.ViewModel.AdminVM.HistoryVM"
                     xmlns:viewmodel23 ="clr-namespace:MasterLibrary.ViewModel.AdminVM.LocationVM"
                     xmlns:viewmodel24 ="clr-namespace:MasterLibrary.ViewModel.AdminVM.TroubleVM"
                     xmlns:viewmodel25 ="clr-namespace:MasterLibrary.ViewModel.AdminVM.BorrowBookVM"
@@ -18,14 +19,13 @@
     <viewmodel1:ForgotPassViewModel x:Key= "ForgotPassVM"/>
     <viewmodel2:MainAdminViewModel x:Key= "AdminVM"/>
     <viewmodel2:BookManageViewModel x:Key="BookManageVM"/>
-    
-    <viewmodel2:BookManageViewModel x:Key="StatisticVM"/>
-    <viewmodel2:BookManageViewModel x:Key="HistoryVM"/>
+
+    <!--<viewmodel2:BookManageViewModel x:Key="StatisticVM"/>-->
+    <!--<viewmodel2:BookManageViewModel x:Key="HistoryVM"/>-->
     <!--xmlns:viewmodel21 ="clr-namespace:MasterLibrary.ViewModel.AdminVM.StatisticVM"-->
     <!--xmlns:viewmodel22 ="clr-namespace:MasterLibrary.ViewModel.AdminVM.HistoryVM"-->
-    <!--<viewmodel21:StatisticViewModel x:Key="StatisticVM"/>-->
-    <!--<viewmodel22:HistoryViewModel x:Key="HistoryVM"/>-->
-
+    <viewmodel21:StatisticViewModel x:Key="StatisticVM"/>
+    <viewmodel22:HistoryViewModel x:Key="HistoryVM"/>
     <viewmodel23:LocationViewModel x:Key="LocationVM"/>
     <viewmodel23:BookInRowViewModel x:Key="BookInRowVM"/>
     <viewmodel23:DetailBookInRowViewModel x:Key="DetailBookInRowVM"/>

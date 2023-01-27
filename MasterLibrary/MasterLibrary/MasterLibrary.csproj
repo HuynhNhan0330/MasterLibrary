@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>MasterLibrary</RootNamespace>
     <AssemblyName>MasterLibrary</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -294,6 +294,7 @@
     <Compile Include="Models\DataProvider\HOADON.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataProvider\InputBookServices.cs" />
     <Compile Include="Models\DataProvider\KHACHHANG.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
@@ -327,6 +328,7 @@
     <Compile Include="Models\DataProvider\SACH.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataProvider\StatisticServices.cs" />
     <Compile Include="Models\DataProvider\SUCO.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
@@ -354,11 +356,13 @@
     <Compile Include="ViewModel\AdminVM\BorrowBookVM\BorrowBookViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\BorrowBookVM\BorrowBookVorcherViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\BorrowBookVM\CollectionBookVorcherViewModel.cs" />
+    <Compile Include="ViewModel\AdminVM\HistoryVM\HistoryViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\ImportVM\ImportViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\BookInRowViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\DetailBookInRowViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\LocationViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\MainAdminViewModel.cs" />
+    <Compile Include="ViewModel\AdminVM\StatisticVM\StatisticViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\TroubleVM\DetailTroubleViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\TroubleVM\TroubleViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
@@ -396,6 +400,9 @@
     </Compile>
     <Compile Include="Views\Admin\HistoryPage\HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\HistoryPage\TroublePage_His.xaml.cs">
+      <DependentUpon>TroublePage_His.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\ImportBookPage\ImportBookPage.xaml.cs">
       <DependentUpon>ImportBookPage.xaml</DependentUpon>
@@ -535,6 +542,10 @@
     <Page Include="Views\Admin\HistoryPage\HistoryPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Admin\HistoryPage\TroublePage_His.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Admin\ImportBookPage\ImportBookPage.xaml">
       <SubType>Designer</SubType>

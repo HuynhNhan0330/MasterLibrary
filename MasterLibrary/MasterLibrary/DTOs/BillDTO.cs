@@ -44,6 +44,13 @@ namespace MasterLibrary.DTOs
         }
         public int MAHD { get; set; }
         public decimal TRIGIA { get; set; }
+        public string TRIGIAStr
+        {
+            get
+            {
+                return Helper.FormatVNMoney(TRIGIA);
+            }
+        } 
         public DateTime NGHD { get; set; }
 
 
