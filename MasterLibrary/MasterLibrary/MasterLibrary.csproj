@@ -436,6 +436,9 @@
     <Compile Include="Views\Customer\BookLocationPage\BookLocationPage.xaml.cs">
       <DependentUpon>BookLocationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Customer\BorrowBookPage\BorrowBookPage.xaml.cs">
+      <DependentUpon>BorrowBookPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Customer\BuyBookPage\BuyBookPage.xaml.cs">
       <DependentUpon>BuyBookPage.xaml</DependentUpon>
     </Compile>
@@ -584,6 +587,10 @@
     <Page Include="Views\Customer\BookLocationPage\BookLocationPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Customer\BorrowBookPage\BorrowBookPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Customer\BuyBookPage\BuyBookPage.xaml">
       <Generator>MSBuild:Compile</Generator>
