@@ -352,6 +352,7 @@
     <Compile Include="ViewModel\AdminVM\LocationVM\DetailBookInRowViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\LocationViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\MainAdminViewModel.cs" />
+    <Compile Include="ViewModel\AdminVM\SettingVM\SettingViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\TroubleVM\DetailTroubleViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\TroubleVM\TroubleViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
@@ -366,8 +367,8 @@
     <Compile Include="ViewModel\CustomerVM\SettingVM\SettingViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\ForgotPassViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\LoginViewModel.cs" />
-    <Compile Include="Views\Admin\BookManagePage\BookManagePage.xaml.cs">
-      <DependentUpon>BookManagePage.xaml</DependentUpon>
+    <Compile Include="Views\Admin\BookManagePage\BookManagePage1.xaml.cs">
+      <DependentUpon>BookManagePage1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\BookManagePage\updatingwindow.xaml.cs">
       <DependentUpon>updatingwindow.xaml</DependentUpon>
@@ -410,6 +411,18 @@
     </Compile>
     <Compile Include="Views\Admin\MainAdminWindow.xaml.cs">
       <DependentUpon>MainAdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\SettingPage\ChangePass.xaml.cs">
+      <DependentUpon>ChangePass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\SettingPage\ConfirmPass.xaml.cs">
+      <DependentUpon>ConfirmPass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\SettingPage\Information.xaml.cs">
+      <DependentUpon>Information.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\SettingPage\SettingPageAdmin.xaml.cs">
+      <DependentUpon>SettingPageAdmin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\StatisticalPage\StatisticalPage.xaml.cs">
       <DependentUpon>StatisticalPage.xaml</DependentUpon>
@@ -494,9 +507,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Admin\BookManagePage\BookManagePage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Views\Admin\BookManagePage\BookManagePage1.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Admin\BookManagePage\updatingwindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -551,6 +564,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Admin\MainAdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\SettingPage\ChangePass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\SettingPage\ConfirmPass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\SettingPage\Information.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\SettingPage\SettingPageAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -680,6 +709,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\setting.png" />
     <Resource Include="Resources\Images\LocationBackground.png" />
     <Resource Include="Resources\Images\DeleteFileBackground.png" />
     <Resource Include="Resources\Images\WaittingBackground.png" />

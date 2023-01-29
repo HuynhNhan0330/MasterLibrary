@@ -22,17 +22,6 @@ namespace MasterLibrary.Views.Admin.BookManagePage
     public partial class updatingwindow : Window
     {
         public static string masach;
-        public static TextBox TenSach;
-        public static TextBox TacGia;
-        public static TextBox NamXuatBan;
-        public static TextBox NhaXuatBan;
-        public static TextBox SoLuong;
-        public static TextBox Gia;
-        public static TextBox ImgSource;
-        public static ComboBox TheLoai;
-        public static TextBox MoTa;
-        public static TextBox Tang;
-        public static TextBox Day;
         public static Image Image;
 
         public updatingwindow()
@@ -44,8 +33,6 @@ namespace MasterLibrary.Views.Admin.BookManagePage
         {
             InitializeComponent();
             masach = a;
-            TenSach = TenSach_txb; TacGia = TacGia_txb; NamXuatBan = NamXuatBan_txb; NhaXuatBan = NhaXuatBan_txb; SoLuong = SoLuong_txb;
-            Gia = Gia_txb; ImgSource = Source_txb; TheLoai = TheLoai_cbb; MoTa = MoTa_txb; Day = Day_txb; Tang = Tang_txb;
             Image = image_img;
         }
     }

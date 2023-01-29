@@ -211,7 +211,6 @@ C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Maste
 C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.ResolveComReference.cache
 C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MainWindow.g.cs
 C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\UserControlML\controlbar_uc.g.cs
-C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BookManagePage\BookManagePage.g.cs
 C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BookManagePage\updatingwindow.g.cs
 C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BorrowBookPage\BorrowBookPage.g.cs
 C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BorrowBookPage\BorrowBookVorcherPage.g.cs
@@ -256,7 +255,6 @@ C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\App.b
 C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MainWindow.baml
 C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\ResourcesXAML\MainResources.baml
 C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\UserControlML\controlbar_uc.baml
-C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BookManagePage\BookManagePage.baml
 C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BookManagePage\updatingwindow.baml
 C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BorrowBookPage\BorrowBookPage.baml
 C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BorrowBookPage\BorrowBookVorcherPage.baml
@@ -299,3 +297,13 @@ C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Maste
 C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.csproj.CopyComplete
 C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.exe
 C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.pdb
+C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BookManagePage\BookManagePage1.baml
+C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BookManagePage\BookManagePage1.g.cs
+C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\SettingPage\SettingPageAdmin.g.cs
+C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\SettingPage\SettingPageAdmin.baml
+C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\SettingPage\Information.g.cs
+C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\SettingPage\Information.baml
+C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\SettingPage\ChangePass.g.cs
+C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\SettingPage\ChangePass.baml
+C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\SettingPage\ConfirmPass.g.cs
+C:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\SettingPage\ConfirmPass.baml

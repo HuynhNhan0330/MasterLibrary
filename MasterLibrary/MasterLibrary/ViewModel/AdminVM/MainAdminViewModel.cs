@@ -17,6 +17,7 @@ using MasterLibrary.Views.MessageBoxML;
 using System.Globalization;
 using MasterLibrary.Views.Admin.TroublePage;
 using MasterLibrary.Views.Admin.BorrowBookPage;
+using MasterLibrary.Views.Admin.SettingPage;
 
 namespace MasterLibrary.ViewModel.AdminVM
 {
@@ -27,13 +28,14 @@ namespace MasterLibrary.ViewModel.AdminVM
         public ICommand FirstLoadML { get; set; }
         public ICommand LoadStatisticalPageML { get; set; }
         public ICommand LoadBookManagerPageML { get; set; }
+        public ICommand LoadBookManagePageML { get; set; }
         public ICommand LoadHistoryPageML { get; set; }
         public ICommand LoadImportBookPageML { get; set; }
         public ICommand LoadLocationPageML { get; set; }
         
         public ICommand LoadBorrowBookPageML { get; set; }
         public ICommand LoadTroublePageML { get; set; }
-
+        public ICommand LoadSettingPageML { get; set; }
 
 
         public MainAdminViewModel()
@@ -45,9 +47,9 @@ namespace MasterLibrary.ViewModel.AdminVM
             });
 
             // Load trang quản lí sách
-            LoadBookManagerPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            LoadBookManagePageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
-                p.Content = new BookManagePage();
+                p.Content = new BookManagePage1();
             });
 
             // Load trang lịch sử
@@ -79,6 +81,11 @@ namespace MasterLibrary.ViewModel.AdminVM
             LoadTroublePageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
                 p.Content = new TroublePage();
+            });
+
+            LoadSettingPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            {
+                p.Content = new SettingPageAdmin();
             });
 
         }  
