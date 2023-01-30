@@ -73,10 +73,6 @@
                                   ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
-                                <Setter Property="Background"
-                                        Value="Transparent" />
-                                <Setter Property="Foreground"
-                                        Value="Transparent" />
                                 <Style.Triggers>
                                     <MultiTrigger>
                                         <Setter Property="Foreground"
@@ -84,12 +80,19 @@
                                     </MultiTrigger>
                                     <Trigger Property="IsMouseOver"
                                                          Value="True">
+                                        <Setter Property="FocusVisualStyle"
+                                                    Value="{x:Null}"/>
+                                        <Setter Property="BorderBrush"
+                                                    Value="#d5d7d9	"/>
+                                        <Setter Property="Background"
+                                                    Value="#d5d7d9	"/>
                                         <Setter Property="IsSelected"
                                                             Value="True" />
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
                         </ListView.ItemContainerStyle>
+
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseDoubleClick">
                                 <i:InvokeCommandAction Command="{Binding OpenDetailBookCM}" />

@@ -1,11 +1,11 @@
 ﻿using MasterLibrary.DTOs;
-using System.Linq;
-using System.Windows.Input;
-using System.Windows;
-using MasterLibrary.Views;
 using MasterLibrary.Models.DataProvider;
+using MasterLibrary.Views;
+using System.Linq;
+using System.Windows;
+using System.Windows.Input;
 
-namespace MasterLibrary.ViewModel.AdminVM.LocationVM
+namespace MasterLibrary.ViewModel
 {
     public class DetailBookViewModel : BaseViewModel
     {
@@ -30,7 +30,7 @@ namespace MasterLibrary.ViewModel.AdminVM.LocationVM
         #endregion
 
         #region thuộc tính tạm thời
-        public static int _IdBook{ get; set; }
+        public static int _IdBook { get; set; }
 
         #endregion
 

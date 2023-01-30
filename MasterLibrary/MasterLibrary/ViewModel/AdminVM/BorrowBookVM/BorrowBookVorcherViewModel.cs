@@ -348,6 +348,10 @@ namespace MasterLibrary.ViewModel.AdminVM.BorrowBookVM
 
         void OpenDetailBook()
         {
+            if (SelectedBookInBorrow == null) return;
+
+            DetailBookViewModel._IdBook = SelectedBookInBorrow.MaSach;
+
             DetailBook w = new DetailBook();
             w.ShowDialog();
         }

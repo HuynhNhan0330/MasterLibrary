@@ -12,7 +12,8 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
-        Name="DetailBookWindowML">
+        Name="DetailBookWindowML"
+        DataContext="{StaticResource DetailBookMainVM}">
     <Grid>
         <i:Interaction.Triggers>
             <i:EventTrigger EventName="Loaded">

@@ -2,11 +2,7 @@
 using MasterLibrary.Models.DataProvider;
 using MasterLibrary.Views;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -63,6 +59,13 @@ namespace MasterLibrary.ViewModel.CustomerVM.BorrowBookCusVM
         {
             get { return _ChooseNameStatusBookInBorrow; }
             set { _ChooseNameStatusBookInBorrow = value; OnPropertyChanged(); }
+        }
+        
+        private BookInBorrowDTO _SelectedBookInBorrow;
+        public BookInBorrowDTO SelectedBookInBorrow
+        {
+            get { return _SelectedBookInBorrow; }
+            set { _SelectedBookInBorrow = value; OnPropertyChanged(); }
         }
 
         #endregion
@@ -179,7 +182,9 @@ namespace MasterLibrary.ViewModel.CustomerVM.BorrowBookCusVM
 
         void OpenDetailBook()
         {
-            
+            if (SelectedBookInBorrow == null) return;
+
+            DetailBookViewModel._IdBook = SelectedBookInBorrow.MaSach;
 
             DetailBook w = new DetailBook();
             w.ShowDialog();

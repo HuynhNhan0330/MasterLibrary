@@ -45,7 +45,7 @@
                         </i:Interaction.Triggers>
                     </Label>
 
-                    <TextBlock Text="{Binding SelectedTrouble.TieuDe}"
+                    <TextBlock Text="{Binding CurrentTrouble.TieuDe}"
                                MaxHeight="100"
                                FontSize="26"
                                FontWeight="Bold"
@@ -70,7 +70,7 @@
                         BorderThickness="1"
                         BorderBrush="Black">
                         <Border.Background>
-                            <ImageBrush ImageSource="{Binding SelectedTrouble.Img}" />
+                            <ImageBrush ImageSource="{Binding CurrentTrouble.Img}" />
                         </Border.Background>
                     </Border>
 
@@ -81,7 +81,7 @@
                             <Label Content="Trạng thái:"
                                    Foreground="#593000"
                                    FontSize="16"/>
-                            <Label Content="{Binding SelectedTrouble.TenTrangThaiSuCo}"
+                            <Label Content="{Binding CurrentTrouble.TenTrangThaiSuCo}"
                                    FontSize="16"
                                    Foreground="#593000"
                                    FontWeight="SemiBold"/>
@@ -92,7 +92,7 @@
                             <Label Content="Ngày báo cáo:"
                                    FontSize="16"
                                    Foreground="#593000"/>
-                            <Label Content="{Binding SelectedTrouble.NgayBaoCao}"
+                            <Label Content="{Binding CurrentTrouble.NgayBaoCao}"
                                    ContentStringFormat="{}{0:dd/MM/yyyy}"
                                    FontSize="16"
                                    Foreground="#593000"
@@ -104,7 +104,7 @@
                             <Label Content="Loại:"
                                    FontSize="16"
                                    Foreground="#593000"/>
-                            <Label Content="{Binding SelectedTrouble.TenLoaiSuCo}"
+                            <Label Content="{Binding CurrentTrouble.TenLoaiSuCo}"
                                    FontSize="16"
                                    Foreground="#593000"
                                    FontWeight="SemiBold"/>
@@ -140,7 +140,7 @@
                              VerticalScrollBarVisibility="Auto"
                              HorizontalScrollBarVisibility="Disabled"
                              IsReadOnly="True"
-                             Text="{Binding SelectedTrouble.MoTa}"/>
+                             Text="{Binding CurrentTrouble.MoTa}"/>
                 </StackPanel>
             </Grid>
         </Grid>

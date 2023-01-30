@@ -117,11 +117,35 @@
                                   ToolTip="Nhấn đúp để xem chi tiết"
                                   x:Name="lvTrouble"
                                   ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                            
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseDoubleClick">
                                     <i:InvokeCommandAction Command="{Binding OpenDetailTroubleCommand}" />
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
+
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Style.Triggers>
+                                        <MultiTrigger>
+                                            <Setter Property="Foreground"
+                                                            Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}}" />
+                                        </MultiTrigger>
+                                        <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                            <Setter Property="FocusVisualStyle"
+                                                    Value="{x:Null}"/>
+                                            <Setter Property="BorderBrush"
+                                                    Value="#d5d7d9	"/>
+                                            <Setter Property="Background"
+                                                    Value="#d5d7d9	"/>
+                                            <Setter Property="IsSelected"
+                                                            Value="True" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Sự cố"

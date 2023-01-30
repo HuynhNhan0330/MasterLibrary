@@ -34,5 +34,5 @@
     <viewmodel33:BookCartViewModel x:Key="BookCartVM"/>
     <viewmodel34:ReportTroubleViewModel x:Key="ReportTroubleVM"/>
     <viewmodel35:BorrowBookViewModel x:Key="BorrowBookCusVM"/>
-    <!--<viewmodel:DetailBookViewModel x:Key="DetailBookMainVM"/>-->
+    <viewmodel:DetailBookViewModel x:Key="DetailBookMainVM"/>
 </ResourceDictionary>   

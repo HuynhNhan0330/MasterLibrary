@@ -37,6 +37,7 @@
 
     <Page.Resources>
         <local1:ForegroundStatusBookInBorrowConverter x:Key="CoverterForeground"/>
+        <local1:TextDayBookInBorrowCoverter x:Key="CoverterTextDay"/>
     </Page.Resources>
     
     <Grid>
@@ -119,10 +120,33 @@
                                     <i:InvokeCommandAction Command="{Binding OpenDetailBookCM}" />
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
+
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Style.Triggers>
+                                        <MultiTrigger>
+                                            <Setter Property="Foreground"
+                                                            Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}}" />
+                                        </MultiTrigger>
+                                        <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                            <Setter Property="FocusVisualStyle"
+                                                    Value="{x:Null}"/>
+                                            <Setter Property="BorderBrush"
+                                                    Value="#d5d7d9	"/>
+                                            <Setter Property="Background"
+                                                    Value="#d5d7d9	"/>
+                                            <Setter Property="IsSelected"
+                                                            Value="True" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Sách đang thuê"
-                                                    Width="630">
+                                                    Width="450">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel Orientation="Horizontal">
@@ -170,6 +194,20 @@
                                                                FontWeight="Medium"
                                                                Foreground="{Binding NgayHetHan, Converter={StaticResource CoverterForeground}}"/>
                                                 </Border>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    
+                                    <GridViewColumn Header="Ngày còn lại"
+                                                    Width="170">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding NgayHetHan, Converter={StaticResource CoverterTextDay}}"
+                                                               FontSize="20"
+                                                               FontStyle="Italic"
+                                                               Margin="7"
+                                                               FontWeight="Medium"
+                                                               Foreground="{Binding NgayHetHan, Converter={StaticResource CoverterForeground}}"/>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>

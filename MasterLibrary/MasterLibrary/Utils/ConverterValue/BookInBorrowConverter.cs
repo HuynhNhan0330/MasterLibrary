@@ -25,4 +25,32 @@ namespace MasterLibrary.Utils.ConverterValue
             throw new NotImplementedException();
         }
     }
+
+    public class TextDayBookInBorrowCoverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            DateTime _NgayHetHan = (DateTime)value;
+
+            int _dayCurrent = (_NgayHetHan - DateTime.Now).Days;
+
+            if (_dayCurrent == 0)
+            {
+                return "Ngày hôm nay";
+            }
+            else if (_dayCurrent > 0)
+            {
+                return "Còn " + (_dayCurrent + 1).ToString() + " ngày";
+            }
+            else
+            {
+                return "Quá hạn";
+            }
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
