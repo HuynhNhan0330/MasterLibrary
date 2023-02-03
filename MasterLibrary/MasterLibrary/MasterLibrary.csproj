@@ -301,6 +301,9 @@
     <Compile Include="Models\DataProvider\LOAISUCO.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataProvider\LUATTHUVIEN.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataProvider\MasterlibraryModels.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

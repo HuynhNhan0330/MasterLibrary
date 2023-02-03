@@ -32,6 +32,7 @@ namespace MasterLibrary.Models.DataProvider
         public virtual DbSet<HOADON> HOADONs { get; set; }
         public virtual DbSet<KHACHHANG> KHACHHANGs { get; set; }
         public virtual DbSet<LOAISUCO> LOAISUCOes { get; set; }
+        public virtual DbSet<LUATTHUVIEN> LUATTHUVIENs { get; set; }
         public virtual DbSet<NHAPKHO> NHAPKHOes { get; set; }
         public virtual DbSet<PHIEUMUON> PHIEUMUONs { get; set; }
         public virtual DbSet<PHIEUTHU> PHIEUTHUs { get; set; }

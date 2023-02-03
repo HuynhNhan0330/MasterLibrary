@@ -12,15 +12,10 @@ namespace MasterLibrary.Models.DataProvider
     using System;
     using System.Collections.Generic;
     
-    public partial class PHIEUMUON
+    public partial class LUATTHUVIEN
     {
-        public int MAPHIEUMUON { get; set; }
-        public Nullable<int> MAKH { get; set; }
-        public int MASACH { get; set; }
-        public Nullable<int> SOLUONG { get; set; }
-        public Nullable<System.DateTime> NGAYHETHAN { get; set; }
-    
-        public virtual KHACHHANG KHACHHANG { get; set; }
-        public virtual SACH SACH { get; set; }
+        public int MALUAT { get; set; }
+        public Nullable<int> SONGAYMUON { get; set; }
+        public Nullable<decimal> TIENTRASACHMUONMOTNGAY { get; set; }
     }
 }
