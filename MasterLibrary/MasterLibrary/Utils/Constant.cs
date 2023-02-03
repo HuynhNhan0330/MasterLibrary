@@ -38,4 +38,14 @@ namespace MasterLibrary.Utils
             public static readonly string CANCLE = "Đã huỷ";
         }
     }
+
+    public class BookInBorrow
+    {
+        public static class STATUS
+        {
+            public static readonly string All = "Toàn bộ";
+            public static readonly string Undue = "Chưa đến hạn trả";
+            public static readonly string OutOfDay = "Quá hạn trả";
+        }
+    }
 }

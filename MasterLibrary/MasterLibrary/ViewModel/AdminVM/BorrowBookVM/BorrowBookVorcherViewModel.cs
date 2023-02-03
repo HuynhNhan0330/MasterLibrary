@@ -1,5 +1,6 @@
 ﻿using MasterLibrary.DTOs;
 using MasterLibrary.Models.DataProvider;
+using MasterLibrary.Views;
 using MasterLibrary.Views.MessageBoxML;
 using System;
 using System.Collections.Generic;
@@ -27,21 +28,14 @@ namespace MasterLibrary.ViewModel.AdminVM.BorrowBookVM
         public BookInBorrowDTO SelectedBookInBorrow
         {
             get { return _SelectedBookInBorrow; }
-            set { _SelectedBookInBorrow = value; OnPropertyChanged(); }
-        }
-
-        private int _MaKH;
-        public int MaKH
-        {
-            get { return _MaKH; }
-            set { _MaKH = value; OnPropertyChanged(); }
-        }
-
-        private string _TenKH;
-        public string TenKH
-        {
-            get { return _TenKH; }
-            set { _TenKH = value; OnPropertyChanged(); }
+            set
+            { 
+                if (value != null)
+                {
+                    _SelectedBookInBorrow = value;
+                    OnPropertyChanged();
+                }
+            }
         }
 
         private DateTime _ExpirationDate;
@@ -80,7 +74,6 @@ namespace MasterLibrary.ViewModel.AdminVM.BorrowBookVM
         public ICommand MinusBookInBorrowCM { get; set; }
         public ICommand PlusBookInBorrowCM { get; set; }
         public ICommand DeleteBookInBorrowCM { get; set; }
-        public ICommand FindNameCustomerCM { get; set; }
         public ICommand AddBookToListBorrowCM { get; set; }
         public ICommand BorrowAllBookCM { get; set; }
         public ICommand DeleteAllBookInBorrowCM { get; set; }
@@ -92,10 +85,15 @@ namespace MasterLibrary.ViewModel.AdminVM.BorrowBookVM
             MaskName.Visibility = Visibility.Visible;
             IsLoading = true;
 
+            RoleLibrary = await RoleLibraryServices.Ins.GetARoleLibrary();
+
             ListBookInBorrow = new ObservableCollection<BookInBorrowDTO>();
             ListBook = new ObservableCollection<BookDTO>(await BookServices.Ins.GetAllbook());
 
-            ExpirationDate = DateTime.Now.AddDays(30);
+            ToTalBookInBorrow = 0;
+            MaKH = 0;
+            TenKH = "";
+            ExpirationDate = DateTime.Now.AddDays(RoleLibrary.Songaymuon);
 
             MaskName.Visibility = Visibility.Collapsed;
             IsLoading = false;
@@ -120,28 +118,19 @@ namespace MasterLibrary.ViewModel.AdminVM.BorrowBookVM
 
         void ReSLBookInBorrowCurrent(TextBox p)
         {
-            BookInBorrowDTO BookInBorrowCurrent = SelectedBookInBorrow;
-
-            if (BookInBorrowCurrent != null)
+            for (int i = 0; i < ListBookInBorrow.Count; i++)
             {
-                for (int i = 0; i < ListBookInBorrow.Count; i++)
+                if (ListBookInBorrow[i].SoLuong > ListBookInBorrow[i].SoLuongMax)
                 {
-                    if (BookInBorrowCurrent.MaSach == ListBookInBorrow[i].MaSach)
-                    {
-                        if (BookInBorrowCurrent.SoLuong > ListBookInBorrow[i].SoLuongMax)
-                        {
-                            ListBookInBorrow[i].SoLuong = ListBookInBorrow[i].SoLuongMax;
-                            FilterBookInBorrow();
-                            ReCalTotalBookInBorrow();
-                        }
-                        else if (string.IsNullOrEmpty(p.Text))
-                        {
-                            ListBookInBorrow[i].SoLuong = 1;
-                            FilterBookInBorrow();
-                            ReCalTotalBookInBorrow();
-                        }
-                        break;
-                    }
+                    ListBookInBorrow[i].SoLuong = ListBookInBorrow[i].SoLuongMax;
+                    FilterBookInBorrow();
+                    ReCalTotalBookInBorrow();
+                }
+                else if (string.IsNullOrEmpty(p.Text))
+                {
+                    ListBookInBorrow[i].SoLuong = 1;
+                    FilterBookInBorrow();
+                    ReCalTotalBookInBorrow();
                 }
             }
         }
@@ -245,19 +234,7 @@ namespace MasterLibrary.ViewModel.AdminVM.BorrowBookVM
             IsSaving = false;
         }
 
-        async void FindNameCustomer()
-        {
-            CustomerDTO CustomerCurrent = await Task.Run(() => CustormerServices.Ins.FindCustomer(MaKH));
-
-            if (CustomerCurrent is null)
-            {
-                TenKH = "";
-            }
-            else
-            {
-                TenKH = CustomerCurrent.TENKH;
-            }
-        }
+        
 
         void DeleteAllBookInBorrow()
         {

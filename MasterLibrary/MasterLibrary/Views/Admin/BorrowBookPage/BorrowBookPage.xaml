@@ -30,7 +30,7 @@
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding MaskNameBrrowBook}"
                                    CommandParameter="{Binding ElementName=ShadowMask}" />
-            <i:InvokeCommandAction Command="{Binding FirstLoadBrrowBook}"/>
+            <i:InvokeCommandAction Command="{Binding FirstLoadBrrowBookCM}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
 

@@ -101,13 +101,12 @@ namespace MasterLibrary.ViewModel.CustomerVM.BuyBookVM
             // Mở window detail book
             LoadDetailBook = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                DetailBook w;
 
                 MaskName.Visibility = Visibility.Visible;
 
                 DetailBookViewModel.selectBookId = SelectedItem.MaSach;
 
-                w = new DetailBook();
+                DetailBookService w = new DetailBookService();
                 w.ShowDialog();
             });
 

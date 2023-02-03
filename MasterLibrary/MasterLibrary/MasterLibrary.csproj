@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>MasterLibrary</RootNamespace>
     <AssemblyName>MasterLibrary</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -268,6 +268,7 @@
     <Compile Include="DTOs\CustomerDTO.cs" />
     <Compile Include="DTOs\DayDTO.cs" />
     <Compile Include="DTOs\InputBookDTO.cs" />
+    <Compile Include="DTOs\RoleLibraryDTO.cs" />
     <Compile Include="DTOs\TangDTO.cs" />
     <Compile Include="DTOs\TroubleDTO.cs" />
     <Compile Include="Models\DataProvider\AdminServices.cs" />
@@ -328,6 +329,7 @@
     <Compile Include="Models\DataProvider\PHIEUTHU.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataProvider\RoleLibraryServices.cs" />
     <Compile Include="Models\DataProvider\SACH.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
@@ -350,6 +352,7 @@
     </Compile>
     <Compile Include="Utils\CloudinaryService.cs" />
     <Compile Include="Utils\Constant.cs" />
+    <Compile Include="Utils\ConverterValue\BookInBorrowConverter.cs" />
     <Compile Include="Utils\ConverterValue\BoolValueConverter.cs" />
     <Compile Include="Utils\ConverterValue\ChangePasswordMultiValueConverter.cs" />
     <Compile Include="Utils\ConverterValue\NotNullValidationConverter.cs" />
@@ -362,7 +365,6 @@
     <Compile Include="ViewModel\AdminVM\HistoryVM\HistoryViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\ImportVM\ImportViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\BookInRowViewModel.cs" />
-    <Compile Include="ViewModel\AdminVM\LocationVM\DetailBookInRowViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\LocationViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\MainAdminViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\StatisticVM\StatisticViewModel.cs" />
@@ -370,6 +372,7 @@
     <Compile Include="ViewModel\AdminVM\TroubleVM\TroubleViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\CustomerVM\BookCartVM\BookCartViewModel.cs" />
+    <Compile Include="ViewModel\CustomerVM\BorrowBookCusVM\BorrowBookViewModel.cs" />
     <Compile Include="ViewModel\CustomerVM\BuyBookVM\BuyBookViewModel.cs" />
     <Compile Include="ViewModel\CustomerVM\BuyBookVM\DetailBookViewModel.cs" />
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
@@ -378,6 +381,7 @@
     <Compile Include="Utils\ConverterValue\OperatorTroubleConverter.cs" />
     <Compile Include="ViewModel\CustomerVM\ReportTroubleVM\ReportTroubleViewModel.cs" />
     <Compile Include="ViewModel\CustomerVM\SettingVM\SettingViewModel.cs" />
+    <Compile Include="ViewModel\DetailBookViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\ForgotPassViewModel.cs" />
     <Compile Include="ViewModel\LoginVM\LoginViewModel.cs" />
     <Compile Include="Views\Admin\BookManagePage\BookManagePage.xaml.cs">
@@ -412,9 +416,6 @@
     </Compile>
     <Compile Include="Views\Admin\LocationPage\BookInRow.xaml.cs">
       <DependentUpon>BookInRow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Admin\LocationPage\DetailBookInRow.xaml.cs">
-      <DependentUpon>DetailBookInRow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\LocationPage\LocationPage.xaml.cs">
       <DependentUpon>LocationPage.xaml</DependentUpon>
@@ -452,8 +453,8 @@
     <Compile Include="Views\Customer\BuyBookPage\BuyBookPage.xaml.cs">
       <DependentUpon>BuyBookPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Customer\BuyBookPage\DetailBook.xaml.cs">
-      <DependentUpon>DetailBook.xaml</DependentUpon>
+    <Compile Include="Views\Customer\BuyBookPage\DetailBookService.xaml.cs">
+      <DependentUpon>DetailBookService.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Customer\MainCustomerWindow.xaml.cs">
       <DependentUpon>MainCustomerWindow.xaml</DependentUpon>
@@ -472,6 +473,9 @@
     </Compile>
     <Compile Include="Views\Customer\SettingPage\SettingPage.xaml.cs">
       <DependentUpon>SettingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailBook.xaml.cs">
+      <DependentUpon>DetailBook.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginWindow\CreateNewPassPage.xaml.cs">
       <DependentUpon>CreateNewPassPage.xaml</DependentUpon>
@@ -558,10 +562,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Admin\LocationPage\DetailBookInRow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\Admin\LocationPage\LocationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -610,7 +610,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Customer\BuyBookPage\DetailBook.xaml">
+    <Page Include="Views\Customer\BuyBookPage\DetailBookService.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -635,6 +635,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Customer\SettingPage\SettingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetailBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

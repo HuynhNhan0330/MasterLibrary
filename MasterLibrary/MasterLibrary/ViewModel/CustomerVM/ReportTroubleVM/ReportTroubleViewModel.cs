@@ -96,6 +96,13 @@ namespace MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM
             set { _SelectedTrouble = value; OnPropertyChanged(); }
         }
 
+        private TroubleDTO _CurrentTrouble;
+        public TroubleDTO CurrentTrouble
+        {
+            get { return _CurrentTrouble; }
+            set { _CurrentTrouble = value; OnPropertyChanged(); }
+        }
+
         private bool _IsSaving;
         public bool IsSaving
         {
@@ -205,7 +212,11 @@ namespace MasterLibrary.ViewModel.CustomerVM.ReportTroubleVM
 
             OpenDetailTroubleCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                CostStr = Utils.Helper.FormatVNMoney(SelectedTrouble.ChiPhi);
+                CurrentTrouble = SelectedTrouble;
+
+                if (CurrentTrouble == null) return;
+
+                CostStr = Utils.Helper.FormatVNMoney(CurrentTrouble.ChiPhi);
 
                 DetailTrouble w = new DetailTrouble();
                 MaskName.Visibility = Visibility.Visible;
