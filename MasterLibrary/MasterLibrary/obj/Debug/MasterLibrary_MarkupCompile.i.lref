@@ -14,7 +14,6 @@ FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\HistoryPage.
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\TroublePage_His.xaml;;
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Admin\ImportBookPage\ImportBookPage.xaml;;
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Admin\LocationPage\BookInRow.xaml;;
-FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Admin\LocationPage\DetailBookInRow.xaml;;
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Admin\LocationPage\LocationPage.xaml;;
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\RevenueDetail.xaml;;
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\RevenuePage.xaml;;
@@ -27,13 +26,14 @@ FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Customer\BookCartPage\BookCart
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Customer\BookLocationPage\BookLocationPage.xaml;;
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Customer\BorrowBookPage\BorrowBookPage.xaml;;
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Customer\BuyBookPage\BuyBookPage.xaml;;
-FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Customer\BuyBookPage\DetailBook.xaml;;
+FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Customer\BuyBookPage\DetailBookService.xaml;;
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Customer\MainCustomerWindow.xaml;;
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Customer\ReportTroublePage\AddRTrouble.xaml;;
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Customer\ReportTroublePage\DetailTrouble.xaml;;
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Customer\ReportTroublePage\EditTrouble.xaml;;
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Customer\ReportTroublePage\ReportTroublePage.xaml;;
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\Customer\SettingPage\SettingPage.xaml;;
+FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\DetailBook.xaml;;
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\LoginWindow\CreateNewPassPage.xaml;;
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\LoginWindow\ForgotPassPage.xaml;;
 FD:\Nhan's\DoAn\MasterLibrary\MasterLibrary\Views\LoginWindow\LoginPage.xaml;;

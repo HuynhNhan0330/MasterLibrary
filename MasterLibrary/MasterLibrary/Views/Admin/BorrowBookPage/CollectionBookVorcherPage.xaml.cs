@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MasterLibrary.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,27 @@ namespace MasterLibrary.Views.Admin.BorrowBookPage
         public CollectionBookVorcherPage()
         {
             InitializeComponent();
+        }
+
+        private bool Filter(object item)
+        {
+            if (String.IsNullOrEmpty(FilterBox.Text))
+                return true;
+            else
+                return ((item as BookInBorrowDTO).TenSach.IndexOf(FilterBox.Text, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                    ((item as BookInBorrowDTO).MaSach.ToString().IndexOf(FilterBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+
+        private void FilterBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(ListBoxBookInBorrow.ItemsSource).Refresh();
+            CreateTextBoxFilter();
+        }
+
+        public void CreateTextBoxFilter()
+        {
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListBoxBookInBorrow.ItemsSource);
+            view.Filter = Filter;
         }
     }
 }

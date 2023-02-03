@@ -104,7 +104,7 @@ namespace MasterLibrary.ViewModel.CustomerVM.BuyBookVM
             // Đóng trang detailBook
             CloseDetailBook = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                DetailBook w = Application.Current.Windows.OfType<DetailBook>().FirstOrDefault();
+                DetailBookService w = Application.Current.Windows.OfType<DetailBookService>().FirstOrDefault();
                 w.Close();
                 BuyBookViewModel.MaskName.Visibility = Visibility.Collapsed;
             });

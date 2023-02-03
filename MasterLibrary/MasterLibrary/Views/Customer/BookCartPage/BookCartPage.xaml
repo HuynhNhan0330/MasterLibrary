@@ -184,7 +184,7 @@
                                                                                  HorizontalAlignment="Center"/>
                                                     </Border>
                                                     <i:Interaction.Triggers>
-                                                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <i:EventTrigger EventName="MouseLeftButtonUp">
                                                             <i:InvokeCommandAction Command="{Binding ElementName=lvCartBook, Path=DataContext.MinusCommand}" />
                                                         </i:EventTrigger>
                                                     </i:Interaction.Triggers>
@@ -226,7 +226,7 @@
                                                                                  HorizontalAlignment="Center"/>
                                                     </Border>
                                                     <i:Interaction.Triggers>
-                                                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <i:EventTrigger EventName="MouseLeftButtonUp">
                                                             <i:InvokeCommandAction Command="{Binding ElementName=lvCartBook, Path=DataContext.PlusCommand}" />
                                                         </i:EventTrigger>
                                                     </i:Interaction.Triggers>
@@ -258,7 +258,7 @@
                                                                      Height="Auto"
                                                                      BorderThickness="0"/>
                                             <i:Interaction.Triggers>
-                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                <i:EventTrigger EventName="MouseLeftButtonUp">
                                                     <i:InvokeCommandAction Command="{Binding ElementName=lvCartBook, Path=DataContext.DeleteCommand}" />
                                                 </i:EventTrigger>
                                             </i:Interaction.Triggers>

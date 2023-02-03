@@ -10,9 +10,23 @@
       mc:Ignorable="d" 
       d:DesignHeight="535" d:DesignWidth="1150"
       Title="BorrowBookVorcherPage"
+      Name="BorrowBookVorcherPageML"
       DataContext="{StaticResource BorrowBookVM}">
 
-
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Page.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="BorrowBookVorcherPageML"
+                                     Storyboard.TargetProperty="Opacity"
+                                     From="0"
+                                     To="1"
+                                     Duration="0:0:0.3" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
+    
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding FirstLoadBrrowBookVocherCM}"/>
@@ -71,21 +85,29 @@
                                   SelectedItem="{Binding SelectedBookInBorrow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                   x:Name="lvBookBorrow"
                                   ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="Background"
                                         Value="Transparent" />
                                 <Setter Property="Foreground"
                                         Value="Transparent" />
+
                                 <Style.Triggers>
                                     <MultiTrigger>
                                         <Setter Property="Foreground"
-                                                            Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}}" />
+                                                Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}}" />
                                     </MultiTrigger>
                                     <Trigger Property="IsMouseOver"
-                                                         Value="True">
+                                             Value="True">
                                         <Setter Property="IsSelected"
-                                                            Value="True" />
+                                                Value="True" />
+                                        <Setter Property="Cursor"
+                                                Value="Hand" />
+                                        <Setter Property="BorderBrush"
+                                                Value="#d5d7d9	" />
+                                        <Setter Property="Background"
+                                                Value="#d5d7d9	" />
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -293,6 +315,8 @@
                                                      Value="True">
                                                     <Setter Property="Background"
                                                         Value="LightGray" />
+                                                    <Setter Property="Cursor" 
+                                                            Value="Hand"/>
                                                 </Trigger>
                                             </Style.Triggers>
                                         </Style>
@@ -430,6 +454,29 @@
 
                 <Grid Margin="0,10,0,0">
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="127*" />
+                        <ColumnDefinition Width="173*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock HorizontalAlignment="Left"
+                               TextWrapping="Wrap"
+                               Text="Số ngày mượn"
+                               VerticalAlignment="Center"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               Foreground="#FF333333" />
+
+                    <TextBlock Grid.Column="1"
+                               HorizontalAlignment="Right"
+                               TextWrapping="Wrap"
+                               VerticalAlignment="Top"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               Foreground="#FF333333"
+                               Text="{Binding RoleLibrary.Songaymuon}" />
+                </Grid>
+                
+                <Grid Margin="0,10,0,0">
+                    <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="127*"/>
                         <ColumnDefinition Width="173*"/>
                     </Grid.ColumnDefinitions>
@@ -482,6 +529,8 @@
                             Height="3" 
                             HorizontalAlignment="Center" 
                             VerticalAlignment="Top"/>
+
+                
 
             </StackPanel>
 

@@ -27,7 +27,7 @@ namespace MasterLibrary.Utils.Converters
         }
     }
 
-    public class ForegroundConverter : IValueConverter
+    public class ForegroundStatusTroubleConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo language)
         {

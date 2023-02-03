@@ -16,7 +16,7 @@ namespace MasterLibrary.Models.DataProvider
     {
         public int MAPHIEUMUON { get; set; }
         public Nullable<int> MAKH { get; set; }
-        public Nullable<int> MASACH { get; set; }
+        public int MASACH { get; set; }
         public Nullable<int> SOLUONG { get; set; }
         public Nullable<System.DateTime> NGAYHETHAN { get; set; }
     
