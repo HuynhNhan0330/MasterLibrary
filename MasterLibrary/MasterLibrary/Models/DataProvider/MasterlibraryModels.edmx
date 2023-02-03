@@ -65,7 +65,7 @@
           <Property Name="TENKH" Type="nvarchar" MaxLength="50" />
           <Property Name="EMAIL" Type="varchar" MaxLength="50" />
           <Property Name="IDROLE" Type="int" />
-          <Property Name="DIACHI" Type="varchar(max)" />
+          <Property Name="DIACHI" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="LOAISUCO">
           <Key>
@@ -73,6 +73,14 @@
           </Key>
           <Property Name="MALSC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TENLSC" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="LUATTHUVIEN">
+          <Key>
+            <PropertyRef Name="MALUAT" />
+          </Key>
+          <Property Name="MALUAT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SONGAYMUON" Type="int" />
+          <Property Name="TIENTRASACHMUONMOTNGAY" Type="money" />
         </EntityType>
         <EntityType Name="NHAPKHO">
           <Key>
@@ -89,7 +97,7 @@
           </Key>
           <Property Name="MAPHIEUMUON" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MAKH" Type="int" />
-          <Property Name="MASACH" Type="int" />
+          <Property Name="MASACH" Type="int" Nullable="false" />
           <Property Name="SOLUONG" Type="int" />
           <Property Name="NGAYHETHAN" Type="smalldatetime" />
         </EntityType>
@@ -101,6 +109,12 @@
           <Property Name="MAKH" Type="int" />
           <Property Name="MASACH" Type="int" />
           <Property Name="SOLUONG" Type="int" />
+          <Property Name="NGAYTHU" Type="smalldatetime" />
+          <Property Name="NGAYMUON" Type="smalldatetime" />
+          <Property Name="TIENTREMOTNGAY" Type="money" />
+          <Property Name="SOLUONGHONG" Type="int" />
+          <Property Name="TIENPHATHONG" Type="money" />
+          <Property Name="TONGTIEN" Type="money" />
         </EntityType>
         <EntityType Name="SACH">
           <Key>
@@ -275,7 +289,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__PHIEUMUON__MASAC__76619304">
-          <End Role="SACH" Type="Self.SACH" Multiplicity="0..1" />
+          <End Role="SACH" Type="Self.SACH" Multiplicity="1" />
           <End Role="PHIEUMUON" Type="Self.PHIEUMUON" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SACH">
@@ -286,7 +300,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PHIEUTHU__MAKH__793DFFAF">
+        <Association Name="FK__PHIEUTHU__MAKH__0A688BB1">
           <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
           <End Role="PHIEUTHU" Type="Self.PHIEUTHU" Multiplicity="*" />
           <ReferentialConstraint>
@@ -298,7 +312,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PHIEUTHU__MASACH__7A3223E8">
+        <Association Name="FK__PHIEUTHU__MASACH__0B5CAFEA">
           <End Role="SACH" Type="Self.SACH" Multiplicity="0..1" />
           <End Role="PHIEUTHU" Type="Self.PHIEUTHU" Multiplicity="*" />
           <ReferentialConstraint>
@@ -378,6 +392,7 @@
           <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LOAISUCO" EntityType="Self.LOAISUCO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LUATTHUVIEN" EntityType="Self.LUATTHUVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHAPKHO" EntityType="Self.NHAPKHO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHIEUMUON" EntityType="Self.PHIEUMUON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHIEUTHU" EntityType="Self.PHIEUTHU" Schema="dbo" store:Type="Tables" />
@@ -430,11 +445,11 @@
             <End Role="SACH" EntitySet="SACH" />
             <End Role="PHIEUMUON" EntitySet="PHIEUMUON" />
           </AssociationSet>
-          <AssociationSet Name="FK__PHIEUTHU__MAKH__793DFFAF" Association="Self.FK__PHIEUTHU__MAKH__793DFFAF">
+          <AssociationSet Name="FK__PHIEUTHU__MAKH__0A688BB1" Association="Self.FK__PHIEUTHU__MAKH__0A688BB1">
             <End Role="KHACHHANG" EntitySet="KHACHHANG" />
             <End Role="PHIEUTHU" EntitySet="PHIEUTHU" />
           </AssociationSet>
-          <AssociationSet Name="FK__PHIEUTHU__MASACH__7A3223E8" Association="Self.FK__PHIEUTHU__MASACH__7A3223E8">
+          <AssociationSet Name="FK__PHIEUTHU__MASACH__0B5CAFEA" Association="Self.FK__PHIEUTHU__MASACH__0B5CAFEA">
             <End Role="SACH" EntitySet="SACH" />
             <End Role="PHIEUTHU" EntitySet="PHIEUTHU" />
           </AssociationSet>
@@ -471,6 +486,7 @@
           <EntitySet Name="HOADONs" EntityType="masterlibraryModel.HOADON" />
           <EntitySet Name="KHACHHANGs" EntityType="masterlibraryModel.KHACHHANG" />
           <EntitySet Name="LOAISUCOes" EntityType="masterlibraryModel.LOAISUCO" />
+          <EntitySet Name="LUATTHUVIENs" EntityType="masterlibraryModel.LUATTHUVIEN" />
           <EntitySet Name="NHAPKHOes" EntityType="masterlibraryModel.NHAPKHO" />
           <EntitySet Name="PHIEUMUONs" EntityType="masterlibraryModel.PHIEUMUON" />
           <EntitySet Name="PHIEUTHUs" EntityType="masterlibraryModel.PHIEUTHU" />
@@ -523,7 +539,7 @@
             <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
             <End Role="PHIEUMUON" EntitySet="PHIEUMUONs" />
           </AssociationSet>
-          <AssociationSet Name="FK__PHIEUTHU__MAKH__793DFFAF" Association="masterlibraryModel.FK__PHIEUTHU__MAKH__793DFFAF">
+          <AssociationSet Name="FK__PHIEUTHU__MAKH__0A688BB1" Association="masterlibraryModel.FK__PHIEUTHU__MAKH__0A688BB1">
             <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
             <End Role="PHIEUTHU" EntitySet="PHIEUTHUs" />
           </AssociationSet>
@@ -539,7 +555,7 @@
             <End Role="SACH" EntitySet="SACHes" />
             <End Role="PHIEUMUON" EntitySet="PHIEUMUONs" />
           </AssociationSet>
-          <AssociationSet Name="FK__PHIEUTHU__MASACH__7A3223E8" Association="masterlibraryModel.FK__PHIEUTHU__MASACH__7A3223E8">
+          <AssociationSet Name="FK__PHIEUTHU__MASACH__0B5CAFEA" Association="masterlibraryModel.FK__PHIEUTHU__MASACH__0B5CAFEA">
             <End Role="SACH" EntitySet="SACHes" />
             <End Role="PHIEUTHU" EntitySet="PHIEUTHUs" />
           </AssociationSet>
@@ -621,13 +637,13 @@
           <Property Name="TENKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IDROLE" Type="Int32" />
-          <Property Name="DIACHI" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DIACHI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="GIOHANGs" Relationship="masterlibraryModel.FK__GIOHANG__MAKH__489AC854" FromRole="KHACHHANG" ToRole="GIOHANG" />
           <NavigationProperty Name="HOADONs" Relationship="masterlibraryModel.FK__HOADON__MAKH__02FC7413" FromRole="KHACHHANG" ToRole="HOADON" />
           <NavigationProperty Name="USERROLE" Relationship="masterlibraryModel.FK__KHACHHANG__IDROL__619B8048" FromRole="KHACHHANG" ToRole="USERROLE" />
           <NavigationProperty Name="NHAPKHOes" Relationship="masterlibraryModel.FK__NHAPKHO__MANV__5E8A0973" FromRole="KHACHHANG" ToRole="NHAPKHO" />
           <NavigationProperty Name="PHIEUMUONs" Relationship="masterlibraryModel.FK__PHIEUMUON__MAKH__756D6ECB" FromRole="KHACHHANG" ToRole="PHIEUMUON" />
-          <NavigationProperty Name="PHIEUTHUs" Relationship="masterlibraryModel.FK__PHIEUTHU__MAKH__793DFFAF" FromRole="KHACHHANG" ToRole="PHIEUTHU" />
+          <NavigationProperty Name="PHIEUTHUs" Relationship="masterlibraryModel.FK__PHIEUTHU__MAKH__0A688BB1" FromRole="KHACHHANG" ToRole="PHIEUTHU" />
           <NavigationProperty Name="SUCOes" Relationship="masterlibraryModel.FK__SUCO__MAKH__37703C52" FromRole="KHACHHANG" ToRole="SUCO" />
         </EntityType>
         <EntityType Name="LOAISUCO">
@@ -637,6 +653,14 @@
           <Property Name="MALSC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENLSC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="SUCOes" Relationship="masterlibraryModel.FK__SUCO__MALSC__3864608B" FromRole="LOAISUCO" ToRole="SUCO" />
+        </EntityType>
+        <EntityType Name="LUATTHUVIEN">
+          <Key>
+            <PropertyRef Name="MALUAT" />
+          </Key>
+          <Property Name="MALUAT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SONGAYMUON" Type="Int32" />
+          <Property Name="TIENTRASACHMUONMOTNGAY" Type="Decimal" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="NHAPKHO">
           <Key>
@@ -655,7 +679,7 @@
           </Key>
           <Property Name="MAPHIEUMUON" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MAKH" Type="Int32" />
-          <Property Name="MASACH" Type="Int32" />
+          <Property Name="MASACH" Type="Int32" Nullable="false" />
           <Property Name="SOLUONG" Type="Int32" />
           <Property Name="NGAYHETHAN" Type="DateTime" Precision="0" />
           <NavigationProperty Name="KHACHHANG" Relationship="masterlibraryModel.FK__PHIEUMUON__MAKH__756D6ECB" FromRole="PHIEUMUON" ToRole="KHACHHANG" />
@@ -669,8 +693,14 @@
           <Property Name="MAKH" Type="Int32" />
           <Property Name="MASACH" Type="Int32" />
           <Property Name="SOLUONG" Type="Int32" />
-          <NavigationProperty Name="KHACHHANG" Relationship="masterlibraryModel.FK__PHIEUTHU__MAKH__793DFFAF" FromRole="PHIEUTHU" ToRole="KHACHHANG" />
-          <NavigationProperty Name="SACH" Relationship="masterlibraryModel.FK__PHIEUTHU__MASACH__7A3223E8" FromRole="PHIEUTHU" ToRole="SACH" />
+          <Property Name="NGAYTHU" Type="DateTime" Precision="0" />
+          <Property Name="NGAYMUON" Type="DateTime" Precision="0" />
+          <Property Name="TIENTREMOTNGAY" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SOLUONGHONG" Type="Int32" />
+          <Property Name="TIENPHATHONG" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TONGTIEN" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="KHACHHANG" Relationship="masterlibraryModel.FK__PHIEUTHU__MAKH__0A688BB1" FromRole="PHIEUTHU" ToRole="KHACHHANG" />
+          <NavigationProperty Name="SACH" Relationship="masterlibraryModel.FK__PHIEUTHU__MASACH__0B5CAFEA" FromRole="PHIEUTHU" ToRole="SACH" />
         </EntityType>
         <EntityType Name="SACH">
           <Key>
@@ -692,7 +722,7 @@
           <NavigationProperty Name="DAYKE" Relationship="masterlibraryModel.FK__SACH__VITRIDAY__40058253" FromRole="SACH" ToRole="DAYKE" />
           <NavigationProperty Name="GIOHANGs" Relationship="masterlibraryModel.FK__GIOHANG__MASACH__47A6A41B" FromRole="SACH" ToRole="GIOHANG" />
           <NavigationProperty Name="PHIEUMUONs" Relationship="masterlibraryModel.FK__PHIEUMUON__MASAC__76619304" FromRole="SACH" ToRole="PHIEUMUON" />
-          <NavigationProperty Name="PHIEUTHUs" Relationship="masterlibraryModel.FK__PHIEUTHU__MASACH__7A3223E8" FromRole="SACH" ToRole="PHIEUTHU" />
+          <NavigationProperty Name="PHIEUTHUs" Relationship="masterlibraryModel.FK__PHIEUTHU__MASACH__0B5CAFEA" FromRole="SACH" ToRole="PHIEUTHU" />
           <NavigationProperty Name="TANG" Relationship="masterlibraryModel.FK__SACH__VITRITANG__3F115E1A" FromRole="SACH" ToRole="TANG" />
         </EntityType>
         <EntityType Name="SUCO">
@@ -869,7 +899,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PHIEUTHU__MAKH__793DFFAF">
+        <Association Name="FK__PHIEUTHU__MAKH__0A688BB1">
           <End Type="masterlibraryModel.KHACHHANG" Role="KHACHHANG" Multiplicity="0..1" />
           <End Type="masterlibraryModel.PHIEUTHU" Role="PHIEUTHU" Multiplicity="*" />
           <ReferentialConstraint>
@@ -906,7 +936,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__PHIEUMUON__MASAC__76619304">
-          <End Type="masterlibraryModel.SACH" Role="SACH" Multiplicity="0..1" />
+          <End Type="masterlibraryModel.SACH" Role="SACH" Multiplicity="1" />
           <End Type="masterlibraryModel.PHIEUMUON" Role="PHIEUMUON" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SACH">
@@ -917,7 +947,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PHIEUTHU__MASACH__7A3223E8">
+        <Association Name="FK__PHIEUTHU__MASACH__0B5CAFEA">
           <End Type="masterlibraryModel.SACH" Role="SACH" Multiplicity="0..1" />
           <End Type="masterlibraryModel.PHIEUTHU" Role="PHIEUTHU" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1030,6 +1060,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="LUATTHUVIENs">
+            <EntityTypeMapping TypeName="masterlibraryModel.LUATTHUVIEN">
+              <MappingFragment StoreEntitySet="LUATTHUVIEN">
+                <ScalarProperty Name="TIENTRASACHMUONMOTNGAY" ColumnName="TIENTRASACHMUONMOTNGAY" />
+                <ScalarProperty Name="SONGAYMUON" ColumnName="SONGAYMUON" />
+                <ScalarProperty Name="MALUAT" ColumnName="MALUAT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="NHAPKHOes">
             <EntityTypeMapping TypeName="masterlibraryModel.NHAPKHO">
               <MappingFragment StoreEntitySet="NHAPKHO">
@@ -1054,6 +1093,12 @@
           <EntitySetMapping Name="PHIEUTHUs">
             <EntityTypeMapping TypeName="masterlibraryModel.PHIEUTHU">
               <MappingFragment StoreEntitySet="PHIEUTHU">
+                <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
+                <ScalarProperty Name="TIENPHATHONG" ColumnName="TIENPHATHONG" />
+                <ScalarProperty Name="SOLUONGHONG" ColumnName="SOLUONGHONG" />
+                <ScalarProperty Name="TIENTREMOTNGAY" ColumnName="TIENTREMOTNGAY" />
+                <ScalarProperty Name="NGAYMUON" ColumnName="NGAYMUON" />
+                <ScalarProperty Name="NGAYTHU" ColumnName="NGAYTHU" />
                 <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
                 <ScalarProperty Name="MASACH" ColumnName="MASACH" />
                 <ScalarProperty Name="MAKH" ColumnName="MAKH" />

@@ -167,10 +167,20 @@
                                                                    HorizontalAlignment="Left"
                                                                    VerticalAlignment="Top"
                                                                    TextTrimming="CharacterEllipsis" />
-                                                        <StackPanel Orientation="Horizontal">
+                                                        
+                                                        <StackPanel Orientation="Horizontal"
+                                                                    VerticalAlignment="Top">
                                                             <Label Content="Mã sách:"
                                                                    FontSize="16" />
                                                             <Label Content="{Binding MaSach}"
+                                                                   FontSize="16" />
+                                                        </StackPanel>
+
+                                                        <StackPanel Orientation="Horizontal"
+                                                                    VerticalAlignment="Top">
+                                                            <Label Content="Số lượng:"
+                                                                   FontSize="16" />
+                                                            <Label Content="{Binding SoLuong}"
                                                                    FontSize="16" />
                                                         </StackPanel>
                                                     </StackPanel>

@@ -5,6 +5,7 @@ using MasterLibrary.Views.Admin.BorrowBookPage;
 using System;
 using System.Collections.ObjectModel;
 using System.Runtime.Remoting.Messaging;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -28,18 +29,36 @@ namespace MasterLibrary.ViewModel.AdminVM.BorrowBookVM
             set { _IsSaving = value; OnPropertyChanged(); }
         }
 
+        private int _MaKH;
+        public int MaKH
+        {
+            get { return _MaKH; }
+            set { _MaKH = value; OnPropertyChanged(); }
+        }
+
+        private string _TenKH;
+        public string TenKH
+        {
+            get { return _TenKH; }
+            set { _TenKH = value; OnPropertyChanged(); }
+        }
+
+        
+
         #endregion
 
         #region ICommand
         public ICommand MaskNameBrrowBook { get; set; }
         public ICommand LoadBorrowBookVorcherPage { get; set; }
         public ICommand LoadCollectionBookVorcherPage { get; set; }
-        public ICommand ReSLCurrent { get; set; }
+        public ICommand FindNameCustomerCM { get; set; }
+        public ICommand FirstLoadBrrowBookCM { get; set; }
 
         #endregion
 
         #region Thuộc tính tạm thời
         public Grid MaskName { get; set; }
+        public RoleLibraryDTO RoleLibrary { get; set; }
 
         #endregion
 
@@ -59,6 +78,16 @@ namespace MasterLibrary.ViewModel.AdminVM.BorrowBookVM
             LoadCollectionBookVorcherPage = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
                 p.Content = new CollectionBookVorcherPage();
+            });
+
+            FindNameCustomerCM = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                FindNameCustomer();
+            });
+
+            FirstLoadBrrowBookCM = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                FirstLoadBrrowBook();
             });
 
             #endregion
@@ -89,12 +118,13 @@ namespace MasterLibrary.ViewModel.AdminVM.BorrowBookVM
                 DeleteBookInBorrow();
             });
 
-            FindNameCustomerCM = new RelayCommand<object>((p) => { return true; }, (p) =>
+            DeleteAllBookInBorrowCM = new RelayCommand<object>((p) =>
             {
-                FindNameCustomer();
-            });
+                if (ListBookInBorrow is null || ListBookInBorrow.Count <= 0) return false;
 
-            DeleteAllBookInBorrowCM = new RelayCommand<object>((p) => { return true; }, (p) =>
+                return true; 
+            },
+            (p) =>
             {
                 DeleteAllBookInBorrow();
             });
@@ -102,11 +132,6 @@ namespace MasterLibrary.ViewModel.AdminVM.BorrowBookVM
             AddBookToListBorrowCM = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 AddBookToListBorrow();
-            });
-
-            OpenDetailBookCM = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                OpenDetailBook();
             });
 
             BorrowAllBookCM = new RelayCommand<object>((p) => 
@@ -126,9 +151,88 @@ namespace MasterLibrary.ViewModel.AdminVM.BorrowBookVM
             #endregion
 
             #region CollectionBookVorcher
+            CollectionBookVorcherCM = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                CollectionBookVorcher();
+            });
+
+            LoadBookInBorrowCustomerCM = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                LoadBookInBorrowCustomer();
+            });
+
+            AddBookToListCollectCM = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                AddBookToListCollect();
+            });
+
+            DeleteBookInCollectCM = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                DeleteBookInCollect();
+            });
+
+            MinusBookInCollectCM = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                MinusBookInCollect();
+            });
+
+            PlusBookInCollectCM = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                PlusBookInCollect();
+            });
+
+            ReSLCurrentBookInCollectCM = new RelayCommand<TextBox>((p) => { return true; }, (p) =>
+            {
+                ReSLCurrentBookInCollect(p);
+            });
+
+            ReSLBookBreakInCollectCM = new RelayCommand<TextBox>((p) => { return true; }, (p) =>
+            {
+                ReSLBookBreakInCollect(p);
+            });
+
+            DeleteAllBookInCollectCM = new RelayCommand<object>((p) =>
+            {
+                if (ListBookInCollect is null || ListBookInCollect.Count <= 0) return false;
+
+                return true;
+            },
+            (p) =>
+            {
+                DeleteAllBookInCollect();
+            });
+
+            CollectAllBookCM = new RelayCommand<object>((p) =>
+            {
+                if (string.IsNullOrEmpty(TenKH) || ListBookInCollect is null || ListBookInCollect.Count <= 0) return false;
+
+                return true;
+            },
+            (p) =>
+            {
+                CollectAllBook();
+            });
+
             #endregion
         }
 
+        async void FindNameCustomer()
+        {
+            CustomerDTO CustomerCurrent = await Task.Run(() => CustormerServices.Ins.FindCustomer(MaKH));
 
+            if (CustomerCurrent is null)
+            {
+                TenKH = "";
+            }
+            else
+            {
+                TenKH = CustomerCurrent.TENKH;
+            }
+        }
+
+        async void FirstLoadBrrowBook()
+        {
+           
+        }
     }
 }

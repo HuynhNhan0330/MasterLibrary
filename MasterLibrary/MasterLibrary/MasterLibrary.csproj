@@ -268,6 +268,7 @@
     <Compile Include="DTOs\CustomerDTO.cs" />
     <Compile Include="DTOs\DayDTO.cs" />
     <Compile Include="DTOs\InputBookDTO.cs" />
+    <Compile Include="DTOs\RoleLibraryDTO.cs" />
     <Compile Include="DTOs\TangDTO.cs" />
     <Compile Include="DTOs\TroubleDTO.cs" />
     <Compile Include="Models\DataProvider\AdminServices.cs" />
@@ -301,6 +302,9 @@
     <Compile Include="Models\DataProvider\LOAISUCO.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataProvider\LUATTHUVIEN.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataProvider\MasterlibraryModels.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -325,6 +329,7 @@
     <Compile Include="Models\DataProvider\PHIEUTHU.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataProvider\RoleLibraryServices.cs" />
     <Compile Include="Models\DataProvider\SACH.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>

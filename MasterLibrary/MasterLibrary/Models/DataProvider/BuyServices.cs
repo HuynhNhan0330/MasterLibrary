@@ -67,7 +67,17 @@ namespace MasterLibrary.Models.DataProvider
                         // Trừ đi số lượng sách đã mua
 
                         var _sach = await context.SACHes.FindAsync(BillDetailList[i].MaSach);
-                        _sach.SL -= BillDetailList[i].SoLuong;
+
+                        if (_sach != null)
+                        {
+                            if (_sach.SL < BillDetailList[i].SoLuong)
+                            {
+                                return (false, context.SACHes.Find(BillDetailList[i].MaSach).TENSACH + "vượt số lượng cho phép vui lòng làm mới trang hoặc chỉnh lại số lượng cho phép");
+                            }
+
+                            _sach.SL -= BillDetailList[i].SoLuong;
+                        }
+
                     }
 
                     context.CTHDs.AddRange(newBillDetailList);
