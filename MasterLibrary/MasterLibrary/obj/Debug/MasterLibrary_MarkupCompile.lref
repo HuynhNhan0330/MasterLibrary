@@ -18,9 +18,9 @@ FC:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\Lo
 FC:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\RevenueDetail.xaml;;
 FC:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\HistoryPage\RevenuePage.xaml;;
 FC:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\MainAdminWindow.xaml;;
+FC:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\SettingPage\ChangeInforPage.xaml;;
 FC:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\SettingPage\ChangePass.xaml;;
-FC:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\SettingPage\ConfirmPass.xaml;;
-FC:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\SettingPage\Information.xaml;;
+FC:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\SettingPage\InformationPage.xaml;;
 FC:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\SettingPage\SettingPageAdmin.xaml;;
 FC:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\StatisticalPage\StatisticalPage.xaml;;
 FC:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\TroublePage\DetailTroubleAdmin.xaml;;
@@ -43,4 +43,7 @@ FC:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWin
 FC:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\RegisterWindow.xaml;;
 FC:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\Views\LoginWindow\VerificationPage.xaml;;
 FC:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\Views\MessageBoxML\MessageBoxML.xaml;;
+FC:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\SettingPage\ConfirmPage.xaml;;
+FC:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\SettingPage\RolePage.xaml;;
+FC:\Users\Hoang\Desktop\MasterLibrary\MasterLibrary\MasterLibrary\Views\Admin\SettingPage\ChangeRolePage.xaml;;
 

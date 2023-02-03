@@ -299,6 +299,9 @@
     <Compile Include="Models\DataProvider\LOAISUCO.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataProvider\LUATTHUVIEN.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataProvider\MasterlibraryModels.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -315,6 +318,12 @@
       <DependentUpon>MasterlibraryModels.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\NHAPKHO.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataProvider\PHIEUMUON.cs">
+      <DependentUpon>MasterlibraryModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataProvider\PHIEUTHU.cs">
       <DependentUpon>MasterlibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataProvider\SACH.cs">
@@ -412,14 +421,23 @@
     <Compile Include="Views\Admin\MainAdminWindow.xaml.cs">
       <DependentUpon>MainAdminWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Admin\SettingPage\ChangeInforPage.xaml.cs">
+      <DependentUpon>ChangeInforPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Admin\SettingPage\ChangePass.xaml.cs">
       <DependentUpon>ChangePass.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\SettingPage\ConfirmPass.xaml.cs">
-      <DependentUpon>ConfirmPass.xaml</DependentUpon>
+    <Compile Include="Views\Admin\SettingPage\ChangeRolePage.xaml.cs">
+      <DependentUpon>ChangeRolePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\SettingPage\Information.xaml.cs">
-      <DependentUpon>Information.xaml</DependentUpon>
+    <Compile Include="Views\Admin\SettingPage\ConfirmPage.xaml.cs">
+      <DependentUpon>ConfirmPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\SettingPage\InformationPage.xaml.cs">
+      <DependentUpon>InformationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\SettingPage\RolePage.xaml.cs">
+      <DependentUpon>RolePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\SettingPage\SettingPageAdmin.xaml.cs">
       <DependentUpon>SettingPageAdmin.xaml</DependentUpon>
@@ -567,15 +585,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Admin\SettingPage\ChangeInforPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Admin\SettingPage\ChangePass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Admin\SettingPage\ConfirmPass.xaml">
+    <Page Include="Views\Admin\SettingPage\ChangeRolePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Admin\SettingPage\Information.xaml">
+    <Page Include="Views\Admin\SettingPage\ConfirmPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\SettingPage\InformationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\SettingPage\RolePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

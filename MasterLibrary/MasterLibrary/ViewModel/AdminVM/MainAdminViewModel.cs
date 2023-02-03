@@ -85,6 +85,7 @@ namespace MasterLibrary.ViewModel.AdminVM
 
             LoadSettingPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
+
                 p.Content = new SettingPageAdmin();
             });
 

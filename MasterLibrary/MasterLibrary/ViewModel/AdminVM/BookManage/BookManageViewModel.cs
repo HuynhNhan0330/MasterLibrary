@@ -248,7 +248,6 @@ namespace MasterLibrary.ViewModel.AdminVM
                         File = new FileDescription(dlg.FileName)
                     };
                     IsLoading = true;
-                    MessageBox.Show(IsLoading.ToString());
                     var uploadResult = cloudinary.Upload(uploadParams);
 
                     ImgSource = uploadResult.Url.ToString();

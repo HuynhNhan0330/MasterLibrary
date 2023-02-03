@@ -24,6 +24,7 @@
         <RectangleGeometry Rect="0, 0, 1300, 700" RadiusX="10" RadiusY="10"></RectangleGeometry>
     </Window.Clip>
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="2.4*"/>
             <RowDefinition Height="49*"/>
@@ -32,6 +33,7 @@
             <uc:controlbar_uc Tag="{Binding Title, ElementName=UpdatingWindow}"/>
         </Grid>
         <Grid Grid.Row="1">
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -313,6 +315,38 @@
                             </Button>
                         </materialDesign:Badged>
                     </StackPanel>
+                    <!--<materialDesign:Card Height="100" DataContext="{Binding Source={StaticResource BookManageVM}}"
+                             Width="150"
+                             Margin="-380 -50 0 0"
+                             UniformCornerRadius="5"
+                             Background="#e8e6e6">
+                        <StackPanel>
+                            <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}"
+                                 IsIndeterminate="True"
+                                 Value="50"
+                                 Margin="0,30,0,0"
+                                 x:Name="prg" />
+                            <Label HorizontalContentAlignment="Center"
+                                    FontSize="15"
+                                    Content="Đang tải ảnh..."
+                                    Margin="0,10,0,0"
+                                    Foreground="#743100">
+                            </Label>
+                        </StackPanel>
+                        <materialDesign:Card.Style>
+                            <Style TargetType="materialDesign:Card">
+                                <Setter Property="Visibility"
+                                        Value="Visible" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=IsLoading}"
+                                                 Value="true">
+                                        <Setter  Property="Visibility"
+                                                 Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </materialDesign:Card.Style>
+                    </materialDesign:Card>-->
                 </Grid>
                 <Grid Grid.Column="2">
                     <Button
@@ -330,46 +364,6 @@
                 </Grid>
             </Grid>
         </Grid>
-
-        <!--Hiện lên đang đăng nhập-->
-        <materialDesign:Card Height="100"
-                             Width="150"
-                             UniformCornerRadius="5"
-                             Background="#e8e6e6">
-            <StackPanel>
-                <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}"
-                                 IsIndeterminate="True"
-                                 Margin="0,30,0,0"
-                                 x:Name="prg" />
-                <Label HorizontalContentAlignment="Center"
-                           FontSize="15"
-                           Content="Đang tai anh..."
-                           Margin="0,10,0,0"
-                       Foreground="#743100">
-                </Label>
-            </StackPanel>
-            <materialDesign:Card.Style>
-                <Style TargetType="materialDesign:Card">
-                    <Setter Property="Visibility"
-                                Value="Collapsed" />
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding IsLoading}"
-                                     Value="True">
-                            <Setter  Property="Visibility"
-                                     Value="Visible" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </materialDesign:Card.Style>
-        </materialDesign:Card>
-
-        <materialDesign:Card
-                UniformCornerRadius="14"
-                Padding="4">
-            <ProgressBar
-                Style="{StaticResource MaterialDesignCircularProgressBar}"
-                Value="50"
-                IsIndeterminate="True" />
-        </materialDesign:Card>
     </Grid>
 </Window>
+    

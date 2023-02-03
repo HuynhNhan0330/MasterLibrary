@@ -60,7 +60,7 @@
     <Property Name="TENKH" Type="nvarchar" MaxLength="50" />
     <Property Name="EMAIL" Type="varchar" MaxLength="50" />
     <Property Name="IDROLE" Type="int" />
-    <Property Name="DIACHI" Type="varchar(max)" />
+    <Property Name="DIACHI" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="LOAISUCO">
     <Key>
@@ -68,6 +68,14 @@
     </Key>
     <Property Name="MALSC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TENLSC" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="LUATTHUVIEN">
+    <Key>
+      <PropertyRef Name="MALUAT" />
+    </Key>
+    <Property Name="MALUAT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SONGAYMUON" Type="int" />
+    <Property Name="TIENTRASACHMUONMOTNGAY" Type="money" />
   </EntityType>
   <EntityType Name="NHAPKHO">
     <Key>
@@ -77,6 +85,25 @@
     <Property Name="MANV" Type="int" />
     <Property Name="NGNHAP" Type="smalldatetime" Nullable="false" />
     <Property Name="TRIGIA" Type="money" />
+  </EntityType>
+  <EntityType Name="PHIEUMUON">
+    <Key>
+      <PropertyRef Name="MAPHIEUMUON" />
+    </Key>
+    <Property Name="MAPHIEUMUON" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MAKH" Type="int" />
+    <Property Name="MASACH" Type="int" Nullable="false" />
+    <Property Name="SOLUONG" Type="int" />
+    <Property Name="NGAYHETHAN" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="PHIEUTHU">
+    <Key>
+      <PropertyRef Name="MAPHIEUTHU" />
+    </Key>
+    <Property Name="MAPHIEUTHU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MAKH" Type="int" />
+    <Property Name="MASACH" Type="int" />
+    <Property Name="SOLUONG" Type="int" />
   </EntityType>
   <EntityType Name="SACH">
     <Key>
@@ -105,7 +132,7 @@
     <Property Name="MOTA" Type="nvarchar(max)" />
     <Property Name="IMG" Type="varchar" MaxLength="200" />
     <Property Name="CHIPHI" Type="money" />
-    <Property Name="THOIGIANBAOCAO" Type="smalldatetime" />
+    <Property Name="THOIGIANBAOCAO" Type="smalldatetime" Nullable="false" />
     <Property Name="MALSC" Type="int" />
     <Property Name="MATTSC" Type="varchar" MaxLength="20" />
   </EntityType>
@@ -238,6 +265,54 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__PHIEUMUON__MAKH__756D6ECB">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="PHIEUMUON" Type="Self.PHIEUMUON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MAKH" />
+      </Principal>
+      <Dependent Role="PHIEUMUON">
+        <PropertyRef Name="MAKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHIEUMUON__MASAC__76619304">
+    <End Role="SACH" Type="Self.SACH" Multiplicity="1" />
+    <End Role="PHIEUMUON" Type="Self.PHIEUMUON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SACH">
+        <PropertyRef Name="MASACH" />
+      </Principal>
+      <Dependent Role="PHIEUMUON">
+        <PropertyRef Name="MASACH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHIEUTHU__MAKH__793DFFAF">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="PHIEUTHU" Type="Self.PHIEUTHU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MAKH" />
+      </Principal>
+      <Dependent Role="PHIEUTHU">
+        <PropertyRef Name="MAKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHIEUTHU__MASACH__7A3223E8">
+    <End Role="SACH" Type="Self.SACH" Multiplicity="0..1" />
+    <End Role="PHIEUTHU" Type="Self.PHIEUTHU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SACH">
+        <PropertyRef Name="MASACH" />
+      </Principal>
+      <Dependent Role="PHIEUTHU">
+        <PropertyRef Name="MASACH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__SACH__VITRIDAY__40058253">
     <End Role="DAYKE" Type="Self.DAYKE" Multiplicity="0..1" />
     <End Role="SACH" Type="Self.SACH" Multiplicity="*" />
@@ -306,7 +381,10 @@
     <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LOAISUCO" EntityType="Self.LOAISUCO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LUATTHUVIEN" EntityType="Self.LUATTHUVIEN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NHAPKHO" EntityType="Self.NHAPKHO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHIEUMUON" EntityType="Self.PHIEUMUON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHIEUTHU" EntityType="Self.PHIEUTHU" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SACH" EntityType="Self.SACH" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SUCO" EntityType="Self.SUCO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TANG" EntityType="Self.TANG" Schema="dbo" store:Type="Tables" />
@@ -347,6 +425,22 @@
     <AssociationSet Name="FK__NHAPKHO__MANV__5E8A0973" Association="Self.FK__NHAPKHO__MANV__5E8A0973">
       <End Role="KHACHHANG" EntitySet="KHACHHANG" />
       <End Role="NHAPKHO" EntitySet="NHAPKHO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHIEUMUON__MAKH__756D6ECB" Association="Self.FK__PHIEUMUON__MAKH__756D6ECB">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="PHIEUMUON" EntitySet="PHIEUMUON" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHIEUMUON__MASAC__76619304" Association="Self.FK__PHIEUMUON__MASAC__76619304">
+      <End Role="SACH" EntitySet="SACH" />
+      <End Role="PHIEUMUON" EntitySet="PHIEUMUON" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHIEUTHU__MAKH__793DFFAF" Association="Self.FK__PHIEUTHU__MAKH__793DFFAF">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="PHIEUTHU" EntitySet="PHIEUTHU" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHIEUTHU__MASACH__7A3223E8" Association="Self.FK__PHIEUTHU__MASACH__7A3223E8">
+      <End Role="SACH" EntitySet="SACH" />
+      <End Role="PHIEUTHU" EntitySet="PHIEUTHU" />
     </AssociationSet>
     <AssociationSet Name="FK__SACH__VITRIDAY__40058253" Association="Self.FK__SACH__VITRIDAY__40058253">
       <End Role="DAYKE" EntitySet="DAYKE" />

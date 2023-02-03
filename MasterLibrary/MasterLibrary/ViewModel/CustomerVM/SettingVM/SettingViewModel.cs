@@ -41,12 +41,16 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
             set { _TenKH = value; OnPropertyChanged(); }
         }
 
+      
+
         private string _Email;
         public string Email
         {
             get { return _Email; }
             set { _Email = value; OnPropertyChanged(); }
         }
+
+        
 
         private string _DiaChi;
         public string DiaChi

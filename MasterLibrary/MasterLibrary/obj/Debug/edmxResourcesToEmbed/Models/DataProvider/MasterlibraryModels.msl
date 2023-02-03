@@ -72,6 +72,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="LUATTHUVIENs">
+      <EntityTypeMapping TypeName="masterlibraryModel.LUATTHUVIEN">
+        <MappingFragment StoreEntitySet="LUATTHUVIEN">
+          <ScalarProperty Name="TIENTRASACHMUONMOTNGAY" ColumnName="TIENTRASACHMUONMOTNGAY" />
+          <ScalarProperty Name="SONGAYMUON" ColumnName="SONGAYMUON" />
+          <ScalarProperty Name="MALUAT" ColumnName="MALUAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="NHAPKHOes">
       <EntityTypeMapping TypeName="masterlibraryModel.NHAPKHO">
         <MappingFragment StoreEntitySet="NHAPKHO">
@@ -79,6 +88,27 @@
           <ScalarProperty Name="NGNHAP" ColumnName="NGNHAP" />
           <ScalarProperty Name="MANV" ColumnName="MANV" />
           <ScalarProperty Name="SOHD" ColumnName="SOHD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIEUMUONs">
+      <EntityTypeMapping TypeName="masterlibraryModel.PHIEUMUON">
+        <MappingFragment StoreEntitySet="PHIEUMUON">
+          <ScalarProperty Name="NGAYHETHAN" ColumnName="NGAYHETHAN" />
+          <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+          <ScalarProperty Name="MASACH" ColumnName="MASACH" />
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="MAPHIEUMUON" ColumnName="MAPHIEUMUON" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIEUTHUs">
+      <EntityTypeMapping TypeName="masterlibraryModel.PHIEUTHU">
+        <MappingFragment StoreEntitySet="PHIEUTHU">
+          <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+          <ScalarProperty Name="MASACH" ColumnName="MASACH" />
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="MAPHIEUTHU" ColumnName="MAPHIEUTHU" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

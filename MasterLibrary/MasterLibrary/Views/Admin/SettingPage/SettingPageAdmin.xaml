@@ -7,6 +7,7 @@
       mc:Ignorable="d"          
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       d:DesignHeight="450" d:DesignWidth="800"
+      Name="SettingPage"
       xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
       Title="SettingPageAdmin"
       DataContext="{StaticResource SettingAdminVM}">
@@ -14,31 +15,40 @@
     <Border BorderThickness="0" CornerRadius="20">
         <Grid Background="#ffffff" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="1.5*"/>
                 <ColumnDefinition Width="1.5*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                
                 <materialDesign:Card Margin="20,20,20,20"
                                      Grid.Row="1"
                                      UniformCornerRadius="8">
-                    <Frame x:Name="settingframe"
+                    <Frame x:Name="Infor_frame"
                            NavigationUIVisibility="Hidden">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Loaded">
-                                <i:InvokeCommandAction Command="{Binding LoadInforAccount}"
-                                                       CommandParameter="{Binding ElementName=settingframe}" />
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-
                     </Frame>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Loaded">
+                            <i:InvokeCommandAction Command="{Binding LoadedInfor}"
+                                                   CommandParameter="{Binding ElementName=Infor_frame}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                 </materialDesign:Card>
             </Grid>
 
             <Grid Grid.Column="1">
-                <Grid.Background>
-                    <ImageBrush ImageSource="/Resources/Images/setting.png"></ImageBrush>
-                </Grid.Background>
+
+                <materialDesign:Card Margin="20,20,20,20"
+                                     Grid.Row="1"
+                                     UniformCornerRadius="8">
+                    <Frame x:Name="Role_Frame"
+                           NavigationUIVisibility="Hidden">
+                    </Frame>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Loaded">
+                            <i:InvokeCommandAction Command="{Binding LoadedFrame}"
+                                           CommandParameter="{Binding ElementName=Role_Frame}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </materialDesign:Card>
             </Grid>
         </Grid>
     </Border>

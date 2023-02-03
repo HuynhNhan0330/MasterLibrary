@@ -15,6 +15,7 @@ using System.Reactive.Subjects;
 using System.Text.RegularExpressions;
 using MasterLibrary.Views.Admin;
 using MasterLibrary.ViewModel.CustomerVM;
+using System.Windows.Media;
 
 namespace MasterLibrary.ViewModel.AdminVM.SettingVM
 {
@@ -22,21 +23,17 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
     {
 
         #region Property
-        private bool Clicked = false;
 
-        private Frame _frame;
+        private static Frame InFr;
 
-        private Information _page;
-        public Information myPage
+        private Frame _rolFr;
+        public Frame RolFr
         {
-            get { return _page; }
-            set { _page = value; OnPropertyChanged(); }
+            get { return _rolFr; }
+            set { _rolFr = value; OnPropertyChanged(); }
         }
-        public Frame myFrame
-        {
-            get { return _frame; }
-            set { _frame = value; OnPropertyChanged(); }
-        }
+
+       
         private int _maKH;
         public int MaKH
         {
@@ -51,6 +48,13 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
             set { _hoVaTen = value; OnPropertyChanged();}
         }
 
+        private string _newHoVaTen;
+        public string NewHoVaTen
+        {
+            get { return _newHoVaTen; }
+            set { _newHoVaTen = value; OnPropertyChanged(); }
+        }
+
         private string _tenTK;
         public string TenTK
         {
@@ -58,11 +62,25 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
             set { _tenTK = value; OnPropertyChanged();}
         }
 
+        private string _newTenTK;
+        public string NewTenTK
+        {
+            get { return _newTenTK; }
+            set { _newTenTK = value; OnPropertyChanged(); }
+        }
+
         private string _email;
         public string Email
         {
             get { return _email; }
             set { _email = value; OnPropertyChanged();}
+        }
+
+        private string _newEmail;
+        public string NewEmail
+        {
+            get { return _newEmail; }
+            set { _newEmail = value; OnPropertyChanged(); }
         }
 
         private string _CurrentPassword;
@@ -99,40 +117,102 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
             set { _passForChangingSomething = value; OnPropertyChanged(); }
         }
 
-        private bool IsFixed = false;
+        private string _moneyForLate;
+        public string MoneyForLate
+        {
+            get { return _moneyForLate; }
+            set { _moneyForLate = value; OnPropertyChanged(); }
+        }
+
+        private string _newMoneyForLate;
+        public string NewMoneyForLate
+        {
+            get { return _newMoneyForLate; }
+            set { _newMoneyForLate = value; OnPropertyChanged(); }
+        }
+
+        private string _soNgayMuon;
+        public string SoNgayMuon
+        {
+            get { return _soNgayMuon;}
+            set { _soNgayMuon = value; OnPropertyChanged(); }
+        }
+
+        private string _newSoNgayMuon;
+        public string NewSoNgayMuon
+        {
+            get { return _newSoNgayMuon; }
+            set { _newSoNgayMuon = value; OnPropertyChanged(); }
+        }
         #endregion
 
         #region ICommand
-        public ICommand LoadInforAccount { get; set; }
-        public ICommand Loaded { get; set; }
+        public ICommand LoadedInfor { get; set; }
+        public ICommand LoadedFrame { get; set; }
         public ICommand Logout { get; set; }
         public ICommand LoadChangePass { get; set; }
+        public ICommand LoadChangeInfor { get; set; }
         public ICommand CurrentPasswordChange { get; set; }
         public ICommand NewPasswordChange { get; set; }
         public ICommand ConfirmNewPasswordChange { get; set; }
         public ICommand SaveNewPasswordCommand { get; set; }
         public ICommand PassChanging { get; set; }
         public ICommand UpdateInforAdmin { get; set; }
-        public ICommand Back { get; set; }
+        public ICommand Back1 { get; set; }
+        public ICommand Back2 { get; set; }
         public ICommand OK { get; set; }
+        public ICommand BackChangePass { get; set; }
+        public ICommand BackRolePage { get; set; }
+        public ICommand LoadChangeRole { get; set; }
+        public ICommand SaveChangeRole { get; set; }
+
+
         #endregion
         public SettingViewModel()
         {
-            LoadInforAccount = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            LoadedInfor = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
-                Information w = new Information();
-                p.Content = w;
-                myPage = w;
-            });
-
-
-            Loaded = new RelayCommand<Frame>((p) => { return true; }, (p) =>
-            {
+                InFr = p;
                 MaKH = MasterLibrary.Models.DataProvider.AdminServices.MaNhanVien;
                 HoVaTen = MasterLibrary.Models.DataProvider.AdminServices.TenNhanVien;
                 TenTK = MasterLibrary.Models.DataProvider.AdminServices.UserNameNhanVien;
                 Email = MasterLibrary.Models.DataProvider.AdminServices.EmailNhanVien;
-                myFrame = p;
+                p.Content = new InformationPage();
+            });
+
+            SaveChangeRole = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                using(var context  = new MasterlibraryEntities())
+                {
+                    var rol = context.LUATTHUVIENs.SingleOrDefault(s => s.MALUAT == 1);
+                    rol.SONGAYMUON = int.Parse(NewSoNgayMuon);
+                    rol.TIENTRASACHMUONMOTNGAY = decimal.Parse(NewMoneyForLate);
+                    context.SaveChanges();
+                }
+                SoNgayMuon = NewSoNgayMuon; MoneyForLate = NewMoneyForLate;
+                RolFr.Content = new RolePage();
+            });
+            LoadedFrame = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            {
+                RolFr = p;
+                using (var context = new MasterlibraryEntities())
+                {
+                    SoNgayMuon = (from s in context.LUATTHUVIENs select s.SONGAYMUON).FirstOrDefault().ToString();
+                    MoneyForLate = ((int)(from s in context.LUATTHUVIENs select s.TIENTRASACHMUONMOTNGAY).FirstOrDefault()).ToString();
+                }    
+                p.Content = new RolePage();
+            });
+
+            LoadChangeRole = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                RolFr.Content = new ChangeRolePage();
+                NewMoneyForLate = MoneyForLate;
+                NewSoNgayMuon = SoNgayMuon;
+            });
+
+            BackChangePass = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                LoadedInfor.Execute(InFr);
             });
 
             Logout = new RelayCommand<Page>((p) => { return true; }, (p) =>
@@ -146,22 +226,16 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
                 w.Close();
             });
 
-            LoadChangePass = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            LoadChangePass = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                if (Clicked == false)
-                {
-                    p.Content = new ChangePass();
-                    myPage.btnlogout.IsEnabled = false;
-                    myPage.btnupdate.IsEnabled = false;
-                    Clicked = true;
-                }
-                else
-                {
-                    p.Content = null;
-                    Clicked = false;
-                    myPage.btnlogout.IsEnabled = true;
-                    myPage.btnupdate.IsEnabled = true;
-                }
+                InFr.Content = new ChangePass();
+            });
+
+            LoadChangeInfor = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                InFr.Content = new ChangeInforPage();
+                NewHoVaTen = HoVaTen; NewEmail = Email; NewTenTK = TenTK;
+
             });
 
             CurrentPasswordChange = new RelayCommand<PasswordBox>((p) => { return true; }, (p) =>
@@ -204,11 +278,7 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
                 {
                     MessageBoxML ms = new MessageBoxML("Thông báo", "Đổi mật khẩu thành công", MessageType.Accept, MessageButtons.OK);
                     ms.ShowDialog();
-                    myPage.btnlogout.IsEnabled = true;
-                    myPage.btnupdate.IsEnabled = true;
-                    Clicked = false;
-                    myFrame.Content = null;
-
+                    InFr.Content = new InformationPage();
                 }
                 else
                 {
@@ -222,32 +292,23 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
             PassChanging = new RelayCommand<PasswordBox>((p) => { return true; }, (p) =>
             {
                 PassForChangingSomething = p.Password;
+                
             });
 
-            UpdateInforAdmin = new RelayCommand<Button>((p) => { return true; }, (p) =>
+            UpdateInforAdmin = new RelayCommand<object>((p) => { return true; },  (p) =>
             {
-                if (IsFixed == false)
-                {
-                    p.Visibility = Visibility.Visible;
-                    myFrame.Content = null;
-                    myPage.txb1.IsReadOnly = myPage.txb2.IsReadOnly = myPage.txb3.IsReadOnly = false;
-                    myPage.btnlogout.IsEnabled = myPage.btnchangepass.IsEnabled = false;
-                    IsFixed = true;
-                }
-                else
-                {
-                    p.Visibility = Visibility.Hidden;
-                    myPage.txb1.IsReadOnly = myPage.txb2.IsReadOnly = myPage.txb3.IsReadOnly = true;
-                    myFrame.Content = new ConfirmPass();
-                    IsFixed = false;
-                }    
+                InFr.Content = new ConfirmPage();
             });
 
-            Back = new RelayCommand<Object>((p) => { return true; }, (p) =>
+            Back1 = new RelayCommand<Object>((p) => { return true; }, (p) =>
             {
-                myFrame.Content = null;
-                myPage.btnlogout.IsEnabled = myPage.btnchangepass.IsEnabled = true;
-                Loaded.Execute(myFrame);
+                InFr.Content = new InformationPage();
+            });
+
+            Back2 = new RelayCommand<Object>((p) => { return true; }, (p) =>
+            {
+                InFr.Content = new ChangeInforPage();
+                NewHoVaTen = HoVaTen; NewEmail = Email; NewTenTK = TenTK;
             });
 
             OK = new RelayCommand<Object>((p) => { return true; }, async (p) =>
@@ -260,7 +321,6 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
                     if (reg.IsMatch(Email) == false)
                     {
                         MessageBoxML ms = new MessageBoxML("Thông báo", "Email không hợp lệ", MessageType.Error, MessageButtons.OK);
-                        myPage.txb1.IsReadOnly = myPage.txb2.IsReadOnly = myPage.txb3.IsReadOnly = false;
                         ms.ShowDialog();
                         return;
                     }
@@ -270,32 +330,35 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
                     if (await Task<bool>.Run(() => AdminServices.Ins.CheckEmailAdmin(Email, MaKH)))
                     {
                         MessageBoxML ms = new MessageBoxML("Thông báo", "Email đã tồn tại", MessageType.Error, MessageButtons.OK);
-                        myPage.txb1.IsReadOnly = myPage.txb2.IsReadOnly = myPage.txb3.IsReadOnly = false;
                         ms.ShowDialog();
                     }
                     else
-                    if (await Task.Run(() => AdminServices.Ins.updateAdmin(MaKH, HoVaTen, Email, TenTK)))
+                    if (await Task.Run(() => AdminServices.Ins.updateAdmin(MaKH, NewHoVaTen, NewEmail, NewTenTK)))
                     {
                         MessageBoxML ms = new MessageBoxML("Thông báo", "Chỉnh sửa thông tin thành công", MessageType.Accept, MessageButtons.OK);
-                        myPage.btnlogout.IsEnabled = myPage.btnchangepass.IsEnabled = true;
                         ms.ShowDialog();
+                        InFr.Content = new InformationPage();
+                        HoVaTen = NewHoVaTen; TenTK = NewTenTK; Email = NewEmail;
                     }
                     else
                     {
                         MessageBoxML ms = new MessageBoxML("Lỗi", "Xảy ra lỗi khi thực hiện thao tác", MessageType.Error, MessageButtons.OK);
-                        myPage.txb1.IsReadOnly = myPage.txb2.IsReadOnly = myPage.txb3.IsReadOnly = false;
                         ms.ShowDialog();
                     }
 
                     IsSaving = false;
-                    myFrame.Content = null;
-
+                    
                 }
                 else
                 {
                     MessageBoxML ms = new MessageBoxML("Thông báo", "Mật khẩu không chính xác", MessageType.Accept, MessageButtons.OK);
                     ms.ShowDialog();
                 }
+            });
+
+            BackRolePage = new RelayCommand<Object>((p) => { return true; }, (p) =>
+            {
+                RolFr.Content = new RolePage();
             });
         }
     }
