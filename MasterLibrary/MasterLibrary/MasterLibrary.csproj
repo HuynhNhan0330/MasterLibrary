@@ -719,7 +719,6 @@
     <Resource Include="Resources\Images\ErrorBackground.png" />
     <Resource Include="Resources\Images\ExitBackground.png" />
     <Resource Include="Resources\Images\logo.ico" />
-    <Resource Include="Notes.txt" />
     <Resource Include="logo.ico" />
     <Content Include="Models\DataProvider\MasterlibraryModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
