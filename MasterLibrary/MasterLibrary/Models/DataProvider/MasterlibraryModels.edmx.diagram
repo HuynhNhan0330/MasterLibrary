@@ -4,23 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="26b851226fc143ffa3de16190aa83242" Name="Diagram1" ZoomLevel="80">
-        <EntityTypeShape EntityType="masterlibraryModel.CHITIET_NHAP" Width="1.5" PointX="7.5" PointY="25.375" />
-        <EntityTypeShape EntityType="masterlibraryModel.CTHD" Width="1.5" PointX="7.5" PointY="16.75" />
-        <EntityTypeShape EntityType="masterlibraryModel.DAYKE" Width="1.5" PointX="3.75" PointY="4.375" />
-        <EntityTypeShape EntityType="masterlibraryModel.GIOHANG" Width="1.5" PointX="5.25" PointY="8.375" />
-        <EntityTypeShape EntityType="masterlibraryModel.HOADON" Width="1.5" PointX="5.25" PointY="16.625" />
-        <EntityTypeShape EntityType="masterlibraryModel.KHACHHANG" Width="1.5" PointX="3" PointY="10.5" />
-        <EntityTypeShape EntityType="masterlibraryModel.LOAISUCO" Width="1.5" PointX="6" PointY="0.75" />
-        <EntityTypeShape EntityType="masterlibraryModel.LUATTHUVIEN" Width="1.5" PointX="0.75" PointY="7.25" />
-        <EntityTypeShape EntityType="masterlibraryModel.NHAPKHO" Width="1.5" PointX="5.25" PointY="25.625" />
-        <EntityTypeShape EntityType="masterlibraryModel.PHIEUMUON" Width="1.5" PointX="8.25" PointY="7.25" />
-        <EntityTypeShape EntityType="masterlibraryModel.PHIEUTHU" Width="1.5" PointX="5.25" PointY="11.25" />
-        <EntityTypeShape EntityType="masterlibraryModel.SACH" Width="1.5" PointX="6" PointY="3.125" />
-        <EntityTypeShape EntityType="masterlibraryModel.SUCO" Width="1.5" PointX="8.25" PointY="10.75" />
-        <EntityTypeShape EntityType="masterlibraryModel.TANG" Width="1.5" PointX="1.5" PointY="4.5" />
-        <EntityTypeShape EntityType="masterlibraryModel.TRANGTHAISC" Width="1.5" PointX="6" PointY="21.375" />
-        <EntityTypeShape EntityType="masterlibraryModel.USERROLE" Width="1.5" PointX="0.75" PointY="11.625" />
+      <Diagram DiagramId="26b851226fc143ffa3de16190aa83242" Name="Diagram1" ZoomLevel="54">
+        <EntityTypeShape EntityType="masterlibraryModel.CHITIET_NHAP" Width="1.5" PointX="7.5" PointY="25.75" />
+        <EntityTypeShape EntityType="masterlibraryModel.CTHD" Width="1.5" PointX="7.5" PointY="22.875" />
+        <EntityTypeShape EntityType="masterlibraryModel.DAYKE" Width="1.5" PointX="3.75" PointY="5.5" />
+        <EntityTypeShape EntityType="masterlibraryModel.GIOHANG" Width="1.5" PointX="8.25" PointY="7.5" />
+        <EntityTypeShape EntityType="masterlibraryModel.HOADON" Width="1.5" PointX="5.25" PointY="22.75" />
+        <EntityTypeShape EntityType="masterlibraryModel.KHACHHANG" Width="1.5" PointX="3" PointY="9.625" />
+        <EntityTypeShape EntityType="masterlibraryModel.LOAISUCO" Width="1.5" PointX="3" PointY="14.625" />
+        <EntityTypeShape EntityType="masterlibraryModel.LUATTHUVIEN" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="masterlibraryModel.NHAPKHO" Width="1.5" PointX="5.25" PointY="25.875" />
+        <EntityTypeShape EntityType="masterlibraryModel.PHIEUMUON" Width="1.5" PointX="8.25" PointY="10.375" />
+        <EntityTypeShape EntityType="masterlibraryModel.PHIEUTHU" Width="1.5" PointX="8.25" PointY="13.875" />
+        <EntityTypeShape EntityType="masterlibraryModel.SACH" Width="1.5" PointX="6" PointY="4.25" />
+        <EntityTypeShape EntityType="masterlibraryModel.SUCO" Width="1.5" PointX="5.25" PointY="9.875" />
+        <EntityTypeShape EntityType="masterlibraryModel.TANG" Width="1.5" PointX="1.5" PointY="5.625" />
+        <EntityTypeShape EntityType="masterlibraryModel.TRANGTHAISC" Width="1.5" PointX="3" PointY="16.875" />
+        <EntityTypeShape EntityType="masterlibraryModel.USERROLE" Width="1.5" PointX="0.75" PointY="10.75" />
         <AssociationConnector Association="masterlibraryModel.FK__CHITIET_NH__SOHD__6166761E" />
         <AssociationConnector Association="masterlibraryModel.FK__CTHD__MAHD__43D61337" />
         <AssociationConnector Association="masterlibraryModel.FK__CTHD__MASACH__44CA3770" />
@@ -32,11 +32,11 @@
         <AssociationConnector Association="masterlibraryModel.FK__KHACHHANG__IDROL__619B8048" />
         <AssociationConnector Association="masterlibraryModel.FK__NHAPKHO__MANV__5E8A0973" />
         <AssociationConnector Association="masterlibraryModel.FK__PHIEUMUON__MAKH__756D6ECB" />
-        <AssociationConnector Association="masterlibraryModel.FK__PHIEUTHU__MAKH__793DFFAF" />
+        <AssociationConnector Association="masterlibraryModel.FK__PHIEUTHU__MAKH__0A688BB1" />
         <AssociationConnector Association="masterlibraryModel.FK__SUCO__MAKH__37703C52" />
         <AssociationConnector Association="masterlibraryModel.FK__SUCO__MALSC__3864608B" />
         <AssociationConnector Association="masterlibraryModel.FK__PHIEUMUON__MASAC__76619304" />
-        <AssociationConnector Association="masterlibraryModel.FK__PHIEUTHU__MASACH__7A3223E8" />
+        <AssociationConnector Association="masterlibraryModel.FK__PHIEUTHU__MASACH__0B5CAFEA" />
         <AssociationConnector Association="masterlibraryModel.FK__SACH__VITRITANG__3F115E1A" />
         <AssociationConnector Association="masterlibraryModel.FK__SUCO__MATTSC__395884C4" />
       </Diagram>

@@ -105,6 +105,12 @@
     <EntitySetMapping Name="PHIEUTHUs">
       <EntityTypeMapping TypeName="masterlibraryModel.PHIEUTHU">
         <MappingFragment StoreEntitySet="PHIEUTHU">
+          <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
+          <ScalarProperty Name="TIENPHATHONG" ColumnName="TIENPHATHONG" />
+          <ScalarProperty Name="SOLUONGHONG" ColumnName="SOLUONGHONG" />
+          <ScalarProperty Name="TIENTREMOTNGAY" ColumnName="TIENTREMOTNGAY" />
+          <ScalarProperty Name="NGAYMUON" ColumnName="NGAYMUON" />
+          <ScalarProperty Name="NGAYTHU" ColumnName="NGAYTHU" />
           <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
           <ScalarProperty Name="MASACH" ColumnName="MASACH" />
           <ScalarProperty Name="MAKH" ColumnName="MAKH" />

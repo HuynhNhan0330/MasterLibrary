@@ -104,6 +104,12 @@
     <Property Name="MAKH" Type="int" />
     <Property Name="MASACH" Type="int" />
     <Property Name="SOLUONG" Type="int" />
+    <Property Name="NGAYTHU" Type="smalldatetime" />
+    <Property Name="NGAYMUON" Type="smalldatetime" />
+    <Property Name="TIENTREMOTNGAY" Type="money" />
+    <Property Name="SOLUONGHONG" Type="int" />
+    <Property Name="TIENPHATHONG" Type="money" />
+    <Property Name="TONGTIEN" Type="money" />
   </EntityType>
   <EntityType Name="SACH">
     <Key>
@@ -289,7 +295,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PHIEUTHU__MAKH__793DFFAF">
+  <Association Name="FK__PHIEUTHU__MAKH__0A688BB1">
     <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
     <End Role="PHIEUTHU" Type="Self.PHIEUTHU" Multiplicity="*" />
     <ReferentialConstraint>
@@ -301,7 +307,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PHIEUTHU__MASACH__7A3223E8">
+  <Association Name="FK__PHIEUTHU__MASACH__0B5CAFEA">
     <End Role="SACH" Type="Self.SACH" Multiplicity="0..1" />
     <End Role="PHIEUTHU" Type="Self.PHIEUTHU" Multiplicity="*" />
     <ReferentialConstraint>
@@ -434,11 +440,11 @@
       <End Role="SACH" EntitySet="SACH" />
       <End Role="PHIEUMUON" EntitySet="PHIEUMUON" />
     </AssociationSet>
-    <AssociationSet Name="FK__PHIEUTHU__MAKH__793DFFAF" Association="Self.FK__PHIEUTHU__MAKH__793DFFAF">
+    <AssociationSet Name="FK__PHIEUTHU__MAKH__0A688BB1" Association="Self.FK__PHIEUTHU__MAKH__0A688BB1">
       <End Role="KHACHHANG" EntitySet="KHACHHANG" />
       <End Role="PHIEUTHU" EntitySet="PHIEUTHU" />
     </AssociationSet>
-    <AssociationSet Name="FK__PHIEUTHU__MASACH__7A3223E8" Association="Self.FK__PHIEUTHU__MASACH__7A3223E8">
+    <AssociationSet Name="FK__PHIEUTHU__MASACH__0B5CAFEA" Association="Self.FK__PHIEUTHU__MASACH__0B5CAFEA">
       <End Role="SACH" EntitySet="SACH" />
       <End Role="PHIEUTHU" EntitySet="PHIEUTHU" />
     </AssociationSet>
