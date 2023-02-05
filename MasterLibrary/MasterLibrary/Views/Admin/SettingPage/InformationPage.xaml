@@ -151,7 +151,7 @@
                                 Name="btnlogout"
                                 Command="{Binding Logout}"
                                 CommandParameter="{Binding ElementName=settingadmin}"
-                                ToolTip="Resource name: MaterialDesignRaisedButton">
+                                ToolTip="Đăng xuất">
                             Đăng xuất
                         </Button>
                     </Grid>
@@ -164,7 +164,7 @@
                                 Name="btnchangepass"
                                 Command="{Binding LoadChangePass}"
                                 CommandParameter="{Binding ElementName=TMP_frame}"
-                                ToolTip="Resource name: MaterialDesignRaisedButton">
+                                ToolTip="Đổi mật khẩu">
                             Đổi mật khẩu
                         </Button>
                     </Grid>
@@ -177,7 +177,7 @@
                                 Name="btnupdate"
                                 Command="{Binding LoadChangeInfor}"
                                 CommandParameter="{Binding ElementName=btnsave}"
-                                ToolTip="Resource name: MaterialDesignRaisedButton">
+                                ToolTip="Chỉnh sửa">
                             Chỉnh sửa
                         </Button>
 

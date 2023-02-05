@@ -5,49 +5,55 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MasterLibrary.Views.Admin.SettingPage"
       mc:Ignorable="d" 
-      d:DesignHeight="410" d:DesignWidth="360"
+      xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
+      d:DesignHeight="450" d:DesignWidth="800"
       DataContext="{StaticResource SettingAdminVM}"
       Title="ChangeRolePage">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
 
-        <Grid Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+            </Grid.ColumnDefinitions>
 
-            </Grid.RowDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
 
-            <Grid Grid.Row="0">
-                <TextBlock FontSize="20" 
+
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <TextBlock FontSize="20" 
                                    Margin="50 0 0 0"
                                    HorizontalAlignment ="Left" 
                                    VerticalAlignment="Center"
                                    Style="{StaticResource MaterialDesignButtonTextBlock}">
                                    Số ngày mượn
-                </TextBlock>
-            </Grid>
+                    </TextBlock>
+                </Grid>
 
-            <Grid Grid.Row="1">
-                <TextBlock FontSize="20" 
+                <Grid Grid.Row="1">
+                    <TextBlock FontSize="20" 
                                    Margin="50 0 0 0"
                                    HorizontalAlignment ="Left" 
                                    VerticalAlignment="Center"
                                    Style="{StaticResource MaterialDesignButtonTextBlock}">
                                    Số tiền trễ / 1 ngày
-                </TextBlock>
-            </Grid>
+                    </TextBlock>
+                </Grid>
 
-            <Grid Grid.Row="2">
+                <!--<Grid Grid.Row="2">
                 <Button
                     x:Name="btnBack"
                     Command="{Binding BackRolePage}"
@@ -59,22 +65,21 @@
                     FontSize="16" 
                     VerticalAlignment="Center"
                     Padding="0" />
+            </Grid>-->
             </Grid>
-        </Grid>
 
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                   
 
-            </Grid.RowDefinitions>
+                </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0">
-                <TextBox Margin="-40,0,50,0"
+                <Grid Grid.Row="0">
+                    <TextBox    Margin="0 0 50 0"
                             Foreground="Black"
                             FontSize="15"
                             Height="54"
@@ -84,10 +89,10 @@
                             VerticalContentAlignment="Center"
                             BorderBrush="LightGray"
                             Style="{StaticResource MaterialDesignOutlinedTextBox}"  VerticalAlignment="Center"/>
-            </Grid>
+                </Grid>
 
-            <Grid Grid.Row="1">
-                <TextBox Margin="-40,0,50,0"
+                <Grid Grid.Row="1">
+                    <TextBox Margin="0 0 50 0"
                             Foreground="Black"
                             FontSize="15"
                             Height="54"
@@ -97,21 +102,43 @@
                             VerticalContentAlignment="Center"
                             BorderBrush="LightGray"
                             Style="{StaticResource MaterialDesignOutlinedTextBox}"  VerticalAlignment="Center"/>
-            </Grid>
+                </Grid>
 
-            <Grid Grid.Row="2">
-                <Button
-                    x:Name="btnSavePassword"
-                    Command="{Binding SaveChangeRole}"
+                <Grid Grid.Row="2">
+                    <Button
+                    x:Name="btnBack"
+                    Command="{Binding BackRolePage}"
                     Height="40" 
+                    Margin="-180 0 0 0"
                     Width="100"
-                    ToolTip="Lưu mật khẩu" 
+                    ToolTip="Trở lại" 
                     HorizontalAlignment="Center"
-                    Content="Lưu" 
+                    Content="Trở lại" 
                     FontSize="16" 
                     VerticalAlignment="Center"
                     Padding="0" />
+
+                    <Button
+                    x:Name="btnSavePassword"
+                    Command="{Binding SaveChangeRole}"
+                        CommandParameter="{Binding ElementName=confirm_frame}"
+                    Height="40" 
+                    Width="100"
+                    ToolTip="Lưu" 
+                    HorizontalAlignment="Right"
+                    Content="Lưu" 
+                    FontSize="16" 
+                    Margin="0 0 50 0"
+                    VerticalAlignment="Center"
+                    Padding="0" />
+                </Grid>
             </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Frame  x:Name="confirm_frame"
+                    />
+            
         </Grid>
     </Grid>
 </Page>

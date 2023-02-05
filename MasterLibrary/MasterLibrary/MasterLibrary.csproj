@@ -433,6 +433,9 @@
     <Compile Include="Views\Admin\SettingPage\ConfirmPage.xaml.cs">
       <DependentUpon>ConfirmPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Admin\SettingPage\ConfirmPassForRole.xaml.cs">
+      <DependentUpon>ConfirmPassForRole.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Admin\SettingPage\InformationPage.xaml.cs">
       <DependentUpon>InformationPage.xaml</DependentUpon>
     </Compile>
@@ -598,6 +601,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Admin\SettingPage\ConfirmPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\SettingPage\ConfirmPassForRole.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

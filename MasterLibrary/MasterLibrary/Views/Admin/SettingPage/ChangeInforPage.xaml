@@ -137,7 +137,7 @@
                                 Name="btnupdate"
                                 Command="{Binding UpdateInforAdmin}"
                                 CommandParameter="{Binding ElementName=btnsave}"
-                                ToolTip="Resource name: MaterialDesignRaisedButton">
+                                ToolTip="Lưu thay đổi">
                     Lưu thay đổi
                 </Button>
 
@@ -148,7 +148,7 @@
                                 Name="btnBack"
                                 Command="{Binding Back1}"
                                 CommandParameter="{Binding ElementName=btnsave}"
-                                ToolTip="Resource name: MaterialDesignRaisedButton">
+                                ToolTip="Trở lại">
                     Trở lại
                 </Button>
             </Grid>

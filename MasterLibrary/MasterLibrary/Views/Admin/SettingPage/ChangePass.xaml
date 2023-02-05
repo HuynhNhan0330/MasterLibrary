@@ -116,7 +116,7 @@
                     Height="40" 
                     Width="100"
                     materialDesign:ButtonAssist.CornerRadius="2"
-                    ToolTip="Lưu mật khẩu" 
+                    ToolTip="Trở lại" 
                     HorizontalAlignment="Center"
                     Content="Trở lại" 
                     FontSize="16" 

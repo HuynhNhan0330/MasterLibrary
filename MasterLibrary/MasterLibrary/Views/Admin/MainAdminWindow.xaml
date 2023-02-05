@@ -268,7 +268,42 @@
                                              Width="110"
                                              Command="{Binding LoadSettingPageML}"
                                              CommandParameter="{Binding ElementName=mainFrame}" />
+                            
+                            
                         </StackPanel>
+                    </Border>
+
+                    <!--Button đăng xuất-->
+                    <Border CornerRadius="25"
+                            Margin="0 65 0 0"
+                             Cursor="Hand"
+                             Background="#9b3409">
+                        <StackPanel Orientation="Horizontal"
+                                    Height="60"
+                                    
+                                    Width="130"
+                                    Style= "{StaticResource EffectMenuButton}">
+                            <materialDesign:PackIcon Kind="LogoutVariant"
+                                                     Width="35"
+                                                     Height="32"
+                                                     VerticalAlignment="Center"
+                                                     Margin="10,0,0,0"
+                                                     Foreground="#f9b126" />
+                            <RadioButton Style="{StaticResource MenuButtonMain}"
+                                         Content="Đăng xuất"
+                                         FontWeight="Bold"
+                                         x:Name="btnSignout"
+                                         Width="auto"
+                                         Command="{Binding SignOutML}"
+                                         CommandParameter="{Binding ElementName=MainAdminWD}"/>
+                        </StackPanel>
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding SignOutML}"
+                                                       CommandParameter="{Binding ElementName=MainAdminWD}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </Border>
                 </StackPanel>
             </Grid>

@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:MasterLibrary.Views.Admin.SettingPage"
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      d:DesignHeight="410" d:DesignWidth="360"
+      d:DesignHeight="450" d:DesignWidth="800"
       DataContext="{StaticResource SettingAdminVM}"
       Title="RolePage">
 
@@ -23,7 +23,7 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            Style="{StaticResource MaterialDesignButtonTextBlock}">
-                           Qui định thư viện
+                           Quy định thư viện
             </TextBlock>
         </Grid>
         <Grid Grid.Row="1">
@@ -60,14 +60,7 @@
             </Grid>
 
             <Grid Grid.Column="1" RenderTransformOrigin="0.5,0.5">
-                <Grid.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-1.162"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Grid.RenderTransform>
+                
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -109,7 +102,7 @@
                                 Name="btnupdate"
                                 Command="{Binding LoadChangeRole}"
                                 CommandParameter="{Binding ElementName=btnupdate}"
-                                ToolTip="Resource name: MaterialDesignRaisedButton">
+                                ToolTip="Chỉnh sửa quy định thư viện">
                 Chỉnh sửa
             </Button>
         </Grid>

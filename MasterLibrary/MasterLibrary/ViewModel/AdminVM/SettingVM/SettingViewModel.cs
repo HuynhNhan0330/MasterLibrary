@@ -33,7 +33,13 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
             set { _rolFr = value; OnPropertyChanged(); }
         }
 
-       
+        private Frame _confFr;
+        public Frame ConfFr
+        {
+            get { return _confFr; }
+            set { _confFr = value; OnPropertyChanged(); }
+        }
+
         private int _maKH;
         public int MaKH
         {
@@ -117,6 +123,13 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
             set { _passForChangingSomething = value; OnPropertyChanged(); }
         }
 
+        private string _passForChangingSomething1;
+        public string PassForChangingSomething1
+        {
+            get { return _passForChangingSomething1; }
+            set { _passForChangingSomething1 = value; OnPropertyChanged(); }
+        }
+
         private string _moneyForLate;
         public string MoneyForLate
         {
@@ -157,15 +170,17 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
         public ICommand ConfirmNewPasswordChange { get; set; }
         public ICommand SaveNewPasswordCommand { get; set; }
         public ICommand PassChanging { get; set; }
+        public ICommand PassChanging1 { get; set; }
         public ICommand UpdateInforAdmin { get; set; }
         public ICommand Back1 { get; set; }
         public ICommand Back2 { get; set; }
         public ICommand OK { get; set; }
+        public ICommand OK1 { get; set; }
         public ICommand BackChangePass { get; set; }
         public ICommand BackRolePage { get; set; }
         public ICommand LoadChangeRole { get; set; }
         public ICommand SaveChangeRole { get; set; }
-
+        public ICommand Cancel { get; set; }
 
         #endregion
         public SettingViewModel()
@@ -180,18 +195,7 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
                 p.Content = new InformationPage();
             });
 
-            SaveChangeRole = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                using(var context  = new MasterlibraryEntities())
-                {
-                    var rol = context.LUATTHUVIENs.SingleOrDefault(s => s.MALUAT == 1);
-                    rol.SONGAYMUON = int.Parse(NewSoNgayMuon);
-                    rol.TIENTRASACHMUONMOTNGAY = decimal.Parse(NewMoneyForLate);
-                    context.SaveChanges();
-                }
-                SoNgayMuon = NewSoNgayMuon; MoneyForLate = NewMoneyForLate;
-                RolFr.Content = new RolePage();
-            });
+            
             LoadedFrame = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
                 RolFr = p;
@@ -217,13 +221,18 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
 
             Logout = new RelayCommand<Page>((p) => { return true; }, (p) =>
             {
-                MainAdminWindow w = Application.Current.Windows.OfType<MainAdminWindow>().FirstOrDefault();
-                w.Hide();
+                MessageBoxML msb = new MessageBoxML("Cảnh báo", "Bạn có muốn đăng xuất không?", MessageType.Waitting, MessageButtons.YesNo);
 
-                LoginWindow nw = new LoginWindow();
-                nw.Show();
+                if (msb.ShowDialog() == true)
+                {
+                    MainAdminWindow w = Application.Current.Windows.OfType<MainAdminWindow>().FirstOrDefault();
+                    w.Hide();
 
-                w.Close();
+                    LoginWindow nw = new LoginWindow();
+                    nw.Show();
+
+                    w.Close();
+                }
             });
 
             LoadChangePass = new RelayCommand<object>((p) => { return true; }, (p) =>
@@ -295,6 +304,11 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
                 
             });
 
+            PassChanging1 = new RelayCommand<PasswordBox>((p) => { return true; }, (p) =>
+            {
+                PassForChangingSomething1 = p.Password;
+            });
+
             UpdateInforAdmin = new RelayCommand<object>((p) => { return true; },  (p) =>
             {
                 InFr.Content = new ConfirmPage();
@@ -359,6 +373,52 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
             BackRolePage = new RelayCommand<Object>((p) => { return true; }, (p) =>
             {
                 RolFr.Content = new RolePage();
+            });
+
+            SaveChangeRole = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            {
+                p.Content = new ConfirmPassForRole();
+                ConfFr = p;
+            });
+
+            OK1 = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                string se;
+                using (var context = new MasterlibraryEntities())
+                {
+                    se = (from c in context.KHACHHANGs where c.MAKH == MaKH select c.USERPASSWORD).FirstOrDefault();
+                }    
+                if(PassForChangingSomething1 == se)
+                {
+                    MessageBoxML msb = new MessageBoxML("Cảnh báo", "Bạn có muốn thay đổi thông tin?", MessageType.Waitting, MessageButtons.YesNo);
+
+                    if (msb.ShowDialog() == true)
+                    {
+                        using (var context = new MasterlibraryEntities())
+                        {
+                            var rol = context.LUATTHUVIENs.SingleOrDefault(s => s.MALUAT == 1);
+                            rol.SONGAYMUON = int.Parse(NewSoNgayMuon);
+                            rol.TIENTRASACHMUONMOTNGAY = decimal.Parse(NewMoneyForLate);
+                            context.SaveChanges();
+                        }
+                        SoNgayMuon = NewSoNgayMuon; MoneyForLate = NewMoneyForLate;
+                        RolFr.Content = new RolePage();
+                        MessageBoxML msb1 = new MessageBoxML("Thông báo", "Sửa đổi thông tin thành công!", MessageType.Waitting, MessageButtons.OK);
+                        msb1.ShowDialog();
+                        ConfFr.Content = null;
+                    }
+                }    
+
+                else
+                {
+                    MessageBoxML msb1 = new MessageBoxML("Thông báo", "Mật khẩu không chính xác!", MessageType.Waitting, MessageButtons.OK);
+                    msb1.ShowDialog();
+                }    
+            });
+
+            Cancel = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                ConfFr.Content = null;
             });
         }
     }
