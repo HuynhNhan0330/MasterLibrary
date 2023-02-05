@@ -23,7 +23,7 @@ namespace MasterLibrary.DTOs
         public int SoLuong { get; set; }
         public string TheLoai { get; set; }
         public string NXB { get; set; }
-
+        public bool IsIncomplete { get; set; }
         public string GiaStr
         {
             get

@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using MasterLibrary.Views.MessageBoxML;
 using System.Collections.ObjectModel;
 using MasterLibrary.DTOs;
+using System.Windows.Media;
 
 namespace MasterLibrary.ViewModel.AdminVM
 {
@@ -27,8 +28,13 @@ namespace MasterLibrary.ViewModel.AdminVM
             get { return _listbookmanage; }
             set { _listbookmanage = value; OnPropertyChanged(); }
         }
-        
-        private static ListView listview_tmp;
+
+        private string _masach;
+        public string MaSach
+        {
+            get { return _masach; }
+            set { _masach = value; OnPropertyChanged(); }
+        }
 
         private string _tensach;
         public string TenSach
@@ -106,7 +112,58 @@ namespace MasterLibrary.ViewModel.AdminVM
             get { return _imgsource; }
             set { _imgsource = value; OnPropertyChanged(); }
         }
+
+        private bool _isIncomplete;
+        public bool IsIncomplete
+        {
+            get { return _isIncomplete; }
+            set { _isIncomplete = value; OnPropertyChanged(); }
+        }
+
+        private List<TangDTO> _dsTang;
+        public List<TangDTO> DsTang
+        {
+            get { return _dsTang; }
+            set { _dsTang = value; OnPropertyChanged();}
+        }
+
+        private List<DayDTO> _dsDay;
+        public List<DayDTO> DsDay
+        {
+            get { return _dsDay; }
+            set { _dsDay = value; OnPropertyChanged(); }
+        }
+
+        private int _maTang;
+        public int MaTang
+        {
+            get { return _maTang; }
+            set { _maTang = value; OnPropertyChanged(); }
+        }
+
+        private int _maDay;
+        public int MaDay
+        {
+            get { return _maDay; }
+            set { _maDay = value; OnPropertyChanged(); }
+        }
+
+        private bool _isNull;
+        public bool IsNull
+        {
+            get { return _isNull; }
+            set { _isNull = value; OnPropertyChanged();}
+        }
+
+        private bool _isLoading;
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set { _isLoading = value; OnPropertyChanged();}
+        }
         #endregion
+
+        #region Icommand
         public ICommand LoadManageBookData { get; set; }
         public ICommand SavingData { get; set; }
         public ICommand Updating { get; set; }
@@ -114,7 +171,10 @@ namespace MasterLibrary.ViewModel.AdminVM
         public ICommand UpdatingBook { get; set; }
         public ICommand ImportImageForAddingWindow { get; set; }
         public ICommand ImportImageForUpdatingWindow { get; set; }
-
+        public ICommand FloorChangeML { get; set; }
+        public ICommand TypeChangeML { get; set; }
+        public ICommand ShelvesChangeML { get; set; }
+        #endregion
         public BookManageViewModel()
         {
             //Nút update của chức năng chỉnh sửa
@@ -129,19 +189,18 @@ namespace MasterLibrary.ViewModel.AdminVM
 
                     command.Connection = connect;
                     command.Parameters.AddWithValue("@masach", updatingwindow.masach);
-                    command.Parameters.AddWithValue("@tensach", updatingwindow.TenSach.Text);
-                    command.Parameters.AddWithValue("@tacgia", updatingwindow.TacGia.Text);
-                    command.Parameters.AddWithValue("@namxb", updatingwindow.NamXuatBan.Text);
-                    command.Parameters.AddWithValue("@nxb", updatingwindow.NhaXuatBan.Text);
-                    command.Parameters.AddWithValue("@sl", updatingwindow.SoLuong.Text);
-                    command.Parameters.AddWithValue("@gia", updatingwindow.Gia.Text);
-                    command.Parameters.AddWithValue("@imagesource", updatingwindow.ImgSource.Text);
-                    command.Parameters.AddWithValue("@theloai", updatingwindow.TheLoai.Text);
-                    command.Parameters.AddWithValue("@mota", updatingwindow.MoTa.Text);
-                    command.Parameters.AddWithValue("@tang", updatingwindow.Tang.Text);
-                    command.Parameters.AddWithValue("@day", updatingwindow.Day.Text);
-
-                    try
+                    command.Parameters.AddWithValue("@tensach", TenSach);
+                    command.Parameters.AddWithValue("@tacgia", TacGia);
+                    command.Parameters.AddWithValue("@namxb", NamXuatBan);
+                    command.Parameters.AddWithValue("@nxb", NhaXuatBan);
+                    command.Parameters.AddWithValue("@sl", SoLuong);
+                    command.Parameters.AddWithValue("@gia", Gia);
+                    command.Parameters.AddWithValue("@imagesource", ImgSource);
+                    command.Parameters.AddWithValue("@theloai", TheLoai);
+                    command.Parameters.AddWithValue("@mota", MoTa);
+                    command.Parameters.AddWithValue("@tang", MaTang);
+                    command.Parameters.AddWithValue("@day", MaDay);
+                    if(TenSach.Length > 0 && TacGia.Length > 0 && NamXuatBan.Length > 0 && NhaXuatBan.Length > 0 && SoLuong.Length > 0 && Gia.Length > 0 && ImgSource.Length > 0 && TheLoai.Length > 0 && MoTa.Length > 0 && Day.Length > 0 && Tang.Length > 0)
                     {
                         command.CommandText = "UPDATE SACH " +
                                               "SET TENSACH = @tensach, TACGIA = @tacgia, NAMXB = @namxb, NXB = @nxb, SL = @sl, GIA = @gia, IMAGESOURCE = @imagesource, THELOAI = @theloai, MOTA = @mota, VITRITANG = @tang, VITRIDAY = @day " +
@@ -155,9 +214,9 @@ namespace MasterLibrary.ViewModel.AdminVM
                             p.Close();
                         }
                     }
-                    catch
+                    else
                     {
-                        MessageBoxML msb = new MessageBoxML("Lỗi", "Vị trí không tồn tại", MessageType.Error, MessageButtons.OK);
+                        MessageBoxML msb = new MessageBoxML("Lỗi", "Bạn chưa điền đầy đủ các thông tin trên!", MessageType.Error, MessageButtons.OK);
                         msb.ShowDialog();
                     }
                 }
@@ -188,25 +247,24 @@ namespace MasterLibrary.ViewModel.AdminVM
                     {
                         File = new FileDescription(dlg.FileName)
                     };
+                    IsLoading = true;
                     var uploadResult = cloudinary.Upload(uploadParams);
 
-                    updatingwindow.ImgSource.Text = uploadResult.Url.ToString();
+                    ImgSource = uploadResult.Url.ToString();
+                    IsLoading = false;
                 }
             });
 
             // Load dữ liệu vào trang quản lý sách
-            LoadManageBookData = new RelayCommand<ListView>((p) => { return true; }, (p) =>
+            LoadManageBookData = new RelayCommand<DataGrid>((p) => { return true; }, (p) =>
             {
                 Loaded(p);
-                listview_tmp = p;
             });
 
             //Nút xóa sách ở trang quản lý sách
-            DeletingBook = new RelayCommand<System.Windows.Controls.MenuItem>((p) => { return true; }, (p) =>
+            DeletingBook = new RelayCommand<DataGrid>((p) => { return true; }, (p) =>
             {
-                try
-                {
-                    BookDTO item = listview_tmp.Items[listview_tmp.SelectedIndex] as BookDTO;
+                BookDTO item = p.Items[p.SelectedIndex] as BookDTO;
                     string masach = item.MaSach.ToString();
                     using (var context = new MasterlibraryEntities())
                     {
@@ -228,7 +286,7 @@ namespace MasterLibrary.ViewModel.AdminVM
                                 {
                                     msb = new MessageBoxML("Thông báo", "Thành công", MessageType.Accept, MessageButtons.OK);
                                     msb.ShowDialog();
-                                    Loaded(listview_tmp);
+                                    Loaded(p);
                                 }
                             }
                             catch
@@ -238,65 +296,84 @@ namespace MasterLibrary.ViewModel.AdminVM
                             }
                         }
                     }
-                }
-                catch
-                {
-                    MessageBoxML msb = new MessageBoxML("Cảnh báo", "Bạn chưa chọn dòng để xóa", MessageType.Waitting, MessageButtons.OK);
-                    msb.ShowDialog();
-                }
-                
             });
 
-            UpdatingBook = new RelayCommand<System.Windows.Controls.MenuItem>((p) => { return true; }, (p) =>
+            UpdatingBook = new RelayCommand<DataGrid>((p) => { return true; }, (p) =>
+            {
+                BookDTO item = p.Items[p.SelectedIndex] as BookDTO;
+                var masach = item.MaSach.ToString();
+                updatingwindow window = new updatingwindow(masach);
+                TheLoai = null;
+                Tang = null;
+                Day = null;
+                DsTang = LayTang();
+
+                if (item.ImageSource == null)
+                {
+                    SoLuong = item.SoLuong.ToString();
+                    TenSach = item.TenSach.ToString();
+                    TacGia = item.TacGia.ToString();
+                    NhaXuatBan = item.NXB;
+                    Gia = item.Gia.ToString(); ;
+                    NamXuatBan = ImgSource = Tang = Day = TheLoai = MoTa = null;
+                }
+                else
+                {
+                    SoLuong = item.SoLuong.ToString();
+                    TenSach = item.TenSach.ToString();
+                    TacGia = item.TacGia.ToString();
+                    NhaXuatBan = item.NXB;
+                    NamXuatBan = item.NamXB.ToString();
+                    Gia = item.Gia.ToString();
+                    Tang = item.TenTang.ToString();
+                    DsDay = LayDay();
+                    Day = item.TenDay.ToString();
+                    ImgSource = item.ImageSource.ToString();
+                    MoTa = item.MoTa.ToString();
+                    TheLoai = item.TheLoai;
+                   
+                    //Load ảnh hiện tai lên trang chỉnh sửa
+                    BitmapImage img = new BitmapImage();
+                    img.BeginInit();
+                    img.UriSource = new Uri(item.ImageSource);
+                    img.EndInit();
+                    window.image_img.Source = img;
+                }
+                window.ShowDialog();
+                //load lại trang quản lý sách
+                Loaded(p);
+            });
+
+            FloorChangeML = new RelayCommand<ComboBox>((p) => { return true; }, (p) =>
             {
                 try
                 {
-                    BookDTO item = listview_tmp.Items[listview_tmp.SelectedIndex] as BookDTO;
-                    var masach = item.MaSach.ToString();
-                    updatingwindow window = new updatingwindow(masach);
-
-                    if (item.TenDay == null)
-                    {
-                        window.TacGia_txb.Text = item.TacGia.ToString();
-                        window.NhaXuatBan_txb.Text = item.NXB.ToString();
-                        window.Gia_txb.Text = item.Gia.ToString();
-                        window.TenSach_txb.Text = item.TenSach.ToString();
-                    }
-                    else
-                    {
-                        window.SoLuong_txb.Text = item.SoLuong.ToString();
-                        window.TenSach_txb.Text = item.TenSach.ToString();
-                        window.TacGia_txb.Text = item.TacGia.ToString();
-                        window.NhaXuatBan_txb.Text = item.NXB.ToString();
-                        window.NamXuatBan_txb.Text = item.NamXB.ToString();
-                        window.TheLoai_cbb.Text = item.TheLoai.ToString();
-                        window.Gia_txb.Text = item.Gia.ToString();
-                        window.Tang_txb.Text = item.TenTang;
-                        window.Day_txb.Text = item.TenDay;
-                        window.Source_txb.Text = item.ImageSource.ToString();
-                        window.MoTa_txb.Text = item.MoTa.ToString();
-
-                        //Load ảnh hiện tai lên trang chỉnh sửa
-                        BitmapImage img = new BitmapImage();
-                        img.BeginInit();
-                        img.UriSource = new Uri(item.ImageSource);
-                        img.EndInit();
-                        window.image_img.Source = img;
-                    }
-                    window.ShowDialog();
-
-                    //load lại trang quản lý sách
-                    Loaded(listview_tmp);
+                    TangDTO m = p.SelectedItem as TangDTO;
+                    Tang = m.TenTang;
+                    MaTang = m.MaTang;
+                    Day = null;
+                    DsDay = LayDay();
                 }
-                catch
-                {
-                    MessageBoxML msb = new MessageBoxML("Cảnh báo", "Bạn chưa chọn dòng để chỉnh sửa", MessageType.Waitting, MessageButtons.OK);
-                    msb.ShowDialog();
-                }
+                catch { }
+                
+
             });
+
+            ShelvesChangeML = new RelayCommand<ComboBox>((p) => { return true; }, (p) =>
+            {
+                try
+                {
+                    DayDTO m = p.SelectedItem as DayDTO;
+                    Day = m.TenDay;
+                    MaDay = m.MaDay;
+                    IsNull = true;
+                }
+                catch { }
+            });
+
         }
 
-        public void Loaded(ListView p)
+        public void Loaded(DataGrid p)
         {
             Listbookmanage = new ObservableCollection<BookDTO>();
             using (var context = new MasterlibraryEntities())
@@ -312,6 +389,7 @@ namespace MasterLibrary.ViewModel.AdminVM
                         book.SoLuong = (int)item.SL;
                         book.Gia = (int)item.GIA;
                         book.NXB = item.NXB;
+                        
                     }
                     else
                     {
@@ -331,7 +409,50 @@ namespace MasterLibrary.ViewModel.AdminVM
                     Listbookmanage.Add(book);
                 }
             }
-            p.ItemsSource = Listbookmanage;
+
+            foreach(BookDTO book in Listbookmanage)
+            {
+                if(book.TheLoai == null || book.ImageSource == null)
+                    book.IsIncomplete = true;
+                else
+                    book.IsIncomplete = false;
+            }
+        }
+        public List<DayDTO> LayDay()
+        {
+            
+            List<DayDTO> items = new List<DayDTO>();
+            using(var context = new MasterlibraryEntities())
+            {
+                foreach (var t in context.DAYKEs)
+                {
+                    if (t.IDTANG == ((from s in context.TANGs where s.TENTANG == Tang select s.MATANG).FirstOrDefault()))
+                    {
+                        DayDTO day = new DayDTO();
+                        day.MaTang = (int)t.IDTANG;
+                        day.MaDay = t.MADAY;
+                        day.TenDay = t.TENDAY;
+                        items.Add(day);
+                    }
+                }
+            }
+            return items;
+        }
+
+        public List<TangDTO> LayTang()
+        {
+            List<TangDTO> items = new List<TangDTO>();
+            using (var context = new MasterlibraryEntities())
+            {
+                foreach (var t in context.TANGs)
+                {
+                    TangDTO z = new TangDTO();
+                    z.MaTang = t.MATANG;
+                    z.TenTang = t.TENTANG;
+                    items.Add(z);
+                }
+            }
+            return items;
         }
     }
 }

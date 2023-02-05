@@ -103,9 +103,9 @@
                         </StackPanel>
                     </Border>
 
-                    <!-- Button quản lí sách -->
+                    <!-- Button quản lí sách-->
                     <Border CornerRadius="5">
-                        <StackPanel Tag="{Binding ElementName=btnManage}"
+                        <StackPanel Tag="{Binding ElementName=managetest}"
                                         Orientation="Horizontal"
                                         Height="60"
                                         Width="130"
@@ -120,9 +120,9 @@
                                              GroupName="mainOptions"
                                              Content="Quản lí sách"
                                              FontWeight="Bold"
-                                             x:Name="btnManage"
+                                             x:Name="managetest"
                                              Width="auto"
-                                             Command="{Binding LoadBookManagerPageML}"
+                                             Command="{Binding LoadBookManagePageML}"
                                              CommandParameter="{Binding ElementName=mainFrame}" />
                         </StackPanel>
                     </Border>
@@ -246,11 +246,74 @@
                                              CommandParameter="{Binding ElementName=mainFrame}" />
                         </StackPanel>
                     </Border>
+
+                    <!-- Button cai dat-->
+                    <Border CornerRadius="5">
+                        <StackPanel Tag="{Binding ElementName=btnsetting}"
+                                        Orientation="Horizontal"
+                                        Height="60"
+                                        Width="130"
+                                        Style= "{StaticResource EffectMenuButton}">
+                            <materialDesign:PackIcon Kind="Settings"
+                                                         Width="35"
+                                                         Height="32"
+                                                         VerticalAlignment="Center"
+                                                         Cursor="Hand"
+                                                         Foreground="White" />
+                            <RadioButton Style="{StaticResource MenuButtonMain}"
+                                             Content= "Cài đặt"
+                                             FontWeight="Bold"
+                                             GroupName="mainOptions"
+                                             x:Name="btnsetting"
+                                             Width="110"
+                                             Command="{Binding LoadSettingPageML}"
+                                             CommandParameter="{Binding ElementName=mainFrame}" />
+                            
+                            
+                        </StackPanel>
+                    </Border>
+
+                    <!--Button đăng xuất-->
+                    <Border CornerRadius="25"
+                            Margin="0 65 0 0"
+                             Cursor="Hand"
+                             Background="#9b3409">
+                        <StackPanel Orientation="Horizontal"
+                                    Height="60"
+                                    
+                                    Width="130"
+                                    Style= "{StaticResource EffectMenuButton}">
+                            <materialDesign:PackIcon Kind="LogoutVariant"
+                                                     Width="35"
+                                                     Height="32"
+                                                     VerticalAlignment="Center"
+                                                     Margin="10,0,0,0"
+                                                     Foreground="#f9b126" />
+                            <RadioButton Style="{StaticResource MenuButtonMain}"
+                                         Content="Đăng xuất"
+                                         FontWeight="Bold"
+                                         x:Name="btnSignout"
+                                         Width="auto"
+                                         Command="{Binding SignOutML}"
+                                         CommandParameter="{Binding ElementName=MainAdminWD}"/>
+                        </StackPanel>
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding SignOutML}"
+                                                       CommandParameter="{Binding ElementName=MainAdminWD}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Border>
                 </StackPanel>
             </Grid>
 
             <!-- Bên phải -->
             <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="472*"/>
+                    <ColumnDefinition Width="113*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="9*" />
@@ -259,7 +322,7 @@
                 <!-- Thanh trên -->
                 <materialDesign:ColorZone
                         Background ="#b29e84"
-                        Padding="16" Height="84" VerticalAlignment="Center">
+                        Padding="16" Height="84" VerticalAlignment="Center" Grid.ColumnSpan="2">
                     <DockPanel>
                         <StackPanel
                                 Orientation="Horizontal"
@@ -272,8 +335,7 @@
 
                 <!-- Phần nội dung frame -->
                 <Frame x:Name="mainFrame"
-                       NavigationUIVisibility="Hidden"
-                       Grid.Row="1">
+                       NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" Margin="0,67,0,0" Grid.RowSpan="2">
 
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Loaded">

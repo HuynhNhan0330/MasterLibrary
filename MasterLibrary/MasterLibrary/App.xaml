@@ -132,6 +132,15 @@
             <Style x:Key="CenterAlignmentCellStyle" TargetType="DataGridCell">
                 <Setter Property="VerticalContentAlignment" Value="Center" />
             </Style>
+            
+            <Style TargetType="{x:Type DataGridRow}" x:Key="IncompleteRowStyle">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding IsIncomplete}" Value="True">
+                        <Setter Property="Background" Value="#FA8072"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
