@@ -367,6 +367,7 @@
     <Compile Include="ViewModel\AdminVM\LocationVM\BookInRowViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\LocationViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\MainAdminViewModel.cs" />
+    <Compile Include="ViewModel\AdminVM\SettingVM\SettingViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\StatisticVM\StatisticViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\TroubleVM\DetailTroubleViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\TroubleVM\TroubleViewModel.cs" />
