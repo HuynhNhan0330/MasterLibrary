@@ -8,6 +8,7 @@
                     xmlns:viewmodel24 ="clr-namespace:MasterLibrary.ViewModel.AdminVM.TroubleVM"
                     xmlns:viewmodel25 ="clr-namespace:MasterLibrary.ViewModel.AdminVM.BorrowBookVM"
                     xmlns:viewmodel26 ="clr-namespace:MasterLibrary.ViewModel.AdminVM.ImportVM"
+                    xmlns:viewmodel27 ="clr-namespace:MasterLibrary.ViewModel.AdminVM.SettingVM"
                     xmlns:viewmodel3 = "clr-namespace:MasterLibrary.ViewModel.CustomerVM"
                     xmlns:viewmodel31 ="clr-namespace:MasterLibrary.ViewModel.CustomerVM.BuyBookVM"
                     xmlns:viewmodel32 ="clr-namespace:MasterLibrary.ViewModel.CustomerVM.SettingVM"
@@ -27,6 +28,8 @@
     <viewmodel25:BorrowBookViewModel x:Key="BorrowBookVM"/>
     <viewmodel24:TroubleViewModel x:Key="TroubleVM"/>
     <viewmodel26:ImportViewModel x:Key="ImportVM"/>
+    <viewmodel27:SettingViewModel x:Key="SettingAdminVM"/>
+
     <viewmodel3:MainCustomerViewModel x:Key= "CustomerVM"/>
     <viewmodel31:DetailBookViewModel x:Key="DetailBookVM"/>
     <viewmodel31:BuyBookViewModel x:Key="BuyBookVM"/>
