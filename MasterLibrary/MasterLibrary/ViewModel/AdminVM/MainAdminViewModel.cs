@@ -18,6 +18,7 @@ using System.Globalization;
 using MasterLibrary.Views.Admin.TroublePage;
 using MasterLibrary.Views.Admin.BorrowBookPage;
 using MasterLibrary.Views.Admin.SettingPage;
+using MasterLibrary.Views.LoginWindow;
 
 namespace MasterLibrary.ViewModel.AdminVM
 {
@@ -36,8 +37,7 @@ namespace MasterLibrary.ViewModel.AdminVM
         public ICommand LoadBorrowBookPageML { get; set; }
         public ICommand LoadTroublePageML { get; set; }
         public ICommand LoadSettingPageML { get; set; }
-
-
+        public ICommand SignOutML { get; set; }
         public MainAdminViewModel()
         {
             // Load trang phân tích
@@ -87,6 +87,21 @@ namespace MasterLibrary.ViewModel.AdminVM
             {
 
                 p.Content = new SettingPageAdmin();
+            });
+
+            SignOutML = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                MessageBoxML ms = new MessageBoxML("Xác nhận", "Bạn muốn đăng xuất", MessageType.Waitting, MessageButtons.YesNo);
+
+                if (ms.ShowDialog() == true)
+                {
+                    p.Hide();
+
+                    LoginWindow w = new LoginWindow();
+                    w.Show();
+
+                    p.Close();
+                }
             });
 
         }  
