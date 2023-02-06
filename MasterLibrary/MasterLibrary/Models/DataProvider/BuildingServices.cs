@@ -96,7 +96,7 @@ namespace MasterLibrary.Models.DataProvider
             }
             catch (System.Data.Entity.Infrastructure.DbUpdateException)
             {
-                return (false, "Xãy ra lỗi khi thêm dữ liệu vào cơ sở dữ liệu", -1);
+                return (false, "Xãy ra lỗi khi thao tác dữ liệu trên cơ sở dữ liệu", -1);
             }
             catch (Exception)
             {
@@ -125,7 +125,7 @@ namespace MasterLibrary.Models.DataProvider
             }
             catch (System.Data.Entity.Infrastructure.DbUpdateException)
             {
-                return (false, "Xãy ra lỗi khi thêm dữ liệu vào cơ sở dữ liệu", -1);
+                return (false, "Xãy ra lỗi khi thao tác dữ liệu trên cơ sở dữ liệu", -1);
             }
             catch (Exception)
             {
@@ -179,7 +179,7 @@ namespace MasterLibrary.Models.DataProvider
             }
             catch (System.Data.Entity.Infrastructure.DbUpdateException)
             {
-                return (false, "Xãy ra lỗi khi thêm dữ liệu vào cơ sở dữ liệu");
+                return (false, "Xãy ra lỗi khi thao tác dữ liệu trên cơ sở dữ liệu");
             }
             catch (Exception)
             {
@@ -224,7 +224,7 @@ namespace MasterLibrary.Models.DataProvider
             }
             catch (System.Data.Entity.Infrastructure.DbUpdateException)
             {
-                return (false, "Xãy ra lỗi khi thêm dữ liệu vào cơ sở dữ liệu");
+                return (false, "Xãy ra lỗi khi thao tác dữ liệu trên cơ sở dữ liệu");
             }
             catch (Exception)
             {

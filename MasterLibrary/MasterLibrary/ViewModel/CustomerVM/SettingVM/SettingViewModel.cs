@@ -1,14 +1,9 @@
-﻿    using MasterLibrary.DTOs;
+﻿using MasterLibrary.DTOs;
 using MasterLibrary.Models.DataProvider;
 using MasterLibrary.Views.Customer;
-using MasterLibrary.Views.Customer.BuyBookPage;
 using MasterLibrary.Views.LoginWindow;
 using MasterLibrary.Views.MessageBoxML;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reactive.Subjects;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
@@ -119,7 +114,7 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
                 IsLoading = true;
 
                 int MaKHcur = MainCustomerViewModel.CurrentCustomer.MAKH;
-                Cus = await Task<CustomerDTO>.Run(() => CustormerServices.Ins.FindCustomer(MaKHcur));
+                Cus = await Task.Run(() => CustormerServices.Ins.FindCustomer(MaKHcur));
                 MaKH = Cus.MAKH;
                 TenKH = Cus.TENKH;
                 Email = Cus.EMAIL;
@@ -152,7 +147,7 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
                 IsSaving = true;
                 MaskName.Visibility = Visibility.Visible;
 
-                if (await Task<bool>.Run(() => CustormerServices.Ins.CheckEmailCustormer(Email, MaKH)))
+                if (await Task.Run(() => CustormerServices.Ins.CheckEmailCustormer(Email, MaKH)))
                 {
                     MessageBoxML ms = new MessageBoxML("Thông báo", "Email đã tồn tại", MessageType.Error, MessageButtons.OK);
                     ms.ShowDialog();
@@ -216,17 +211,29 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
                 IsSaving = true;
                 MaskName.Visibility = Visibility.Visible;
 
-                if (await Task<bool>.Run(() => CustormerServices.Ins.ChangePassword(MaKH, NewPassword, CurrentPassword)))
-                {
-                    MessageBoxML ms = new MessageBoxML("Thông báo", "Đổi mật khẩu thành công", MessageType.Accept, MessageButtons.OK);
-                    ms.ShowDialog();
-                }
-                else
+                string HashCurrentPassword = Utils.Helper.HashPassword(CurrentPassword);
+
+                if (Cus.USERPASSWORD != HashCurrentPassword)
                 {
                     MessageBoxML ms = new MessageBoxML("Thông báo", "Mật khẩu hiện tại không chính xác", MessageType.Error, MessageButtons.OK);
                     ms.ShowDialog();
                 }
+                else
+                {
+                    (bool isChangePassword, string lb) = await Task.Run(() => CustormerServices.Ins.ChangePassword(MaKH, NewPassword));
 
+                    if (isChangePassword == true)
+                    {
+                        MessageBoxML ms = new MessageBoxML("Thông báo", lb, MessageType.Accept, MessageButtons.OK);
+                        ms.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBoxML ms = new MessageBoxML("Thông báo", lb, MessageType.Error, MessageButtons.OK);
+                        ms.ShowDialog();
+                    }
+                }
+                
                 IsSaving = false;
                 MaskName.Visibility = Visibility.Collapsed;
             });

@@ -1,21 +1,15 @@
 ﻿using MasterLibrary.Views.Admin.SettingPage;
-using MasterLibrary.Views.Customer;
 using MasterLibrary.Views.LoginWindow;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using MasterLibrary.Models.DataProvider;
 using MasterLibrary.Views.MessageBoxML;
-using System.Reactive.Subjects;
 using System.Text.RegularExpressions;
 using MasterLibrary.Views.Admin;
-using MasterLibrary.ViewModel.CustomerVM;
-using System.Windows.Media;
 
 namespace MasterLibrary.ViewModel.AdminVM.SettingVM
 {
@@ -188,10 +182,10 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
             LoadedInfor = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
                 InFr = p;
-                MaKH = MasterLibrary.Models.DataProvider.AdminServices.MaNhanVien;
-                HoVaTen = MasterLibrary.Models.DataProvider.AdminServices.TenNhanVien;
-                TenTK = MasterLibrary.Models.DataProvider.AdminServices.UserNameNhanVien;
-                Email = MasterLibrary.Models.DataProvider.AdminServices.EmailNhanVien;
+                MaKH = AdminServices.MaNhanVien;
+                HoVaTen = AdminServices.TenNhanVien;
+                TenTK = AdminServices.UserNameNhanVien;
+                Email = AdminServices.EmailNhanVien;
                 p.Content = new InformationPage();
             });
 
@@ -283,16 +277,27 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
 
                 IsSaving = true;
 
-                if (await Task<bool>.Run(() => AdminServices.Ins.ChangePassword(MaKH,NewPassword, CurrentPassword)))
-                {
-                    MessageBoxML ms = new MessageBoxML("Thông báo", "Đổi mật khẩu thành công", MessageType.Accept, MessageButtons.OK);
-                    ms.ShowDialog();
-                    InFr.Content = new InformationPage();
-                }
-                else
+                string HashCurrentPassword = Utils.Helper.HashPassword(CurrentPassword);
+
+                if (AdminServices.PasswordNhanVien != HashCurrentPassword)
                 {
                     MessageBoxML ms = new MessageBoxML("Thông báo", "Mật khẩu hiện tại không chính xác", MessageType.Error, MessageButtons.OK);
                     ms.ShowDialog();
+                }
+                else
+                {
+                    (bool isChangePassword, string lb) = await Task.Run(() => AdminServices.Ins.ChangePassword(MaKH, NewPassword));
+
+                    if (isChangePassword == true)
+                    {
+                        MessageBoxML ms = new MessageBoxML("Thông báo", lb, MessageType.Accept, MessageButtons.OK);
+                        ms.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBoxML ms = new MessageBoxML("Thông báo", lb, MessageType.Error, MessageButtons.OK);
+                        ms.ShowDialog();
+                    }
                 }
 
                 IsSaving = false;
@@ -388,7 +393,7 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
                 {
                     se = (from c in context.KHACHHANGs where c.MAKH == MaKH select c.USERPASSWORD).FirstOrDefault();
                 }    
-                if(PassForChangingSomething1 == se)
+                if(Utils.Helper.HashPassword(PassForChangingSomething1) == se)
                 {
                     MessageBoxML msb = new MessageBoxML("Cảnh báo", "Bạn có muốn thay đổi thông tin?", MessageType.Waitting, MessageButtons.YesNo);
 
