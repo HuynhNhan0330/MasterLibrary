@@ -326,6 +326,7 @@ namespace MasterLibrary.ViewModel.AdminVM
                     NamXuatBan = item.NamXB.ToString();
                     Gia = item.Gia.ToString();
                     Tang = item.TenTang.ToString();
+                    MaTang = item.MaTang;
                     DsDay = LayDay();
                     Day = item.TenDay.ToString();
                     ImgSource = item.ImageSource.ToString();
@@ -389,6 +390,8 @@ namespace MasterLibrary.ViewModel.AdminVM
                         book.SoLuong = (int)item.SL;
                         book.Gia = (int)item.GIA;
                         book.NXB = item.NXB;
+                        book.MaTang = (int)item.VITRITANG;
+                        book.MaDay = (int)item.VITRIDAY;
                         
                     }
                     else
@@ -405,6 +408,8 @@ namespace MasterLibrary.ViewModel.AdminVM
                         book.MoTa = item.MOTA;
                         book.TenDay = (from s in context.DAYKEs where s.MADAY == item.VITRIDAY select s.TENDAY).FirstOrDefault();
                         book.TenTang = (from s in context.TANGs where s.MATANG == item.VITRITANG select s.TENTANG).FirstOrDefault();
+                        book.MaTang = (int)item.VITRITANG;
+                        book.MaDay = (int)item.VITRIDAY;
                     }    
                     Listbookmanage.Add(book);
                 }
