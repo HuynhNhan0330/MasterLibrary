@@ -207,3 +207,4 @@ D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\Hi
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\CollectPage.baml
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\BorrowPage.g.cs
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\BorrowPage.baml
+D:\Nhan's\Do\MasterLibrary\MasterLibrary\bin\Debug\Avalonia.Themes.Fluent.dll
