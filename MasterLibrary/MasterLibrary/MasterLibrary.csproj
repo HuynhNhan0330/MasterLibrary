@@ -399,11 +399,11 @@
     <Compile Include="Views\Admin\BorrowBookPage\CollectionBookVorcherPage.xaml.cs">
       <DependentUpon>CollectionBookVorcherPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Admin\HistoryPage\BorrowPage.xaml.cs">
+      <DependentUpon>BorrowPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Admin\HistoryPage\CollectPage.xaml.cs">
       <DependentUpon>CollectPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Admin\HistoryPage\ExpenseDetail.xaml.cs">
-      <DependentUpon>ExpenseDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\HistoryPage\ExpensePage.xaml.cs">
       <DependentUpon>ExpensePage.xaml</DependentUpon>
@@ -422,9 +422,6 @@
     </Compile>
     <Compile Include="Views\Admin\LocationPage\LocationPage.xaml.cs">
       <DependentUpon>LocationPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Admin\HistoryPage\RevenueDetail.xaml.cs">
-      <DependentUpon>RevenueDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\HistoryPage\RevenuePage.xaml.cs">
       <DependentUpon>RevenuePage.xaml</DependentUpon>
@@ -541,17 +538,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Admin\HistoryPage\CollectPage.xaml">
+    <Page Include="Views\Admin\HistoryPage\BorrowPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Admin\HistoryPage\ExpenseDetail.xaml">
+    <Page Include="Views\Admin\HistoryPage\CollectPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Admin\HistoryPage\ExpensePage.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Views\Admin\HistoryPage\HistoryPage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -570,10 +567,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Admin\LocationPage\LocationPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Admin\HistoryPage\RevenueDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

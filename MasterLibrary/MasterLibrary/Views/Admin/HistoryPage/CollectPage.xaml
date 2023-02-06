@@ -188,16 +188,16 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <!--<GridViewColumn Header="Số lượng hỏng"
+                        <GridViewColumn Header="Ngày thu"
                                         Width="auto">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock  Text="{Binding SoLuongHong}"
+                                    <TextBlock  Text="{Binding NgayTra}"
                                                 FontSize="18"
                                                 Margin="10,0,0,0" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
-                        </GridViewColumn>-->
+                        </GridViewColumn>
 
                         <GridViewColumn Header="Tiền phạt hỏng"
                                         Width="auto">

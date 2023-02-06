@@ -120,14 +120,12 @@ D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\Bo
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BorrowBookPage\BorrowBookPage.g.cs
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BorrowBookPage\BorrowBookVorcherPage.g.cs
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BorrowBookPage\CollectionBookVorcherPage.g.cs
-D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\ExpenseDetail.g.cs
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\ExpensePage.g.cs
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\HistoryPage.g.cs
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\TroublePage_His.g.cs
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\ImportBookPage\ImportBookPage.g.cs
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\LocationPage\BookInRow.g.cs
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\LocationPage\LocationPage.g.cs
-D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\RevenueDetail.g.cs
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\RevenuePage.g.cs
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\MainAdminWindow.g.cs
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\StatisticalPage\StatisticalPage.g.cs
@@ -167,14 +165,12 @@ D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\Bo
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BorrowBookPage\BorrowBookPage.baml
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BorrowBookPage\BorrowBookVorcherPage.baml
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\BorrowBookPage\CollectionBookVorcherPage.baml
-D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\ExpenseDetail.baml
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\ExpensePage.baml
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\HistoryPage.baml
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\TroublePage_His.baml
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\ImportBookPage\ImportBookPage.baml
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\LocationPage\BookInRow.baml
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\LocationPage\LocationPage.baml
-D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\RevenueDetail.baml
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\RevenuePage.baml
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\MainAdminWindow.baml
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\StatisticalPage\StatisticalPage.baml
@@ -209,3 +205,5 @@ D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\MasterLibrary.pdb
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\CollectPage.g.cs
 D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\CollectPage.baml
+D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\BorrowPage.g.cs
+D:\UIT\LastML\MasterLibrary\MasterLibrary\MasterLibrary\obj\Debug\Views\Admin\HistoryPage\BorrowPage.baml

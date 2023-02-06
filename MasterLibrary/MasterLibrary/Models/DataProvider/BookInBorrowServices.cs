@@ -101,6 +101,61 @@ namespace MasterLibrary.Models.DataProvider
             return bookborrows;
         }
 
+        public async Task<List<BookInBorrowDTO>> GetAllBookBorrow()
+        {
+            List<BookInBorrowDTO> borrowList = new List<BookInBorrowDTO>();
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    borrowList = await (from sm in context.PHIEUMUONs
+                                        select new BookInBorrowDTO
+                                        {
+                                            MaPhieuMuon = sm.MAPHIEUMUON,
+                                            TenKH = sm.KHACHHANG.TENKH,
+                                            TenSach = sm.SACH.TENSACH,
+                                            NgayMuon = (DateTime)sm.NGAYMUON,
+                                            NgayHetHan = (DateTime)sm.NGAYHETHAN,
+                                            SoLuong = (int)sm.SOLUONG,
+                                            Gia = (int)sm.SACH.GIA
+                                        }).ToListAsync();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            return borrowList;
+        }
+
+        public async Task<List<BookInBorrowDTO>> GetBookBorrowByMonth(int month, int year)
+        {
+            List<BookInBorrowDTO> borrowList = null;
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    borrowList = await (from sm in context.PHIEUMUONs
+                                        where sm.NGAYMUON.Month == month && sm.NGAYMUON.Year == year 
+                                        select new BookInBorrowDTO
+                                        {
+                                            MaPhieuMuon = sm.MAPHIEUMUON,
+                                            TenKH = sm.KHACHHANG.TENKH,
+                                            TenSach = sm.SACH.TENSACH,
+                                            NgayMuon = (DateTime)sm.NGAYMUON,
+                                            NgayHetHan = (DateTime)sm.NGAYHETHAN,
+                                            SoLuong = (int)sm.SOLUONG,
+                                            Gia = (int)sm.SACH.GIA
+                                        }).ToListAsync();
+                }
+            }
+            catch(Exception)
+            {
+
+            }
+            return borrowList;
+        }
+
         public async Task<List<BookInCollectDTO>> GetAllCollectBook()
         {
             List<BookInCollectDTO> collectList = null;
@@ -114,6 +169,7 @@ namespace MasterLibrary.Models.DataProvider
                                              MaPhieuMuon = thusach.MAPHIEUTHU,
                                              TenKH = thusach.KHACHHANG.TENKH,
                                              TenSach = thusach.SACH.TENSACH,
+                                             NgayTra = thusach.NGAYTHU,
                                              SoLuongHong = (int)thusach.SOLUONGHONG,
                                              TienHong = (int)thusach.TIENPHATHONG,
                                              TienTre = (int)thusach.TIENTREMOTNGAY,
@@ -130,7 +186,7 @@ namespace MasterLibrary.Models.DataProvider
             return collectList;
         }
 
-        public async Task<List<BookInCollectDTO>> GetCollecBookByMonth(int month, int year)
+        public async Task<List<BookInCollectDTO>> GetCollectBookByMonth(int month, int year)
         {
             List<BookInCollectDTO> collectList = null;
             try
@@ -144,6 +200,7 @@ namespace MasterLibrary.Models.DataProvider
                                              MaPhieuMuon = thusach.MAPHIEUTHU,
                                              TenKH = thusach.KHACHHANG.TENKH,
                                              TenSach = thusach.SACH.TENSACH,
+                                             NgayTra = thusach.NGAYTHU,
                                              SoLuongHong = (int)thusach.SOLUONGHONG,
                                              TienHong = (int)thusach.TIENPHATHONG,
                                              TienTre = (int)thusach.TIENTREMOTNGAY,

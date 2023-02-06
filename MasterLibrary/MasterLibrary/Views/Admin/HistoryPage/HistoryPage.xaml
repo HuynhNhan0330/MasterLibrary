@@ -73,7 +73,17 @@
                              Content="Thu sách"
                              Command="{Binding LoadCollectPage}"
                              CommandParameter="{Binding ElementName=MainListViewFrame}"/>
-                
+
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButtonTop}"
+                             BorderBrush="{DynamicResource PrimaryHueMidBrush}"
+                             VerticalAlignment="Top"
+                             Height="50"
+                             IsChecked="False"
+                             Margin="10 30 0 0"
+                             Content="Mượn sách"
+                             Command="{Binding LoadBorrowPage}"
+                             CommandParameter="{Binding ElementName=MainListViewFrame}"/>
+
                 <RadioButton Style="{StaticResource MaterialDesignTabRadioButtonTop}"
                              BorderBrush="{DynamicResource PrimaryHueMidBrush}"
                              VerticalAlignment="Top"

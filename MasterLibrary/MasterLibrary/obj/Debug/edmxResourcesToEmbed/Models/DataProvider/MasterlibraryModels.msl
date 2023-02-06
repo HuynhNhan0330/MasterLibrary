@@ -94,6 +94,7 @@
     <EntitySetMapping Name="PHIEUMUONs">
       <EntityTypeMapping TypeName="masterlibraryModel.PHIEUMUON">
         <MappingFragment StoreEntitySet="PHIEUMUON">
+          <ScalarProperty Name="NGAYMUON" ColumnName="NGAYMUON" />
           <ScalarProperty Name="NGAYHETHAN" ColumnName="NGAYHETHAN" />
           <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
           <ScalarProperty Name="MASACH" ColumnName="MASACH" />

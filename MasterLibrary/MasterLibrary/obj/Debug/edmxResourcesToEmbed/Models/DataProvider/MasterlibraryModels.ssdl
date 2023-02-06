@@ -95,6 +95,7 @@
     <Property Name="MASACH" Type="int" Nullable="false" />
     <Property Name="SOLUONG" Type="int" />
     <Property Name="NGAYHETHAN" Type="smalldatetime" />
+    <Property Name="NGAYMUON" Type="smalldatetime" Nullable="false" />
   </EntityType>
   <EntityType Name="PHIEUTHU">
     <Key>
