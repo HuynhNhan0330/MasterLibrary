@@ -98,7 +98,9 @@ namespace MasterLibrary.Models.DataProvider
                                          USERPASSWORD = s.USERPASSWORD,
                                          DIACHI = s.DIACHI,
                                      }).FirstOrDefaultAsync();
+
                     if (adm == null) return false;
+
                     return true;
                 }
             }
@@ -144,6 +146,7 @@ namespace MasterLibrary.Models.DataProvider
                     if (adm == null) return (false, "Quản trị viên không tồn tại");
 
                     adm.USERPASSWORD = Utils.Helper.HashPassword(_newpassword);
+                    PasswordNhanVien = adm.USERPASSWORD;
 
                     context.SaveChanges();
                     return (true, "đổi mật khẩu thành công");

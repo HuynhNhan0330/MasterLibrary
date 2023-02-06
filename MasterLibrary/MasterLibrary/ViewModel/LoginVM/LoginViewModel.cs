@@ -18,6 +18,7 @@ using MasterLibrary.Views.MessageBoxML;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Text.RegularExpressions;
 using System.Collections.ObjectModel;
+using System.Management;
 
 namespace MasterLibrary.ViewModel.LoginVM
 {

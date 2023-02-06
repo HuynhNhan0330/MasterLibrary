@@ -105,6 +105,7 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
 
         #region Thuộc tính tạm thời
         public Grid MaskName { get; set; }
+        public string MatKhauKH { get; set; }
         #endregion
 
         public SettingViewModel()
@@ -119,6 +120,7 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
                 TenKH = Cus.TENKH;
                 Email = Cus.EMAIL;
                 DiaChi = Cus.DIACHI;
+                MatKhauKH = Cus.USERPASSWORD;
 
                 IsLoading = false;
             });
@@ -213,7 +215,7 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
 
                 string HashCurrentPassword = Utils.Helper.HashPassword(CurrentPassword);
 
-                if (Cus.USERPASSWORD != HashCurrentPassword)
+                if (MatKhauKH != HashCurrentPassword)
                 {
                     MessageBoxML ms = new MessageBoxML("Thông báo", "Mật khẩu hiện tại không chính xác", MessageType.Error, MessageButtons.OK);
                     ms.ShowDialog();
@@ -224,6 +226,8 @@ namespace MasterLibrary.ViewModel.CustomerVM.SettingVM
 
                     if (isChangePassword == true)
                     {
+                        MatKhauKH = Utils.Helper.HashPassword(NewPassword);
+
                         MessageBoxML ms = new MessageBoxML("Thông báo", lb, MessageType.Accept, MessageButtons.OK);
                         ms.ShowDialog();
                     }

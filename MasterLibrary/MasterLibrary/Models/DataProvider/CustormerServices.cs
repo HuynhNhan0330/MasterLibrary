@@ -78,7 +78,8 @@ namespace MasterLibrary.Models.DataProvider
                 string.IsNullOrEmpty(username) ||
                 string.IsNullOrEmpty(pass))
             {
-                MessageBox.Show("Thông tin bị trống vui lòng nhập thêm.");
+                MessageBoxML ms = new MessageBoxML("Thông báo", "Thông tin bị trống vui lòng nhập thêm.", MessageType.Error, MessageButtons.OK);
+                ms.ShowDialog();
                 return;
             }
 
@@ -93,7 +94,8 @@ namespace MasterLibrary.Models.DataProvider
             {
                 context.KHACHHANGs.Add(cus);
                 context.SaveChanges();
-                MessageBox.Show("Đăng ký thành công!");
+                MessageBoxML ms = new MessageBoxML("Thông báo", "Đăng ký thành công!", MessageType.Accept, MessageButtons.OK);
+                ms.ShowDialog();
             }    
         }
 

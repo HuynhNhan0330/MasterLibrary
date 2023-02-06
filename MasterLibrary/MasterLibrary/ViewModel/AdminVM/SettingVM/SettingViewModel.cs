@@ -314,9 +314,9 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
                 PassForChangingSomething1 = p.Password;
             });
 
-            UpdateInforAdmin = new RelayCommand<object>((p) => { return true; },  (p) =>
+            UpdateInforAdmin = new RelayCommand<Frame>((p) => { return true; },  (p) =>
             {
-                InFr.Content = new ConfirmPage();
+                p.Content = new ConfirmPage();
             });
 
             Back1 = new RelayCommand<Object>((p) => { return true; }, (p) =>
@@ -332,7 +332,7 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
 
             OK = new RelayCommand<Object>((p) => { return true; }, async (p) =>
             {
-                if (await Task<bool>.Run(() => AdminServices.Ins.checkPass(MaKH, PassForChangingSomething)))
+                if (await Task.Run(() => AdminServices.Ins.checkPass(MaKH, PassForChangingSomething)))
                 {
                     string match = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
                     Regex reg = new Regex(match);
@@ -346,7 +346,7 @@ namespace MasterLibrary.ViewModel.AdminVM.SettingVM
 
                     IsSaving = true;
 
-                    if (await Task<bool>.Run(() => AdminServices.Ins.CheckEmailAdmin(Email, MaKH)))
+                    if (await Task.Run(() => AdminServices.Ins.CheckEmailAdmin(NewEmail, MaKH)))
                     {
                         MessageBoxML ms = new MessageBoxML("Thông báo", "Email đã tồn tại", MessageType.Error, MessageButtons.OK);
                         ms.ShowDialog();
