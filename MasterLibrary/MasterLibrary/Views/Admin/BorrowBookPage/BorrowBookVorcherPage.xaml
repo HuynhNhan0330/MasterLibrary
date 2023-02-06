@@ -472,7 +472,7 @@
                                FontSize="16"
                                FontWeight="SemiBold"
                                Foreground="#FF333333"
-                               Text="{Binding RoleLibrary.Songaymuon}" />
+                               Text="{Binding RoleLibrary.Songaymuon, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </Grid>
                 
                 <Grid Margin="0,10,0,0">

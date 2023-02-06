@@ -1,0 +1,2 @@
+Phương pháp mã hoá mật khẩu:
+Dùng https://www.utilities-online.info/base64 để chuyển sang base64 sau đó dùng https://www.md5.cz/ để chuyển thành md5 sau đó hoàn thành

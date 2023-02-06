@@ -35,9 +35,11 @@ namespace MasterLibrary.Models.DataProvider
             {
                 using (var context = new MasterlibraryEntities())
                 {
+                    string _HashPassword = Utils.Helper.HashPassword(password);
+
                     // lây thông tin nếu tài khoản, mật khẩu đúng
                     var cus = await(from s in context.KHACHHANGs
-                                      where s.USERNAME == username && s.USERPASSWORD == password && s.IDROLE == 2
+                                      where s.USERNAME == username && s.USERPASSWORD == _HashPassword && s.IDROLE == 2
                                       select new CustomerDTO
                                       {
                                           MAKH = s.MAKH,
@@ -76,13 +78,14 @@ namespace MasterLibrary.Models.DataProvider
                 string.IsNullOrEmpty(username) ||
                 string.IsNullOrEmpty(pass))
             {
-                MessageBox.Show("Thông tin bị trống vui lòng nhập thêm.");
+                MessageBoxML ms = new MessageBoxML("Thông báo", "Thông tin bị trống vui lòng nhập thêm.", MessageType.Error, MessageButtons.OK);
+                ms.ShowDialog();
                 return;
             }
 
             KHACHHANG cus = new KHACHHANG();
             cus.USERNAME = username;
-            cus.USERPASSWORD = pass;
+            cus.USERPASSWORD = Utils.Helper.HashPassword(pass);
             cus.TENKH = fullname;
             cus.IDROLE = 2;
             cus.EMAIL = email;
@@ -91,7 +94,8 @@ namespace MasterLibrary.Models.DataProvider
             {
                 context.KHACHHANGs.Add(cus);
                 context.SaveChanges();
-                MessageBox.Show("Đăng ký thành công!");
+                MessageBoxML ms = new MessageBoxML("Thông báo", "Đăng ký thành công!", MessageType.Accept, MessageButtons.OK);
+                ms.ShowDialog();
             }    
         }
 
@@ -180,26 +184,30 @@ namespace MasterLibrary.Models.DataProvider
             }
         }
 
-        public async Task<bool> ChangePassword(int _makh, string _newpassword, string _oldpassword)
+        public async Task<(bool, string)> ChangePassword(int _makh, string _newpassword)
         {
             try
             {
                 // Đổi mật khẩu
                 using (var context = new MasterlibraryEntities())
                 {
-                    var cus = context.KHACHHANGs.SingleOrDefault(s => s.MAKH == _makh && s.USERPASSWORD == _oldpassword);
+                    var cus = context.KHACHHANGs.SingleOrDefault(s => s.MAKH == _makh);
 
-                    if (cus == null) return false;
+                    if (cus == null) return (false, "Không tìm thấy khách hàng");
 
-                    cus.USERPASSWORD = _newpassword;
+                    cus.USERPASSWORD = Utils.Helper.HashPassword(_newpassword);
                     
                     context.SaveChanges();
-                    return true;
+                    return (true, "Đổi mật khẩu thành công");
                 }
             }
-            catch(Exception)
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
             {
-                return false;
+                return (false, "Xãy ra lỗi khi thao tác dữ liệu trên cơ sở dữ liệu");
+            }
+            catch (Exception)
+            {
+                return (false, "Xãy ra lỗi khi thực hiện thao tác");
             }
         }
     }

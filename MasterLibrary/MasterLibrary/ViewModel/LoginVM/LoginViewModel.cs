@@ -18,6 +18,7 @@ using MasterLibrary.Views.MessageBoxML;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Text.RegularExpressions;
 using System.Collections.ObjectModel;
+using System.Management;
 
 namespace MasterLibrary.ViewModel.LoginVM
 {
@@ -235,10 +236,10 @@ namespace MasterLibrary.ViewModel.LoginVM
             }
 
             // Thực hiện Login tài khoản customer
-            (bool loginCus, string messCus, CustomerDTO cus) = await Task<(bool loginSuccess, string message, CustomerDTO cus)>.Run(() => CustormerServices.Ins.Login(usr, pwd));
+            (bool loginCus, string messCus, CustomerDTO cus) = await Task.Run(() => CustormerServices.Ins.Login(usr, pwd));
 
             // thực hiện Login tài khoản admin
-            (bool loginAdmin, string messAdmin) = await Task<(bool loginSuccess, string message)>.Run(() => AdminServices.Ins.Login(usr, pwd));
+            (bool loginAdmin, string messAdmin) = await Task.Run(() => AdminServices.Ins.Login(usr, pwd));
 
             if (loginCus)
             {
