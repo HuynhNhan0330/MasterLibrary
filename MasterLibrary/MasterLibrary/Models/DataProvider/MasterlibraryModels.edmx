@@ -100,6 +100,7 @@
           <Property Name="MASACH" Type="int" Nullable="false" />
           <Property Name="SOLUONG" Type="int" />
           <Property Name="NGAYHETHAN" Type="smalldatetime" />
+          <Property Name="NGAYMUON" Type="smalldatetime" Nullable="false" />
         </EntityType>
         <EntityType Name="PHIEUTHU">
           <Key>
@@ -682,6 +683,7 @@
           <Property Name="MASACH" Type="Int32" Nullable="false" />
           <Property Name="SOLUONG" Type="Int32" />
           <Property Name="NGAYHETHAN" Type="DateTime" Precision="0" />
+          <Property Name="NGAYMUON" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="KHACHHANG" Relationship="masterlibraryModel.FK__PHIEUMUON__MAKH__756D6ECB" FromRole="PHIEUMUON" ToRole="KHACHHANG" />
           <NavigationProperty Name="SACH" Relationship="masterlibraryModel.FK__PHIEUMUON__MASAC__76619304" FromRole="PHIEUMUON" ToRole="SACH" />
         </EntityType>
@@ -1082,6 +1084,7 @@
           <EntitySetMapping Name="PHIEUMUONs">
             <EntityTypeMapping TypeName="masterlibraryModel.PHIEUMUON">
               <MappingFragment StoreEntitySet="PHIEUMUON">
+                <ScalarProperty Name="NGAYMUON" ColumnName="NGAYMUON" />
                 <ScalarProperty Name="NGAYHETHAN" ColumnName="NGAYHETHAN" />
                 <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
                 <ScalarProperty Name="MASACH" ColumnName="MASACH" />

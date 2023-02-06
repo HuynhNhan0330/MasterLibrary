@@ -26,7 +26,7 @@ namespace MasterLibrary.Models.DataProvider
             private set => _ins = value;
         }
 
-        public async Task<(bool, string)> CreateNewCallCard(int idCustomer, DateTime _ExpirationDate, ObservableCollection<BookInBorrowDTO> BookInBorrowList)
+        public async Task<(bool, string)> CreateNewCallCard(int idCustomer, DateTime _ExpirationDate, DateTime _DateNow, ObservableCollection<BookInBorrowDTO> BookInBorrowList)
         {
             try
             {
@@ -39,6 +39,7 @@ namespace MasterLibrary.Models.DataProvider
                         newPhieuMuon.MASACH = BookInBorrowList[i].MaSach;
                         newPhieuMuon.NGAYHETHAN = _ExpirationDate;
                         newPhieuMuon.SOLUONG = BookInBorrowList[i].SoLuong;
+                        newPhieuMuon.NGAYMUON = _DateNow;
 
                         context.PHIEUMUONs.Add(newPhieuMuon);
 

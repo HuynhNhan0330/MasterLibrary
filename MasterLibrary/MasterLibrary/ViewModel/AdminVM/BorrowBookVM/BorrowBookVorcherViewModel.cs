@@ -301,7 +301,7 @@ namespace MasterLibrary.ViewModel.AdminVM.BorrowBookVM
             MaskName.Visibility = Visibility.Visible;
             IsSaving = true;
 
-            (bool isBorrow, string lb) = await BookInBorrowServices.Ins.CreateNewCallCard(MaKH, ExpirationDate, ListBookInBorrow);
+            (bool isBorrow, string lb) = await BookInBorrowServices.Ins.CreateNewCallCard(MaKH, ExpirationDate, DateTime.Now, ListBookInBorrow);
 
             if (isBorrow == true)
             {

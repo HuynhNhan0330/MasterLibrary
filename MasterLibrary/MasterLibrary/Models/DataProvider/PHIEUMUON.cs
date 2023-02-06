@@ -19,6 +19,7 @@ namespace MasterLibrary.Models.DataProvider
         public int MASACH { get; set; }
         public Nullable<int> SOLUONG { get; set; }
         public Nullable<System.DateTime> NGAYHETHAN { get; set; }
+        public System.DateTime NGAYMUON { get; set; }
     
         public virtual KHACHHANG KHACHHANG { get; set; }
         public virtual SACH SACH { get; set; }
