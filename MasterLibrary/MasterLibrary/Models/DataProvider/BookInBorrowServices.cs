@@ -102,6 +102,121 @@ namespace MasterLibrary.Models.DataProvider
             return bookborrows;
         }
 
+        public async Task<List<BookInBorrowDTO>> GetAllBookBorrow()
+        {
+            List<BookInBorrowDTO> borrowList = new List<BookInBorrowDTO>();
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    borrowList = await (from sm in context.PHIEUMUONs
+                                        select new BookInBorrowDTO
+                                        {
+                                            MaPhieuMuon = sm.MAPHIEUMUON,
+                                            TenKH = sm.KHACHHANG.TENKH,
+                                            TenSach = sm.SACH.TENSACH,
+                                            NgayMuon = (DateTime)sm.NGAYMUON,
+                                            NgayHetHan = (DateTime)sm.NGAYHETHAN,
+                                            SoLuong = (int)sm.SOLUONG,
+                                            Gia = (int)sm.SACH.GIA
+                                        }).ToListAsync();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            return borrowList;
+        }
+
+        public async Task<List<BookInBorrowDTO>> GetBookBorrowByMonth(int month, int year)
+        {
+            List<BookInBorrowDTO> borrowList = null;
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    borrowList = await (from sm in context.PHIEUMUONs
+                                        where sm.NGAYMUON.Month == month && sm.NGAYMUON.Year == year 
+                                        select new BookInBorrowDTO
+                                        {
+                                            MaPhieuMuon = sm.MAPHIEUMUON,
+                                            TenKH = sm.KHACHHANG.TENKH,
+                                            TenSach = sm.SACH.TENSACH,
+                                            NgayMuon = (DateTime)sm.NGAYMUON,
+                                            NgayHetHan = (DateTime)sm.NGAYHETHAN,
+                                            SoLuong = (int)sm.SOLUONG,
+                                            Gia = (int)sm.SACH.GIA
+                                        }).ToListAsync();
+                }
+            }
+            catch(Exception)
+            {
+
+            }
+            return borrowList;
+        }
+
+        public async Task<List<BookInCollectDTO>> GetAllCollectBook()
+        {
+            List<BookInCollectDTO> collectList = null;
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    collectList = await (from thusach in context.PHIEUTHUs
+                                         select new BookInCollectDTO
+                                         {
+                                             MaPhieuMuon = thusach.MAPHIEUTHU,
+                                             TenKH = thusach.KHACHHANG.TENKH,
+                                             TenSach = thusach.SACH.TENSACH,
+                                             NgayTra = thusach.NGAYTHU,
+                                             SoLuongHong = (int)thusach.SOLUONGHONG,
+                                             TienHong = (int)thusach.TIENPHATHONG,
+                                             TienTre = (int)thusach.TIENTREMOTNGAY,
+                                             TongTienTra = (int)thusach.TONGTIEN
+                                         }
+                    ).ToListAsync();
+                }
+            }
+            catch (Exception) 
+            {
+                
+            }
+
+            return collectList;
+        }
+
+        public async Task<List<BookInCollectDTO>> GetCollectBookByMonth(int month, int year)
+        {
+            List<BookInCollectDTO> collectList = null;
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    collectList = await (from thusach in context.PHIEUTHUs
+                                         where thusach.NGAYTHU.Month == month && thusach.NGAYTHU.Year == year
+                                         select new BookInCollectDTO
+                                         {
+                                             MaPhieuMuon = thusach.MAPHIEUTHU,
+                                             TenKH = thusach.KHACHHANG.TENKH,
+                                             TenSach = thusach.SACH.TENSACH,
+                                             NgayTra = thusach.NGAYTHU,
+                                             SoLuongHong = (int)thusach.SOLUONGHONG,
+                                             TienHong = (int)thusach.TIENPHATHONG,
+                                             TienTre = (int)thusach.TIENTREMOTNGAY,
+                                             TongTienTra = (int)thusach.TONGTIEN
+                                         }).ToListAsync();
+                }
+            }
+            catch (Exception) 
+            { 
+            
+            }
+
+            return collectList;
+        }
+
         public async Task<(bool, string)> CreateNewReceipt(int idCustomer, ObservableCollection<BookInCollectDTO> BookInCollectList)
         {
             try

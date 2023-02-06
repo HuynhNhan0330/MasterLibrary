@@ -104,6 +104,23 @@ namespace MasterLibrary.Models.DataProvider
             }
         }
 
+        //tính tiền khi thu sách phát sinh theo năm
+        public async Task<decimal> GetRevenueCollectByYear(int year)
+        {
+            decimal collectMoney = 0;
+
+            using (var context = new MasterlibraryEntities())
+            {
+                var collectList = context.PHIEUTHUs.Where(b => b.NGAYTHU.Year == year);
+
+                if (collectList.ToList().Count != 0)
+                {
+                    collectMoney += (decimal)collectList.Sum(b => b.TONGTIEN);
+                }
+                return collectMoney;
+            }
+        }
+
         //tính tiền thu theo tháng
         public async Task<(List<decimal>, decimal)> GetRevenueByMonth(int year, int month)
         {
@@ -182,6 +199,24 @@ namespace MasterLibrary.Models.DataProvider
                 }
 
                 return (expenseTroubleListByMonth, troubleMoney);
+            }
+        }
+
+        //tính tiền khi thu sách phát sinh theo tháng
+        public async Task<decimal> GetRevenueCollectByMonth(int month, int year)
+        {
+            decimal collectMoney = 0;
+
+            using (var context = new MasterlibraryEntities())
+            {
+                var collectList = context.PHIEUTHUs.Where(b => b.NGAYTHU.Month == month && b.NGAYTHU.Year == year);
+
+                if (collectList.ToList().Count != 0)
+                {
+                    collectMoney = (decimal)collectList.Sum(b => b.TONGTIEN);
+                }
+
+                return collectMoney;
             }
         }
     }

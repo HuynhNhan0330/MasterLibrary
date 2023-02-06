@@ -19,7 +19,9 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
 {
     public class HistoryViewModel : BaseViewModel
     {
+
         #region property
+
         private int view = 0;
         private bool _IsGettingSource;
         public bool IsGettingSource 
@@ -70,6 +72,20 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
             set { _SelectedTroubleFilter = value; OnPropertyChanged(); }
         }
 
+        private ComboBoxItem _SelectedCollectFilter;
+        public ComboBoxItem SelectedCollectFilter
+        {
+            get => _SelectedCollectFilter;
+            set { _SelectedCollectFilter = value; OnPropertyChanged(); }
+        }
+
+        private ComboBoxItem _SelectedBorrowFilter;
+        public ComboBoxItem SelectedBorrowFilter
+        {
+            get => _SelectedBorrowFilter;
+            set { _SelectedBorrowFilter = value; OnPropertyChanged(); }
+        }
+
         private int _SelectedRevenueMonth;
         public int SelectedRevenueMonth
         { 
@@ -109,7 +125,35 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
         public int SelectedTroubleMonth
         {
             get => _SelectedTroubleMonth;
-            set { _SelectedTroubleMonth = value; OnPropertyChanged();}
+            set { _SelectedTroubleMonth = value; OnPropertyChanged(); }
+        }
+
+        private int _SelectedCollectMonth;
+        public int SelectedCollectMonth
+        {
+            get => _SelectedCollectMonth;
+            set { _SelectedCollectMonth = value; OnPropertyChanged(); }
+        }
+
+        private int _SelectedCollectYear;
+        public int SelectedCollectYear
+        {
+            get => _SelectedCollectYear;
+            set { _SelectedCollectYear = value; OnPropertyChanged(); }
+        }
+
+        private int _SelectedBorrowMonth;
+        public int SelectedBorrowMonth
+        {
+            get => _SelectedBorrowMonth;
+            set { _SelectedBorrowMonth = value; OnPropertyChanged(); }
+        }
+
+        private int _SelectedBorrowYear;
+        public int SelectedBorrowYear
+        {
+            get => _SelectedBorrowYear;
+            set { _SelectedBorrowYear = value; OnPropertyChanged(); }
         }
 
         private BillDTO _SelectedItemRevenue;
@@ -149,38 +193,66 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
             set { _ListTrouble = value; OnPropertyChanged(); }
         }
 
+        private ObservableCollection<BookInCollectDTO> _ListCollect;
+        public ObservableCollection<BookInCollectDTO> ListCollect
+        {
+            get => _ListCollect;
+            set { _ListCollect = value; OnPropertyChanged(); }
+        }
+
+        private ObservableCollection<BookInBorrowDTO> _ListBorrow;
+        public ObservableCollection<BookInBorrowDTO> ListBorrow
+        {
+            get => _ListBorrow;
+            set { _ListBorrow = value; OnPropertyChanged(); }
+        }
+
         #endregion
 
         #region Icommand
         public ICommand LoadExpensePage { get; set; }
         public ICommand LoadRevenuePage { get; set; }
         public ICommand LoadTroublePage { get; set; }
+        public ICommand LoadCollectPage { get; set; }
+        public ICommand LoadBorrowPage { get; set; }
         public ICommand ExportFileML { get; set; }
         public ICommand MaskNameML { get; set; }
-        public ICommand CheckSelectedExpenseFilterML { get; set; }
         public ICommand SelectedExpenseMonthML { get; set; }
         public ICommand SelectedExpenseYearML { get; set; }
+        public ICommand CheckSelectedExpenseFilterML { get; set; }
         public ICommand CheckSelectedRevenueFilterML { get; set; }
         public ICommand CheckSelectedTroubleFilterML { get; set; }
+        public ICommand CheckSelectedCollectFilterML { get; set; }
+        public ICommand CheckSelectedBorrowFilterML { get; set; }
         public ICommand SelectedRevenueMonthML { get; set; }
         public ICommand SelectedRevenueYearML { get; set; }
         public ICommand SelectedRevenueDateML { get; set; }
         public ICommand SelectedTroubleMonthML { get; set; }
         public ICommand SelectedTroubleYearML { get; set; }
+        public ICommand SelectedCollectMonthML { get; set; }
+        public ICommand SelectedCollectYearML { get; set; }
+        public ICommand SelectedBorrowMonthML { get; set; }
+        public ICommand SelectedBorrowYearML { get; set; }
         public ICommand LoadInforRevenueML { get; set; }
         public ICommand closeML { get; set; }
         #endregion
 
         public HistoryViewModel()
         {
+            #region SetTime
             GetCurrentDate = DateTime.Today;
             SelectedRevenueDate = GetCurrentDate;
             SelectedRevenueMonth = DateTime.Now.Month - 1;
             SelectedExpenseMonth = DateTime.Now.Month - 1;
             SelectedTroubleMonth = DateTime.Now.Month - 1;
+            SelectedCollectMonth = DateTime.Now.Month - 1;
+            SelectedBorrowMonth = DateTime.Now.Month - 1;
             SelectedRevenueYear = DateTime.Now.Year;
             SelectedExpenseYear = DateTime.Now.Year;
             SelectedTroubleYear = DateTime.Now.Year;
+            SelectedCollectYear = DateTime.Now.Year;
+            SelectedBorrowYear = DateTime.Now.Year;
+            #endregion
 
             MaskNameML = new RelayCommand<Grid>((p) => { return true; }, (p) => { MaskName = p; });
             closeML = new RelayCommand<Window>((p) => { return true; }, (p) =>
@@ -220,6 +292,26 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
                 await checkTroubleMonthFilter();
             });
 
+            SelectedCollectMonthML = new RelayCommand<ComboBox>((p) => { return true; }, async (p) =>
+            {
+                await checkCollectMonthFilter();
+            });
+
+            SelectedCollectYearML = new RelayCommand<ComboBox>((p) => { return true; }, async (p) =>
+            {
+                await checkCollectMonthFilter();
+            });
+
+            SelectedBorrowMonthML = new RelayCommand<ComboBox>((p) => { return true; }, async (p) =>
+            {
+                await checkBorrowMonthFilter();
+            });
+
+            SelectedBorrowYearML = new RelayCommand<ComboBox>((p) => { return true; }, async (p) =>
+            {
+                await checkBorrowMonthFilter();
+            });
+
             SelectedRevenueDateML = new RelayCommand<DatePicker>((p) => { return true; }, async (p) => 
             {
                 await GetRevenueListSource("date");
@@ -238,6 +330,16 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
             CheckSelectedTroubleFilterML = new RelayCommand<ComboBox>((p) => { return true; }, async (p) =>
             {
                 await checkTroubleFilter();
+            });
+
+            CheckSelectedCollectFilterML = new RelayCommand<ComboBox>((p) => { return true; }, async (p) =>
+            {
+                await checkCollectFilter();
+            });
+
+            CheckSelectedBorrowFilterML = new RelayCommand<ComboBox>((p) => { return true; }, async (p) =>
+            {
+                await checkBorrowFilter();
             });
 
             LoadExpensePage = new RelayCommand<Frame>((p) => { return true; }, async (p) => 
@@ -272,11 +374,32 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
                 p.Content = new TroublePage_His();
             });
 
+            LoadCollectPage = new RelayCommand<Frame>((p) => { return true; }, async (p) =>
+            {
+                view = 3;
+                IsGettingSource = true;
+                ListCollect = new ObservableCollection<BookInCollectDTO>();
+                await GetCollectListSource("");
+                IsGettingSource = false;
+                p.Content = new CollectPage();
+            });
+
+            LoadBorrowPage = new RelayCommand<Frame>((p) => { return true; }, async (p) =>
+            {
+                view = 4;
+                IsGettingSource = true;
+                ListBorrow = new ObservableCollection<BookInBorrowDTO>();
+                await GetBorrowListSource("");
+                IsGettingSource = false;
+                p.Content = new BorrowPage();
+            });
+
             ExportFileML = new RelayCommand<object>((p) => { return true; }, async(p) =>
             {
                 ExportFile();
             });
 
+            #region not use
             //LoadInforRevenueML = new RelayCommand<object>((p) => { return true; }, async (p) =>
             //{
             //    if (SelectedItemRevenue != null)
@@ -303,7 +426,7 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
             //        rd.idBill.Content = DetailRevenue.MAHD;
             //    }
             //});
-
+            #endregion
         }
 
         //filter tháng cho danh sách chi tiền
@@ -353,6 +476,46 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
             try
             {
                 ListTrouble = new ObservableCollection<TroubleDTO>(await TroubleServices.Ins.GetTroubleByMonth(SelectedTroubleMonth + 1, SelectedTroubleYear));
+            }
+            catch (System.Data.Entity.Core.EntityException e)
+            {
+                MessageBoxML mb = new MessageBoxML("Lỗi", "Mất kết nối cơ sở dữ liệu", MessageType.Error, MessageButtons.OK);
+                mb.ShowDialog();
+                throw;
+            }
+            catch
+            {
+                MessageBoxML mb = new MessageBoxML("Lỗi", "Lỗi hệ thống", MessageType.Error, MessageButtons.OK);
+                mb.ShowDialog();
+                throw;
+            }
+        }
+
+        public async Task checkCollectMonthFilter()
+        {
+            try
+            {
+                ListCollect = new ObservableCollection<BookInCollectDTO>(await BookInBorrowServices.Ins.GetCollectBookByMonth(SelectedCollectMonth + 1, SelectedCollectYear));
+            }
+            catch (System.Data.Entity.Core.EntityException e)
+            {
+                MessageBoxML mb = new MessageBoxML("Lỗi", "Mất kết nối cơ sở dữ liệu", MessageType.Error, MessageButtons.OK);
+                mb.ShowDialog();
+                throw;
+            }
+            catch
+            {
+                MessageBoxML mb = new MessageBoxML("Lỗi", "Lỗi hệ thống", MessageType.Error, MessageButtons.OK);
+                mb.ShowDialog();
+                throw;
+            }
+        }
+
+        public async Task checkBorrowMonthFilter()
+        {
+            try
+            {
+                ListBorrow = new ObservableCollection<BookInBorrowDTO>(await BookInBorrowServices.Ins.GetBookBorrowByMonth(SelectedBorrowMonth + 1, SelectedBorrowYear));
             }
             catch (System.Data.Entity.Core.EntityException e)
             {
@@ -504,6 +667,80 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
             }
         }
 
+        public async Task GetCollectListSource(string s = "")
+        {
+            ListCollect = new ObservableCollection<BookInCollectDTO>();
+            switch(s)
+            {
+                case "":
+                    {
+                        try
+                        {
+                            IsGettingSource = true;
+                            ListCollect = new ObservableCollection<BookInCollectDTO>(await BookInBorrowServices.Ins.GetAllCollectBook());
+                            IsGettingSource = false;
+                            return;
+                        }
+                        catch (System.Data.Entity.Core.EntityException e)
+                        {
+                            MessageBoxML mb = new MessageBoxML("Lỗi", "Mất kết nối cơ sở dữ liệu", MessageType.Error, MessageButtons.OK);
+                            mb.ShowDialog();
+                            throw;
+                        }
+                        catch
+                        {
+                            MessageBoxML mb = new MessageBoxML("Lỗi", "Lỗi hệ thống", MessageType.Error, MessageButtons.OK);
+                            mb.ShowDialog();
+                            throw;
+                        }
+                    }
+                case "month":
+                    {
+                        IsGettingSource = true;
+                        await checkCollectMonthFilter();
+                        IsGettingSource = false;
+                        return;
+                    }
+            }
+        }
+
+        public async Task GetBorrowListSource(string s = "")
+        {
+            ListBorrow = new ObservableCollection<BookInBorrowDTO>();
+            switch(s)
+            {
+                case "":
+                    {
+                        try
+                        {
+                            IsGettingSource = true;
+                            ListBorrow = new ObservableCollection<BookInBorrowDTO>(await BookInBorrowServices.Ins.GetAllBookBorrow());
+                            IsGettingSource = false;
+                            return;
+                        }
+                        catch (System.Data.Entity.Core.EntityException e)
+                        {
+                            MessageBoxML mb = new MessageBoxML("Lỗi", "Mất kết nối cơ sở dữ liệu", MessageType.Error, MessageButtons.OK);
+                            mb.ShowDialog();
+                            throw;
+                        }
+                        catch
+                        {
+                            MessageBoxML mb = new MessageBoxML("Lỗi", "Lỗi hệ thống", MessageType.Error, MessageButtons.OK);
+                            mb.ShowDialog();
+                            throw;
+                        }
+                    }
+                case "month":
+                    {
+                        IsGettingSource = true;
+                        await checkBorrowMonthFilter();
+                        IsGettingSource = false;
+                        return;
+                    }
+            }
+        }
+
         //filter
         public async Task checkExpenseFilter()
         {
@@ -561,6 +798,40 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
                     }
             }
         }
+
+        public async Task checkCollectFilter()
+        {
+            switch (SelectedCollectFilter.Content.ToString())
+            {
+                case "Toàn bộ":
+                    {
+                        await GetCollectListSource("");
+                        return;
+                    }
+                case "Theo tháng":
+                    {
+                        await GetCollectListSource("month");
+                        return;
+                    }
+            }
+        }
+
+        public async Task checkBorrowFilter()
+        {
+            switch (SelectedBorrowFilter.Content.ToString())
+            {
+                case "Toàn bộ":
+                    {
+                        await GetBorrowListSource("");
+                        return;
+                    }
+                case "Theo tháng":
+                    {
+                        await GetBorrowListSource("month");
+                        return;
+                    }
+            }
+        }
         //xuất file excel
         public void ExportFile()
         {
@@ -570,6 +841,7 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
                     {
                         SaveFileDialog sf = new SaveFileDialog
                         {
+                            FileName = "NhapSach",
                             Filter = "Excel |*.xlsx",
                             ValidateNames = true
                         };
@@ -613,6 +885,7 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
                     {
                         SaveFileDialog sf = new SaveFileDialog
                         {
+                            FileName = "BanSach",
                             Filter = "Excel |*.xlsx",
                             ValidateNames = true
                         };
@@ -656,6 +929,7 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
                     {
                         SaveFileDialog sf = new SaveFileDialog
                         {
+                            FileName = "SuCo",
                             Filter = "Excel |*.xlsx",
                             ValidateNames = true
                         };
@@ -681,6 +955,54 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
                                 ws.Cells[count, 3] = item.NgayBaoCao;
                                 ws.Cells[count, 4] = item.ChiPhistr;
                                 ws.Cells[count, 5] = item.MoTa;
+
+                                count++;
+                            }
+                            ws.SaveAs(sf.FileName);
+                            wb.Close();
+                            app.Quit();
+
+                            Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
+                            MessageBoxML mb = new MessageBoxML("Thông báo", "Xuất file thành công", MessageType.Accept, MessageButtons.OK);
+                            mb.ShowDialog();
+                        }
+                        break;
+                    }
+
+                case 3:
+                    {
+                        SaveFileDialog sf = new SaveFileDialog
+                        {
+                            FileName = "ThuSach",
+                            Filter = "Excel |*.xlsx",
+                            ValidateNames = true
+                        };
+                        if (sf.ShowDialog() == DialogResult.OK)
+                        {
+                            Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
+                            Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+                            app.Visible = false;
+                            Microsoft.Office.Interop.Excel.Workbook wb = app.Workbooks.Add(1);
+                            Microsoft.Office.Interop.Excel.Worksheet ws = (Microsoft.Office.Interop.Excel.Worksheet)wb.Worksheets[1];
+
+                            ws.Cells[1, 1] = "Mã phiếu thu";
+                            ws.Cells[1, 2] = "Tên khách hàng";
+                            ws.Cells[1, 3] = "Tên sách";
+                            ws.Cells[1, 4] = "Số lượng hỏng";
+                            ws.Cells[1, 5] = "Tổng tiền hỏng";
+                            ws.Cells[1, 6] = "Tiền trễ";
+                            ws.Cells[1, 7] = "Tổng tiền trả";
+
+                            int count = 2;
+                            foreach (var item in ListCollect)
+                            {
+                                ws.Cells[count, 1] = item.MaPhieuMuon;
+                                ws.Cells[count, 2] = item.TenKH;
+                                ws.Cells[count, 3] = item.TenSach;
+                                ws.Cells[count, 4] = item.SoLuongHong;
+                                ws.Cells[count, 5] = item.TongTienHongStr;
+                                ws.Cells[count, 6] = item.TienTreStr;
+                                ws.Cells[count, 7] = item.TongTienTraStr;
 
                                 count++;
                             }
