@@ -8,11 +8,25 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       d:DesignHeight="600"
       d:DesignWidth="1170"
-      Name="SettingPage"
+      Name="SettingPageML"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       Title="SettingPageAdmin"
       DataContext="{StaticResource SettingAdminVM}">
 
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Page.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="SettingPageML"
+                                     Storyboard.TargetProperty="Opacity"
+                                     From="0"
+                                     To="1"
+                                     Duration="0:0:0.3" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
+    
     <Border BorderThickness="0"
             CornerRadius="20">
         <Grid Background="#ffffff">
@@ -54,6 +68,27 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </materialDesign:Card>
+
+                <StackPanel Grid.Row="1"
+                            Margin="30 50">
+                    <TextBlock Grid.Row="1"
+                               Text="Sách là người bạn trung thành và yên tĩnh nhất, chúng là những nhà cố vấn dễ tiếp cận và khôn ngoan nhất, và chúng còn là những giáo viên kiên nhẫn nhất"
+                               TextWrapping="Wrap"
+                               Foreground="#a47100"
+                               FontWeight="SemiBold"
+                               FontSize="16"
+                               >
+
+                    </TextBlock>
+
+                    <TextBlock Text="-Charles William Eliot-"
+                               HorizontalAlignment="Right"
+                               Foreground="#a47100"
+                               FontWeight="SemiBold"
+                               FontSize="16"/>
+                </StackPanel>
+                
+                
             </Grid>
         </Grid>
     </Border>
