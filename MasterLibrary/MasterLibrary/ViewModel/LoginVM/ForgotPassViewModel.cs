@@ -86,7 +86,7 @@ namespace MasterLibrary.ViewModel.LoginVM
                         Random random = new Random();
                         Number = random.Next(1, 999999);
                         SendEmail(Number.ToString());
-                        MasterLibrary.ViewModel.LoginVM.LoginViewModel.MainFrame.Content = new VerificationPage();
+                        LoginViewModel.MainFrame.Content = new VerificationPage();
                     }    
                 }
 
@@ -125,9 +125,9 @@ namespace MasterLibrary.ViewModel.LoginVM
                     using (var context = new MasterlibraryEntities())
                     {
                         var changepass = context.KHACHHANGs.Where(x => x.EMAIL == Mail).FirstOrDefault();
-                        changepass.USERPASSWORD = Newpass;
+                        changepass.USERPASSWORD = Utils.Helper.HashPassword(Newpass);
                         context.SaveChanges();
-                        MasterLibrary.ViewModel.LoginVM.LoginViewModel.MainFrame.Content = new LoginPage();
+                        LoginViewModel.MainFrame.Content = new LoginPage();
                     }
                 }       
             });

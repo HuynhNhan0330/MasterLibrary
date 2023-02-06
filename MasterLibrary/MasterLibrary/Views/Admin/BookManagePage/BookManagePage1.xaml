@@ -58,7 +58,7 @@
                                     Grid.Column="1"
                                     Name="txbFilter"
                                     Margin="8,7,0,0"
-                                    materialDesign:HintAssist.Hint="Typing something"
+                                    materialDesign:HintAssist.Hint="Tìm kiếm sách"
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                     BorderThickness="0"
                                     MinWidth="200"

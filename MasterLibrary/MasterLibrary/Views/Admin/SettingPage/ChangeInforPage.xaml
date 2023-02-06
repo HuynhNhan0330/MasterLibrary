@@ -136,7 +136,7 @@
                                 Height="40"
                                 Name="btnupdate"
                                 Command="{Binding UpdateInforAdmin}"
-                                CommandParameter="{Binding ElementName=btnsave}"
+                        CommandParameter="{Binding ElementName=Confirm_Frame}"
                                 ToolTip="Lưu thay đổi">
                     Lưu thay đổi
                 </Button>
