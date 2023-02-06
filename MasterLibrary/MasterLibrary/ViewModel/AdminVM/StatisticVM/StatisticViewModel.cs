@@ -12,6 +12,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using MasterLibrary.Views.MessageBoxML;
+using MasterLibrary.DTOs;
+using System.Collections.ObjectModel;
 
 namespace MasterLibrary.ViewModel.AdminVM.StatisticVM
 {
@@ -75,7 +77,30 @@ namespace MasterLibrary.ViewModel.AdminVM.StatisticVM
         {
             get { return _LabelMaxValue; }
             set { _LabelMaxValue = value; OnPropertyChanged(); }
-        }     
+        }
+
+        private ObservableCollection<BookInCollectDTO> _ListBookInCollect;
+        public ObservableCollection<BookInCollectDTO> ListBookInCollect
+        {
+            get { return _ListBookInCollect; }
+            set { _ListBookInCollect = value; OnPropertyChanged(); }
+        }
+
+        void fillBookInCollect()
+        {
+            ListBookInCollect = new ObservableCollection<BookInCollectDTO>(ListBookInCollect.OrderBy(b=>b.MaSach));
+        }
+
+        decimal TinhTien()
+        {
+            decimal totalMoney = 0;
+            for (int i = 0; i < ListBookInCollect.Count; ++i)
+            {
+                totalMoney += ListBookInCollect[i].TongTienTra;
+            }
+            return totalMoney;
+        }
+
         #endregion
         public StatisticViewModel()
         {
@@ -119,20 +144,21 @@ namespace MasterLibrary.ViewModel.AdminVM.StatisticVM
                 (List<decimal> MonthlyRevenue, decimal totalin) = await Task.Run(() => StatisticServices.Ins.GetRevenueByYear(int.Parse(SelectedTime)));
                 (List<decimal> MonthlyExpense, decimal totalout) = await Task.Run(() => StatisticServices.Ins.GetExpenseByYear(int.Parse(SelectedTime)));
                 (List<decimal> MonthlyTrouble, decimal troublemoney) = await Task.Run(() => StatisticServices.Ins.GetExpenseTroubleByYear(int.Parse(SelectedTime)));
+                decimal collectMoney = await Task.Run(() => StatisticServices.Ins.GetRevenueCollectByYear(int.Parse(SelectedTime)));
 
-                TotalIn = Helper.FormatVNMoney(totalin);
-                TotalOut = Helper.FormatVNMoney(totalout + troublemoney);
-                TrueIncome = Helper.FormatVNMoney(totalin - totalout);
+                TotalIn = totalin == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalin + collectMoney);
+                TotalOut = totalout == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalout + troublemoney);
+                TrueIncome = ((totalin - totalout) == 0) ? "Không có giao dịch" : Helper.FormatVNMoney(totalin - totalout);
 
                 MonthlyRevenue.Insert(0, 0);
                 MonthlyExpense.Insert(0, 0);
-                MonthlyTrouble.Insert(0, 0);
+                //MonthlyTrouble.Insert(0, 0);
 
                 for (int i = 1; i <= 12; i++)
                 {
                     MonthlyRevenue[i] /= 1000000;
                     MonthlyExpense[i] /= 1000000;
-                    MonthlyTrouble[i] /= 1000000;
+                    //MonthlyTrouble[i] /= 1000000;
                 }
 
                 IncomeData = new SeriesCollection
@@ -177,20 +203,21 @@ namespace MasterLibrary.ViewModel.AdminVM.StatisticVM
                 (List<decimal> DailyRevenue, decimal totalin) = await Task.Run(() => StatisticServices.Ins.GetRevenueByMonth(SelectedYear, int.Parse(SelectedTime.Remove(0, 6))));
                 (List<decimal> DailyExpense, decimal totalout) = await Task.Run(() => StatisticServices.Ins.GetExpenseByMonth(SelectedYear, int.Parse(SelectedTime.Remove(0, 6))));
                 (List<decimal> DailyTrouble, decimal troublemoney) = await Task.Run(() => StatisticServices.Ins.GetExpenseTroubleByMonth(SelectedYear, int.Parse(SelectedTime.Remove(0, 6))));
+                decimal collectMoney = await Task.Run(() => StatisticServices.Ins.GetRevenueCollectByMonth(SelectedYear, int.Parse(SelectedTime.Remove(0, 6))));
 
-                TotalIn = Helper.FormatVNMoney(totalin);
-                TotalOut = Helper.FormatVNMoney(totalout + troublemoney);
-                TrueIncome = Helper.FormatVNMoney(totalin - totalout);
+                TotalIn = totalin == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalin + collectMoney);
+                TotalOut = totalout == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalout + troublemoney);
+                TrueIncome = ((totalin - totalout) == 0) ? "Không có giao dịch" : Helper.FormatVNMoney(totalin - totalout);
 
                 DailyRevenue.Insert(0, 0);
                 DailyExpense.Insert(0, 0);
-                DailyTrouble.Insert(0, 0);
+                //DailyTrouble.Insert(0, 0);
 
                 for (int i = 1; i <= DailyRevenue.Count - 1; i++)
         {
                     DailyRevenue[i] /= 1000000;
                     DailyExpense[i] /= 1000000;
-                    DailyTrouble[i] /= 1000000;
+                    //DailyTrouble[i] /= 1000000;
                 }
 
                 IncomeData = new SeriesCollection

@@ -118,7 +118,8 @@
                                         <ColumnDefinition Width="1*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <Grid Grid.Column="0">
-                                        <Label Content="Tổng thu" FontSize="30" VerticalAlignment="Center" Margin="10 0 0 0"></Label>
+                                        <Label Content="Tổng thu" FontSize="30" VerticalAlignment="Center" Margin="10 0 0 0"
+                                               ToolTip="Tiền bán sách, tiền thu sách"></Label>
                                     </Grid>
 
                                     <Grid Grid.Column="1" Width="40" Height="40">
@@ -154,7 +155,8 @@
                                         <ColumnDefinition Width="1*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <Grid Grid.Column="0">
-                                        <Label Content="Tổng chi" FontSize="30" VerticalAlignment="Center" Margin="10 0 0 0"></Label>
+                                        <Label Content="Tổng chi" FontSize="30" VerticalAlignment="Center" Margin="10 0 0 0"
+                                               ToolTip="Tiền nhập sách, chi phí sửa chữa"></Label>
                                     </Grid>
 
                                     <Grid Grid.Column="1" Width="40" Height="40">

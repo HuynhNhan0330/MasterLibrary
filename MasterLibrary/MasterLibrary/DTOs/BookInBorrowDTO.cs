@@ -10,6 +10,7 @@ namespace MasterLibrary.DTOs
     public class BookInBorrowDTO
     {
         public int MaPhieuMuon { get; set; }
+        public string TenKH { get; set; }
         public int MaSach { get; set; }
         public string TenSach { get; set; }
         public string img { get; set; }
@@ -17,11 +18,13 @@ namespace MasterLibrary.DTOs
         public int SoLuongMax { get; set; }
         public int Gia { get; set; }
         public DateTime NgayHetHan { get; set; }
+        public DateTime NgayMuon { get; set; }
     }
 
     public class BookInCollectDTO
     {
         public int MaPhieuMuon { get; set; }
+        public string TenKH { get; set; }
         public int MaSach { get; set; }
         public string TenSach { get; set; }
         public int SoLuong { get; set; }
