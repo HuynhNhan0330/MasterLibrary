@@ -53,6 +53,27 @@
                              Content="Nhập sách"
                              Command="{Binding LoadExpensePage}"
                              CommandParameter="{Binding ElementName=MainListViewFrame}"/>
+                
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButtonTop}"
+                             BorderBrush="{DynamicResource PrimaryHueMidBrush}"
+                             VerticalAlignment="Top"
+                             Height="50"
+                             IsChecked="False"
+                             Margin="10 30 0 0"
+                             Content="Bán sách"
+                             Command="{Binding LoadRevenuePage}"
+                             CommandParameter="{Binding ElementName=MainListViewFrame}"/>
+                
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButtonTop}"
+                             BorderBrush="{DynamicResource PrimaryHueMidBrush}"
+                             VerticalAlignment="Top"
+                             Height="50"
+                             IsChecked="False"
+                             Margin="10 30 0 0"
+                             Content="Thu sách"
+                             Command="{Binding LoadCollectPage}"
+                             CommandParameter="{Binding ElementName=MainListViewFrame}"/>
+                
                 <RadioButton Style="{StaticResource MaterialDesignTabRadioButtonTop}"
                              BorderBrush="{DynamicResource PrimaryHueMidBrush}"
                              VerticalAlignment="Top"
@@ -61,15 +82,6 @@
                              Margin="20 30 0 0"
                              Content="Sự cố"
                              Command="{Binding LoadTroublePage}"
-                             CommandParameter="{Binding ElementName=MainListViewFrame}"/>
-                <RadioButton Style="{StaticResource MaterialDesignTabRadioButtonTop}"
-                             BorderBrush="{DynamicResource PrimaryHueMidBrush}"
-                             VerticalAlignment="Top"
-                             Height="50"
-                             IsChecked="False"
-                             Margin="10 30 0 0"
-                             Content="Nguồn thu"
-                             Command="{Binding LoadRevenuePage}"
                              CommandParameter="{Binding ElementName=MainListViewFrame}"/>
             </StackPanel>
 

@@ -109,8 +109,8 @@
           <Property Name="MAKH" Type="int" />
           <Property Name="MASACH" Type="int" />
           <Property Name="SOLUONG" Type="int" />
-          <Property Name="NGAYTHU" Type="smalldatetime" />
-          <Property Name="NGAYMUON" Type="smalldatetime" />
+          <Property Name="NGAYTHU" Type="smalldatetime" Nullable="false" />
+          <Property Name="NGAYMUON" Type="smalldatetime" Nullable="false" />
           <Property Name="TIENTREMOTNGAY" Type="money" />
           <Property Name="SOLUONGHONG" Type="int" />
           <Property Name="TIENPHATHONG" Type="money" />
@@ -693,8 +693,8 @@
           <Property Name="MAKH" Type="Int32" />
           <Property Name="MASACH" Type="Int32" />
           <Property Name="SOLUONG" Type="Int32" />
-          <Property Name="NGAYTHU" Type="DateTime" Precision="0" />
-          <Property Name="NGAYMUON" Type="DateTime" Precision="0" />
+          <Property Name="NGAYTHU" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NGAYMUON" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="TIENTREMOTNGAY" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="SOLUONGHONG" Type="Int32" />
           <Property Name="TIENPHATHONG" Type="Decimal" Precision="19" Scale="4" />

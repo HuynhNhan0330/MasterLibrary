@@ -101,6 +101,64 @@ namespace MasterLibrary.Models.DataProvider
             return bookborrows;
         }
 
+        public async Task<List<BookInCollectDTO>> GetAllCollectBook()
+        {
+            List<BookInCollectDTO> collectList = null;
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    collectList = await (from thusach in context.PHIEUTHUs
+                                         select new BookInCollectDTO
+                                         {
+                                             MaPhieuMuon = thusach.MAPHIEUTHU,
+                                             TenKH = thusach.KHACHHANG.TENKH,
+                                             TenSach = thusach.SACH.TENSACH,
+                                             SoLuongHong = (int)thusach.SOLUONGHONG,
+                                             TienHong = (int)thusach.TIENPHATHONG,
+                                             TienTre = (int)thusach.TIENTREMOTNGAY,
+                                             TongTienTra = (int)thusach.TONGTIEN
+                                         }
+                    ).ToListAsync();
+                }
+            }
+            catch (Exception) 
+            {
+                
+            }
+
+            return collectList;
+        }
+
+        public async Task<List<BookInCollectDTO>> GetCollecBookByMonth(int month, int year)
+        {
+            List<BookInCollectDTO> collectList = null;
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    collectList = await (from thusach in context.PHIEUTHUs
+                                         where thusach.NGAYTHU.Month == month && thusach.NGAYTHU.Year == year
+                                         select new BookInCollectDTO
+                                         {
+                                             MaPhieuMuon = thusach.MAPHIEUTHU,
+                                             TenKH = thusach.KHACHHANG.TENKH,
+                                             TenSach = thusach.SACH.TENSACH,
+                                             SoLuongHong = (int)thusach.SOLUONGHONG,
+                                             TienHong = (int)thusach.TIENPHATHONG,
+                                             TienTre = (int)thusach.TIENTREMOTNGAY,
+                                             TongTienTra = (int)thusach.TONGTIEN
+                                         }).ToListAsync();
+                }
+            }
+            catch (Exception) 
+            { 
+            
+            }
+
+            return collectList;
+        }
+
         public async Task<(bool, string)> CreateNewReceipt(int idCustomer, ObservableCollection<BookInCollectDTO> BookInCollectList)
         {
             try

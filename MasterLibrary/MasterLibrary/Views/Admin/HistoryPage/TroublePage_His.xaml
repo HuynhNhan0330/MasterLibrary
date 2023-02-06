@@ -33,6 +33,11 @@
     </Page.Triggers>
     
     <Grid>
+        <Grid.Resources>
+            <Style TargetType="ListViewItem">
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+            </Style>
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="9*"></RowDefinition>
@@ -161,7 +166,7 @@
                                 <DataTemplate>
                                     <TextBlock  Text="{Binding MaSC}"
                                                 FontSize="18"
-                                                Margin="10,0,0,0" />
+                                                Margin="10,0,0,0"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -172,7 +177,7 @@
                                 <DataTemplate>
                                     <TextBlock Text="{Binding TenLoaiSuCo}"
                                                 FontSize="18"
-                                                Margin="10,0,0,0" />
+                                                Margin="10,0,0,0"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -183,7 +188,7 @@
                                 <DataTemplate>
                                     <TextBlock  Text="{Binding NgayBaoCao}"
                                                 FontSize="18"
-                                                Margin="10,0,0,0" />
+                                                Margin="10,0,0,0"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -194,7 +199,7 @@
                                 <DataTemplate>
                                     <TextBlock  Text="{Binding ChiPhi}"
                                                 FontSize="18"
-                                                Margin="10,0,0,0" />
+                                                Margin="10,0,0,0"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -205,7 +210,7 @@
                                 <DataTemplate>
                                     <TextBlock  Text="{Binding MoTa}"
                                                 FontSize="18"
-                                                Margin="10,0,0,0" />
+                                                Margin="10,0,0,0"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
