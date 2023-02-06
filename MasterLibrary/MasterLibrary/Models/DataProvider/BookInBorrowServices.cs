@@ -107,19 +107,22 @@ namespace MasterLibrary.Models.DataProvider
             {
                 using (var context = new MasterlibraryEntities())
                 {
+                    List<PHIEUTHU> PhieuThuList = new List<PHIEUTHU>();
+
                     for (int i = 0; i < BookInCollectList.Count; ++i)
                     {
-                        PHIEUTHU newPhieuMuon = new PHIEUTHU();
-                        newPhieuMuon.MAKH = idCustomer;
-                        newPhieuMuon.MASACH = BookInCollectList[i].MaSach;
-                        newPhieuMuon.NGAYTHU = BookInCollectList[i].NgayTra;
-                        newPhieuMuon.SOLUONG = BookInCollectList[i].SoLuong;
-                        newPhieuMuon.TIENPHATHONG = BookInCollectList[i].TienHong;
-                        newPhieuMuon.SOLUONGHONG = BookInCollectList[i].SoLuongHong;
-                        newPhieuMuon.TIENTREMOTNGAY = BookInCollectList[i].TienTre;
-                        newPhieuMuon.TONGTIEN = BookInCollectList[i].TongTienTra;
+                        PHIEUTHU newPhieuThu = new PHIEUTHU();
+                        newPhieuThu.MAKH = idCustomer;
+                        newPhieuThu.MASACH = BookInCollectList[i].MaSach;
+                        newPhieuThu.NGAYTHU = BookInCollectList[i].NgayTra;
+                        newPhieuThu.NGAYMUON = BookInCollectList[i].NgayHetHan;
+                        newPhieuThu.SOLUONG = BookInCollectList[i].SoLuong;
+                        newPhieuThu.TIENPHATHONG = BookInCollectList[i].TienHong;
+                        newPhieuThu.SOLUONGHONG = BookInCollectList[i].SoLuongHong;
+                        newPhieuThu.TIENTREMOTNGAY = BookInCollectList[i].TienTre;
+                        newPhieuThu.TONGTIEN = BookInCollectList[i].TongTienTra;
 
-                        // cộng lại số lượng sách đã thuê
+                        PhieuThuList.Add(newPhieuThu);
 
                         var _phieumuon = await context.PHIEUMUONs.FindAsync(BookInCollectList[i].MaPhieuMuon);
                         
@@ -133,9 +136,12 @@ namespace MasterLibrary.Models.DataProvider
                             }
                         }
 
+                        // cộng lại số lượng sách đã thuê
                         var _sach = await context.SACHes.FindAsync(BookInCollectList[i].MaSach);
                         if (_sach != null) _sach.SL += BookInCollectList[i].SoLuong;
                     }
+
+                    context.PHIEUTHUs.AddRange(PhieuThuList);
 
                     context.SaveChanges();
 
