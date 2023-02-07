@@ -111,7 +111,7 @@
           <Property Name="MASACH" Type="int" />
           <Property Name="SOLUONG" Type="int" />
           <Property Name="NGAYTHU" Type="smalldatetime" Nullable="false" />
-          <Property Name="NGAYMUON" Type="smalldatetime" Nullable="false" />
+          <Property Name="NGAYHETHAN" Type="smalldatetime" Nullable="false" />
           <Property Name="TIENTREMOTNGAY" Type="money" />
           <Property Name="SOLUONGHONG" Type="int" />
           <Property Name="TIENPHATHONG" Type="money" />
@@ -301,7 +301,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PHIEUTHU__MAKH__0A688BB1">
+        <Association Name="FK__PHIEUTHU__MAKH__0E391C95">
           <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
           <End Role="PHIEUTHU" Type="Self.PHIEUTHU" Multiplicity="*" />
           <ReferentialConstraint>
@@ -313,7 +313,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PHIEUTHU__MASACH__0B5CAFEA">
+        <Association Name="FK__PHIEUTHU__MASACH__0F2D40CE">
           <End Role="SACH" Type="Self.SACH" Multiplicity="0..1" />
           <End Role="PHIEUTHU" Type="Self.PHIEUTHU" Multiplicity="*" />
           <ReferentialConstraint>
@@ -446,11 +446,11 @@
             <End Role="SACH" EntitySet="SACH" />
             <End Role="PHIEUMUON" EntitySet="PHIEUMUON" />
           </AssociationSet>
-          <AssociationSet Name="FK__PHIEUTHU__MAKH__0A688BB1" Association="Self.FK__PHIEUTHU__MAKH__0A688BB1">
+          <AssociationSet Name="FK__PHIEUTHU__MAKH__0E391C95" Association="Self.FK__PHIEUTHU__MAKH__0E391C95">
             <End Role="KHACHHANG" EntitySet="KHACHHANG" />
             <End Role="PHIEUTHU" EntitySet="PHIEUTHU" />
           </AssociationSet>
-          <AssociationSet Name="FK__PHIEUTHU__MASACH__0B5CAFEA" Association="Self.FK__PHIEUTHU__MASACH__0B5CAFEA">
+          <AssociationSet Name="FK__PHIEUTHU__MASACH__0F2D40CE" Association="Self.FK__PHIEUTHU__MASACH__0F2D40CE">
             <End Role="SACH" EntitySet="SACH" />
             <End Role="PHIEUTHU" EntitySet="PHIEUTHU" />
           </AssociationSet>
@@ -540,7 +540,7 @@
             <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
             <End Role="PHIEUMUON" EntitySet="PHIEUMUONs" />
           </AssociationSet>
-          <AssociationSet Name="FK__PHIEUTHU__MAKH__0A688BB1" Association="masterlibraryModel.FK__PHIEUTHU__MAKH__0A688BB1">
+          <AssociationSet Name="FK__PHIEUTHU__MAKH__0E391C95" Association="masterlibraryModel.FK__PHIEUTHU__MAKH__0E391C95">
             <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
             <End Role="PHIEUTHU" EntitySet="PHIEUTHUs" />
           </AssociationSet>
@@ -556,7 +556,7 @@
             <End Role="SACH" EntitySet="SACHes" />
             <End Role="PHIEUMUON" EntitySet="PHIEUMUONs" />
           </AssociationSet>
-          <AssociationSet Name="FK__PHIEUTHU__MASACH__0B5CAFEA" Association="masterlibraryModel.FK__PHIEUTHU__MASACH__0B5CAFEA">
+          <AssociationSet Name="FK__PHIEUTHU__MASACH__0F2D40CE" Association="masterlibraryModel.FK__PHIEUTHU__MASACH__0F2D40CE">
             <End Role="SACH" EntitySet="SACHes" />
             <End Role="PHIEUTHU" EntitySet="PHIEUTHUs" />
           </AssociationSet>
@@ -644,7 +644,7 @@
           <NavigationProperty Name="USERROLE" Relationship="masterlibraryModel.FK__KHACHHANG__IDROL__619B8048" FromRole="KHACHHANG" ToRole="USERROLE" />
           <NavigationProperty Name="NHAPKHOes" Relationship="masterlibraryModel.FK__NHAPKHO__MANV__5E8A0973" FromRole="KHACHHANG" ToRole="NHAPKHO" />
           <NavigationProperty Name="PHIEUMUONs" Relationship="masterlibraryModel.FK__PHIEUMUON__MAKH__756D6ECB" FromRole="KHACHHANG" ToRole="PHIEUMUON" />
-          <NavigationProperty Name="PHIEUTHUs" Relationship="masterlibraryModel.FK__PHIEUTHU__MAKH__0A688BB1" FromRole="KHACHHANG" ToRole="PHIEUTHU" />
+          <NavigationProperty Name="PHIEUTHUs" Relationship="masterlibraryModel.FK__PHIEUTHU__MAKH__0E391C95" FromRole="KHACHHANG" ToRole="PHIEUTHU" />
           <NavigationProperty Name="SUCOes" Relationship="masterlibraryModel.FK__SUCO__MAKH__37703C52" FromRole="KHACHHANG" ToRole="SUCO" />
         </EntityType>
         <EntityType Name="LOAISUCO">
@@ -696,13 +696,13 @@
           <Property Name="MASACH" Type="Int32" />
           <Property Name="SOLUONG" Type="Int32" />
           <Property Name="NGAYTHU" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="NGAYMUON" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NGAYHETHAN" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="TIENTREMOTNGAY" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="SOLUONGHONG" Type="Int32" />
           <Property Name="TIENPHATHONG" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="TONGTIEN" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="KHACHHANG" Relationship="masterlibraryModel.FK__PHIEUTHU__MAKH__0A688BB1" FromRole="PHIEUTHU" ToRole="KHACHHANG" />
-          <NavigationProperty Name="SACH" Relationship="masterlibraryModel.FK__PHIEUTHU__MASACH__0B5CAFEA" FromRole="PHIEUTHU" ToRole="SACH" />
+          <NavigationProperty Name="KHACHHANG" Relationship="masterlibraryModel.FK__PHIEUTHU__MAKH__0E391C95" FromRole="PHIEUTHU" ToRole="KHACHHANG" />
+          <NavigationProperty Name="SACH" Relationship="masterlibraryModel.FK__PHIEUTHU__MASACH__0F2D40CE" FromRole="PHIEUTHU" ToRole="SACH" />
         </EntityType>
         <EntityType Name="SACH">
           <Key>
@@ -724,7 +724,7 @@
           <NavigationProperty Name="DAYKE" Relationship="masterlibraryModel.FK__SACH__VITRIDAY__40058253" FromRole="SACH" ToRole="DAYKE" />
           <NavigationProperty Name="GIOHANGs" Relationship="masterlibraryModel.FK__GIOHANG__MASACH__47A6A41B" FromRole="SACH" ToRole="GIOHANG" />
           <NavigationProperty Name="PHIEUMUONs" Relationship="masterlibraryModel.FK__PHIEUMUON__MASAC__76619304" FromRole="SACH" ToRole="PHIEUMUON" />
-          <NavigationProperty Name="PHIEUTHUs" Relationship="masterlibraryModel.FK__PHIEUTHU__MASACH__0B5CAFEA" FromRole="SACH" ToRole="PHIEUTHU" />
+          <NavigationProperty Name="PHIEUTHUs" Relationship="masterlibraryModel.FK__PHIEUTHU__MASACH__0F2D40CE" FromRole="SACH" ToRole="PHIEUTHU" />
           <NavigationProperty Name="TANG" Relationship="masterlibraryModel.FK__SACH__VITRITANG__3F115E1A" FromRole="SACH" ToRole="TANG" />
         </EntityType>
         <EntityType Name="SUCO">
@@ -901,7 +901,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PHIEUTHU__MAKH__0A688BB1">
+        <Association Name="FK__PHIEUTHU__MAKH__0E391C95">
           <End Type="masterlibraryModel.KHACHHANG" Role="KHACHHANG" Multiplicity="0..1" />
           <End Type="masterlibraryModel.PHIEUTHU" Role="PHIEUTHU" Multiplicity="*" />
           <ReferentialConstraint>
@@ -949,7 +949,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PHIEUTHU__MASACH__0B5CAFEA">
+        <Association Name="FK__PHIEUTHU__MASACH__0F2D40CE">
           <End Type="masterlibraryModel.SACH" Role="SACH" Multiplicity="0..1" />
           <End Type="masterlibraryModel.PHIEUTHU" Role="PHIEUTHU" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1100,7 +1100,7 @@
                 <ScalarProperty Name="TIENPHATHONG" ColumnName="TIENPHATHONG" />
                 <ScalarProperty Name="SOLUONGHONG" ColumnName="SOLUONGHONG" />
                 <ScalarProperty Name="TIENTREMOTNGAY" ColumnName="TIENTREMOTNGAY" />
-                <ScalarProperty Name="NGAYMUON" ColumnName="NGAYMUON" />
+                <ScalarProperty Name="NGAYHETHAN" ColumnName="NGAYHETHAN" />
                 <ScalarProperty Name="NGAYTHU" ColumnName="NGAYTHU" />
                 <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
                 <ScalarProperty Name="MASACH" ColumnName="MASACH" />

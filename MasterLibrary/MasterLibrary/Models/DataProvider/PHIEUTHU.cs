@@ -19,7 +19,7 @@ namespace MasterLibrary.Models.DataProvider
         public Nullable<int> MASACH { get; set; }
         public Nullable<int> SOLUONG { get; set; }
         public System.DateTime NGAYTHU { get; set; }
-        public System.DateTime NGAYMUON { get; set; }
+        public System.DateTime NGAYHETHAN { get; set; }
         public Nullable<decimal> TIENTREMOTNGAY { get; set; }
         public Nullable<int> SOLUONGHONG { get; set; }
         public Nullable<decimal> TIENPHATHONG { get; set; }

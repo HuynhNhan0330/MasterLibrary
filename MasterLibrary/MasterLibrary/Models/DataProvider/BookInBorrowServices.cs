@@ -231,7 +231,7 @@ namespace MasterLibrary.Models.DataProvider
                         newPhieuThu.MAKH = idCustomer;
                         newPhieuThu.MASACH = BookInCollectList[i].MaSach;
                         newPhieuThu.NGAYTHU = BookInCollectList[i].NgayTra;
-                        newPhieuThu.NGAYMUON = BookInCollectList[i].NgayHetHan;
+                        newPhieuThu.NGAYHETHAN = BookInCollectList[i].NgayHetHan;
                         newPhieuThu.SOLUONG = BookInCollectList[i].SoLuong;
                         newPhieuThu.TIENPHATHONG = BookInCollectList[i].TienHong;
                         newPhieuThu.SOLUONGHONG = BookInCollectList[i].SoLuongHong;
