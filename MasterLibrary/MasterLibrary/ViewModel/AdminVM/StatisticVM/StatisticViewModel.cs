@@ -152,7 +152,7 @@ namespace MasterLibrary.ViewModel.AdminVM.StatisticVM
 
                 TotalIn = (totalin + collectMoney) == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalin + collectMoney);
                 TotalOut = (totalout + troublemoney) == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalout + troublemoney);
-                TrueIncome = (totalin + collectMoney - totalout) == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalin - totalout);
+                TrueIncome = (totalin + collectMoney - totalout) == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalin + collectMoney - totalout);
 
                 MonthlyRevenue.Insert(0, 0);
                 MonthlyExpense.Insert(0, 0);
@@ -215,7 +215,7 @@ namespace MasterLibrary.ViewModel.AdminVM.StatisticVM
 
                 TotalIn = (totalin + collectMoney) == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalin + collectMoney);
                 TotalOut = (totalout + troublemoney) == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalout + troublemoney);
-                TrueIncome = (totalin + collectMoney - totalout) == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalin - totalout);
+                TrueIncome = (totalin + collectMoney - totalout) == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalin + collectMoney - totalout);
 
                 DailyRevenue.Insert(0, 0);
                 DailyExpense.Insert(0, 0);
