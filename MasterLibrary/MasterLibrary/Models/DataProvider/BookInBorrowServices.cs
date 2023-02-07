@@ -171,6 +171,7 @@ namespace MasterLibrary.Models.DataProvider
                                              TenKH = thusach.KHACHHANG.TENKH,
                                              TenSach = thusach.SACH.TENSACH,
                                              NgayTra = thusach.NGAYTHU,
+                                             SoLuong = (int)thusach.SOLUONG,
                                              SoLuongHong = (int)thusach.SOLUONGHONG,
                                              TienHong = (int)thusach.TIENPHATHONG,
                                              TienTre = (int)thusach.TIENTREMOTNGAY,
@@ -187,7 +188,53 @@ namespace MasterLibrary.Models.DataProvider
             return collectList;
         }
 
-        public async Task<List<BookInCollectDTO>> GetCollectBookByMonth(int month, int year)
+        public async Task<List<BookInCollectDTO>> GetCollectFeeBook()
+        {
+            List<BookInCollectDTO> collectList = new List<BookInCollectDTO>();
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    collectList = await (from ct in context.PHIEUTHUs
+                                         where ct.TIENPHATHONG > 0
+                                         select new BookInCollectDTO
+                                         {
+                                             TenSach = ct.SACH.TENSACH,
+                                         }).ToListAsync();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return collectList;
+        }
+
+        public async Task<List<BookInCollectDTO>> GetCollectFeeBookByMonth(int year, int month)
+        {
+            List<BookInCollectDTO> collectList = new List<BookInCollectDTO>();
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    collectList = await (from ct in context.PHIEUTHUs
+                                         where ct.TIENPHATHONG > 0 && ct.NGAYTHU.Year == year && ct.NGAYTHU.Month == month
+                                         select new BookInCollectDTO
+                                         {
+                                             TenSach = ct.SACH.TENSACH
+                                         }).ToListAsync();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return collectList;
+        }
+
+        public async Task<List<BookInCollectDTO>> GetCollectBookByMonth(int year, int month)
         {
             List<BookInCollectDTO> collectList = null;
             try
@@ -202,6 +249,7 @@ namespace MasterLibrary.Models.DataProvider
                                              TenKH = thusach.KHACHHANG.TENKH,
                                              TenSach = thusach.SACH.TENSACH,
                                              NgayTra = thusach.NGAYTHU,
+                                             SoLuong = (int)thusach.SOLUONG,
                                              SoLuongHong = (int)thusach.SOLUONGHONG,
                                              TienHong = (int)thusach.TIENPHATHONG,
                                              TienTre = (int)thusach.TIENTREMOTNGAY,

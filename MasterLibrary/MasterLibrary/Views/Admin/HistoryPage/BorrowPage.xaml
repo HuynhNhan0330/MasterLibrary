@@ -187,7 +187,7 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="Ngày thu"
+                        <GridViewColumn Header="Ngày mượn"
                                         Width="auto">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
@@ -220,7 +220,7 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="Giá sách"
+                        <!--<GridViewColumn Header="Giá sách"
                                         Width="auto">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
@@ -229,7 +229,7 @@
                                                 Margin="10,0,0,0" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
+                        </GridViewColumn>-->
                     </GridView>
                 </ListView.View>
             </ListView>
