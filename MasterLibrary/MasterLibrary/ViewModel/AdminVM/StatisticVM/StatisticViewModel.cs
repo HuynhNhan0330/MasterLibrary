@@ -145,10 +145,14 @@ namespace MasterLibrary.ViewModel.AdminVM.StatisticVM
                 (List<decimal> MonthlyExpense, decimal totalout) = await Task.Run(() => StatisticServices.Ins.GetExpenseByYear(int.Parse(SelectedTime)));
                 (List<decimal> MonthlyTrouble, decimal troublemoney) = await Task.Run(() => StatisticServices.Ins.GetExpenseTroubleByYear(int.Parse(SelectedTime)));
                 decimal collectMoney = await Task.Run(() => StatisticServices.Ins.GetRevenueCollectByYear(int.Parse(SelectedTime)));
+                List<BookInCollectDTO> feeBook = await Task.Run(() => BookInBorrowServices.Ins.GetCollectFeeBook());
+                decimal inputMoney = await Task.Run(() => InputBookServices.Ins.GetInputMoneyList(feeBook));
 
-                TotalIn = totalin == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalin + collectMoney);
-                TotalOut = totalout == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalout + troublemoney);
-                TrueIncome = ((totalin - totalout) == 0) ? "Không có giao dịch" : Helper.FormatVNMoney(totalin - totalout);
+                collectMoney -= inputMoney;
+
+                TotalIn = (totalin + collectMoney) == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalin + collectMoney);
+                TotalOut = (totalout + troublemoney) == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalout + troublemoney);
+                TrueIncome = (totalin + collectMoney - totalout) == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalin + collectMoney - totalout);
 
                 MonthlyRevenue.Insert(0, 0);
                 MonthlyExpense.Insert(0, 0);
@@ -204,10 +208,14 @@ namespace MasterLibrary.ViewModel.AdminVM.StatisticVM
                 (List<decimal> DailyExpense, decimal totalout) = await Task.Run(() => StatisticServices.Ins.GetExpenseByMonth(SelectedYear, int.Parse(SelectedTime.Remove(0, 6))));
                 (List<decimal> DailyTrouble, decimal troublemoney) = await Task.Run(() => StatisticServices.Ins.GetExpenseTroubleByMonth(SelectedYear, int.Parse(SelectedTime.Remove(0, 6))));
                 decimal collectMoney = await Task.Run(() => StatisticServices.Ins.GetRevenueCollectByMonth(SelectedYear, int.Parse(SelectedTime.Remove(0, 6))));
+                List<BookInCollectDTO> feeBook = await Task.Run(() => BookInBorrowServices.Ins.GetCollectFeeBookByMonth(SelectedYear, int.Parse(SelectedTime.Remove(0, 6))));
+                decimal inputMoney = await Task.Run(() => InputBookServices.Ins.GetInputMoneyList(feeBook));
 
-                TotalIn = totalin == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalin + collectMoney);
-                TotalOut = totalout == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalout + troublemoney);
-                TrueIncome = ((totalin - totalout) == 0) ? "Không có giao dịch" : Helper.FormatVNMoney(totalin - totalout);
+                collectMoney -= inputMoney;
+
+                TotalIn = (totalin + collectMoney) == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalin + collectMoney);
+                TotalOut = (totalout + troublemoney) == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalout + troublemoney);
+                TrueIncome = (totalin + collectMoney - totalout) == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalin + collectMoney - totalout);
 
                 DailyRevenue.Insert(0, 0);
                 DailyExpense.Insert(0, 0);

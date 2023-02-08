@@ -1016,6 +1016,53 @@ namespace MasterLibrary.ViewModel.AdminVM.HistoryVM
                         }
                         break;
                     }
+                case 4:
+                    {
+                        SaveFileDialog sf = new SaveFileDialog
+                        {
+                            FileName = "MuonSach",
+                            Filter = "Excel |*.xlsx",
+                            ValidateNames = true
+                        };
+                        if (sf.ShowDialog() == DialogResult.OK)
+                        {
+                            Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
+                            Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+                            app.Visible = false;
+                            Microsoft.Office.Interop.Excel.Workbook wb = app.Workbooks.Add(1);
+                            Microsoft.Office.Interop.Excel.Worksheet ws = (Microsoft.Office.Interop.Excel.Worksheet)wb.Worksheets[1];
+
+                            ws.Cells[1, 1] = "Mã phiếu mượn";
+                            ws.Cells[1, 2] = "Tên khách hàng";
+                            ws.Cells[1, 3] = "Tên sách";
+                            ws.Cells[1, 4] = "Ngày mượn";
+                            ws.Cells[1, 5] = "Ngày hết hạn";
+                            ws.Cells[1, 6] = "Số lượng mượn";
+                            //ws.Cells[1, 7] = "Giá";
+
+                            int count = 2;
+                            foreach (var item in ListBorrow)
+                            {
+                                ws.Cells[count, 1] = item.MaPhieuMuon;
+                                ws.Cells[count, 2] = item.TenKH;
+                                ws.Cells[count, 3] = item.TenSach;
+                                ws.Cells[count, 4] = item.NgayMuon;
+                                ws.Cells[count, 5] = item.NgayHetHan;
+                                ws.Cells[count, 6] = item.SoLuong;
+                                //ws.Cells[count, 7] = item.Gia;
+
+                                count++;
+                            }
+                            ws.SaveAs(sf.FileName);
+                            wb.Close();
+                            app.Quit();
+
+                            Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
+                            MessageBoxML mb = new MessageBoxML("Thông báo", "Xuất file thành công", MessageType.Accept, MessageButtons.OK);
+                            mb.ShowDialog();
+                        }
+                        break;
+                    }
             }
         }
 

@@ -188,6 +188,17 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
+                        <GridViewColumn Header="Số lượng"
+                                        Width="auto">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock  Text="{Binding SoLuong}"
+                                                FontSize="18"
+                                                Margin="10,0,0,0" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
                         <GridViewColumn Header="Ngày thu"
                                         Width="auto">
                             <GridViewColumn.CellTemplate>
@@ -203,7 +214,7 @@
                                         Width="auto">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock  Text="{Binding TongTienHong}"
+                                    <TextBlock  Text="{Binding TienHong}"
                                                 FontSize="18"
                                                 Margin="10,0,0,0" />
                                 </DataTemplate>
@@ -214,7 +225,7 @@
                                         Width="auto">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock  Text="{Binding TienTre}"
+                                    <TextBlock  Text="{Binding TongTienTreMotCuon}"
                                                 FontSize="18"
                                                 Margin="10,0,0,0" />
                                 </DataTemplate>

@@ -78,5 +78,31 @@ namespace MasterLibrary.Models.DataProvider
             }
             return BookInput;
         }
+
+        public async Task<decimal> GetInputMoneyList(List<BookInCollectDTO> feeBook)
+        {
+            decimal inputMoney = 0;
+            List<CHITIET_NHAP> input = null;
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    for (int i = 0; i < feeBook.Count ; i++)
+                    {
+                        var namebook = feeBook[i].TenSach;
+                        input = (List<CHITIET_NHAP>)context.CHITIET_NHAP.Where(b => b.TENSACH == namebook).ToList();
+                    }
+                    if (input != null)
+                    {
+                        inputMoney += (decimal)input.Sum(b => b.GIANHAP);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            return inputMoney;
+        }
     }
 }
