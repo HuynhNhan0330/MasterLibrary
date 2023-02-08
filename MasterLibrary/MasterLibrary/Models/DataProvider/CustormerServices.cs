@@ -9,6 +9,8 @@ using System.Data.Entity;
 using MasterLibrary.Views.LoginWindow;
 using System.Windows;
 using MasterLibrary.Views.MessageBoxML;
+using System.Collections.ObjectModel;
+using System.Security.Cryptography;
 
 namespace MasterLibrary.Models.DataProvider
 {
@@ -99,6 +101,36 @@ namespace MasterLibrary.Models.DataProvider
             }    
         }
 
+        public async Task<(bool, string)> CreateNewCustomer(string fullname, string username, string pass, string email, string address)
+        {
+            try
+            {
+                KHACHHANG cus = new KHACHHANG();
+                cus.USERNAME = username;
+                cus.USERPASSWORD = Utils.Helper.HashPassword(pass);
+                cus.TENKH = fullname;
+                cus.IDROLE = 2;
+                cus.EMAIL = email;
+                cus.DIACHI = address;
+
+                using (var context = new MasterlibraryEntities())
+                {
+                    context.KHACHHANGs.Add(cus);
+                    context.SaveChanges();
+                }
+
+                return (true, "Tạo thành công");
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                return (false, "Xãy ra lỗi khi thao tác dữ liệu trên cơ sở dữ liệu");
+            }
+            catch (Exception)
+            {
+                return (false, "Xãy ra lỗi khi thực hiện thao tác");
+            }
+        }
+
         public async Task<CustomerDTO> FindCustomer(int MaKH)
         {
             try
@@ -184,6 +216,38 @@ namespace MasterLibrary.Models.DataProvider
             }
         }
 
+        public async Task<(bool, string)> SaveCustomer(int _makh, string _tenkh, string username, string pass, string _email, string _diachi)
+        {
+            try
+            {
+                // Cập nhật thông tin
+                using (var context = new MasterlibraryEntities())
+                {
+                    var cus = context.KHACHHANGs.SingleOrDefault(s => s.MAKH == _makh);
+
+                    if (cus == null) return (false, "Không tìm thấy khách hàng");
+
+                    cus.TENKH = _tenkh;
+                    cus.USERNAME= username;
+                    cus.USERPASSWORD = Utils.Helper.HashPassword(pass);
+                    cus.EMAIL = _email;
+                    cus.DIACHI = _diachi;
+
+                    context.SaveChanges();
+
+                    return (true, "Lưu thông tin thành công");
+                }
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                return (false, "Xãy ra lỗi khi thao tác dữ liệu trên cơ sở dữ liệu");
+            }
+            catch (Exception)
+            {
+                return (false, "Xãy ra lỗi khi thực hiện thao tác");
+            }
+        }
+
         public async Task<(bool, string)> ChangePassword(int _makh, string _newpassword)
         {
             try
@@ -204,6 +268,68 @@ namespace MasterLibrary.Models.DataProvider
             catch (System.Data.Entity.Infrastructure.DbUpdateException)
             {
                 return (false, "Xãy ra lỗi khi thao tác dữ liệu trên cơ sở dữ liệu");
+            }
+            catch (Exception)
+            {
+                return (false, "Xãy ra lỗi khi thực hiện thao tác");
+            }
+        }
+
+        public async Task<List<CustomerDTO>> GetAllCustomer()
+        {
+            List<CustomerDTO> customers = null;
+
+            try
+            {
+                // Lấy danh sách khách hàng
+                using (var context = new MasterlibraryEntities())
+                {
+                    customers = await (from customer in context.KHACHHANGs
+                                       where customer.IDROLE == 2
+                                       select new CustomerDTO
+                                       {
+                                           MAKH = customer.MAKH,
+                                           TENKH = customer.TENKH,
+                                           USERNAME= customer.USERNAME,
+                                           USERPASSWORD= customer.USERPASSWORD,
+                                           DeCodeUSERPASSWORD = Utils.Helper.DePassword(customer.USERPASSWORD),
+                                           EMAIL= customer.EMAIL,
+                                           DIACHI= customer.EMAIL,
+                                       }).ToListAsync();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return customers;
+        }
+
+        public async Task<(bool, string)> DeleteCustomer(int _makh)
+        {
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    var CustomerRemove = context.KHACHHANGs.FirstOrDefault(c => c.MAKH == _makh);
+
+                    if (CustomerRemove != null)
+                    {
+                        context.KHACHHANGs.Remove(CustomerRemove);
+                        context.SaveChanges();
+
+                        return (true, "Xoá khách hàng thành công");
+                    }
+                    else
+                    {
+                        return (false, "Không khách hàng để xoá");
+                    }
+                }
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                return (false, "Xãy ra lỗi khi lưu dữ liệu vào cơ sở dữ liệu");
             }
             catch (Exception)
             {

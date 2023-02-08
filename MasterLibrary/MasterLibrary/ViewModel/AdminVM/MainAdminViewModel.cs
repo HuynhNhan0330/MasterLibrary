@@ -1,31 +1,22 @@
-﻿using System;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows.Input;
 using MasterLibrary.Views.Admin.StatisticalPage;
 using MasterLibrary.Views.Admin.BookManagePage;
 using MasterLibrary.Views.Admin.HistoryPage;
-using MasterLibrary.Models.DataProvider;
-using System.Data.SqlClient;
 using System.Windows;
-using System.Collections.ObjectModel;
-using MasterLibrary.DTOs;
-using System.Windows.Media.Imaging;
 using MasterLibrary.Views.Admin.ImportBookPage;
 using MasterLibrary.Views.Admin.LocationPage;
-using System.Windows.Media;
 using MasterLibrary.Views.MessageBoxML;
-using System.Globalization;
 using MasterLibrary.Views.Admin.TroublePage;
 using MasterLibrary.Views.Admin.BorrowBookPage;
 using MasterLibrary.Views.Admin.SettingPage;
 using MasterLibrary.Views.LoginWindow;
+using MasterLibrary.Views.Admin.CustomerManagePage;
 
 namespace MasterLibrary.ViewModel.AdminVM
 {
     public partial class MainAdminViewModel : BaseViewModel
     {
-        
-
         public ICommand FirstLoadML { get; set; }
         public ICommand LoadStatisticalPageML { get; set; }
         public ICommand LoadBookManagerPageML { get; set; }
@@ -33,7 +24,7 @@ namespace MasterLibrary.ViewModel.AdminVM
         public ICommand LoadHistoryPageML { get; set; }
         public ICommand LoadImportBookPageML { get; set; }
         public ICommand LoadLocationPageML { get; set; }
-        
+        public ICommand LoadCustomerManagePageML { get; set; }
         public ICommand LoadBorrowBookPageML { get; set; }
         public ICommand LoadTroublePageML { get; set; }
         public ICommand LoadSettingPageML { get; set; }
@@ -44,6 +35,12 @@ namespace MasterLibrary.ViewModel.AdminVM
             LoadStatisticalPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
                 p.Content = new StatisticalPage();
+            });
+
+            // Load trang quản lý khách hàng
+            LoadCustomerManagePageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            {
+                p.Content = new CustomerManagePage();
             });
 
             // Load trang quản lí sách

@@ -27,6 +27,7 @@
             <i:InvokeCommandAction Command="{Binding FirstLoadML}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>-->
+
     <Window.Clip>
         <RectangleGeometry Rect="0, 0, 1300, 700" RadiusX="10" RadiusY="10"></RectangleGeometry>
     </Window.Clip>
@@ -103,6 +104,31 @@
                         </StackPanel>
                     </Border>
 
+                    <!-- Button quản lý khách hàng-->
+                    <Border CornerRadius="5">
+                        <StackPanel Tag="{Binding ElementName=btnManageCustomer}"
+                                    Orientation="Horizontal"
+                                    Height="60"
+                                    Width="130"
+                                    Style="{StaticResource EffectMenuButton}">
+                            <materialDesign:PackIcon Kind="AccountMultiple"
+                                                     Width="35"
+                                                     Height="32"
+                                                     VerticalAlignment="Center"
+                                                     Cursor="Hand"
+                                                     Foreground="White" />
+                            <RadioButton Style="{StaticResource MenuButtonMain}"
+                                         GroupName="mainOptions"
+                                         FontWeight="Bold"
+                                         x:Name="btnManageCustomer"
+                                         Width="95"
+                                         Command="{Binding LoadCustomerManagePageML}"
+                                         CommandParameter="{Binding ElementName=mainFrame}">
+                                Quản lý khách hàng
+                            </RadioButton>
+                        </StackPanel>
+                    </Border>
+
                     <!-- Button quản lí sách-->
                     <Border CornerRadius="5">
                         <StackPanel Tag="{Binding ElementName=managetest}"
@@ -118,7 +144,7 @@
                                                          Foreground="White" />
                             <RadioButton Style="{StaticResource MenuButtonMain}"
                                              GroupName="mainOptions"
-                                             Content="Quản lí sách"
+                                             Content="Quản lý sách"
                                              FontWeight="Bold"
                                              x:Name="managetest"
                                              Width="auto"
@@ -275,7 +301,7 @@
 
                     <!--Button đăng xuất-->
                     <Border CornerRadius="25"
-                            Margin="0 65 0 0"
+                            Margin="0 5 0 0"
                              Cursor="Hand"
                              Background="#9b3409">
                         <StackPanel Orientation="Horizontal"

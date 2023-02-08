@@ -367,6 +367,8 @@
     <Compile Include="ViewModel\AdminVM\LocationVM\BookInRowViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\LocationVM\LocationViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\MainAdminViewModel.cs" />
+    <Compile Include="ViewModel\AdminVM\ManageCustomerVM\AddOrEditCustomerViewModel.cs" />
+    <Compile Include="ViewModel\AdminVM\ManageCustomerVM\ManageCustomerViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\SettingVM\SettingViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\StatisticVM\StatisticViewModel.cs" />
     <Compile Include="ViewModel\AdminVM\TroubleVM\DetailTroubleViewModel.cs" />
@@ -399,6 +401,15 @@
     </Compile>
     <Compile Include="Views\Admin\BorrowBookPage\CollectionBookVorcherPage.xaml.cs">
       <DependentUpon>CollectionBookVorcherPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CustomerManagePage\AddCustomerWindow.xaml.cs">
+      <DependentUpon>AddCustomerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CustomerManagePage\CustomerManagePage.xaml.cs">
+      <DependentUpon>CustomerManagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CustomerManagePage\EditCustomerWindow.xaml.cs">
+      <DependentUpon>EditCustomerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\HistoryPage\BorrowPage.xaml.cs">
       <DependentUpon>BorrowPage.xaml</DependentUpon>
@@ -560,6 +571,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Admin\BorrowBookPage\CollectionBookVorcherPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CustomerManagePage\AddCustomerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CustomerManagePage\CustomerManagePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Admin\CustomerManagePage\EditCustomerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

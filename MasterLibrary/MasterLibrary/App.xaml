@@ -39,6 +39,7 @@
                                     <TextBlock Text="{TemplateBinding Property=Content}"
                                                VerticalAlignment="Center"
                                                HorizontalAlignment="Left"
+                                               TextWrapping="Wrap"
                                                Foreground="{TemplateBinding Property=Foreground}"
                                                Padding="1"
                                                Margin="2"

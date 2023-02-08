@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Globalization;
 using System.Security.Cryptography;
+using System.Security.Policy;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MasterLibrary.Utils
 {
@@ -34,21 +36,14 @@ namespace MasterLibrary.Utils
         }
 
         /// <summary>
-        /// Chuyển chuỗi sang MD5Hash
+        /// Chuyển Base64 sang string
         /// </summary>
-        /// <param name="input"></param>
+        /// <param name="base64EncodedData"></param>
         /// <returns></returns>
-        public static string MD5Hash(string input)
+        public static string Base64Decode(string base64EncodedData)
         {
-            StringBuilder hash = new StringBuilder();
-            MD5CryptoServiceProvider md5provider = new MD5CryptoServiceProvider();
-            byte[] bytes = md5provider.ComputeHash(new UTF8Encoding().GetBytes(input));
-
-            for (int i = 0; i < bytes.Length; i++)
-            {
-                hash.Append(bytes[i].ToString("x2"));
-            }
-            return hash.ToString();
+            var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
         }
 
         /// <summary>
@@ -58,7 +53,17 @@ namespace MasterLibrary.Utils
         /// <returns></returns>
         public static string HashPassword(string _password)
         {
-            return MD5Hash(Base64Encode(_password));
+            return Base64Encode(_password);
+        }
+
+        /// <summary>
+        /// Decode mã hoá mật khẩu
+        /// </summary>
+        /// <param name="_hashPassword"></param>
+        /// <returns></returns>
+        public static string DePassword(string _hashPassword)
+        {
+            return Base64Decode(_hashPassword);
         }
     }
 }
