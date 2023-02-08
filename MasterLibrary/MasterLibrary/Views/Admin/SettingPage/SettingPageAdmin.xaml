@@ -72,11 +72,12 @@
                 <StackPanel Grid.Row="1"
                             Margin="30 50">
                     <TextBlock Grid.Row="1"
-                               Text="Sách là người bạn trung thành và yên tĩnh nhất, chúng là những nhà cố vấn dễ tiếp cận và khôn ngoan nhất, và chúng còn là những giáo viên kiên nhẫn nhất"
+                               Text="Sách là người bạn trung thành và yên tĩnh nhất, chúng là những nhà cố vấn dễ tiếp cận và khôn ngoan nhất, và chúng còn là những giáo viên kiên nhẫn nhất."
                                TextWrapping="Wrap"
                                Foreground="#a47100"
                                FontWeight="SemiBold"
                                FontSize="16"
+                               TextAlignment="Justify"
                                >
 
                     </TextBlock>

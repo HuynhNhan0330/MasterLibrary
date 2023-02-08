@@ -1,4 +1,5 @@
 ﻿using Haley.Models;
+using MasterLibrary.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -203,7 +204,7 @@ namespace MasterLibrary.Models.DataProvider
         }
 
         //tính tiền khi thu sách phát sinh theo tháng
-        public async Task<decimal> GetRevenueCollectByMonth(int month, int year)
+        public async Task<decimal> GetRevenueCollectByMonth(int year, int month)
         {
             decimal collectMoney = 0;
 
