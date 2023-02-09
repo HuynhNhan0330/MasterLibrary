@@ -79,9 +79,9 @@
                 >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã" FontSize="14" Binding="{Binding MaSach}"/>
-                <DataGridTextColumn Header="Sách" FontSize="14" Binding="{Binding TenSach}"/>
-                <DataGridTextColumn Header="Tác giả" FontSize="14" Binding="{Binding TacGia}"/>
-                <DataGridTextColumn Header="Nhà xuất bản" FontSize="14" Binding="{Binding NXB}"/>
+                <DataGridTextColumn Header="Sách" FontSize="14" Binding="{Binding TenSach}" Width="180"/>
+                <DataGridTextColumn Header="Tác giả" FontSize="14" Binding="{Binding TacGia}"  Width="150"/>
+                <DataGridTextColumn Header="Nhà xuất bản" FontSize="14" Binding="{Binding NXB}"  Width="200"/>
                 <DataGridTextColumn Header="Giá" FontSize="14" Binding="{Binding Gia}"/>
                 <DataGridTextColumn Header="Thể loại" FontSize="14" Binding="{Binding TheLoai}"/>
                 <DataGridTextColumn Header="Năm xuất bản" FontSize="14" Binding="{Binding NamXB}"/>
