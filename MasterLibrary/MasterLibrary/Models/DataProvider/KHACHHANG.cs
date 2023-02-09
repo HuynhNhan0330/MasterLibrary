@@ -32,6 +32,7 @@ namespace MasterLibrary.Models.DataProvider
         public string EMAIL { get; set; }
         public Nullable<int> IDROLE { get; set; }
         public string DIACHI { get; set; }
+        public Nullable<int> ISEXIST { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GIOHANG> GIOHANGs { get; set; }

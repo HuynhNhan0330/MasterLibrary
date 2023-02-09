@@ -66,6 +66,7 @@
           <Property Name="EMAIL" Type="varchar" MaxLength="50" />
           <Property Name="IDROLE" Type="int" />
           <Property Name="DIACHI" Type="nvarchar(max)" />
+          <Property Name="ISEXIST" Type="int" />
         </EntityType>
         <EntityType Name="LOAISUCO">
           <Key>
@@ -133,6 +134,7 @@
           <Property Name="VITRIDAY" Type="int" />
           <Property Name="NXB" Type="nvarchar" MaxLength="100" />
           <Property Name="SL" Type="int" />
+          <Property Name="ISEXIST" Type="int" />
         </EntityType>
         <EntityType Name="SUCO">
           <Key>
@@ -639,6 +641,7 @@
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IDROLE" Type="Int32" />
           <Property Name="DIACHI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ISEXIST" Type="Int32" />
           <NavigationProperty Name="GIOHANGs" Relationship="masterlibraryModel.FK__GIOHANG__MAKH__489AC854" FromRole="KHACHHANG" ToRole="GIOHANG" />
           <NavigationProperty Name="HOADONs" Relationship="masterlibraryModel.FK__HOADON__MAKH__02FC7413" FromRole="KHACHHANG" ToRole="HOADON" />
           <NavigationProperty Name="USERROLE" Relationship="masterlibraryModel.FK__KHACHHANG__IDROL__619B8048" FromRole="KHACHHANG" ToRole="USERROLE" />
@@ -720,6 +723,7 @@
           <Property Name="VITRIDAY" Type="Int32" />
           <Property Name="NXB" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="SL" Type="Int32" />
+          <Property Name="ISEXIST" Type="Int32" />
           <NavigationProperty Name="CTHDs" Relationship="masterlibraryModel.FK__CTHD__MASACH__44CA3770" FromRole="SACH" ToRole="CTHD" />
           <NavigationProperty Name="DAYKE" Relationship="masterlibraryModel.FK__SACH__VITRIDAY__40058253" FromRole="SACH" ToRole="DAYKE" />
           <NavigationProperty Name="GIOHANGs" Relationship="masterlibraryModel.FK__GIOHANG__MASACH__47A6A41B" FromRole="SACH" ToRole="GIOHANG" />
@@ -1044,6 +1048,7 @@
           <EntitySetMapping Name="KHACHHANGs">
             <EntityTypeMapping TypeName="masterlibraryModel.KHACHHANG">
               <MappingFragment StoreEntitySet="KHACHHANG">
+                <ScalarProperty Name="ISEXIST" ColumnName="ISEXIST" />
                 <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
                 <ScalarProperty Name="IDROLE" ColumnName="IDROLE" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
@@ -1112,6 +1117,7 @@
           <EntitySetMapping Name="SACHes">
             <EntityTypeMapping TypeName="masterlibraryModel.SACH">
               <MappingFragment StoreEntitySet="SACH">
+                <ScalarProperty Name="ISEXIST" ColumnName="ISEXIST" />
                 <ScalarProperty Name="SL" ColumnName="SL" />
                 <ScalarProperty Name="NXB" ColumnName="NXB" />
                 <ScalarProperty Name="VITRIDAY" ColumnName="VITRIDAY" />

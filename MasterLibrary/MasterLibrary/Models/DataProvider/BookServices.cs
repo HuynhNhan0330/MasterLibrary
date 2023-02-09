@@ -35,6 +35,7 @@ namespace MasterLibrary.Models.DataProvider
                     books = await (from sach in context.SACHes
                                    join t in context.TANGs on sach.VITRITANG equals t.MATANG
                                    join d in context.DAYKEs on sach.VITRIDAY equals d.MADAY
+                                   where sach.ISEXIST == 1
                                    select new BookDTO
                                    {
                                        MaSach = sach.MASACH,
@@ -75,6 +76,7 @@ namespace MasterLibrary.Models.DataProvider
                                    join t in context.TANGs on sach.VITRITANG equals t.MATANG
                                    join d in context.DAYKEs on sach.VITRIDAY equals d.MADAY
                                    where sach.VITRITANG == _Matang && sach.VITRIDAY == _MaDay
+                                   where sach.ISEXIST == 1
                                    select new BookDTO
                                    {
                                        MaSach = sach.MASACH,
@@ -110,7 +112,7 @@ namespace MasterLibrary.Models.DataProvider
                 using (var context = new MasterlibraryEntities())
                 {
                     var book = await (from sach in context.SACHes
-                                     where sach.MASACH == _BookId
+                                     where sach.MASACH == _BookId && sach.ISEXIST == 1
                                      select new BookDTO
                                      {
                                          MaSach = sach.MASACH,

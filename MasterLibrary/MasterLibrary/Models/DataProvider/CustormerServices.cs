@@ -1,17 +1,10 @@
-﻿using Metsys.Bson;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using MasterLibrary.DTOs;
 using System.Data.Entity;
-using MasterLibrary.Views.LoginWindow;
-using System.Windows;
 using MasterLibrary.Views.MessageBoxML;
-using System.Collections.ObjectModel;
-using System.Security.Cryptography;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Text.RegularExpressions;
 
 namespace MasterLibrary.Models.DataProvider
@@ -43,7 +36,7 @@ namespace MasterLibrary.Models.DataProvider
 
                     // lây thông tin nếu tài khoản, mật khẩu đúng
                     var cus = await(from s in context.KHACHHANGs
-                                      where s.USERNAME == username && s.USERPASSWORD == _HashPassword && s.IDROLE == 2
+                                      where s.USERNAME == username && s.USERPASSWORD == _HashPassword && s.IDROLE == 2 && s.ISEXIST == 1
                                       select new CustomerDTO
                                       {
                                           MAKH = s.MAKH,
@@ -75,7 +68,7 @@ namespace MasterLibrary.Models.DataProvider
             }
         }
 
-        public void Register(string fullname, string email, string username, string pass)
+        public async void Register(string fullname, string email, string username, string pass)
         {
             if (string.IsNullOrEmpty(fullname) ||
                 string.IsNullOrEmpty(email) ||
@@ -87,12 +80,20 @@ namespace MasterLibrary.Models.DataProvider
                 return;
             }
 
+            if (await Task.Run(() => Ins.CheckUserNameCustormer(username, -1)))
+            {
+                MessageBoxML ms = new MessageBoxML("Thông báo", "Tên tài khoản đã tồn tại", MessageType.Error, MessageButtons.OK);
+                ms.ShowDialog();
+                return;
+            }
+
             KHACHHANG cus = new KHACHHANG();
             cus.USERNAME = username;
             cus.USERPASSWORD = Utils.Helper.HashPassword(pass);
             cus.TENKH = fullname;
             cus.IDROLE = 2;
             cus.EMAIL = email;
+            cus.ISEXIST = 1;
 
             using (var context = new MasterlibraryEntities())
             {
@@ -115,9 +116,14 @@ namespace MasterLibrary.Models.DataProvider
                     return (false, "Email không hợp lệ");
                 }
 
-                if (await Task.Run(() => AdminServices.Ins.CheckEmailAdmin(email, -1)))
+                if (await Task.Run(() => Ins.CheckEmailCustormer(email, -1)))
                 {
                     return (false, "Email đã tồn tại");
+                }
+                
+                if (await Task.Run(() => Ins.CheckUserNameCustormer(username, -1)))
+                {
+                    return (false, "Tên tài khoản đã tồn tại");
                 }
 
                 KHACHHANG cus = new KHACHHANG();
@@ -126,6 +132,7 @@ namespace MasterLibrary.Models.DataProvider
                 cus.TENKH = fullname;
                 cus.IDROLE = 2;
                 cus.EMAIL = email;
+                cus.ISEXIST = 1;
                 cus.DIACHI = address;
 
                 using (var context = new MasterlibraryEntities())
@@ -154,7 +161,7 @@ namespace MasterLibrary.Models.DataProvider
                 {
                     // Tìm khách hàng có mã khách hàng (MaKH)
                     var cus = await (from s in context.KHACHHANGs
-                                     where s.MAKH == MaKH
+                                     where s.MAKH == MaKH && s.ISEXIST == 1
                                      select new CustomerDTO
                                      {
                                          MAKH = s.MAKH,
@@ -184,7 +191,37 @@ namespace MasterLibrary.Models.DataProvider
                 {
                     // Tìm khách hàng có mã khách hàng (MaKH)
                     var cus = await (from s in context.KHACHHANGs
-                                     where s.EMAIL == _email && s.MAKH != _makh
+                                     where s.EMAIL == _email && s.MAKH != _makh && s.ISEXIST == 1
+                                     select new CustomerDTO
+                                     {
+                                         MAKH = s.MAKH,
+                                         TENKH = s.TENKH,
+                                         EMAIL = s.EMAIL,
+                                         USERNAME = s.USERNAME,
+                                         USERPASSWORD = s.USERPASSWORD,
+                                         DIACHI = s.DIACHI,
+                                     }).FirstOrDefaultAsync();
+                    if (cus == null) return false;
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBoxML ms = new MessageBoxML("Lỗi", "Xảy ra lỗi khi thực hiện thao tác", MessageType.Error, MessageButtons.OK);
+                ms.ShowDialog();
+                return true;
+            }
+        }
+
+        public async Task<bool> CheckUserNameCustormer(string _username, int _makh)
+        {
+            try
+            {
+                using (var context = new MasterlibraryEntities())
+                {
+                    // Tìm khách hàng có mã khách hàng (MaKH)
+                    var cus = await (from s in context.KHACHHANGs
+                                     where s.USERNAME == _username && s.MAKH != _makh && s.ISEXIST == 1
                                      select new CustomerDTO
                                      {
                                          MAKH = s.MAKH,
@@ -243,9 +280,16 @@ namespace MasterLibrary.Models.DataProvider
                     return (false, "Email không hợp lệ");
                 }
 
-                if (await Task.Run(() => AdminServices.Ins.CheckEmailAdmin(_email, _makh)))
+                if (await Task.Run(() => Ins.CheckEmailCustormer(_email, _makh)))
                 {
                     return (false, "Email đã tồn tại");
+
+
+                }
+
+                if (await Task.Run(() => Ins.CheckUserNameCustormer(username, _makh)))
+                {
+                    return (false, "Tên tài khoản đã tồn tại");
                 }
 
                 // Cập nhật thông tin
@@ -313,7 +357,7 @@ namespace MasterLibrary.Models.DataProvider
                 using (var context = new MasterlibraryEntities())
                 {
                     customers =  (from customer in context.KHACHHANGs.AsEnumerable()
-                                       where customer.IDROLE == 2
+                                       where customer.IDROLE == 2 && customer.ISEXIST == 1
                                        select new CustomerDTO
                                        {
                                            MAKH = customer.MAKH,
@@ -344,7 +388,7 @@ namespace MasterLibrary.Models.DataProvider
 
                     if (CustomerRemove != null)
                     {
-                        context.KHACHHANGs.Remove(CustomerRemove);
+                        CustomerRemove.ISEXIST = 0;
                         context.SaveChanges();
 
                         return (true, "Xoá khách hàng thành công");

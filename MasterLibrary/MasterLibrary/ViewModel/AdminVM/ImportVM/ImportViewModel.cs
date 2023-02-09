@@ -215,7 +215,7 @@ namespace MasterLibrary.ViewModel.AdminVM.ImportVM
                                 bool boolFlag = false;
                                 foreach(var book in context.SACHes)
                                 {
-                                    if(book.TENSACH == item.TenSach && book.NXB == item.NhaXuatBan && book.TACGIA == item.TacGia)
+                                    if(book.TENSACH == item.TenSach && book.NXB == item.NhaXuatBan && book.TACGIA == item.TacGia && book.ISEXIST == 1)
                                     {
                                         boolFlag = true;
                                         book.SL += item.SoLuong;
@@ -230,7 +230,7 @@ namespace MasterLibrary.ViewModel.AdminVM.ImportVM
                                     }
                                 }
                                 if (boolFlag == false)
-                                    context.SACHes.Add(new SACH { TENSACH = item.TenSach, NXB = item.NhaXuatBan, TACGIA = item.TacGia, GIA = (decimal)item.GiaBan, SL = item.SoLuong });
+                                    context.SACHes.Add(new SACH { TENSACH = item.TenSach, NXB = item.NhaXuatBan, TACGIA = item.TacGia, GIA = (decimal)item.GiaBan, SL = item.SoLuong , ISEXIST = 1});
                                 context.SaveChanges();
                             }
 

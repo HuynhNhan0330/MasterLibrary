@@ -280,7 +280,7 @@ namespace MasterLibrary.ViewModel.AdminVM
                         {
                             try
                             {
-                                command.CommandText = "DELETE FROM SACH WHERE MASACH = @masach";
+                                command.CommandText = "UPDATE SACH SET ISEXIST = 0 WHERE MASACH = @masach";
                                 context.SaveChanges();
                                 if (command.ExecuteNonQuery() != 0)
                                 {
@@ -381,6 +381,8 @@ namespace MasterLibrary.ViewModel.AdminVM
             {
                 foreach (var item in context.SACHes)
                 {
+                    if (item.ISEXIST == 0) continue;
+
                     BookDTO book = new BookDTO();
                     if(item.IMAGESOURCE == null)
                     {
@@ -390,9 +392,6 @@ namespace MasterLibrary.ViewModel.AdminVM
                         book.SoLuong = (int)item.SL;
                         book.Gia = (int)item.GIA;
                         book.NXB = item.NXB;
-                        book.MaTang = (int)item.VITRITANG;
-                        book.MaDay = (int)item.VITRIDAY;
-                        
                     }
                     else
                     {

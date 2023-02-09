@@ -35,6 +35,7 @@ namespace MasterLibrary.Models.DataProvider
         public Nullable<int> VITRIDAY { get; set; }
         public string NXB { get; set; }
         public Nullable<int> SL { get; set; }
+        public Nullable<int> ISEXIST { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTHD> CTHDs { get; set; }
