@@ -148,11 +148,9 @@ namespace MasterLibrary.ViewModel.AdminVM.StatisticVM
                 List<BookInCollectDTO> feeBook = await Task.Run(() => BookInBorrowServices.Ins.GetCollectFeeBook());
                 decimal inputMoney = await Task.Run(() => InputBookServices.Ins.GetInputMoneyList(feeBook));
 
-                collectMoney -= inputMoney;
-
                 TotalIn = (totalin + collectMoney) == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalin + collectMoney);
                 TotalOut = (totalout + troublemoney) == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalout + troublemoney);
-                TrueIncome = (totalin + collectMoney - totalout) == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalin + collectMoney - totalout);
+                TrueIncome = (totalin + collectMoney - totalout) == 0 ? "Không có giao dịch" : Helper.FormatVNMoney(totalin + collectMoney - inputMoney - totalout);
 
                 MonthlyRevenue.Insert(0, 0);
                 MonthlyExpense.Insert(0, 0);
