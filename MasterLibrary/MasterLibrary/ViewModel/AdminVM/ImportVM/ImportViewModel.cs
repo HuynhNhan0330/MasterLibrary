@@ -237,6 +237,7 @@ namespace MasterLibrary.ViewModel.AdminVM.ImportVM
                             MessageBoxML tb = new MessageBoxML("Thông báo", "Thêm phiếu nhập thành công!", MessageType.Accept, MessageButtons.OK);
                             tb.ShowDialog();
                             LoginViewModel.ListInputbook = null;
+                            Loaded.Execute(p);
                         }
                         catch
                         {
