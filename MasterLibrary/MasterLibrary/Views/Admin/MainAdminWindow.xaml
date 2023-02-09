@@ -351,6 +351,14 @@
                                Text="Quản lý thư viện"
                                FontSize="45"
                                Foreground="ghostwhite"/>
+                    
+                    <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="0 0 8 0"
+                               TextAlignment="Center"
+                               Text="{Binding CurrentTime}"
+                               FontSize="45"
+                               Foreground="ghostwhite"/>
                 </Grid>
 
                 <!-- Phần nội dung frame -->

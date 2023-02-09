@@ -375,6 +375,14 @@
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </materialDesign:PackIcon>
+
+                        <TextBlock VerticalAlignment="Center"
+                                   HorizontalAlignment="Right"
+                                   Margin="0 0 8 0"
+                                   TextAlignment="Center"
+                                   Text="{Binding CurrentTime}"
+                                   FontSize="35"
+                                   Foreground="ghostwhite" />
                     </StackPanel>
                 </Grid>
 

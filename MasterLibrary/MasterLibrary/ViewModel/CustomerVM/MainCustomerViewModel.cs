@@ -10,6 +10,7 @@ using MasterLibrary.Views.Customer.BookCartPage;
 using MasterLibrary.Views.Customer.ReportTroublePage;
 using MasterLibrary.Views.MessageBoxML;
 using MasterLibrary.Views.Customer.BorrowBookPage;
+using System;
 
 namespace MasterLibrary.ViewModel.CustomerVM
 {
@@ -24,6 +25,13 @@ namespace MasterLibrary.ViewModel.CustomerVM
             {
                 _CurrentCustomer = value;
             }
+        }
+
+        private string _CurrentTime;
+        public string CurrentTime
+        {
+            get { return _CurrentTime; }
+            set { _CurrentTime = value; OnPropertyChanged(); }
         }
         #endregion
 
@@ -46,6 +54,12 @@ namespace MasterLibrary.ViewModel.CustomerVM
 
         public MainCustomerViewModel()
         {
+            // Real Time
+            System.Windows.Threading.DispatcherTimer Timer = new System.Windows.Threading.DispatcherTimer();
+            Timer.Tick += new EventHandler(Timer_Click);
+            Timer.Interval = new TimeSpan(0, 0, 1);
+            Timer.Start();
+
             // Load trang mua sách
             LoadBuyBookPageML = new RelayCommand<Frame>((p) => { return true; }, async (p) => 
             {
@@ -133,6 +147,13 @@ namespace MasterLibrary.ViewModel.CustomerVM
                     p.Close();
                 }
             });
+        }
+
+        public void Timer_Click(object sender, EventArgs e)
+        {
+            DateTime d;
+            d = DateTime.Now;
+            CurrentTime = string.Format("{0}:{1}:{2}", d.Hour.ToString("00"), d.Minute.ToString("00"), d.Second.ToString("00"));
         }
     }
 }

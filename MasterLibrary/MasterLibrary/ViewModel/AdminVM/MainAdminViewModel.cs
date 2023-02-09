@@ -12,11 +12,20 @@ using MasterLibrary.Views.Admin.BorrowBookPage;
 using MasterLibrary.Views.Admin.SettingPage;
 using MasterLibrary.Views.LoginWindow;
 using MasterLibrary.Views.Admin.CustomerManagePage;
+using System;
 
 namespace MasterLibrary.ViewModel.AdminVM
 {
     public partial class MainAdminViewModel : BaseViewModel
     {
+        private string _CurrentTime;
+        public string CurrentTime
+        {
+            get { return _CurrentTime; }
+            set { _CurrentTime = value; OnPropertyChanged(); }
+        }
+
+
         public ICommand FirstLoadML { get; set; }
         public ICommand LoadStatisticalPageML { get; set; }
         public ICommand LoadBookManagerPageML { get; set; }
@@ -31,6 +40,12 @@ namespace MasterLibrary.ViewModel.AdminVM
         public ICommand SignOutML { get; set; }
         public MainAdminViewModel()
         {
+            // Real Time
+            System.Windows.Threading.DispatcherTimer Timer = new System.Windows.Threading.DispatcherTimer();
+            Timer.Tick += new EventHandler(Timer_Click);
+            Timer.Interval = new TimeSpan(0, 0, 1);
+            Timer.Start();
+
             // Load trang phân tích
             LoadStatisticalPageML = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
@@ -102,5 +117,12 @@ namespace MasterLibrary.ViewModel.AdminVM
             });
 
         }  
+
+        public void Timer_Click(object sender, EventArgs e)
+        {
+            DateTime d;
+            d = DateTime.Now;
+            CurrentTime = string.Format("{0}:{1}:{2}", d.Hour.ToString("00"), d.Minute.ToString("00"), d.Second.ToString("00"));
+        }
     }
 }
