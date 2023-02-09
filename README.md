@@ -144,7 +144,7 @@ Hỗ trợ các thư viện dễ dàng hơn trong quản lý sách và giúp ng�
 * [Nguyễn Hoàng Minh](https://github.com/hoangmindrespect) - 21522343
     * Vai trò: Database design, frontend developer, backend developer
 
-* [Ngô Phương Nam](https://github.com/dunoiww) - 2152361
+* [Ngô Phương Nam](https://github.com/dunoiww) - 21522361
     * Vai trò: Tester, frontend developer, backend developer
 
 * [Phạm Nguyễn](https://github.com/kazei1211) - 21522394
