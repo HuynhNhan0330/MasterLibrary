@@ -72,7 +72,7 @@ namespace MasterLibrary.Models.DataProvider
                 using (var context = new MasterlibraryEntities())
                 {
                     books = await (from sach in context.SACHes
-                                   join t in context.TANGs on sach.VITRIDAY equals t.MATANG
+                                   join t in context.TANGs on sach.VITRITANG equals t.MATANG
                                    join d in context.DAYKEs on sach.VITRIDAY equals d.MADAY
                                    where sach.VITRITANG == _Matang && sach.VITRIDAY == _MaDay
                                    select new BookDTO
