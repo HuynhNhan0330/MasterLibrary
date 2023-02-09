@@ -109,8 +109,7 @@ namespace MasterLibrary.ViewModel.AdminVM.ManageCustomerVM
                 if (string.IsNullOrEmpty(NameCustomer) ||
                     string.IsNullOrEmpty(UserNameCustomer) ||
                     string.IsNullOrEmpty(DePasswordCustomer) ||
-                    string.IsNullOrEmpty(EmailCustomer) ||
-                    string.IsNullOrEmpty(AddressCustomer))
+                    string.IsNullOrEmpty(EmailCustomer))
                 {
                     return false;
                 }
@@ -130,7 +129,7 @@ namespace MasterLibrary.ViewModel.AdminVM.ManageCustomerVM
                 FirstLoadEditCustomer();
             });
 
-            MaskNameAddCustomer = new RelayCommand<Grid>((p) => { return true; }, (p) =>
+            MaskNameEditCustomer = new RelayCommand<Grid>((p) => { return true; }, (p) =>
             {
                 MaskEdit = p;
             });
@@ -145,8 +144,7 @@ namespace MasterLibrary.ViewModel.AdminVM.ManageCustomerVM
                 if (string.IsNullOrEmpty(NameCustomer) ||
                     string.IsNullOrEmpty(UserNameCustomer) ||
                     string.IsNullOrEmpty(DePasswordCustomer) ||
-                    string.IsNullOrEmpty(EmailCustomer) ||
-                    string.IsNullOrEmpty(AddressCustomer))
+                    string.IsNullOrEmpty(EmailCustomer))
                 {
                     return false;
                 }

@@ -66,7 +66,7 @@
                          FontSize="13"
                          Margin="0 5 0 0"
                          BorderBrush="#593000"
-                         Text="{Binding PasswordCustomer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                         Text="{Binding DePasswordCustomer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                 <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                          materialDesign:HintAssist.Hint="Email"

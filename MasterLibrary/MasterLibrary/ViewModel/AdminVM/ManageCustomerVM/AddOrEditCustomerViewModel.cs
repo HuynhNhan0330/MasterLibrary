@@ -1,5 +1,7 @@
-﻿using MasterLibrary.Models.DataProvider;
+﻿using MasterLibrary.DTOs;
+using MasterLibrary.Models.DataProvider;
 using MasterLibrary.Views.MessageBoxML;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -108,6 +110,8 @@ namespace MasterLibrary.ViewModel.AdminVM.ManageCustomerVM
 
             if (isCreate == true)
             {
+                ListCustomer = new ObservableCollection<CustomerDTO>(await CustormerServices.Ins.GetAllCustomer());
+
                 MessageBoxML ms = new MessageBoxML("Thông báo", lb, MessageType.Accept, MessageButtons.OK);
                 ms.ShowDialog();
             }
@@ -131,14 +135,24 @@ namespace MasterLibrary.ViewModel.AdminVM.ManageCustomerVM
             AddressCustomer = SelectedCustomer.DIACHI;
         }
 
+        void ResetDataCustomer()
+        {
+            IdCustomer = 0;
+            NameCustomer = "";
+            UserNameCustomer = "";
+            DePasswordCustomer = "";
+            EmailCustomer = "";
+            AddressCustomer = "";
+        }
+
         void FirstLoadAddCustomer()
         {
             IsLoadingAdd = true;
             MaskAdd.Visibility = Visibility.Visible;
 
-            loadDataCustomer();
+            ResetDataCustomer();
 
-            IsLoadingAdd = true;
+            IsLoadingAdd = false;
             MaskAdd.Visibility = Visibility.Hidden;
         }
 
@@ -149,7 +163,7 @@ namespace MasterLibrary.ViewModel.AdminVM.ManageCustomerVM
 
             loadDataCustomer();
 
-            IsLoadingEdit = true;
+            IsLoadingEdit = false;
             MaskEdit.Visibility = Visibility.Hidden;
         }
 
@@ -162,6 +176,8 @@ namespace MasterLibrary.ViewModel.AdminVM.ManageCustomerVM
 
             if (isSave == true)
             {
+                ListCustomer = new ObservableCollection<CustomerDTO>(await CustormerServices.Ins.GetAllCustomer());
+
                 MessageBoxML ms = new MessageBoxML("Thông báo", lb, MessageType.Accept, MessageButtons.OK);
                 ms.ShowDialog();
             }
@@ -171,7 +187,7 @@ namespace MasterLibrary.ViewModel.AdminVM.ManageCustomerVM
                 ms.ShowDialog();
             }
 
-            IsSavingEdit = true;
+            IsSavingEdit = false;
             MaskEdit.Visibility = Visibility.Hidden;
         }
     }

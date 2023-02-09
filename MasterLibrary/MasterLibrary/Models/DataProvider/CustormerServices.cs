@@ -11,6 +11,8 @@ using System.Windows;
 using MasterLibrary.Views.MessageBoxML;
 using System.Collections.ObjectModel;
 using System.Security.Cryptography;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Text.RegularExpressions;
 
 namespace MasterLibrary.Models.DataProvider
 {
@@ -105,6 +107,19 @@ namespace MasterLibrary.Models.DataProvider
         {
             try
             {
+                string match = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
+                Regex reg = new Regex(match);
+
+                if (reg.IsMatch(email) == false)
+                {
+                    return (false, "Email không hợp lệ");
+                }
+
+                if (await Task.Run(() => AdminServices.Ins.CheckEmailAdmin(email, -1)))
+                {
+                    return (false, "Email đã tồn tại");
+                }
+
                 KHACHHANG cus = new KHACHHANG();
                 cus.USERNAME = username;
                 cus.USERPASSWORD = Utils.Helper.HashPassword(pass);
@@ -220,6 +235,19 @@ namespace MasterLibrary.Models.DataProvider
         {
             try
             {
+                string match = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
+                Regex reg = new Regex(match);
+
+                if (reg.IsMatch(_email) == false)
+                {
+                    return (false, "Email không hợp lệ");
+                }
+
+                if (await Task.Run(() => AdminServices.Ins.CheckEmailAdmin(_email, _makh)))
+                {
+                    return (false, "Email đã tồn tại");
+                }
+
                 // Cập nhật thông tin
                 using (var context = new MasterlibraryEntities())
                 {
@@ -284,7 +312,7 @@ namespace MasterLibrary.Models.DataProvider
                 // Lấy danh sách khách hàng
                 using (var context = new MasterlibraryEntities())
                 {
-                    customers = await (from customer in context.KHACHHANGs
+                    customers =  (from customer in context.KHACHHANGs.AsEnumerable()
                                        where customer.IDROLE == 2
                                        select new CustomerDTO
                                        {
@@ -293,8 +321,9 @@ namespace MasterLibrary.Models.DataProvider
                                            USERNAME= customer.USERNAME,
                                            USERPASSWORD= customer.USERPASSWORD,
                                            EMAIL= customer.EMAIL,
-                                           DIACHI= customer.EMAIL,
-                                       }).ToListAsync();
+                                           DIACHI= customer.DIACHI,
+                                           DeCodeUSERPASSWORD = Utils.Helper.DePassword(customer.USERPASSWORD),
+                                       }).ToList();
                 }
             }
             catch (Exception)
