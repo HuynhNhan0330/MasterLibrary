@@ -292,7 +292,6 @@ namespace MasterLibrary.Models.DataProvider
                                            TENKH = customer.TENKH,
                                            USERNAME= customer.USERNAME,
                                            USERPASSWORD= customer.USERPASSWORD,
-                                           DeCodeUSERPASSWORD = Utils.Helper.DePassword(customer.USERPASSWORD),
                                            EMAIL= customer.EMAIL,
                                            DIACHI= customer.EMAIL,
                                        }).ToListAsync();
