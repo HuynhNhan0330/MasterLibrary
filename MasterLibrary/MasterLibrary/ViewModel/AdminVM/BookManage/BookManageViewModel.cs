@@ -329,6 +329,7 @@ namespace MasterLibrary.ViewModel.AdminVM
                     MaTang = item.MaTang;
                     DsDay = LayDay();
                     Day = item.TenDay.ToString();
+                    MaDay = item.MaDay;
                     ImgSource = item.ImageSource.ToString();
                     MoTa = item.MoTa.ToString();
                     TheLoai = item.TheLoai;
