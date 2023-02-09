@@ -37,6 +37,7 @@
                    Width="30"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
+                   x:Name="lbl1"
                   >
             <materialDesign:PackIcon Kind="ArrowLeft"
                                          Height="26"
@@ -44,7 +45,7 @@
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseLeftButtonDown">
                     <i:InvokeCommandAction Command="{Binding CancelForgotPass}"
-                                               CommandParameter="{Binding ElementName=lbl}" />
+                                               CommandParameter="{Binding ElementName=lbl1}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Label>
