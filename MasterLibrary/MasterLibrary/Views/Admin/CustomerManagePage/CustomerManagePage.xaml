@@ -108,6 +108,7 @@
                                     <DataTemplate>
                                         <TextBlock Text="{Binding MAKH}"
                                                    TextWrapping="Wrap"
+                                                   Margin=" 18 0 0 0"
                                                    HorizontalAlignment="Center"
                                                    VerticalAlignment="Center"
                                                    FontSize="16"
@@ -123,7 +124,8 @@
                                     <DataTemplate>
                                         <TextBlock Text="{Binding TENKH}"
                                                    TextWrapping="Wrap"
-                                                   HorizontalAlignment="Left"
+                                                   Margin=" 18 0 0 0"
+                                                   HorizontalAlignment="Center"
                                                    VerticalAlignment="Center"
                                                    FontSize="16"
                                                    FontWeight="SemiBold"
@@ -138,7 +140,8 @@
                                     <DataTemplate>
                                         <TextBlock Text="{Binding USERNAME}"
                                                    TextWrapping="Wrap"
-                                                   HorizontalAlignment="Left"
+                                                   Margin=" 18 0 0 0"
+                                                   HorizontalAlignment="Center"
                                                    VerticalAlignment="Center"
                                                    FontSize="16"
                                                    FontWeight="SemiBold"
@@ -153,7 +156,8 @@
                                     <DataTemplate>
                                         <TextBlock Text="{Binding DeCodeUSERPASSWORD}"
                                                    TextWrapping="Wrap"
-                                                   HorizontalAlignment="Left"
+                                                   Margin=" 18 0 0 0"
+                                                   HorizontalAlignment="Center"
                                                    VerticalAlignment="Center"
                                                    FontSize="16"
                                                    FontWeight="SemiBold"
@@ -168,7 +172,8 @@
                                     <DataTemplate>
                                         <TextBlock Text="{Binding EMAIL}"
                                                    TextWrapping="Wrap"
-                                                   HorizontalAlignment="Left"
+                                                   Margin=" 18 0 0 0"
+                                                   HorizontalAlignment="Center"
                                                    VerticalAlignment="Center"
                                                    FontSize="16"
                                                    FontWeight="SemiBold"
@@ -183,7 +188,8 @@
                                     <DataTemplate>
                                         <TextBlock Text="{Binding DIACHI}"
                                                    TextWrapping="Wrap"
-                                                   HorizontalAlignment="Left"
+                                                   Margin=" 18 0 0 0"
+                                                   HorizontalAlignment="Center"
                                                    VerticalAlignment="Center"
                                                    FontSize="16"
                                                    FontWeight="SemiBold"
